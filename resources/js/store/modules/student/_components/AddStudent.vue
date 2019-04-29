@@ -39,7 +39,7 @@
               </ul>
               <div class="tab-content">
                 <div class="tab-pane active" id="info">
-                  <b>بيانات عامة:</b>
+                  <p>بيانات عامة:</p>
                     <!-- Personal Information Form  -->
                     <form role="form">
                       <div class="row">
@@ -475,7 +475,7 @@
   <!-- /.modal -->
 
 
-  <!-- Popup Write Rewiev -->
+  <!-- Popup  -->
   <div class="modal fade" id="popup-add-father">
     <div class="modal-dialog"  tabindex="-1" role="dialog"  aria-labelledby="popup-add-father" aria-hidden="true">
       <div class="modal-content modal-content-box">
@@ -626,12 +626,12 @@
       </div>
     </div>
   </div>
-  <!-- ... end Popup Write Rewiev -->
+  <!-- ... end Popup  -->
 </div>
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     // import { mapGetters, mapActions } from 'vuex';
     export default {
         mounted() { },

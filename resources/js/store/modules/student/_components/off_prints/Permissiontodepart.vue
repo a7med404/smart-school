@@ -23,7 +23,7 @@
                     </button>
                   <span class="material-input"></span></div>
                 </form>
-                <a type="button" data-toggle="modal" data-target="#popup-add-permission" href="#" class="btn btn-sm btn-breez pull-left">
+                <a type="button" data-toggle="modal" data-target="#popup-add-permission" href="#" class="btn btn-sm btn-info pull-left">
                   <i class="fa fa-check"></i>
                   اعطاء اذن
                 </a>
@@ -51,7 +51,7 @@
                   <a href="#" class="h6 author-name">a7med Ibrahim</a>
                   <div class="birthday-date">10/24/1984</div>
                 </div>
-                <a href="#" class="btn btn-sm btn-breez">تم الاعتماد</a>
+                <a href="#" class="btn btn-sm btn-info">تم الاعتماد</a>
               </div>
               <!-- ... end Birthday Item -->
             </div>
@@ -69,7 +69,7 @@
 		<!-- ... end Main Content -->
 
 
-        <!-- Popup Write Rewiev -->
+        <!-- Popup  -->
         <div class="modal fade" id="popup-add-permission">
           <div class="modal-dialog modal-md" role="document">
             <div class="modal-content modal-content-box">
@@ -78,7 +78,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h6 class="title">بيانات </h6>
+                <h4 class="title">بيانات </h4>
               </div>
 
               <div class="modal-body">
@@ -116,13 +116,13 @@
             </div>
           </div>
         </div>
-        <!-- ... end Popup Write Rewiev -->
+        <!-- ... end Popup  -->
 
   </div>
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     export default {
         mounted() {
             console.log('Component mounted.')

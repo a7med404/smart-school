@@ -1,507 +1,230 @@
 <template>
-    <div>
-        <!-- Start  Breadcrumb -->
-        <div class="col-lg-12  float-right">
-            <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="route('home')">HOME</a></li>
-                <li><i class="fa fa-laptop"></i>DASHBOARD</li>						  	
-            </ol>
-        </div><!-- /.col-lg-12 -->
-        <!-- End  Breadcrumb -->
-    
-    
-        <!-- top tiles -->
-        <div class="col-md-12 col-sm-12 col-xs-12 tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> عدد الطلاب</span>
-                <div class="count">2500</div>
-                <span class="count_bottom"><i class="green">4% </i> من الاسبوع السابق</span>
+  <div>
+    <section class="content-header">
+      <h1> Blank page <small> it all starts here </small></h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text"> عدد الطلاب</span>
+              <span class="info-box-number">1,410</span>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-clock-o"></i> متوسط غياب الطلاب</span>
-                <div class="count">123.50</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> من الاسبوع السابق</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> مديونيات الطلاب</span>
-                <div class="count green">2,500</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> من الاسبوع السابق</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> طلاب بدون فصول</span>
-                <div class="count">67</div>
-                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> من الاسبوع السابق</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> اولياء الامور</span>
-                <div class="count">315</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> من الاسبوع السابق</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> اماكن خالية</span>
-                <div class="count">25</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> من الاسبوع السابق</span>
-            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
         </div>
-        <!-- /top tiles -->
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><ion-icon name="ios-hourglass"></ion-icon></span>
 
+            <div class="info-box-content">
+              <span class="info-box-text">طلاب بدون فصول</span>
+              <span class="info-box-number">410</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><ion-icon name="ios-cash"></ion-icon></span>
 
+            <div class="info-box-content">
+              <span class="info-box-text">مديونيات الطلاب</span>
+              <span class="info-box-number">13,648</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><ion-icon name="ios-swap"></ion-icon></span>
 
-        <div class="col-md-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2> Offers Summary </h2>
-                    <!-- <div class="filter">
-                    <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                        <span>April 21, 2018 - May 20, 2018</span> <b class="caret"></b>
+            <div class="info-box-content">
+              <span class="info-box-text"> متوسط غياب الطلاب</span>
+              <span class="info-box-number">93,139</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+        <div class="row">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                    <h3 class="box-title">Title</h3>
+                    <div class="box-tools pull-left">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i></button>
                     </div>
-                    </div> -->
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div class="col-md-9 col-sm-12 col-xs-12 table-responsive">
-                        <div class="demo-container" style="height:100%">
+                    </div>
+                    <div class="box-body">
+                        <div class="demo-container table-responsive" style="height:100%">
                             <div class="">
                                 <div id="offersRepport" style="width:100%; height:360px;"></div> 
                             </div>
                         </div>
                     </div>
+                    <!-- /.box-body -->
+                </div>
 
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                    <div class="float">
-                        <div class="x_title">
-                            <h2> Top Providers </h2>
-                            <div class="clearfix"></div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+            
+                <!-- PRODUCT LIST -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                    <h3 class="box-title">Recently Added</h3>
+
+                    <div class="box-tools pull-left">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                    <ul class="products-list product-list-in-box">
+                        <li class="item">
+                        <div class="product-img">
+                            <img src="modules/master/images/default-50x50.gif" alt="Product Image">
                         </div>
+                        <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">Samsung TV
+                            <span class="label label-warning pull-left">$1800</span></a>
+                                <span class="product-description">
+                                Samsung 32" 1080p 60Hz LED Smart HDTV.
+                                </span>
+                        </div>
+                        </li>
+                        <!-- /.item -->
+                        <li class="item">
+                        <div class="product-img">
+                            <img src="modules/master/images/default-50x50.gif" alt="Product Image">
+                        </div>
+                        <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">Bicycle
+                            <span class="label label-info pull-left">$700</span></a>
+                                <span class="product-description">
+                                26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                                </span>
+                        </div>
+                        </li>
+                        <!-- /.item -->
+                        <li class="item">
+                        <div class="product-img">
+                            <img src="modules/master/images/default-50x50.gif" alt="Product Image">
+                        </div>
+                        <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">Xbox One <span class="label label-danger pull-left">$350</span></a>
+                                <span class="product-description">
+                                Xbox One Console Bundle with Halo Master Chief Collection.
+                                </span>
+                        </div>
+                        </li>
+                        <!-- /.item -->
+                        <li class="item">
+                        <div class="product-img">
+                            <img src="modules/master/images/default-50x50.gif" alt="Product Image">
+                        </div>
+                        <div class="product-info">
+                            <a href="javascript:void(0)" class="product-title">PlayStation 4
+                            <span class="label label-success pull-left">$399</span></a>
+                                <span class="product-description">
+                                PlayStation 4 500GB Console (PS4)
+                                </span>
+                        </div>
+                        </li>
+                        <!-- /.item -->
+                    </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center">
+                    <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                    </div>
+                    <!-- /.box-footer -->
+                </div>
+                
+            </div>
+        </div>  
 
-                        <ul class="list-unstyled top_profiles scroll-view">
-                              
-                        <li class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                            <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                            <a class="title" href="#">none</a>
-                            <p><strong>$2300. </strong> graphic </p>
-                            <p> <small>12 Sales Today</small>
-                            </p>
-                            </div>
-                        </li>
-                          
-                        <li class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                            <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                            <a class="title" href="#">none</a>
-                            <p><strong>$2300. </strong> graphic </p>
-                            <p> <small>12 Sales Today</small>
-                            </p>
-                            </div>
-                        </li>
-                          
-                        <li class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                            <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                            <a class="title" href="#">none</a>
-                            <p><strong>$2300. </strong> graphic </p>
-                            <p> <small>12 Sales Today</small>
-                            </p>
-                            </div>
-                        </li>
-                          
-                        <li class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                            <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                            <a class="title" href="#">none</a>
-                            <p><strong>$2300. </strong> graphic </p>
-                            <p> <small>12 Sales Today</small>
-                            </p>
-                            </div>
-                        </li>
-                          
-                        <li class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                            <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                            <a class="title" href="#">mjmkmk</a>
-                            <p><strong>$2300. </strong> graphic </p>
-                            <p> <small>12 Sales Today</small>
-                            </p>
-                            </div>
-                        </li>
-                                                                </ul>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Title</h3>
+                        <div class="box-tools pull-left">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fa fa-times"></i></button>
+                        </div>
                     </div>
+                    <div class="box-body">
+                        <div id="echart_sonar" style="height:350px;"></div>
                     </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Title</h3>
+                        <div class="box-tools pull-left">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div id="absence" style="height:350px;"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">تعداد الذكور و الاناث</h3>
+                        <div class="box-tools pull-left">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div id="maleAndFemaleCount" style="height:350px;"></div>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
             </div>
         </div>
+    </section>
 
-
-
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Pie Graph</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="echart_sonar" style="height:350px;"></div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Pie Area</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="absence" style="height:350px;"></div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>تعداد الذكور و الاناث</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="maleAndFemaleCount" style="height:350px;"></div>
-
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-        <div class="col-md-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2> Public Summary </h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a></li>
-                                <li><a href="#">Settings 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                    <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
-                        <div class="col-md-12">
-                            <div class="row" style="text-align: center;">
-                                <div class="col-md-4">
-                                    <canvas id="locations" height="350" style="margin: 0px; -moz-user-select: none; padding: 0px; border-width: 0px; cursor: pointer;" width="300" _echarts_instance_="ec_1555491706464"></canvas>
-                                </div>
-                                <div class="col-md-8">
-                                    <canvas id="echart_pie" height="350" style="margin: 0px; -moz-user-select: none; padding: 0px; border-width: 0px; position: relative;" width="400" _echarts_instance_="ec_1555491706467"><div></div></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                        
-              
-
-        <div class="">
-            <div class="col-md-4">
-                <div class="x_panel">
-                    <div class="x_title">
-                    <h2>Top Profiles <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item One Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Three Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="x_panel">
-                    <div class="x_title">
-                    <h2>Top Profiles <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item One Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Three Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="x_panel">
-                    <div class="x_title">
-                    <h2>Top Profiles <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item One Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Two Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    <article class="media event">
-                        <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                        </a>
-                        <div class="media-body">
-                        <a class="title" href="#">Item Three Title</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </article>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </template>

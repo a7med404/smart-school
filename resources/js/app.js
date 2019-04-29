@@ -12,7 +12,7 @@ window.Vue = require('vue');
 Vue.config.productionTip = false
 const compiler = require('vue-template-compiler')
 
-// let echarts = require('echarts');
+let echarts = require('echarts');
 let axios = require('axios');
 Vue.use(require('vue-moment'));
 axios.default.URL = "http://127.0.0.1:8000/";

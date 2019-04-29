@@ -1,4 +1,7 @@
-
+html, body {
+    text-align: right !important;
+    direction: rtl !important;
+}
 /**------------- navbar---------------**/
 
 .navbar-nav > .user-menu .user-image {
@@ -107,8 +110,17 @@
   }
 }
 
+footer {
+    margin-left: 0;
+    margin-right: 230px;
+}
 
-
+@media (min-width: 992px) {
+    footer {
+      margin-left: 0 !important;
+      margin-right: 230px !important;
+    }
+}
 /**------------- Taps ---------------**/
 
 .nav-tabs-custom > .nav-tabs {
@@ -145,9 +157,16 @@
 }
 
 
+/**---------------------------- products ----------------------------**/
 
+.products-list .product-img {
+    float: right;
+}
 
-
+.products-list .product-info {
+    margin-left: 0;
+    margin-right: 60px;
+}
 /**---------------------------- all ----------------------------**/
 .modal-content-box {
   position: relative;

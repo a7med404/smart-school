@@ -1,29 +1,43 @@
 <template>
   <div>
-    <div class="col-lg-12 float-right">
+    <section class="content-header">
+      <h1> Blank page <small> it all starts here </small></h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="\">HOME</a></li>
-        <li><i class="fa fa-laptop"></i>DASHBOARD</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
       </ol>
-    </div>
+    </section>
 
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">Title</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fa fa-times"></i></button>
 
-    <div class="container">
-      <div class="">
-        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <div class="ui-block responsive-flex">
-            <div class="ui-block-title">
-              <div class="h6 title">المراحل التعليمية (1)</div>
-              <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-breez pull-left">
-                <i class="fa fa-plus"></i>
-               اضافة مرحلة تعليمية
+              <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
+                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
               </a>
             </div>
           </div>
+          <div class="box-body">
+              Start creating your amazing application!
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+              Footer
+          </div>
+          <!-- /.box-footer-->
         </div>
-      </div>
-    </div>
-
+        <!-- /.box -->
+    </section>
+    
 		<!-- Main Content -->
 
 		<div class="col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
@@ -53,23 +67,17 @@
 
 		<!-- ... end Main Content -->
 
-    <!-- Popup Write Rewiev -->
+    <!-- Popup  -->
     <div class="modal fade" id="popup-add-level">
       <div class="modal-dialog modal-md" role="document">
         <div class="modal-content modal-content-box">
-          <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-            <i class="fa fa-times"></i>
-          </a>
-
           <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-            <h6 class="title">بيانات </h6>
+            <h4 class="title">بيانات </h4>
           </div>
-
           <div class="modal-body">
             <form role="form">
-              
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
@@ -118,14 +126,14 @@
         </div>
       </div>
     </div>
-    <!-- ... end Popup Write Rewiev -->
+    <!-- ... end Popup  -->
 
 
   </div>
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     export default {
         mounted() {
             console.log('Component mounted.')

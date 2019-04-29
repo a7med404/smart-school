@@ -654,9 +654,9 @@
                   </div>
                 </div>
 
-                <button class="btn btn-md-2 btn-primary">Post Comment</button>
+                <button class="btn btn-primary">Post Comment</button>
 
-                <button class="btn btn-md-2 btn-border-think c-grey btn-transparent custom-color">Cancel</button>
+                <button class="btn btn-border-think c-grey btn-transparent custom-color">Cancel</button>
 
               </form>
 
@@ -711,7 +711,7 @@
                         </div>
                       </div>
 
-                      <a href="#" class="btn btn-blue btn-md full-width">حفــظ</a>
+                      <a href="#" class="btn btn-info btn-md full-width">حفــظ</a>
                     </div>
                   </div>
                 </form>

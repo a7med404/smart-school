@@ -1,102 +1,86 @@
 <template>
   <div>
-    <div class="col-lg-12 float-right">
+    <section class="content-header">
+      <h1> Blank page <small> it all starts here </small></h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="\">HOME</a></li>
-        <li><i class="fa fa-laptop"></i>DASHBOARD</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
       </ol>
-    </div>
-
-
-    <div class="container">
-      <div class="">
-        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <div class="ui-block responsive-flex">
-            <div class="ui-block-title">
-              <div class="h6 title">الصفوف التعليمية (1)</div>
-              <a type="button" data-toggle="modal" data-target="#popup-add-classroom" href="#" class="btn btn-sm btn-breez pull-left">
-                <i class="fa fa-plus"></i>
-               اضافة صف 
-              </a>
-            </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Title</h3>
+          <div class="box-tools pull-right">
+            <a type="button" data-toggle="modal" data-target="#popup-add-classroom" href="#" class="btn btn-sm btn-info pull-left">
+              <i class="fa fa-plus"></i>  اضافة صف 
+            </a>
           </div>
         </div>
       </div>
-    </div>
+      <!-- /.box -->
+      <div class="row">
+        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <table class="table table-striped table-bordered table-hover full-width" id="table_id">
+              <thead>
+                  <tr>
+                      <th>#ID</th>
+                      <th>اسم المرحلة التعليمية</th>
+                      <th>اسم الصف</th>
+                      <th>اسم الصف بالانجليزي</th>
+                      <th>الترتيب</th>
+                      <th>نهاية المرحلة</th>
+                      <th>نهاية المرحلة</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td><a href="#" class="">Description</a></td>
+                      <td>
+                          <!-- <div class="btn-group">
+                              <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
+                              <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
+                              <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                          </div> -->
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td>Description</td>
+                      <td><a href="#" class="">Description</a></td>
+                      <td>
+                          <!-- <div class="btn-group">
+                              <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
+                              <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
+                              <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                          </div> -->
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-		<!-- Main Content -->
-
-		<div class="col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-			<div id="newsfeed-items-grid">
-				<!-- Friends -->
-				<div class="row">
-          <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            
-              <table class="table table-striped table-bordered table-hover" id="table_id">
-                <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>اسم المرحلة التعليمية</th>
-                        <th>اسم الصف</th>
-                        <th>اسم الصف بالانجليزي</th>
-                        <th>الترتيب</th>
-                        <th>نهاية المرحلة</th>
-                        <th>نهاية المرحلة</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td><a href="#" class="">Description</a></td>
-                        <td>
-                            <!-- <div class="btn-group">
-                                <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                            </div> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td><a href="#" class="">Description</a></td>
-                        <td>
-                            <!-- <div class="btn-group">
-                                <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                            </div> -->
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-          </div>
-				</div>
-				<!-- ... end Friends -->
-			</div>
-		</div>
-
-		<!-- ... end Main Content -->
-
-    <!-- Popup Write Rewiev -->
+    <!-- Popup  -->
     <div class="modal fade" id="popup-add-classroom">
       <div class="modal-dialog modal-md" role="document">
         <div class="modal-content modal-content-box">
-          <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-            <i class="fa fa-times"></i>
-          </a>
+          
           <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-            <h6 class="title">بيانات </h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
             <form role="form">
@@ -135,16 +119,14 @@
               <div class="row">
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
-                    <div class="form-group">
-                      <label class="control-label">
-                        <input type="checkbox" name="is_end">
-                        نهاية مرحلة
-                      </label>
-                    </div>
+                    <label class="control-label">
+                      <input type="checkbox" class="minimal" name="is_end">
+                      نهاية مرحلة
+                    </label>
                   </div>
                 </div>
               </div>
-              
+
               <div class="row m-t-30">
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
@@ -157,7 +139,7 @@
                   </div>
                 </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6">
-                  <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn btn-md-2 btn-blue">
+                  <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn btn-default">
                     <i class="fa fa-plus"></i> اضافة صف 
                   </a>
 
@@ -176,26 +158,18 @@
         </div>
       </div>
     </div>
-    <!-- ... end Popup Write Rewiev -->
+    <!-- ... end Popup  -->
 
-
-    <!-- Popup Write Rewiev -->
+    <!-- Popup  -->
     <div class="modal fade" id="popup-add-division">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-content-box">
-          <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-            <i class="fa fa-times"></i>
-          </a>
-
           <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-            <h6 class="title">بيانات </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="title">بيانات </h4>
           </div>
-
           <div class="modal-body">
             <form role="form">
-              
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
@@ -250,7 +224,7 @@
                 </div>
 
                 <div class="col col-xl-6 col-lg-6 col-md-6 m-t-30">
-                  <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn btn-md-2 btn-blue">
+                  <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn  btn-info">
                     <i class="fa fa-plus"></i> اضافة صف 
                   </a>
                 </div>
@@ -271,14 +245,12 @@
         </div>
       </div>
     </div>
-    <!-- ... end Popup Write Rewiev -->
-
-
+    <!-- ... end Popup  -->
   </div>
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     export default {
         mounted() {
             console.log('Component mounted.')

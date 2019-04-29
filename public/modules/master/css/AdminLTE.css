@@ -4940,3 +4940,8 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+/**************************************************************************************/
+.products-list .product-img img {
+    border-radius: 5%;
+}

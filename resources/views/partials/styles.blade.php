@@ -21,6 +21,9 @@
       <!-- bootstrap wysihtml5 - text editor -->
       <link rel="stylesheet" href="{{ asset('modules/master/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
       
+      <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">  
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
       <!-- Pace style -->
       <link rel="stylesheet" href="{{ asset('modules/master/plugins/pace/pace.min.css') }}">
       <!-- Bootstrap Color Picker -->
@@ -36,9 +39,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
 
-      {{-- <link href="{{ asset('modules/master/css/main.min.css') }}" rel="stylesheet"> --}}
       <link href="{{ asset('modules/master/css/AdminLTE.min.css') }}" rel="stylesheet">
       <link href="{{ asset('modules/master/css/AdminLTE-RTL.css') }}" rel="stylesheet">
+      <link href="{{ asset('modules/master/css/framwork.css') }}" rel="stylesheet">
       <!-- CSRF Token -->
       <meta name="_token" content="{{ csrf_token() }}"/>
       <meta name="csrf-token" content="{{ csrf_token() }}">

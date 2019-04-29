@@ -107,7 +107,7 @@
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     export default {
         mounted() {
             console.log('Component mounted.')

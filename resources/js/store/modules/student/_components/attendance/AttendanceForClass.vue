@@ -138,7 +138,7 @@
 										<span class="d-block"> مرحلة الاساس </span>
 										<span>KG1</span> - <span>KG1_1</span>
 									</div>
-									<a href="#" class="btn btn-sm btn-breez">
+									<a href="#" class="btn btn-sm btn-info">
 										<i class="fa fa-check"></i>
 										Unfollowing
 									</a>
@@ -160,7 +160,7 @@
 		<!-- ... end Main Content -->
 
 
-        <!-- Popup Write Rewiev -->
+        <!-- Popup  -->
         <div class="modal fade" id="popup-add-absence">
           <div class="modal-dialog modal-md" role="document">
             <div class="modal-content modal-content-box">
@@ -169,7 +169,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h6 class="title">بيانات </h6>
+                <h4 class="title">بيانات </h4>
               </div>
 
               <div class="modal-body">
@@ -206,10 +206,10 @@
             </div>
           </div>
         </div>
-        <!-- ... end Popup Write Rewiev -->
+        <!-- ... end Popup  -->
 
 
-        <!-- Popup Write Rewiev -->
+        <!-- Popup  -->
         <div class="modal fade" id="popup-add-offday">
           <div class="modal-dialog modal-md" role="document">
             <div class="modal-content modal-content-box">
@@ -217,7 +217,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h6 class="title">بيانات </h6>
+                <h4 class="title">بيانات </h4>
               </div>
               <div class="modal-body">
                 <form role="form">
@@ -253,12 +253,12 @@
             </div>
           </div>
         </div>
-        <!-- ... end Popup Write Rewiev -->
+        <!-- ... end Popup  -->
   </div>
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     export default {
         mounted() {
             console.log('Component mounted.')

@@ -1,275 +1,237 @@
 <template>
   <div>
-    <div class="col-lg-12 float-right">
+    <section class="content-header">
+      <h1> Blank page <small> it all starts here </small></h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="\">HOME</a></li>
-        <li><i class="fa fa-laptop"></i>DASHBOARD</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
       </ol>
-    </div>
+    </section>
 
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Title</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          <form role="form">
 
-    <div class="container">
-      <div class="">
-        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <div class="ui-block responsive-flex">
-            <div class="ui-block-title">
-              <div class="h6 title">الصفوف التعليمية (1)</div>
+            <div class="row">
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">القسم</label>
+                  <select class="form-control select2">
+                    <option value="1">الخرطوم</option>
+                    <option value="0">انثي</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">المرحلة التعليمية</label>
+                  <select class="form-control select2">
+                    <option value="1">الخرطوم</option>
+                    <option value="0">انثي</option>
+                  </select>
+                </div>
+              </div>
             </div>
+
+            <div class="row">
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">اسم الصف</label>
+                  <select class="form-control select2">
+                    <option value="1">الخرطوم</option>
+                    <option value="0">انثي</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">الترتيب حسب السن</label>
+                  <select class="form-control select2">
+                    <option value="1">الخرطوم</option>
+                    <option value="0">انثي</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                <button href="#" class="btn btn-primary">اضافة</button>
+              </div>
+            </div>
+
+          </form>
+
+          <!-- START CUSTOM TABS -->
+
+          <div class="m-t-50">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- Custom Tabs -->
+                <div class="nav-tabs-custom">
+                  <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="#manual" data-toggle="tab">بيانات عامة</a></li>
+                    <li><a href="#random" data-toggle="tab">عنوان الطالب</a></li>
+                    <li><a href="#alphabetic" data-toggle="tab">بيانات الاتصال</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="manual">
+                      <p>بيانات عامة:</p>
+                      <a type="button" data-toggle="modal" data-target="#popup-add-manual" href="#" class="btn btn-info">توزيع</a>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="random">
+                      <p>بيانات عامة:</p>
+                      <a type="button" data-toggle="modal" data-target="#popup-add-random" href="#" class="btn btn-info">توزيع</a>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="alphabetic">
+                      <p>بيانات عامة:</p>
+                      <a type="button" data-toggle="modal" data-target="#popup-add-alphabetic" href="#" class="btn btn-info">توزيع</a>
+                    </div>
+                    <!-- /.tab-pane -->
+                  </div>
+                  <!-- /.tab-content -->
+                </div>
+                <!-- nav-tabs-custom -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </section>
+
+    <!-- Popup  -->
+    <div class="modal fade" id="popup-add-manual">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content modal-content-box">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="title">بيانات </h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <div class="row">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label"> اسم الصف </label>
+                    <select class="form-control select2" name="martial">
+                      <option value="CA">اختيار</option>
+                      <option value="TE">المسيحية</option>
+                      <option value="TE">اخرى</option>
+                    </select>
+                  </div>
+                </div>
+              </div>           
+              <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button href="#" class="btn btn-primary">اضافة</button>
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+    <!-- ... end Popup  -->
 
-
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-          <div class="ui-block">
-            <div class="ui-block-content">
-              <form role="form">
-
-                <div class="row">
-                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                    <div class="form-group">
-                      <label class="control-label">القسم</label>
-                      <select class="form-control select2">
-                        <option value="1">الخرطوم</option>
-                        <option value="0">انثي</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                    <div class="form-group">
-                      <label class="control-label">المرحلة التعليمية</label>
-                      <select class="form-control select2">
-                        <option value="1">الخرطوم</option>
-                        <option value="0">انثي</option>
-                      </select>
-                    </div>
+    <!-- Popup  -->
+    <div class="modal fade" id="popup-add-random">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content modal-content-box">
+          <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="title">بيانات </h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <div class="row">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label"> اسم الصف </label>
+                    <select class="form-control select2" name="martial">
+                      <option value="CA">اختيار</option>
+                      <option value="TE">المسيحية</option>
+                      <option value="TE">اخرى</option>
+                    </select>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                    <div class="form-group">
-                      <label class="control-label">اسم الصف</label>
-                      <select class="form-control select2">
-                        <option value="1">الخرطوم</option>
-                        <option value="0">انثي</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                    <div class="form-group">
-                      <label class="control-label">الترتيب حسب السن</label>
-                      <select class="form-control select2">
-                        <option value="1">الخرطوم</option>
-                        <option value="0">انثي</option>
-                      </select>
-                    </div>
-                  </div>
+              </div>           
+              <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button href="#" class="btn btn-primary">اضافة</button>
                 </div>
-                
-                <div class="row">
-                  <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                    <button href="#" class="btn btn-primary">اضافة</button>
-                  </div>
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
                 </div>
-
-              </form>
-
-              <!-- News Feed Form  -->
-              <div class="news-feed-form m-t-30">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active inline-items" data-toggle="tab" href="#manual" role="tab" aria-expanded="true">
-                      <svg class="olymp-status-icon"><use xlink:href="modules/master/svg-icons/sprites/icons.svg#olymp-status-icon"></use></svg>
-                      <span> توزيع يدوي </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link inline-items" data-toggle="tab" href="#random" role="tab" aria-expanded="false">
-                      <svg class="olymp-multimedia-icon"><use xlink:href="modules/master/svg-icons/sprites/icons.svg#olymp-multimedia-icon"></use></svg>
-                      <span>توزيع عشوائي </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link inline-items" data-toggle="tab" href="#alphabetic" role="tab" aria-expanded="false">
-                      <svg class="olymp-blog-icon"><use xlink:href="modules/master/svg-icons/sprites/icons.svg#olymp-blog-icon"></use></svg>
-                      <span> توزيع ابجدي </span>
-                    </a>
-                  </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  <div class="tab-pane active" id="manual" role="tabpanel" aria-expanded="true">
-                    <div class="">
-                      <div class="ui-block-content">
-                        <!-- Personal Information Form  -->
-                        <a type="button" data-toggle="modal" data-target="#popup-add-manual" href="#" class="btn btn-blue btn-md-2">توزيع</a>
-                        <!-- ... end Personal Information Form  -->
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="tab-pane" id="random" role="tabpanel" aria-expanded="true">
-                    <div class="">
-                      <div class="ui-block-content">
-                        <!-- Personal Information Form  -->
-                        <a type="button" data-toggle="modal" data-target="#popup-add-random" href="#" class="btn btn-blue btn-md-2">توزيع</a>
-                        <!-- ... end Personal Information Form  -->
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="tab-pane" id="alphabetic" role="tabpanel" aria-expanded="true">
-                    <div class="">
-                      <div class="ui-block-content">
-                        <!-- Personal Information Form  -->
-                        <a type="button" data-toggle="modal" data-target="#popup-add-alphabetic" href="#" class="btn btn-blue btn-md-2">توزيع</a>
-                        <!-- ... end Personal Information Form  -->
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-
-                <!-- Popup Write Rewiev -->
-                <div class="modal fade" id="popup-add-manual">
-                  <div class="modal-dialog modal-md" role="document">
-                    <div class="modal-content modal-content-box">
-                      <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-                        <i class="fa fa-times"></i>
-                      </a>
-                      <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                        <h6 class="title">بيانات </h6>
-                      </div>
-                      <div class="modal-body">
-                        <form role="form">
-                          <div class="row">
-                            <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="form-group">
-                                <label class="control-label"> اسم الصف </label>
-                                <select class="form-control select2" name="martial">
-                                  <option value="CA">اختيار</option>
-                                  <option value="TE">المسيحية</option>
-                                  <option value="TE">اخرى</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>           
-                          <div class="row">
-                            <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                              <button href="#" class="btn btn-primary">اضافة</button>
-                            </div>
-                            <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- ... end Popup Write Rewiev -->
-
-                <!-- Popup Write Rewiev -->
-                <div class="modal fade" id="popup-add-random">
-                  <div class="modal-dialog modal-md" role="document">
-                    <div class="modal-content modal-content-box">
-                      <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-                        <i class="fa fa-times"></i>
-                      </a>
-                      <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                        <h6 class="title">بيانات </h6>
-                      </div>
-                      <div class="modal-body">
-                        <form role="form">
-                          <div class="row">
-                            <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="form-group">
-                                <label class="control-label"> اسم الصف </label>
-                                <select class="form-control select2" name="martial">
-                                  <option value="CA">اختيار</option>
-                                  <option value="TE">المسيحية</option>
-                                  <option value="TE">اخرى</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>           
-                          <div class="row">
-                            <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                              <button href="#" class="btn btn-primary">اضافة</button>
-                            </div>
-                            <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- ... end Popup Write Rewiev -->
-
-                <!-- Popup Write Rewiev -->
-                <div class="modal fade" id="popup-add-alphabetic">
-                  <div class="modal-dialog modal-md" role="document">
-                    <div class="modal-content modal-content-box">
-                      <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
-                        <i class="fa fa-times"></i>
-                      </a>
-                      <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                        <h6 class="title">بيانات </h6>
-                      </div>
-                      <div class="modal-body">
-                        <form role="form">
-                          <div class="row">
-                            <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                              <div class="form-group">
-                                <label class="control-label"> اسم الصف </label>
-                                <select class="form-control select2" name="martial">
-                                  <option value="CA">اختيار</option>
-                                  <option value="TE">المسيحية</option>
-                                  <option value="TE">اخرى</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>           
-                          <div class="row">
-                            <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                              <button href="#" class="btn btn-primary">اضافة</button>
-                            </div>
-                            <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- ... end Popup Write Rewiev -->
-
               </div>
-            </div>
+            </form>
           </div>
         </div>
-		<!-- Main Content -->
+      </div>
+    </div>
+    <!-- ... end Popup  -->
 
+    <!-- Popup  -->
+    <div class="modal fade" id="popup-add-alphabetic">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content modal-content-box">
+          <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="title">بيانات </h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <div class="row">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label"> اسم الصف </label>
+                    <select class="form-control select2" name="martial">
+                      <option value="CA">اختيار</option>
+                      <option value="TE">المسيحية</option>
+                      <option value="TE">اخرى</option>
+                    </select>
+                  </div>
+                </div>
+              </div>           
+              <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button href="#" class="btn btn-primary">اضافة</button>
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ... end Popup  -->
 
   </div>
 </template>
 
 <script>
-// require(['../../../../../../public/modules/master/js/bootstrap-select.js']);
+
     export default {
         mounted() {
             console.log('Component mounted.')
