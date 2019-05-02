@@ -132,7 +132,10 @@ footer {
   float: right;
 }
 
-
+.list-group {
+  padding-right: 0;
+  padding-left: 0;
+}
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   right: 3px;
   left: 3px;

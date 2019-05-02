@@ -12,7 +12,7 @@
 
   </head>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue fixed sidebar-mini">
         
     <div class="wrapper" id="app">
 
@@ -21,10 +21,7 @@
       <sidebar></sidebar>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
-          {{-- <content_page></content_page> --}}
           <router-view :key="$route.fullPath"></router-view>
-          <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
       <footer_component></footer_component>

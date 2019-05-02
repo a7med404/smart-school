@@ -22,6 +22,9 @@ import DistStudents from '../../student/_components/educations/DistStudents';
 import Receipts from '../../student/_components/receipt/Receipts';
 import AddReceipt from '../../student/_components/receipt/AddReceipt';
 
+import Login from '../../employee/_components/Login';
+import Logout from '../../employee/_components/Login';
+import Profile from '../../employee/_components/Profile';
 
 const routes = [
   {
@@ -101,6 +104,24 @@ const routes = [
     props: true,
     name: 'add-receipt',
     component:  AddReceipt
+  },
+  {
+    path: `/login`,
+    props: true,
+    name: 'login',
+    component:  Login
+  },
+  {
+    path: `/logout`,
+    props: true,
+    name: 'logout',
+    component:  Logout
+  },
+  {
+    path: `/profile`,
+    props: true,
+    name: 'profile',
+    component:  Profile
   },
 ]
 

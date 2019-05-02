@@ -1,13 +1,11 @@
 <template>  
   <footer class="main-footer">
       <div class="pull-left hidden-xs">
-      <b>Version</b> 2.3.8
+      <b>Version</b> 1.0.0
       </div>
-      <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-      reserved.
+      <strong>Copyright &copy; 2019 <a href="http://a7med404.com">School System</a>.</strong> — Developed by <a href="http://a7med404.com">a7med404</a> Software. 
   </footer>
 </template>
-
 <script>
     export default {
         mounted() {

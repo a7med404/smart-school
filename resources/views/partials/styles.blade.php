@@ -21,9 +21,8 @@
       <!-- bootstrap wysihtml5 - text editor -->
       <link rel="stylesheet" href="{{ asset('modules/master/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
       
-      <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">  
       <!-- Ionicons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+      <link href="{{ asset('modules/master/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
       <!-- Pace style -->
       <link rel="stylesheet" href="{{ asset('modules/master/plugins/pace/pace.min.css') }}">
       <!-- Bootstrap Color Picker -->

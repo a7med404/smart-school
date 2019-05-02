@@ -38,11 +38,9 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- ChartJS 1.0.1 -->
 <script src="{{ asset('modules/master/plugins/chartjs/Chart.min.js') }}"></script>
 
-
 <script src="{{ asset('modules/master/plugins/echart/echarts.min.js') }}"></script>
 <script src="{{ asset('modules/master/plugins/echart/world.js') }}"></script>
 
-<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 
 <!-- Select2 -->
 <script src="{{ asset('modules/master/plugins/select2/select2.full.min.js') }}"></script>

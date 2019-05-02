@@ -46,7 +46,7 @@
                         <div class="col col-lg-9 col-md-9 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> اسم الطالب كامل </label>
-                            <input class="form-control" placeholder="" type="text" name="name">
+                            <input class="form-control" placeholder="" type="text" v-model="student.name">
                           </div>
                         </div>
                       </div>
@@ -55,7 +55,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">النوع</label>
-                            <select class="form-control select2"  name="gender">
+                            <select class="form-control select2"  v-model="student.gender">
                               <option value="1">ذكر</option>
                               <option value="0">انثي</option>
                             </select>
@@ -64,7 +64,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">الديانة</label>
-                            <select class="form-control select2" name="religion">
+                            <select class="form-control select2" v-model="student.religion">
                               <option value="CA">الاسلام</option>
                               <option value="TE">المسيحية</option>
                               <option value="TE">اخرى</option>
@@ -74,7 +74,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">لغة الدراسة</label>
-                            <select class="form-control select2" name="study_language_id">
+                            <select class="form-control select2" v-model="student.study_language_id">
                               <option value="SF">الانجليزية</option>
                               <option value="NY">العربية</option>
                             </select>
@@ -86,7 +86,7 @@
                         <div class="col col-lg-3 col-md-6 col-sm-6 col-12">
                           <div class="form-group">
                             <label class="control-label">
-                              <input type="checkbox" class="minimal" name="is_staff_son">
+                              <input type="checkbox" class="minimal" v-model="student.is_staff_son">
                               من ابناء العاملين 
                             </label>
                           </div>
@@ -95,7 +95,7 @@
                         <div class="col col-lg-3 col-md-6 col-sm-6 col-12">
                           <div class="form-group">
                             <label class="control-label">
-                              <input type="checkbox" class="minimal" name="optionsCheckboxes">
+                              <input type="checkbox" class="minimal" v-model="student.optionsCheckboxes">
                               من ابناء العاملين 
                             </label>
                           </div>
@@ -104,7 +104,7 @@
                         <div class="col col-lg-3 col-md-6 col-sm-6 col-12">
                           <div class="form-group">
                             <label class="control-label">
-                              <input type="checkbox" class="minimal" name="is_partner_son">
+                              <input type="checkbox" class="minimal" v-model="student.is_partner_son">
                               من ابناء الشركاء
                             </label>
                           </div>
@@ -116,19 +116,19 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> الرقم القومي للطالب </label>
-                            <input class="form-control" placeholder="" type="text" value="" name="identifcation_number">
+                            <input class="form-control" placeholder="" type="text" value="" v-model="student.identifcation_number">
                           </div>
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ انتهاء الرقم القومي / رقم الهوية</label>
-                            <input type="text" class="form-control" id="identifcation_expire" name="identifcation_expire"/>
+                            <input type="text" class="form-control" id="identifcation_expire" v-model="student.identifcation_expire"/>
                           </div>
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ الميلاد</label>
-                            <input type="text" class="form-control" id="birthday" name="birthday"/>
+                            <input type="text" class="form-control" id="birthday" v-model="student.birthday"/>
                           </div>
                         </div>
                       </div>
@@ -137,7 +137,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">الصف الذي الحق به الطالب</label>
-                            <select class="form-control select2" name="start_from">
+                            <select class="form-control select2" v-model="student.start_from">
                               <option value="CA">الاول</option>
                               <option value="TE">الثاني</option>
                               <option value="TE">الثالث</option>
@@ -147,13 +147,13 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ الالتحاق</label>
-                            <input type="text" class="form-control" id="start_data" name="start_data"/>
+                            <input type="text" class="form-control" id="start_data" v-model="student.start_data"/>
                           </div>
                           </div>
                           <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">سنة الالتحاق</label>
-                            <select class="form-control select2"  name="start_year">
+                            <select class="form-control select2"  v-model="student.start_year">
                               <option value="CA">2013/2014</option>
                               <option value="TE">2014/2015</option>
                               <option value="TE">2015/2016</option>
@@ -166,7 +166,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> حالة الطالب</label>
-                            <select class="form-control select2"  name="start_year">
+                            <select class="form-control select2"  v-model="student.start_year">
                               <option value="CA">2013/2014</option>
                               <option value="TE">2014/2015</option>
                               <option value="TE">2015/2016</option>
@@ -179,7 +179,7 @@
                         <div class="col col-lg-9 col-md-9 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">ملاحظة</label>
-                            <textarea class="form-control" placeholder="" name="note"></textarea>
+                            <textarea class="form-control" placeholder="" v-model="student.note"></textarea>
                           </div>
                         </div>
                       </div>
@@ -200,7 +200,7 @@
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">الشارع 1 </label>
-                          <input class="form-control" placeholder="" type="text" name="street_1">
+                          <input class="form-control" placeholder="" type="text" v-model="address.street_1">
                         </div>
                       </div>
                     </div>
@@ -209,7 +209,7 @@
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">الشارع 2 </label>
-                          <input class="form-control" placeholder="" type="text" name="street_2">
+                          <input class="form-control" placeholder="" type="text" v-model="address.street_2">
                         </div>
                       </div>
                     </div>
@@ -218,7 +218,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المدينة</label>
-                          <select class="form-control select2" name="city">
+                          <select class="form-control select2" v-model="address.city">
                             <option value="1">الخرطوم</option>
                             <option value="0">انثي</option>
                           </select>
@@ -227,7 +227,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المحلية</label>
-                          <select class="form-control select2" name="local">
+                          <select class="form-control select2" v-model="address.local">
                             <option value="1">الخرطوم</option>
                             <option value="0">انثي</option>
                           </select>
@@ -257,13 +257,13 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">تلفون الطالب </label>
-                          <input class="form-control" placeholder="" type="text" name="number_1">
+                          <input class="form-control" placeholder="" type="text" v-model="contact.number_1">
                         </div>
                       </div>
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">تلفون الطواري </label>
-                          <input class="form-control" placeholder="" type="text" name="number_2">
+                          <input class="form-control" placeholder="" type="text" v-model="contact.number_2">
                         </div>
                       </div>
                     </div>
@@ -272,7 +272,7 @@
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> البريد الالكتروني </label>
-                          <input class="form-control" placeholder="" type="text" name="email">
+                          <input class="form-control" placeholder="" type="text" v-model="contact.email">
                         </div>
                       </div>
                     </div>
@@ -342,7 +342,7 @@
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> اسم الطبيب </label>
-                          <input class="form-control" placeholder="" type="text" name="doctor_name">
+                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_name">
                         </div>
                       </div>
                     </div>
@@ -350,7 +350,7 @@
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> رقم الطبيب </label>
-                          <input class="form-control" placeholder="" type="text" name="doctor_number">
+                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_number">
                         </div>
                       </div>
                     </div>
@@ -358,7 +358,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">فصيل الدم</label>
-                          <select class="form-control select2" name="blood_type">
+                          <select class="form-control select2" v-model="health.blood_type">
                             <option value="1">الخرطوم</option>
                             <option value="0">انثي</option>
                           </select>
@@ -632,10 +632,57 @@
 
 <script>
 
-    // import { mapGetters, mapActions } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
     export default {
         mounted() { },
-        data(){ return {}},
+        data(){ 
+          return {
+            student: {
+              name                   : '',  
+              religion               : '',  
+              gender                 : '',  
+              study_lang             : '',  
+              is_partner_son         : '',  
+              is_staff_son           : '',  
+              identifcation_number   : '',  
+              identifcation_expire   : '',  
+              birthday               : '',  
+              start_data             : '', 
+              start_from             : '',
+              start_year             : '', 
+              note                   : '',
+              student_parent_id      : '',
+              study_language_id      : '',
+              address_id             : '',
+              contact_id             : '',
+              level_id               : '',
+              classroom_id           : '',
+              part_id                : ''
+            },
+
+            address: {
+              street_1 : '',
+              street_2 : '',
+              city : '',
+              local : ''
+            },
+
+            contact: {
+              number_1: '',
+              number_2: '',
+              email: ''
+            },
+
+            health: {
+              doctor_name: '',
+              doctor_number: '',
+              blood_type: '',
+              insurance_number: '',
+              health_status: ''
+            },
+            
+          }
+        },
         methods: {
           // ...mapActions(['addStudent'])
         },

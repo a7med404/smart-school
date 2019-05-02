@@ -2,4 +2,5 @@ import state from "../../../../../../../../../RAMI_WORK/work_on/freinding/resour
 
 export default {
   allStudent: (state) => state.students
+  // student: (state) => state.student
 }

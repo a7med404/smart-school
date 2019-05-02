@@ -5,9 +5,9 @@
             <!-- Logo -->
             <a href="index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini"><b>S</b>MS</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>School</b> MS</span>
             </a>
         
             <!-- Header Navbar: style can be found in header.less -->
@@ -27,7 +27,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="modules/master/images/user.png" class="user-image" alt="User Image">
-                    <span class="hidden-xs">Alexander Pierce</span>
+                    <span class="hidden-xs">a7med 404</span>
                     </a>
                     <ul class="dropdown-menu">
                     <!-- User image -->
@@ -35,8 +35,8 @@
                         <img src="modules/master/images/user.png" class="img-circle" alt="User Image">
         
                         <p>
-                        Alexander Pierce - Web Developer
-                        <small>Member since Nov. 2012</small>
+                        a7med 404 - مدير
+                        <small>عضو منذ. 2012</small>
                         </p>
                     </li>
                     <!-- Menu Body -->
@@ -57,10 +57,10 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <router-link :to="{name: 'profile'}" class="btn btn-default btn-flat"> الصفحة الشخصية </router-link>
                         </div>
                         <div class="pull-right">
-                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            <router-link :to="{name: 'logout'}" class="btn btn-default btn-flat"> تسجيل خروج </router-link>
                         </div>
                     </li>
                     </ul>

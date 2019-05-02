@@ -9,7 +9,7 @@
         <img src="modules/master/images/user.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-        <p>Alexander Pierce</p>
+        <p>a7med 404</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
     </div>
