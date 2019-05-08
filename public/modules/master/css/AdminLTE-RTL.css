@@ -184,3 +184,17 @@ footer {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
+
+ul, menu, dir {
+  padding-inline-start: 0;
+}
+
+.nav-pills > li > a > .fa, .nav-pills > li > a > .glyphicon, .nav-pills > li > a > .ion {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.control-sidebar.control-sidebar-open, .control-sidebar.control-sidebar-open + .control-sidebar-bg {
+  right: auto;
+  left: 0;
+}

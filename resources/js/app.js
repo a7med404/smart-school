@@ -30,6 +30,7 @@ Vue.use(Vuex);
 Vue.use(VueReouter);
 
 const router = new VueReouter({
+  base: '/',
   mode: "history",
   routes: routes,
 });

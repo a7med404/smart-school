@@ -1,11 +1,11 @@
 <template>
   <div>
-      <section class="content-header">
-      <h1> Blank page <small> it all starts here </small></h1>
+    <section class="content-header">
+      <h1>الفصول التعلمية <small>  </small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
+        <li><a href="#">شوؤن تعليمية</a></li>
+        <li class="active">الفصول التعلمية</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -34,7 +34,7 @@
                   <th>القسم</th>
                   <th>عدد الطلاب</th>
                   <th>الترتيب</th>
-                  <th>نهاية المرحلة</th>
+                  <th>options</th>
               </tr>
             </thead>
             <tbody>
@@ -47,11 +47,11 @@
                     <td>Description</td>
                     <td><a href="#" class="">Description</a></td>
                     <td>
-                        <!-- <div class="btn-group">
+                        <div class="btn-group">
                             <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
                             <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
                             <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                        </div> -->
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -63,11 +63,11 @@
                     <td>Description</td>
                     <td><a href="#" class="">Description</a></td>
                     <td>
-                        <!-- <div class="btn-group">
+                        <div class="btn-group">
                             <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
                             <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
                             <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                        </div> -->
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -81,8 +81,8 @@
       <div class="modal-dialog modal-md" role="document">
         <div class="modal-content modal-content-box">
           <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
             <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
@@ -115,15 +115,7 @@
                     <label class="control-label"> اسم الفصل </label>
                     <input class="form-control" placeholder="" type="text" name="name_ar">
                   </div>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                  <div class="form-group">
-                    <label class="control-label"> اسم الفصل بالانجليزي </label>
-                    <input class="form-control" placeholder="" type="text" name="name_en">
-                  </div>
-                </div>
-              </div>                 
-              <div class="row">  
+                </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> عدد الطلاب </label>

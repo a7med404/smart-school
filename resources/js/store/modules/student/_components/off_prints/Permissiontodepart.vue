@@ -1,122 +1,142 @@
 <template>
   <div>
-    <div class="col-lg-12 float-right">
+    <section class="content-header">
+      <h1>
+        اذونات الانصراف للطبة
+      </h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="\">الرئيسية</a></li>
-        <li><i class="fa fa-laptop"></i>اضافة طالب</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
+        <li class="active"> اذونات الانصراف للطبة </li>
       </ol>
-    </div>
+    </section>
 
-
-    <div class="container">
-      <div class="">
-        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <div class="ui-block responsive-flex">
-            <div class="ui-block-title">
-              <div class="h6 title">a7med’s Following (86)</div>
-                  
-                <form class="w-search">
-                  <div class="form-group with-button is-empty">
-                    <input class="form-control" type="text" placeholder="Search Friends...">
-                    <button>
-                      <svg class="olymp-magnifying-glass-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-magnifying-glass-icon"></use></svg>
-                    </button>
-                  <span class="material-input"></span></div>
-                </form>
-                <a type="button" data-toggle="modal" data-target="#popup-add-permission" href="#" class="btn btn-sm btn-info pull-left">
-                  <i class="fa fa-check"></i>
-                  اعطاء اذن
-                </a>
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">اذونات الانصراف للطبة</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          <a type="button" data-toggle="modal" data-target="#popup-add-permission" href="#" class="btn btn-sm btn-info m-t-0 m-b-20">
+            <i class="fa fa-check"></i>
+            اعطاء اذن
+          </a>
+          <div class="row">
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <table class="table table-striped table-bordered table-hover full-width" id="table_id">
+                  <thead>
+                      <tr>
+                          <th>#ID</th>
+                          <th>اسم الطالب</th>
+                          <th> التاريخ</th>
+                          <th>السبب</th>
+                          <th>المستخدم</th>
+                          <th>options </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>1</td>
+                          <td>Description</td>
+                          <td>Description</td>
+                          <td>ظروف مرضية</td>
+                          <td><a href="#" class="">Description</a></td>
+                          <td>
+                              <div class="btn-group">
+                                  <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
+                                  <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
+                                  <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>2</td>
+                          <td>Description</td>
+                          <td>Description</td>
+                          <td>Description</td>
+                          <td><a href="#" class="">Description</a></td>
+                          <td>
+                              <div class="btn-group">
+                                  <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
+                                  <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
+                                  <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                              </div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
             </div>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </section>
+    <!-- /.content -->
+
+    <!-- Popup  -->
+    <div class="modal fade" id="popup-add-permission">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content modal-content-box">
+          
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="title">بيانات </h4>
+          </div>
+
+          <div class="modal-body">
+            <form role="form">
+              <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label">اختيار الطالب </label>
+                    <fieldset>
+                      <select class="form-control select2" name="parent">
+                        <option value="1">احمد ابراهيم</option>
+                        <option value="0">انثي</option>
+                      </select>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label">التاريخ </label>
+                    <input name="date" type="text" class="form-control" id="datepicker" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label">ملاحظات</label>
+                    <textarea class="form-control" placeholder="" name="note"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button href="#" class="btn btn-primary">اضافة</button>
+                  <button href="#" class="btn btn-primary"> حفظ و طباعة </button>
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
-
-		<!-- Main Content -->
-
-		<div class="col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-			<div id="newsfeed-items-grid">
-				<!-- Friends -->
-				<div class="row">
-          <div class="col col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-            <div class="ui-block">
-              <!-- Birthday Item -->
-              <div class="birthday-item inline-items">
-                <div class="author-thumb">
-                  <img src="modules/master/images/avatar34-sm.jpg" alt="author">
-                </div>
-                <div class="birthday-author-name">
-                  <a href="#" class="h6 author-name">a7med Ibrahim</a>
-                  <div class="birthday-date">10/24/1984</div>
-                </div>
-                <a href="#" class="btn btn-sm btn-info">تم الاعتماد</a>
-              </div>
-              <!-- ... end Birthday Item -->
-            </div>
-          </div>
-				</div>
-				<!-- ... end Friends -->
-			</div>
-			<a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html" data-container="newsfeed-items-grid">
-				<svg class="olymp-three-dots-icon">
-					<use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-				</svg>
-			</a>
-		</div>
-
-		<!-- ... end Main Content -->
-
-
-        <!-- Popup  -->
-        <div class="modal fade" id="popup-add-permission">
-          <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content modal-content-box">
-              
-
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="title">بيانات </h4>
-              </div>
-
-              <div class="modal-body">
-                <form role="form">
-                  <div class="row">
-                    <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                      <div class="form-group">
-                        <label class="control-label">التاريخ </label>
-                        <input name="date" type="text" class="form-control" id="datepicker" />
-                        
-                          
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                      <div class="form-group">
-                        <label class="control-label">ملاحظات</label>
-                        <textarea class="form-control" placeholder="" name="note"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                      <button href="#" class="btn btn-primary">اضافة</button>
-                      <button href="#" class="btn btn-primary"> حفظ و طباعة </button>
-                    </div>
-                    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- ... end Popup  -->
+    <!-- ... end Popup  -->
 
   </div>
 </template>

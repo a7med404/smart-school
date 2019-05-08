@@ -26,74 +26,65 @@
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
-      <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview">
-        <router-link :to="{name: 'dashboard'}"><i class="fa fa-home"></i> <span>الرئيسية</span></router-link>
+        <router-link :to="{name: 'dashboard'}"><i class="fa fa-dashboard"></i> <span>الرئيسية</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-green"><i class="fa fa-home"></i></small>
+          </span>
+        </router-link>
       </li>
+      <li class="header">شوؤن الطلاب</li>
+
+              
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>شوؤن الطلاب</span>
+        <i class="fa fa-users text-green"></i> <span>شوؤن الطلاب</span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><router-link :to="{name: 'student-indebtedness'}"> <i class="fa fa-circle-o"></i>مديونيات الطلاب</router-link></li>
           <li><router-link :to="{name: 'add-to-class'}"> <i class="fa fa-circle-o"></i>ربط المستخدمين بالفصول</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير ربط المستخدمين بالفصول</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>طلب سحب ملف الطالب</router-link></li>
+          <li><router-link :to="{name: 'student-pull'}"> <i class="fa fa-circle-o"></i>طلب سحب ملف الطالب</router-link></li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> الطالب
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الطالب
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة طالب</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>مرفقات الطالب</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة طالب يدويا</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة مسكن</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>بحث متقدم</router-link></li>
+              <li><router-link :to="{name: 'add-student-manual'}"> <i class="fa fa-circle-o"></i>اضافة طالب يدويا</router-link></li>
             </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> اولياء الامور
-              <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><router-link :to="{name: 'add-parent'}"> <i class="fa fa-circle-o"></i>اضافة اولياء الامور</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة اولياء الامور يدويا</router-link></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-circle-o"></i> الاجازات و الغياب
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاجازات و الغياب
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'attendance'}"> <i class="fa fa-circle-o"></i>تسجيل الاجازات و الغياب</router-link></li>
-              <li><router-link :to="{name: 'Attendancec-for-class'}"> <i class="fa fa-circle-o"></i> تسجيل الاجازات و الغياب لفصل</router-link></li>
+              <li><router-link :to="{name: 'Attendancec-for-class'}"> <i class="fa fa-circle-o"></i> تسجيل لفصل</router-link></li>
             </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> مستخرجات
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> مستخرجات
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>شهادة قيد طالب</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>شهادة حسن سير و سلوك</router-link></li>
+              <li><router-link :to="{name: 'record'}"> <i class="fa fa-circle-o"></i>شهادة قيد طالب</router-link></li>
+              <li><router-link :to="{name: 'kindness'}"> <i class="fa fa-circle-o"></i>شهادة حسن سير و سلوك</router-link></li>
               <li><router-link :to="{name: 'permissiontodepart'}"> <i class="fa fa-circle-o"></i>اذونات الانصراف للطبة</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>مخالصة بمصروفات طالب</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>طلب تحويل طالب</router-link></li>
+              <li><router-link :to="{name: 'completion'}"> <i class="fa fa-circle-o"></i>مخالصة بمصروفات طالب</router-link></li>
+              <li><router-link :to="{name: 'student-transfer'}"> <i class="fa fa-circle-o"></i>طلب تحويل طالب</router-link></li>
+              <li><router-link :to="{name: 'empty-palce'}"> <i class="fa fa-circle-o"></i>اماكن خاليه لطالب جديده</router-link></li>
             </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> شوؤن تعليمية
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> شوؤن تعليمية
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -105,7 +96,7 @@
               <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب علي الفصول</router-link></li>
             </ul>
           </li>
-          <li>
+          <!-- <li>
             <a href="#"><i class="fa fa-circle-o"></i> استلام الطالب
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -115,9 +106,9 @@
               <li><router-link :to="{name: 'receipts'}"> <i class="fa fa-circle-o"></i>عرض مستلمي الطالب</router-link></li>
               <li><router-link :to="{name: 'add-receipt'}"> <i class="fa fa-circle-o"></i> مسؤلي تسليم الطالب</router-link></li>
             </ul>
-          </li>
+          </li> -->
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> تقارير الطلاب
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> تقارير الطلاب
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -129,26 +120,26 @@
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير احصاء المراحل</router-link></li>
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>عرض ابناء العاملين</router-link></li>
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>بيانات طالب</router-link></li>
+              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير ربط المستخدمين بالفصول</router-link></li>
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>عرض اولياء الامور</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>Personal</router-link></li>
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>قرار فصل</router-link></li>
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>انذار فصل</router-link></li>
             </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> بيانات الطلاب
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> بيانات الطلاب
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير الجودة</router-link></li>
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير اماكن خالية</router-link></li>
+              <!-- <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير اماكن خالية</router-link></li> -->
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير غياب الطلاب</router-link></li>
             </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> الفصول
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الفصول
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -159,13 +150,13 @@
             </ul>
           </li>
           <li>
-            <a href="#"><i class="fa fa-circle-o"></i> الصفوف
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الصفوف
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير كل بيانات الصف</router-link></li>
+              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير الصف</router-link></li>
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف</router-link></li>
             </ul>
           </li>
@@ -174,87 +165,203 @@
 
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-files-o"></i>
+          <i class="fa fa-money text-red"></i>
           <span>حسابات الطلاب</span>
-          <span class="pull-right-container">
-          <span class="label label-primary pull-right">4</span>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>بنود رسوم الطلاب</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> دفع الرسوم لاكثر من طالب </router-link></li>
-        </ul>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-files-o"></i>
-          <span>ادارة الحافلات</span>
-          <span class="pull-right-container">
-          <span class="label label-primary pull-right">4</span>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة حافلة</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة محطات حافلة</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اشتراك الحافلة</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقارير الحافلات</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة سائقين للحافلات</router-link></li>
-        </ul>
-      </li>
-      <li>
-      <a href="pages/widgets.html">
-          <i class="fa fa-th"></i> <span>Widgets</span>
-          <span class="pull-right-container">
-          <small class="label pull-right bg-green">new</small>
-          </span>
-      </a>
-      </li>
-      <li>
-      <a href="pages/mailbox/mailbox.html">
-          <i class="fa fa-envelope"></i> <span>Mailbox</span>
-          <span class="pull-right-container">
-          <small class="label pull-right bg-yellow">12</small>
-          <small class="label pull-right bg-green">16</small>
-          <small class="label pull-right bg-red">5</small>
-          </span>
-      </a>
-      </li>
-      <li class="treeview">
-      <a href="#">
-          <i class="fa fa-share"></i> <span>Multilevel</span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
           </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-        <li>
-        <a href="#"><i class="fa fa-circle-o"></i> Level One
-            <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-            </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+          <li><router-link :to="{name: 'pay-ruls'}"> <i class="fa fa-circle-o"></i>بنود رسوم الطلاب</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> دفع الرسوم لاكثر من طالب </router-link></li>
+          <li><router-link :to="{name: 'crideit'}"> <i class="fa fa-circle-o"></i> المديونيات </router-link></li>
+          <li><router-link :to="{name: 'student-indebtedness'}"> <i class="fa fa-circle-o"></i>مديونيات الطلاب</router-link></li>
           <li>
-          <a href="#"><i class="fa fa-circle-o"></i> Level Two
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الرسوم
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
-          </a>
-          <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-          </ul>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'pay-classes'}"> <i class="fa fa-circle-o"></i>رسوم الصفوف </router-link></li>
+              <li><router-link :to="{name: 'pay'}"> <i class="fa fa-circle-o"></i>دفع رسوم</router-link></li>
+              <li><router-link :to="{name: 'settings'}"> <i class="fa fa-circle-o"></i>اعدادت الرسوم </router-link></li>
+              <li><router-link :to="{name: 'registration'}"> <i class="fa fa-circle-o"></i>رسوم تسجيل الطالب</router-link></li>
+              <li><router-link :to="{name: 'recipt-settings'}"> <i class="fa fa-circle-o"></i>اعدادت الايصال</router-link></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الخصومات
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'pay-classes'}"> <i class="fa fa-circle-o"></i>رسوم الصفوف </router-link></li>
+              <li><router-link :to="{name: 'pay'}"> <i class="fa fa-circle-o"></i>دفع رسوم</router-link></li>
+              <li><router-link :to="{name: 'settings'}"> <i class="fa fa-circle-o"></i>اعدادت الرسوم </router-link></li>
+              <li><router-link :to="{name: 'registration'}"> <i class="fa fa-circle-o"></i>رسوم تسجيل الطالب</router-link></li>
+              <li><router-link :to="{name: 'recipt-settings'}"> <i class="fa fa-circle-o"></i>اعدادت الايصال</router-link></li>
+            </ul>
           </li>
         </ul>
-        </li>
-        <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-      </ul>
       </li>
-      <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-      <li class="header">LABELS</li>
-      <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-files-o text-aqua"></i>
+          <span>تقرير حسابات الطلاب </span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> المدفوعات حسب المراحل</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> مدفوعات الحافلة </router-link></li>
+        </ul>
+      </li>
+
+
+      <li class="header">شوؤن تعليمية</li>
+      <li class="treeview">
+        <router-link :to="{name: 'education'}"> <i class="fa fa-book text-green"></i><span>شوؤن تعليمية</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-yellow">12</small>
+            <small class="label pull-right bg-green">16</small>
+            <small class="label pull-right bg-red">5</small>
+          </span>
+        </router-link>
+      </li>
+     
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-exchange"></i>
+          <span>الترحيل والتوزيع</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب على الفصول</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب على المستويات</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب على المقررات</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>ترحيل الطلاب للصفوف الأعلى</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>ترحيل الطلاب للمستويات الأعلى</router-link></li>
+        </ul>
+      </li>
+
+
+      <li class="header">شوؤن الموظفين</li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-users text-green"></i> <span> شئون الموظفين </span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'calends'}"> <i class="fa fa-circle-o"></i>لوائح المخالفات</router-link></li>
+          <li><router-link :to="{name: 'add-to-class'}"> <i class="fa fa-circle-o"></i>اعتماد رواتب مفصل</router-link></li>
+          <li><router-link :to="{name: 'add-calend'}"> <i class="fa fa-circle-o"></i>اضافة مخالفةالى موظف</router-link></li>
+          <li><router-link :to="{name: 'bear-in-mind'}"> <i class="fa fa-circle-o"></i> لفت نظر</router-link></li>
+          <li><router-link :to="{name: 'emp-absence'}"> <i class="fa fa-circle-o"></i> تسجيل غياب  الموظفين</router-link></li>
+          <li><router-link :to="{name: 'cut-allowance'}"> <i class="fa fa-circle-o"></i> خصومات او بدلات</router-link></li>
+          <li><router-link :to="{name: 'emp-pool'}"> <i class="fa fa-circle-o"></i> طلب اخلاء طرف</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تعديل سلف الموظفين</router-link></li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاعدادت
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'managaments'}"> <i class="fa fa-circle-o"></i>الهيكل الاداري</router-link></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الموظف
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'employees'}"> <i class="fa fa-circle-o"></i>الموظفين</router-link></li>
+              <li><router-link :to="{name: 'add-employee'}"> <i class="fa fa-circle-o"></i>اضافة موظف جديد</router-link></li>
+              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> البيانات الوظيفية</router-link></li>
+            </ul>
+          </li>
+          <li><router-link :to="{name: 'add-parent'}"> <i class="fa fa-circle-o"></i>اقرارات</router-link></li>
+          
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الرواتب
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'education-levels'}"> <i class="fa fa-circle-o"></i>المكافآت والجزاءات</router-link></li>
+              <li><router-link :to="{name: 'classrooms'}"> <i class="fa fa-circle-o"></i> ساعات العمل الإضافي</router-link></li>
+              <li><router-link :to="{name: 'part-rooms'}"> <i class="fa fa-circle-o"></i> سٌلف الموظفين</router-link></li>
+              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> كشف الرواتب </router-link></li>
+              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> العلاوات والترقيات </router-link></li>
+              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> زيادة الرواتب الدورية لموظف </router-link></li>
+              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> زيادة الرواتب على الشرائح </router-link></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-home"></i>
+          <span>اولياء الامور</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'add-parent'}"> <i class="fa fa-circle-o"></i>اضافة اولياء الامور</router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة اولياء الامور يدويا</router-link></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-files-o text-aqua"></i>
+          <span> التقارير والإحصائيات</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>قوائم الطلاب (بمعايير متنوعة). </router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تقارير الغياب / التأخر / الاستئذان </router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تقارير المخالفات السلوكية </router-link></li>
+          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تقارير أعداد الطلاب (بمعايير متنوعة) </router-link></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-bus text-green"></i>
+          <span>ادارة الحافلات</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'vehicles'}"> <i class="fa fa-circle-o"></i>إدارة بيانات الحافلات</router-link></li>
+          <li><router-link :to="{name: 'vehicle-routes'}"> <i class="fa fa-circle-o"></i>إدارة بيانات خطوط السير</router-link></li>
+          <li><router-link :to="{name: 'stations'}"> <i class="fa fa-circle-o"></i>إدارة المحطات</router-link></li>
+          <li><router-link :to="{name: 'drivers'}"> <i class="fa fa-circle-o"></i>مشرفي الحافلات وتوزيعهم</router-link></li>
+          <li><router-link :to="{name: 'subscriptions'}"> <i class="fa fa-circle-o"></i>تسجيل الطلاب في النقل</router-link></li>
+          <li><router-link :to="{name: 'attendees'}"> <i class="fa fa-circle-o"></i>تسجيل حضور و انصراف</router-link></li>
+          <li><router-link :to="{name: 'vehicle-reports'}"> <i class="fa fa-circle-o"></i>تقارير إدارة النقل</router-link></li>
+        </ul>
+      </li>
+
+
+      <li class="header m-b-20"></li>
     </ul>
     </section>
     <!-- /.sidebar -->

@@ -5,6 +5,18 @@ body {
   font-weight: 400;
   line-height: 1.471;
 }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Helvetica Neue", "Droid Sans", sans-serif !important;
+}
+
+.close {
+  line-height: 2;
+}
+
+textarea.form-control {
+  height: 120px;
+}
 /*------------- #UI-BLOCK --------------*/
 .ui-block {
   background-color: #fff;
@@ -569,9 +581,14 @@ tbody td:last-child{
     width: 100% !important;
 }
 
+/* 
+.router-link-exact-active, .router-link-exact-active:hover {
+  color: #fff !important;
+} */
 
-
-
+.sidebar-menu .treeview-menu > li {
+  margin-inline-start: 15px;
+}
 /************* count ********************/
 
 .tile_count {
@@ -896,8 +913,12 @@ html body .m-t-20 {
     margin-top: 20px
 }
 
+html body .m-t-25 {
+  margin-top: 25px
+}
+
 html body .m-t-30 {
-    margin-top: 30px
+  margin-top: 30px
 }
 
 html body .m-t-40 {

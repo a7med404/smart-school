@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1> لوحة التحكم <small> it all starts here </small></h1>
+      <h1> لوحة التحكم <small>  </small></h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li class="active">لوحة التحكم</li>
@@ -189,7 +189,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Title</h3>
+                        <h3 class="box-title">اعداد الطلاب في المراحل</h3>
                         <div class="box-tools pull-left">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                             <i class="fa fa-minus"></i></button>
@@ -227,7 +227,7 @@
                 <!-- USERS LIST -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                    <h3 class="box-title">Latest Members</h3>
+                    <h3 class="box-title">الموظفون النشطون حاليا</h3>
 
                     <div class="box-tools pull-right">
                         <span class="label label-danger">8 New Members</span>

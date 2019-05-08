@@ -158,8 +158,8 @@ $.widget.bridge('uibutton', $.ui.button);
 
 
 
-
-  {{-- <script>
+{{-- 
+  <script>
     $('#table_id').DataTable({
         //processing: true,
         //serverSide: true,
@@ -777,7 +777,7 @@ $.widget.bridge('uibutton', $.ui.button);
         legend: {
             x: 'center',
             y: 'bottom',
-            data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5']
+            data: ['مرحلة رياض الاطفال', 'المرحلة الابتدائية', 'المرحلة المتوسطة', 'rose4', 'rose5']
         },
         toolbox: {
             show: true,
@@ -808,13 +808,13 @@ $.widget.bridge('uibutton', $.ui.button);
             sort: 'ascending',
             data: [{
             value: 10,
-            name: 'rose1'
+            name: 'مرحلة رياض الاطفال'
             }, {
             value: 5,
-            name: 'rose2'
+            name: 'المرحلة الابتدائية'
             }, {
             value: 15,
-            name: 'rose3'
+            name: 'المرحلة المتوسطة'
             }, {
             value: 25,
             name: 'rose4'

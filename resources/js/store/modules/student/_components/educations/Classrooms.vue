@@ -1,11 +1,11 @@
 <template>
   <div>
     <section class="content-header">
-      <h1> Blank page <small> it all starts here </small></h1>
+      <h1>الصفوف التعلمية <small>  </small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
+        <li><a href="#">شوؤن تعليمية</a></li>
+        <li class="active"> الصفوف التعلمية</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -13,7 +13,7 @@
       <!-- Default box -->
       <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">الصفوف التعلمية</h3>
           <div class="box-tools pull-right">
             <a type="button" data-toggle="modal" data-target="#popup-add-classroom" href="#" class="btn btn-sm btn-info pull-left">
               <i class="fa fa-plus"></i>  اضافة صف 
@@ -30,10 +30,9 @@
                       <th>#ID</th>
                       <th>اسم المرحلة التعليمية</th>
                       <th>اسم الصف</th>
-                      <th>اسم الصف بالانجليزي</th>
                       <th>الترتيب</th>
                       <th>نهاية المرحلة</th>
-                      <th>نهاية المرحلة</th>
+                      <th>options</th>
                   </tr>
               </thead>
               <tbody>
@@ -41,15 +40,13 @@
                       <td>Description</td>
                       <td>Description</td>
                       <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
                       <td><a href="#" class="">Description</a></td>
                       <td>
-                          <!-- <div class="btn-group">
+                          <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
                               <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
                               <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                          </div> -->
+                          </div>
                       </td>
                   </tr>
                   <tr>
@@ -57,14 +54,13 @@
                       <td>Description</td>
                       <td>Description</td>
                       <td>Description</td>
-                      <td>Description</td>
                       <td><a href="#" class="">Description</a></td>
                       <td>
-                          <!-- <div class="btn-group">
+                          <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
                               <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
                               <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                          </div> -->
+                          </div>
                       </td>
                   </tr>
               </tbody>
@@ -111,20 +107,12 @@
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
-                    <label class="control-label"> اسم الصف بالانجليزي </label>
-                    <input class="form-control" placeholder="" type="text" name="name_en">
-                  </div>
-                </div>
-              </div>                    
-              <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                  <div class="form-group">
                     <label class="control-label">
                       <input type="checkbox" class="minimal" name="is_end">
                       نهاية مرحلة
                     </label>
                   </div>
-                </div>
+                </div> 
               </div>
 
               <div class="row m-t-30">
