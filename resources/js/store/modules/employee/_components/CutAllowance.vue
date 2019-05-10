@@ -21,7 +21,7 @@
                 <i class="fa fa-times"></i></button>
 
               <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+                <i class="fa fa-plus"></i> اضافة
               </a>
             </div>
           </div>
@@ -29,7 +29,7 @@
                     
             <div class="row">
               <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <table class="table table-striped table-bordered table-hover full-width" id="table_id">
+                <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
                     <thead>
                         <tr>
                             <th>#ID</th>

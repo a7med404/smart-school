@@ -5,7 +5,7 @@ import Dashboard from '../../dashboard/_components/Dashboard';
 
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
-import addToClass from '../../student/_components/student/addToClass';
+import AddToClass from '../../student/_components/student/AddToClass';
 import Attendance from '../../student/_components/attendance/Attendance';
 import AttendanceForClass from '../../student/_components/attendance/AttendanceForClass';
 import StudentPull from '../../student/_components/student/StudentPull';
@@ -35,9 +35,45 @@ import Profile from '../../employee/_components/Profile';
 import Employees from '../../employee/_components/employees/Employees';
 import AddEmployee from '../../employee/_components/employees/AddEmployee';
 
-import Mnagaments from '../../employee/_components/mnagaments/Mnagaments';
-import Admins from '../../employee/_components/mnagaments/Admins';
-import Department from '../../employee/_components/mnagaments/Department';
+
+import ReportPermission from '../../employee/_components/reports/ReportPermission';
+import ReportRewardsPunition from '../../employee/_components/reports/ReportRewardsPunition';
+import ReportSearch from '../../employee/_components/reports/ReportSearch';
+import ReportSalary from '../../employee/_components/reports/ReportSalary';
+import ReportProgenitor from '../../employee/_components/reports/ReportProgenitor';
+import ReportAbsence from '../../employee/_components/reports/ReportAbsence';
+import ReportEvaluation from '../../employee/_components/reports/ReportEvaluation';
+
+
+
+import Managaments from '../../employee/_components/managaments/Managaments';
+import Admins from '../../employee/_components/managaments/Admins';
+
+import Department from '../../employee/_components/managaments/Department';
+
+
+import EmpHoliday from '../../employee/_components/holiday/EmpHoliday';
+import FormalHoliday from '../../employee/_components/holiday/FormalHoliday';
+import AddHoliday from '../../employee/_components/holiday/AddHoliday';
+import EmpHolidayList from '../../employee/_components/holiday/EmpHolidayList';
+
+
+import RewardsPunition from '../../employee/_components/salary/RewardsPunition';
+import ReallianceSalary from '../../employee/_components/salary/ReallianceSalary';
+import Progenitor from '../../employee/_components/salary/Progenitor';
+import SalaryStatement from '../../employee/_components/salary/SalaryStatement';
+import Overpayment from '../../employee/_components/salary/Overpayment';
+import OverpaymentDivision from '../../employee/_components/salary/OverpaymentDivision';
+import SalaryDetails from '../../employee/_components/salary/SalaryDetails';
+
+
+
+import EvaluationItem from '../../employee/_components/evaluation/EvaluationItem';
+import EvaluationEmp from '../../employee/_components/evaluation/EvaluationEmp';
+
+import EmpSettingPerissions from '../../employee/_components/perissions/EmpSettingPerissions';
+import EmpPerissions from '../../employee/_components/perissions/EmpPerissions';
+
 
 
 import viewEmployee from '../../employee/_components/employees/viewEmployee';
@@ -56,7 +92,30 @@ import Registration from '../../student/_components/account/Registration';
 import ReciptSettings from '../../student/_components/account/ReciptSettings';
 import Crideit from '../../student/_components/account/Crideit';
 
+import ReportQuality from '../../student/_components/reports/ReportQuality';
+import ReportLevels from '../../student/_components/reports/ReportLevels';
+import ReportClassrooms from '../../student/_components/reports/ReportClassrooms';
+import ReportEmpStudent from '../../student/_components/reports/ReportEmpStudent';
+import ReportSeparate from '../../student/_components/reports/ReportSeparate';
+import ReportWarning from '../../student/_components/reports/ReportWarning';
+import ReportAuth from '../../student/_components/reports/ReportAuth';
 
+
+import ReportSchoolRegister from '../../student/_components/reports/student/ReportSchoolRegister';
+import ReportFeeCompletion from '../../student/_components/reports/student/ReportFeeCompletion';
+import ReportKindness from '../../student/_components/reports/student/ReportKindness';
+import ReportStudentPermission from '../../student/_components/reports/student/ReportStudentPermission';
+import ReportSudentStatement from '../../student/_components/reports/student/ReportSudentStatement';
+import ReportNotComplateData from '../../student/_components/reports/student/ReportNotComplateData';
+import ReportStudentAbsece from '../../student/_components/reports/student/ReportStudentAbsece';
+
+import ReportParts from '../../student/_components/reports/parts/ReportParts';
+import ReportWithoutPart from '../../student/_components/reports/parts/ReportWithoutPart';
+import ReportCountParts from '../../student/_components/reports/parts/ReportCountParts';
+
+import ReportDataClassrooms from '../../student/_components/reports/classrooms/ReportDataClassrooms';
+
+ 
 
 import VehicleRoutes from '../../vehicle/_components/VehicleRoutes';
 import Drivers from '../../vehicle/_components/Drivers';
@@ -68,6 +127,165 @@ import Attendees from '../../vehicle/_components/Attendees';
 
 
 const routes = [
+
+  {
+    path: '/report-data-classrooms',
+    props: true,
+    name: 'report-data-classrooms',
+    component:  ReportDataClassrooms
+  }, 
+  {
+    path: '/report-count-parts',
+    props: true,
+    name: 'report-count-parts',
+    component:  ReportCountParts
+  }, 
+  {
+    path: '/report-without-part',
+    props: true,
+    name: 'report-without-part',
+    component:  ReportWithoutPart
+  }, 
+  {
+    path: '/report-parts',
+    props: true,
+    name: 'report-parts',
+    component:  ReportParts
+  },
+  {
+    path: '/report-student-absece',
+    props: true,
+    name: 'report-student-absece',
+    component:  ReportStudentAbsece
+  },
+  {
+    path: '/report-not-complate-data',
+    props: true,
+    name: 'report-not-complate-data',
+    component:  ReportNotComplateData
+  }, 
+  {
+    path: '/report-sudent-statement',
+    props: true,
+    name: 'report-sudent-statement',
+    component:  ReportSudentStatement
+  }, 
+  {
+    path: '/report-student-permission',
+    props: true,
+    name: 'report-student-permission',
+    component:  ReportStudentPermission
+  }, 
+  {
+    path: '/report-kindness',
+    props: true,
+    name: 'report-kindness',
+    component:  ReportKindness
+  }, 
+  {
+    path: '/report-fee-completion',
+    props: true,
+    name: 'report-fee-completion',
+    component:  ReportFeeCompletion
+  }, 
+  {
+    path: '/report-school-register',
+    props: true,
+    name: 'report-school-register',
+    component:  ReportSchoolRegister
+  }, 
+
+
+  
+  {
+    path: '/report-permission',
+    props: true,
+    name: 'report-permission',
+    component:  ReportPermission
+  }, 
+  {
+    path: '/report-rewards-punition',
+    props: true,
+    name: 'report-rewards-punition',
+    component:  ReportRewardsPunition
+  }, 
+  {
+    path: '/report-search',
+    props: true,
+    name: 'report-search',
+    component:  ReportSearch
+  }, 
+  {
+    path: '/report-salary',
+    props: true,
+    name: 'report-salary',
+    component:  ReportSalary
+  }, 
+  {
+    path: '/report-progenitor',
+    props: true,
+    name: 'report-progenitor',
+    component:  ReportProgenitor
+  }, 
+  {
+    path: '/report-absence',
+    props: true,
+    name: 'report-absence',
+    component:  ReportAbsence
+  }, 
+  {
+    path: '/report-evaluation',
+    props: true,
+    name: 'report-evaluation',
+    component:  ReportEvaluation
+  }, 
+
+  {
+    path: '/report-quality',
+    props: true,
+    name: 'report-quality',
+    component:  ReportQuality
+  }, 
+  {
+    path: '/report-levels',
+    props: true,
+    name: 'report-levels',
+    component:  ReportLevels
+  }, 
+  {
+    path: '/report-classrooms',
+    props: true,
+    name: 'report-classrooms',
+    component:  ReportClassrooms
+  }, 
+  {
+    path: '/report-emp-student',
+    props: true,
+    name: 'report-emp-student',
+    component:  ReportEmpStudent
+  }, 
+  {
+    path: '/report-separate',
+    props: true,
+    name: 'report-separate',
+    component:  ReportSeparate
+  }, 
+  {
+    path: '/report-warning',
+    props: true,
+    name: 'report-warning',
+    component:  ReportWarning
+  }, 
+  {
+    path: '/report-auth',
+    props: true,
+    name: 'report-auth',
+    component:  ReportAuth
+  }, 
+
+
+
+
   {
     path: '/vehicle-routes',
     props: true,
@@ -105,13 +323,103 @@ const routes = [
     component:  Vehicle
   }, 
   {
+    path: '/evaluation-item',
+    props: true,
+    name: 'evaluation-item',
+    component:  EvaluationItem
+  }, 
+  {
+    path: '/evaluation-emp',
+    props: true,
+    name: 'evaluation-emp',
+    component:  EvaluationEmp
+  }, 
+  {
     path: '/attendees',
     props: true,
     name: 'attendees',
     component:  Attendees
   },
+  {
+    path: '/emp-holiday',
+    props: true,
+    name: 'emp-holiday',
+    component:  EmpHoliday
+  }, 
+  {
+    path: '/formal-holiday',
+    props: true,
+    name: 'formal-holiday',
+    component:  FormalHoliday
+  }, 
+  {
+    path: '/add-holiday',
+    props: true,
+    name: 'add-holiday',
+    component:  AddHoliday
+  }, 
+  {
+    path: '/salary-details',
+    props: true,
+    name: 'salary-details',
+    component:  SalaryDetails
+  }, 
+    
+  {
+    path: '/rewards-punition',
+    props: true,
+    name: 'rewards-punition',
+    component:  RewardsPunition
+  }, 
+  {
+    path: '/realliance-salary',
+    props: true,
+    name: 'realliance-salary',
+    component:  ReallianceSalary
+  }, 
+  {
+    path: '/progenitor',
+    props: true,
+    name: 'progenitor',
+    component:  Progenitor
+  }, 
+  {
+    path: '/salary-statement',
+    props: true,
+    name: 'salary-statement',
+    component:  SalaryStatement
+  }, 
+  {
+    path: '/overpayment',
+    props: true,
+    name: 'overpayment',
+    component:  Overpayment
+  }, 
+  {
+    path: '/overpayment-division',
+    props: true,
+    name: 'overpayment-division',
+    component:  OverpaymentDivision
+  }, 
   
-  
+  {
+    path: '/emp-perissions',
+    props: true,
+    name: 'emp-perissions',
+    component:  EmpPerissions
+  }, 
+  {
+    path: '/emp-holiday-list',
+    props: true,
+    name: 'emp-holiday-list',
+    component:  EmpHolidayList
+  }, 
+  {
+    path: '/emp-setting-perissions',
+    props: true,
+    name: 'emp-setting-perissions',
+    component:  EmpSettingPerissions
+  }, 
   {
     path: '/calends',
     props: true,
@@ -153,7 +461,7 @@ const routes = [
     path: '/managaments',
     props: true,
     name: 'managaments',
-    component:  Mnagaments
+    component:  Managaments
   },
   
 
@@ -221,7 +529,7 @@ const routes = [
     path: '/students/add-to-class',
     props: true,
     name: 'add-to-class',
-    component:  addToClass
+    component:  AddToClass
   },
   {
     path: '/parents/add',

@@ -28,7 +28,7 @@
           <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
-              <ul class="nav nav-tabs pull-right">
+              <ul class="nav nav-pills nav-justified pull-right">
                 <li class="active"><a href="#info" data-toggle="tab">بيانات عامة</a></li>
                 <li><a href="#salary" data-toggle="tab"> اعدادات  الراتب</a></li>
                 <li><a href="#address" data-toggle="tab">عنوان الموظف</a></li>

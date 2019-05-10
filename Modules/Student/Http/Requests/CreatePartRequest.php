@@ -18,7 +18,7 @@ class CreatePartRequest extends FormRequest
             'name_en'       => 'required|string|min:2',
             'sort'          => 'required|integer',
             'level_id'      => 'required|integer',
-            'classroom_id'   => 'required|integer'
+            'classroom_id'  => 'required|integer'
         ];
     }
 

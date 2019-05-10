@@ -162,6 +162,65 @@
           </li>
         </ul>
       </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-home"></i>
+          <span> تقارير الطلاب</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'report-quality'}"> <i class="fa fa-circle-o"></i> تقرير الجودة </router-link></li>
+          <li><router-link :to="{name: 'report-levels'}"> <i class="fa fa-circle-o"></i> تقرير المراحل  </router-link></li>
+          <li><router-link :to="{name: 'report-classrooms'}"> <i class="fa fa-circle-o"></i> تقرير قائمة الفصول </router-link></li>
+          <li><router-link :to="{name: 'report-emp-student'}"> <i class="fa fa-circle-o"></i> عرض ابناء العاملين </router-link></li>
+          <!-- <li><router-link :to="{name: 'report-evaluation'}"> <i class="fa fa-circle-o"></i> بيانات طالب </router-link></li> -->
+          <li><router-link :to="{name: 'report-separate'}"> <i class="fa fa-circle-o"></i> قرار فصل  </router-link></li>
+          <li><router-link :to="{name: 'report-warning'}"> <i class="fa fa-circle-o"></i> انذار فصل </router-link></li>
+          <li><router-link :to="{name: 'report-auth'}"> <i class="fa fa-circle-o"></i> عرض بيانات دخول الموقع </router-link></li>
+        
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i>  بيانات الطلاب
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'report-school-register'}"> <i class="fa fa-circle-o"></i>السجل المدرسى</router-link></li>
+              <li><router-link :to="{name: 'report-fee-completion'}"> <i class="fa fa-circle-o"></i>مخالصه بمصروفات طالب</router-link></li>
+              <li><router-link :to="{name: 'report-kindness'}"> <i class="fa fa-circle-o"></i>تقرير شهادة حسن سير وسلوك</router-link></li>
+              <li><router-link :to="{name: 'report-student-permission'}"> <i class="fa fa-circle-o"></i>تقرير انصراف الطلاب باذن</router-link></li>
+              <li><router-link :to="{name: 'report-sudent-statement'}"> <i class="fa fa-circle-o"></i>تقرير حركة طالب</router-link></li>
+              <li><router-link :to="{name: 'report-not-complate-data'}"> <i class="fa fa-circle-o"></i>طلاب لم تكتمل بياناتهم</router-link></li>
+              <li><router-link :to="{name: 'report-student-absece'}"> <i class="fa fa-circle-o"></i>تقرير غياب الطلاب</router-link></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i>   الصفوف
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'report-data-classrooms'}"> <i class="fa fa-circle-o"></i>تقرير كل بيانات الصف</router-link></li>
+              <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li>
+            </ul>
+          </li> 
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i>   الفصول
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'report-parts'}"> <i class="fa fa-circle-o"></i>تقرير الفصول</router-link></li>
+              <li><router-link :to="{name: 'report-without-part'}"> <i class="fa fa-circle-o"></i>تقرير الطلاب بدون فصول</router-link></li>
+              <li><router-link :to="{name: 'report-count-parts'}"> <i class="fa fa-circle-o"></i> عدد الفصول بكل المراحل</router-link></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
 
       <li class="treeview">
         <a href="#">
@@ -261,13 +320,12 @@
         </a>
         <ul class="treeview-menu">
           <li><router-link :to="{name: 'calends'}"> <i class="fa fa-circle-o"></i>لوائح المخالفات</router-link></li>
-          <li><router-link :to="{name: 'add-to-class'}"> <i class="fa fa-circle-o"></i>اعتماد رواتب مفصل</router-link></li>
           <li><router-link :to="{name: 'add-calend'}"> <i class="fa fa-circle-o"></i>اضافة مخالفةالى موظف</router-link></li>
           <li><router-link :to="{name: 'bear-in-mind'}"> <i class="fa fa-circle-o"></i> لفت نظر</router-link></li>
           <li><router-link :to="{name: 'emp-absence'}"> <i class="fa fa-circle-o"></i> تسجيل غياب  الموظفين</router-link></li>
           <li><router-link :to="{name: 'cut-allowance'}"> <i class="fa fa-circle-o"></i> خصومات او بدلات</router-link></li>
           <li><router-link :to="{name: 'emp-pool'}"> <i class="fa fa-circle-o"></i> طلب اخلاء طرف</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تعديل سلف الموظفين</router-link></li>
+          <!-- <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تعديل سلف الموظفين</router-link></li> -->
           <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاعدادت
               <span class="pull-right-container">
@@ -293,21 +351,75 @@
           <li><router-link :to="{name: 'add-parent'}"> <i class="fa fa-circle-o"></i>اقرارات</router-link></li>
           
           <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاوذونات
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'emp-setting-perissions'}"> <i class="fa fa-circle-o"></i> اعدادات الآذونات</router-link></li>
+              <li><router-link :to="{name: 'emp-perissions'}"> <i class="fa fa-circle-o"></i> اذونات الموظفين</router-link></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاجازات
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'emp-holiday'}"> <i class="fa fa-circle-o"></i> طلب اجازة</router-link></li>
+              <!-- <li><router-link :to="{name: 'emp-holiday-list'}"> <i class="fa fa-circle-o"></i> طلبات الآجازات</router-link></li> -->
+              <li><router-link :to="{name: 'formal-holiday'}"> <i class="fa fa-circle-o"></i> الإجازات الرسمية</router-link></li>
+              <li><router-link :to="{name: 'add-holiday'}"> <i class="fa fa-circle-o"></i> اضافة اسم اجازاة </router-link></li>
+            </ul>
+          </li>
+          <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الرواتب
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><router-link :to="{name: 'education-levels'}"> <i class="fa fa-circle-o"></i>المكافآت والجزاءات</router-link></li>
-              <li><router-link :to="{name: 'classrooms'}"> <i class="fa fa-circle-o"></i> ساعات العمل الإضافي</router-link></li>
-              <li><router-link :to="{name: 'part-rooms'}"> <i class="fa fa-circle-o"></i> سٌلف الموظفين</router-link></li>
-              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> كشف الرواتب </router-link></li>
-              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> العلاوات والترقيات </router-link></li>
-              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> زيادة الرواتب الدورية لموظف </router-link></li>
-              <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i> زيادة الرواتب على الشرائح </router-link></li>
+              <li><router-link :to="{name: 'salary-details'}"> <i class="fa fa-circle-o"></i>اعتماد رواتب مفصل</router-link></li>
+              <li><router-link :to="{name: 'rewards-punition'}"> <i class="fa fa-circle-o"></i>المكافآت والجزاءات</router-link></li>
+              <li><router-link :to="{name: 'realliance-salary'}"> <i class="fa fa-circle-o"></i> اعتماد الرواتب</router-link></li>
+              <li><router-link :to="{name: 'progenitor'}"> <i class="fa fa-circle-o"></i> سٌلف الموظفين</router-link></li>
+              <!-- <li><router-link :to="{name: 'salary-statement'}"> <i class="fa fa-circle-o"></i> كشف الرواتب </router-link></li> -->
+              <li><router-link :to="{name: 'overpayment'}"> <i class="fa fa-circle-o"></i> زيادة الرواتب الدورية لموظف </router-link></li>
+              <li><router-link :to="{name: 'overpayment-division'}"> <i class="fa fa-circle-o"></i> زيادة الرواتب على الشرائح </router-link></li>
             </ul>
           </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> تقييم الموظف
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'evaluation-item'}"> <i class="fa fa-circle-o"></i>عناصر تقييم الموظف</router-link></li>
+              <li><router-link :to="{name: 'evaluation-emp'}"> <i class="fa fa-circle-o"></i> تقييم الموظف</router-link></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-home"></i>
+          <span> تقارير الموظفين</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><router-link :to="{name: 'report-permission'}"> <i class="fa fa-circle-o"></i>تقرير اذونات موظف</router-link></li>
+          <li><router-link :to="{name: 'report-rewards-punition'}"> <i class="fa fa-circle-o"></i>تقرير الخصومات والمكافأت</router-link></li>
+          <li><router-link :to="{name: 'report-search'}"> <i class="fa fa-circle-o"></i>بحث الموظفين</router-link></li>
+          <li><router-link :to="{name: 'report-salary'}"> <i class="fa fa-circle-o"></i>تقرير التعريف بالراتب </router-link></li>
+          <li><router-link :to="{name: 'report-progenitor'}"> <i class="fa fa-circle-o"></i>تقرير سلف الموظفين</router-link></li>
+          <li><router-link :to="{name: 'report-absence'}"> <i class="fa fa-circle-o"></i>تقرير غياب الموظفين</router-link></li>
+          <li><router-link :to="{name: 'report-evaluation'}"> <i class="fa fa-circle-o"></i>تقرير تقييم الموظفين </router-link></li>
         </ul>
       </li>
 

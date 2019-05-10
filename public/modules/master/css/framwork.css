@@ -558,13 +558,16 @@ th{
 
 /************* Tabel ********************/
 table {
-    box-shadow: 4px 4px 10px #CFCFCF;
+    box-shadow: 0 7px 6px -6px #CFCFCF;
+    -webkit-box-shadow: 0 7px 6px -6px #CFCFCF;
+    -moz-box-shadow:0 7px 6px -6px #CFCFCF;
+    border-bottom: 2px solid #0cc !important;
     margin: auto;
     width: calc(100% - 5px);
 }
 
 table thead {
-    background-color: #2a3f54;
+    background-color: #00cccc;
     color: #FFF;
     margin: auto -2px;
 }
