@@ -4,14 +4,14 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory EvaluationItemFactory
+php artisan module:make-factory EvaluationEmpFactory
 
-php artisan module:make-request CreateEvaluationItemRequest
+php artisan module:make-request CreateEvaluationEmpRequest
 
-php artisan module:make-resource EvaluationItemResource --collection
+php artisan module:make-resource EvaluationEmpResource --collection
 
-php artisan module:make-model EvaluationItem --migration
-php artisan module:make-controller EvaluationItemController --r
+php artisan module:make-model EvaluationEmp --migration
+php artisan module:make-controller EvaluationEmpController
 
 
 php artisan module:migrate
@@ -35,7 +35,7 @@ $table->integer('votes');
 $table->decimal('amount', 8, 2);
 $table->float('amount', 8, 2);
 $table->double('amount', 8, 2);
-$table->enum('EvaluationItem', ['easy', 'hard']);
+$table->enum('EvaluationEmp', ['easy', 'hard']);
 
 $table->string('name', 100);
 $table->text('description');
