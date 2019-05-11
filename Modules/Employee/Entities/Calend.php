@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calend extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'discount_percentage'
+    ];
 }

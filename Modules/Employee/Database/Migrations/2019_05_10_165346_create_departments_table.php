@@ -15,7 +15,8 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->integer('manage_id')->foreign()->references('id')->on('management');
+            $table->string('name');
             $table->timestamps();
         });
     }

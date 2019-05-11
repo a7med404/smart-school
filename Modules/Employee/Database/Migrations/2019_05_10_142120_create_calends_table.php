@@ -15,7 +15,8 @@ class CreateCalendsTable extends Migration
     {
         Schema::create('calends', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->text('name')->unique();
+            $table->float('discount_percentage');
             $table->timestamps();
         });
     }

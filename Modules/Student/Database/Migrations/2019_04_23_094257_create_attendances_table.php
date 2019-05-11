@@ -15,7 +15,9 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('absence_date');
+            $table->integer('student_id')->foreign()->references('id')->on('Student');
+            $table->date('absence_from');
+            $table->date('absence_to');
             $table->text('absence_reason')->nullable();
             $table->timestamps();
         });

@@ -15,7 +15,21 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->longText('full_name')->unique();
+            $table->boolean('gender');
+            $table->integer('religion')->nullable();
+            $table->date('birth_date');
+            $table->integer('identification_number')->unique();
+            $table->integer('manage_id')->foreign()->references('id')->on('management');
+            $table->integer('dept_id')->foreign()->references('id')->on('department');
+            $table->date('hiring_date')->nullable();
+            $table->string('job_title')->nullable();
+            $table->integer('martial_status');
+            $table->date('start_date')->nullable();
+            $table->integer('emploee_level');
+            $table->integer('join_year');
+            $table->string('picture')->nullable();
+            $table->longText('note')->nullable();
             $table->timestamps();
         });
     }

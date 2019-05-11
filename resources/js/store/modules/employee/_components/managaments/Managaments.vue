@@ -200,7 +200,7 @@
               <div class="col col-lg-6 col-md-5 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم الادارة</label>
-                  <input class="form-control" placeholder="" type="text" v-model="student.name">
+                  <input class="form-control" placeholder="" type="text" v-model="managament.name">
                 </div>
               </div>
             </div>
@@ -239,7 +239,7 @@
               <div class="col col-lg-6 col-md-5 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الادارة</label>
-                  <select class="form-control select2" v-model="student.religion">
+                  <select class="form-control select2" v-model="department.manage_id">
                     <option value="CA">الاسلام</option>
                     <option value="TE">المسيحية</option>
                     <option value="TE">اخرى</option>
@@ -252,7 +252,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم القسم </label>
-                  <input class="form-control" placeholder="" type="text" v-model="student.name">
+                  <input class="form-control" placeholder="" type="text" v-model="department.name">
                 </div>
               </div>
             </div>
@@ -291,7 +291,7 @@
               <div class="col col-lg-6 col-md-5 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم التخصص</label>
-                  <input class="form-control" placeholder="" type="text" v-model="student.name">
+                  <input class="form-control" placeholder="" type="text" v-model="specialties.name">
                 </div>
               </div>
             </div>
@@ -324,29 +324,16 @@
         // }
         data(){ 
           return {
-            student: {
-              name                   : '',  
-              religion               : '',  
-              gender                 : '',  
-              study_lang             : '',  
-              is_partner_son         : '',  
-              is_staff_son           : '',  
-              identifcation_number   : '',  
-              identifcation_expire   : '',  
-              birthday               : '',  
-              start_data             : '', 
-              start_from             : '',
-              start_year             : '', 
-              note                   : '',
-              student_parent_id      : '',
-              study_language_id      : '',
-              address_id             : '',
-              contact_id             : '',
-              level_id               : '',
-              classroom_id           : '',
-              part_id                : ''
+            managament:{
+              name                   : ''
             },
-
+            department:{
+              manage_id              : '',
+              name                   : ''
+            },
+            specialties:{
+              name                   : ''
+            },
             
           }
         },

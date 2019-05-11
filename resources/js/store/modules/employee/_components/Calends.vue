@@ -189,7 +189,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم المخالفة </label>
-                  <input class="form-control" placeholder="" type="text" v-model="calends.name">
+                  <input class="form-control" placeholder="" type="text" v-model="calend.name">
                 </div>
               </div>
             </div>
@@ -198,7 +198,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> نسبة خصم من المرتب </label>
-                  <input class="form-control" placeholder="نسبة الخصم من المرتب %" type="text" v-model="calends.cost">
+                  <input class="form-control" placeholder="نسبة الخصم من المرتب %" type="text" v-model="calend.discount_percentage">
                 </div>
               </div>
             </div>
@@ -230,13 +230,9 @@
         data(){ 
           return {
             edit: false,
-            calends: {
+            calend: {
               name                   : '',  
-              route_id               : '',  
-              cost                 : '',  
-              study_lang             : '',  
-              is_partner_son         : '',  
-
+              discount_percentage    : '' 
             },
 
           }
