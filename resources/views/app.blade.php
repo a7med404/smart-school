@@ -21,7 +21,9 @@
         <sidebar></sidebar>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+          <transition name="slide" mode="out-in">
             <router-view :key="$route.fullPath"></router-view>
+          </transition>
         </div>
         <!-- /.content-wrapper -->
         <footer_component></footer_component>

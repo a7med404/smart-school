@@ -17,7 +17,6 @@ export default {
     start_year             : '', 
     note                   : '',
     student_parent_id      : '',
-    study_language_id      : '',
     address_id             : '',
     contact_id             : '',
     level_id               : '',

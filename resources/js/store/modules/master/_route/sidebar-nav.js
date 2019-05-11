@@ -1,7 +1,13 @@
 const Vue = require('vue');
 
 var dashboardUrl = 'http://127.0.0.1:8000/';
-import Dashboard from '../../dashboard/_components/Dashboard';
+
+// import Dashboard from '../../dashboard/_components/Dashboard';
+const Dashboard = resolve => {
+  require.ensure(['../../dashboard/_components/Dashboard'], () => {
+    resolve(require('../../dashboard/_components/Dashboard'))
+  });
+};
 
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
@@ -124,6 +130,7 @@ import Stations from '../../vehicle/_components/Stations';
 import Subscriptions from '../../vehicle/_components/Subscriptions';
 import Vehicle from '../../vehicle/_components/Vehicle';
 import Attendees from '../../vehicle/_components/Attendees';
+import { resolve } from 'q';
 
 
 const routes = [
@@ -678,6 +685,14 @@ const routes = [
     props: true,
     name: 'view-employee',
     component:  viewEmployee
+  },
+  {
+    path: '/redirect-me',
+    redirect: '/dashbord',
+  },
+  {
+    path: '*',
+    redirect: '/dashbord',
   },
 ]
 
