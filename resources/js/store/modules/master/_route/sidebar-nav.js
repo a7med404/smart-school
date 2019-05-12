@@ -15,6 +15,13 @@ const Soon = resolve => {
   });
 };
 
+const Agreements = resolve => {
+  require.ensure(['../../employee/_components/Agreements'], () => {
+    resolve(require('../../employee/_components/Agreements'))
+  });
+};
+
+
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
 import AddToClass from '../../student/_components/student/AddToClass';
@@ -140,7 +147,13 @@ import { resolve } from 'q';
 
 
 const routes = [
-
+  
+  {
+    path: '/agreements',
+    props: true,
+    name: 'agreements',
+    component:  Agreements
+  }, 
   {
     path: '/report-data-classrooms',
     props: true,

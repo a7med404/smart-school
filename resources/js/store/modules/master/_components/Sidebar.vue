@@ -468,7 +468,7 @@
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> البيانات الوظيفية</router-link></li>
             </ul>
           </li>
-          <li><router-link :to="{name: 'add-parent'}"> <i class="fa fa-circle-o"></i>اقرارات</router-link></li>
+          <li><router-link :to="{name: 'agreements'}"> <i class="fa fa-circle-o"></i>اقرارات</router-link></li>
           
           <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاوذونات
