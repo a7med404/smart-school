@@ -9,6 +9,12 @@ const Dashboard = resolve => {
   });
 };
 
+const Soon = resolve => {
+  require.ensure(['../../controle/_components/Soon'], () => {
+    resolve(require('../../controle/_components/Soon'))
+  });
+};
+
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
 import AddToClass from '../../student/_components/student/AddToClass';
@@ -303,7 +309,7 @@ const routes = [
     path: '/drivers',
     props: true,
     name: 'drivers',
-    component:  Drivers
+    component:  Drivers,
   }, 
   {
     path: '/vehicle-reports',
@@ -687,12 +693,18 @@ const routes = [
     component:  viewEmployee
   },
   {
+    path: '/soon',
+    props: true,
+    name: 'soon',
+    component:  Soon
+  },
+  {
     path: '/redirect-me',
     redirect: '/dashbord',
   },
   {
     path: '*',
-    redirect: '/dashbord',
+    redirect: '/Dashboard',
   },
 ]
 

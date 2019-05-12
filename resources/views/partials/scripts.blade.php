@@ -193,16 +193,22 @@ $.widget.bridge('uibutton', $.ui.button);
 
         title : {
             show: true,
-            text: 'Offer Repports', 
+            text: 'رسوم الطلاب خلال العام', 
             textStyle:{
             color: '#73879c',
+            fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
             },
-            subtext: 'Offers Repports On Year',
+            // subtext: 'رسوم الطلاب خلال العام',
+
+            
             padding: [6, 10],
             itemGap: 10,
             left: 10,
         },
         tooltip : {
+            textStyle:{
+            fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
+            },
             trigger: 'item',
             axisPointer: {
             type: 'shadow',
@@ -215,7 +221,7 @@ $.widget.bridge('uibutton', $.ui.button);
             }
         },
         legend: {
-            data:['New Offer','Done Offer'],
+            data:[' طلاب تم سداد الرسوم',' طلاب لم يقوموا بسداد الرسوم'],
             type: 'scroll', // scroll, plain  Scrollable legend. It helps when too many legend items needed to be shown.
             show: true,
             orient : 'horizontal', // vertical  default => horizontal
@@ -228,19 +234,22 @@ $.widget.bridge('uibutton', $.ui.button);
             inactiveColor: '#DDD', // Legend color when not selected.
             textStyle: {
             fontWeight: 'bold', // default => normal
+            fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
             },
             data: [
             {
-                name: 'New Offer', //Name of legend, which should be the name value of a certain series. If it is a pie chart, legend name can also be the name of a single data item // compulsorily set icon as a circle
+                name: 'طلاب تم سداد الرسوم', //Name of legend, which should be the name value of a certain series. If it is a pie chart, legend name can also be the name of a single data item // compulsorily set icon as a circle
                 icon: 'roundRect', // Icon types provided by ECharts includes 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
                 textStyle: {
-                color: '#ffcc33'
+                color: '#ffcc33',
+                fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                 }
             },
             {
-                name: 'Done Offer',
+                name: ' طلاب لم يقوموا بسداد الرسوم',
                 icon: 'pin',
                 textStyle: {
+                fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'",
                 color: '#2f4554'
                 }
             },
@@ -353,13 +362,18 @@ $.widget.bridge('uibutton', $.ui.button);
                 'log' Log axis, suitable for log data.
 
             */
+                textStyle:{
+                    fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
+                },
                 type : 'category', 
                 data : ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec'],
+
+                // data : ['يناير','فبراير','مارس','ابريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],
             
                 show: true,
                 position: 'bottom',
                 offset: 10,  //Offset of x axis relative to default position. Useful when multiple x axis has same position value.
-                name: 'Month 0f the year',
+                // name: 'شهور السنة',
                 nameLocation: 'middle', //  'start' 'middle' or 'center'  'end'
                 nameGap: 30, //Gap between axis name and axis line.
                 nameRotate: 0, //Rotation of axis name.
@@ -421,11 +435,11 @@ $.widget.bridge('uibutton', $.ui.button);
         ],
         series : [
         {
-            name:'New Offer',
+            name:'طلاب تم سداد الرسوم',
             type:'bar',
             color: ['#ffcc33'],
             // '6'
-            data:[ 0,0,0,0,0,0,0,0,9,1,0,0, ],
+            data:[ 3,2,11,6,10,14,4,3,9,1,12,2],
             markPoint : {
             data : [
                 {type : 'max', name: 'maximum'},
@@ -438,14 +452,15 @@ $.widget.bridge('uibutton', $.ui.button);
             ]
             },
             textStyle: {
-                color: '#ffcc33'
+                color: '#ffcc33',
+                fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
             }
         },
         {
-            name:'Done Offer',
+            name:' طلاب لم يقوموا بسداد الرسوم',
             type:'bar',
             color: ['#2f4554'],
-            data:[ 0,0,0,0,0,0,0,0,3,0,0,0, ],
+            data:[ 2,8,10,13,16,7,9,12,3,3,8,5],
             markPoint : {
             data : [
                 {type : 'max', name: 'maximum'},
@@ -478,7 +493,8 @@ $.widget.bridge('uibutton', $.ui.button);
                 itemGap: 8,
                 textStyle: {
                     fontWeight: 'normal',
-                    color: '#408829'
+                    color: '#408829',
+                    fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                 }
             },
 
@@ -579,7 +595,8 @@ $.widget.bridge('uibutton', $.ui.button);
                         },
                         label: {
                             textStyle: {
-                                color: '#c12e34'
+                                color: '#c12e34',
+                                fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                             }
                         }
                     },
@@ -589,7 +606,8 @@ $.widget.bridge('uibutton', $.ui.button);
                         },
                         label: {
                             textStyle: {
-                                color: '#c12e34'
+                                color: '#c12e34',
+                                fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                             }
                         }
                     }
@@ -652,7 +670,8 @@ $.widget.bridge('uibutton', $.ui.button);
                 },
                 axisLabel: {
                     textStyle: {
-                        color: 'auto'
+                        color: 'auto',
+                        fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                     }
                 },
                 splitLine: {
@@ -667,17 +686,19 @@ $.widget.bridge('uibutton', $.ui.button);
                 },
                 title: {
                     textStyle: {
-                        color: '#333'
+                        color: '#333',
+                        fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                     }
                 },
                 detail: {
                     textStyle: {
-                        color: 'auto'
+                        color: 'auto',
+                        fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
                     }
                 }
             },
             textStyle: {
-                fontFamily: 'Arial, Verdana, sans-serif'
+                fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
             }
         };
     
@@ -744,8 +765,9 @@ $.widget.bridge('uibutton', $.ui.button);
                     position: 'center',
                     textStyle: {
                         fontSize: '14',
-                        fontWeight: 'normal'
-                    }
+                        fontWeight: 'normal',
+                        fontFamily: "'Helvetica Neue', 'Droid Sans', 'sans-serif'"
+                        }
                     }
                 }
                 },
@@ -777,7 +799,7 @@ $.widget.bridge('uibutton', $.ui.button);
         legend: {
             x: 'center',
             y: 'bottom',
-            data: ['مرحلة رياض الاطفال', 'المرحلة الابتدائية', 'المرحلة المتوسطة', 'rose4', 'rose5']
+            data: ['مرحلة رياض الاطفال', 'المرحلة الابتدائية', 'المرحلة المتوسطة']
         },
         toolbox: {
             show: true,
@@ -815,12 +837,6 @@ $.widget.bridge('uibutton', $.ui.button);
             }, {
             value: 15,
             name: 'المرحلة المتوسطة'
-            }, {
-            value: 25,
-            name: 'rose4'
-            }, {
-            value: 20,
-            name: 'rose5'
             }]
         }]
         });
