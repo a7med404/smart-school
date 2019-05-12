@@ -15,7 +15,7 @@ class CreateCutAllowancesTable extends Migration
     {
         Schema::create('cut_allowances', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->longText('name');
             $table->timestamps();
         });
     }

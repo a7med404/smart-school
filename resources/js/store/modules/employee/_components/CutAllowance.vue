@@ -87,7 +87,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label">اضافة مسمى خصومات او بدلات </label>
-                    <input class="form-control" placeholder="" type="text" name="name_ar">
+                    <input class="form-control" placeholder="" type="text" name="name_ar" v-model="cut_allowances.name">
                   </div>
                 </div>
               </div>
@@ -115,6 +115,15 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+         data(){ 
+          return {
+            edit: false,
+            cut_allowances: {
+              name      : '',  
+            },
+
+          }
+        },
     }
 </script>

@@ -27,7 +27,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="title"> اختيار الطالب:</div>
                 <fieldset class="form-group">
-                  <select class="form-control select2" name="parent">
+                  <select class="form-control select2" name="parent" v-model="student_id">
                     <option value="1">احمد ابراهيم</option>
                     <option value="0">انثي</option>
                   </select>
@@ -44,8 +44,14 @@
                   <div class="row">
                     <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                       <div class="form-group">
-                        <label class="control-label"> التاريخ</label>
-                        <input name="absence_date" type="text" class="form-control" id="datepicker" />
+                        <label class="control-label"> تاريخ البداية</label>
+                        <input name="absence_date" type="text" class="form-control" id="datepicker" v-model="attendance.absence_from"/>
+                      </div>
+                    </div>
+                    <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="form-group">
+                        <label class="control-label"> تاريخ النهاية</label>
+                        <input name="absence_date" type="text" class="form-control" id="datepicker" v-model="attendance.absence_to"/>
                       </div>
                     </div>
                   </div>
@@ -53,7 +59,7 @@
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                       <div class="form-group">
                         <label class="control-label">السبب</label>
-                        <textarea class="form-control" placeholder="" name="absence_reason"></textarea>
+                        <textarea class="form-control" placeholder="" name="absence_reason" v-model="attendance.absence_reason"></textarea>
                       </div>
                     </div>
                   </div>
@@ -108,6 +114,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+            return {
+              attendance: {
+                student_id       : '',
+                absence_from     : '',
+                absence_to       : '',
+                absence_reason   : ''
+              }
+            }
         }
-    }
+
+        }
 </script>

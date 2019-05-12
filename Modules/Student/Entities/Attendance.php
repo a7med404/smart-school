@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendance extends Model
 {
-    protected $fillable = ['absence_date', 'absence_reason'];
+    protected $fillable = [
+        'student_id',
+        'absence_from',
+        'absence_to',
+        'absence_reason'
+        ];
 }

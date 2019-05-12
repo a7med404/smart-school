@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Specialty extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
 }
