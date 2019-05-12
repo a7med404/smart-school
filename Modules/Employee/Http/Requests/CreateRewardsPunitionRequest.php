@@ -14,7 +14,14 @@ class CreateRewardsPunitionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'finance_year'                 => 'integer|required',
+            'date'                         => 'date|required',
+            'manage_id'                    => 'integer|required',
+            'dept_id'                      => 'integer|required',
+            'type'                         => 'boolean|required',
+            'emp_id'                       => 'integer|required',
+            'value'                        => 'float|required',
+            'reason'                       => 'longText|nullable'
         ];
     }
 

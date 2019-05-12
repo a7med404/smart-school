@@ -14,7 +14,8 @@ class CreateEmpPerissionNameRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'                 => 'string|required',
+            'discount'             => 'integer|required',
         ];
     }
 

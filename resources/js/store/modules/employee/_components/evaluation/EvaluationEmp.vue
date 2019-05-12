@@ -97,7 +97,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.education_level">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -107,7 +107,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
-                    <select class="form-control select2" name="evaluation_id">
+                    <select class="form-control select2" name="evaluation_id" v-model="evaluation_emp.dept_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -119,7 +119,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.emp_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -129,7 +129,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> عنصر التقييم </label>
-                    <select class="form-control select2" name="evaluation_id">
+                    <select class="form-control select2" name="evaluation_id" v-model="evaluation_emp.item_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -141,19 +141,19 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الدرجة الفعلية </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="evaluation_emp.real_degree">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> درجة التقييم </label>
-                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name_ar">
+                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name_ar" v-model="real_degree.degree">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="real_degree.date">
                   </div>
                 </div> 
               </div>     
@@ -181,6 +181,21 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+         data(){ 
+          return {
+            edit: false,
+            evaluation_emp:{
+              education_level           : '',
+              dept_id                   : '',
+              emp_id                    : '',
+              item_id                   : '',
+              real_degree               : '',
+              degree                    : '',
+              date                      : ''
+            }    
+
+          }
+        },
     }
 </script>

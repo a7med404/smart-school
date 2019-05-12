@@ -14,7 +14,7 @@ class CreateAddHolidayRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'                 => 'string|required'
         ];
     }
 

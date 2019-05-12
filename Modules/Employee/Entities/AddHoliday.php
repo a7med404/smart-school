@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AddHoliday extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
 }

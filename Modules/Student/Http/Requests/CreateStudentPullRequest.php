@@ -14,7 +14,9 @@ class CreateStudentPullRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sudent_id'                 => 'integer|required',
+            'pull_date'                 => 'date|required',
+            'reason'                    => 'longText|nullable'
         ];
     }
 

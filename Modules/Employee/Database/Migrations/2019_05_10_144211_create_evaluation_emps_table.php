@@ -15,7 +15,13 @@ class CreateEvaluationEmpsTable extends Migration
     {
         Schema::create('evaluation_emps', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->integer('education_level')->unsigned();
+            $table->integer('dept_id')->foreign()->references('id')->on('department');
+            $table->integer('emp_id')->foreign()->references('id')->on('employee');
+            $table->integer('item_id')->foreign()->references('id')->on('evaluationItem');
+            $table->integer('real_degree')->unsigned();
+            $table->integer('degree')->unsigned();
+            $table->date('date');
             $table->timestamps();
         });
     }

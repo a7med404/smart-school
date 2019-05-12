@@ -46,7 +46,7 @@
                         <div class="col col-lg-9 col-md-9 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> اسم الموظف كامل </label>
-                            <input class="form-control" placeholder="" type="text" v-model="employees.full_name">
+                            <input class="form-control" placeholder="" type="text" v-model="employee.full_name">
                           </div>
                         </div>
                       </div>
@@ -55,7 +55,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">النوع</label>
-                            <select class="form-control select2"  v-model="employees.gender">
+                            <select class="form-control select2"  v-model="employee.gender">
                               <option value="1">ذكر</option>
                               <option value="0">انثي</option>
                             </select>
@@ -64,7 +64,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">الديانة</label>
-                            <select class="form-control select2" v-model="employees.religion">
+                            <select class="form-control select2" v-model="employee.religion">
                               <option value="CA">الاسلام</option>
                               <option value="TE">المسيحية</option>
                               <option value="TE">اخرى</option>
@@ -74,7 +74,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ الميلاد</label>
-                            <input type="text" class="form-control" id="birthday" v-model="employees.birth_date"/>
+                            <input type="text" class="form-control" id="birthday" v-model="employee.birth_date"/>
                           </div>
                         </div>
                       </div>
@@ -85,13 +85,13 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> الرقم القومي / رقم الهوية </label>
-                            <input class="form-control" placeholder="" type="text" value="" v-model="employees.identification_number">
+                            <input class="form-control" placeholder="" type="text" value="" v-model="employee.identification_number">
                           </div>
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ انتهاء الرقم القومي / رقم الهوية</label>
-                            <input type="text" class="form-control" id="identifcation_expire" v-model="employees.nn_expired"/>
+                            <input type="text" class="form-control" id="identifcation_expire" v-model="employee.nn_expired"/>
                           </div>
                         </div>
                       </div>
@@ -100,7 +100,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">اسم الادارة</label>
-                            <select class="form-control select2" v-model="employees.manage_id">
+                            <select class="form-control select2" v-model="employee.manage_id">
                               <option value="CA">التعلبم</option>
                               <option value="TE">الثاني</option>
                               <option value="TE">الثالث</option>
@@ -110,7 +110,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">الشعبة التعليمية</label>
-                            <select class="form-control select2"  v-model="employees.dept_id">
+                            <select class="form-control select2"  v-model="employee.dept_id">
                               <option value="CA">اللغة العربية</option>
                               <option value="TE">2014/2015</option>
                               <option value="TE">2015/2016</option>
@@ -120,7 +120,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ التعيين</label>
-                            <input type="text" class="form-control" id="birthday" v-model="employees.hiring_date"/>
+                            <input type="text" class="form-control" id="birthday" v-model="employee.hiring_date"/>
                           </div>
                         </div>
                       </div>
@@ -129,13 +129,13 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                                 <label class="control-label"> المسمي الوظيفي </label>
-                                <input class="form-control" placeholder="" type="text" v-model="employees.job_title">
+                                <input class="form-control" placeholder="" type="text" v-model="employee.job_title">
                           </div>
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> الحالة الاجنماعية </label>
-                            <select class="form-control select2" name="martial" v-name="employees.martial_status">
+                            <select class="form-control select2" name="martial" v-name="employee.martial_status">
                                 <option value="CA">اختيار</option>
                                 <option value="TE">المسيحية</option>
                                 <option value="TE">اخرى</option>
@@ -145,7 +145,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ استلام العمل</label>
-                            <input type="text" class="form-control" id="birthday" v-model="employees.start_date"/>
+                            <input type="text" class="form-control" id="birthday" v-model="employee.start_date"/>
                           </div>
                         </div>
                       </div>
@@ -154,7 +154,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">المرحلة الذي الحق به الموظف</label>
-                            <select class="form-control select2" v-model="employees.emploee_level">
+                            <select class="form-control select2" v-model="employee.emploee_level">
                               <option value="CA">الاول</option>
                               <option value="TE">الثاني</option>
                               <option value="TE">الثالث</option>
@@ -164,7 +164,7 @@
                           <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">سنة </label>
-                            <select class="form-control select2"  v-model="employees.join_year">
+                            <select class="form-control select2"  v-model="employee.join_year">
                               <option value="CA">2013/2014</option>
                               <option value="TE">2014/2015</option>
                               <option value="TE">2015/2016</option>
@@ -178,7 +178,7 @@
                             <div class="form-group">
                                 <div class="btn btn-default btn-file">
                                     <label class="control-label"><i class="fa fa-paperclip"></i> الصىورة الشخصية </label>
-                                    <input class="form-control" placeholder="" type="file" :change="employees.picture">
+                                    <input class="form-control" placeholder="" type="file" :change="employee.picture">
                                 </div>
                                 <p class="help-block">Max. 4MB</p>
                             </div>
@@ -189,7 +189,7 @@
                         <div class="col col-lg-9 col-md-9 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">ملاحظة</label>
-                            <textarea class="form-control" placeholder="" v-model="employees.note"></textarea>
+                            <textarea class="form-control" placeholder="" v-model="employee.note"></textarea>
                           </div>
                         </div>
                       </div>
@@ -515,7 +515,7 @@
               insurance_number: '',
               health_status: ''
             },
-             employees: {
+             employee: {
               full_name:                 '',
               gender:                    '',
               religion:                  '',

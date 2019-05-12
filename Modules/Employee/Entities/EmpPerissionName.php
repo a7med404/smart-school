@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmpPerissionName extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'discount'
+    ];
 }

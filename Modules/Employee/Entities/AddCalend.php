@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class AddCalend extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'manage_id',
+        'dept_id',
+        'celand_name',
+        'date'
+    ];
 }
