@@ -85,7 +85,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الادارة  </label>
-                  <select class="form-control select2" v-model="empcalendroute_id">
+                  <select class="form-control select2" v-model="add_calend.manage_id">
                     	<option value="0">الادارة المدرسية</option>
                       <option value="1">الاداره التعليميه</option>
                       <option value="2">ادارة الحسابات </option>
@@ -96,7 +96,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم القسم </label>
-                  <select class="form-control select2" v-model="empcalendroute_id">
+                  <select class="form-control select2" v-model="add_calend.dept_id">
                     	<option value="0">المعلمين</option>
                       <option value="1">مخالفات متعلقة بنظام العمل</option>
                       <option value="2">مخالفات متعلقة بسلوك العمل </option>
@@ -109,7 +109,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">نوع المخالفة </label>
-                  <select class="form-control select2" v-model="empcalendroute_id">
+                  <select class="form-control select2" v-model="add_calend.celand_name">
                     	<option value="0">--اختر--</option>
                       <option value="1">مخالفات متعلقة بنظام العمل</option>
                       <option value="2">مخالفات متعلقة بسلوك العمل </option>
@@ -120,7 +120,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> التاريخ </label>
-                  <input class="form-control" placeholder="" type="text" v-model="empcalendname">
+                  <input class="form-control" placeholder="" type="text" v-model="add_calend.date">
                 </div>
               </div>
             </div>
@@ -174,11 +174,17 @@
             calends: {
               name                   : '',  
               route_id               : '',  
-              cost                 : '',  
+              cost                   : '',  
               study_lang             : '',  
               is_partner_son         : '',  
 
             },
+            add_calend:{
+              manage_id              : '',
+              dept_id                : '',
+              celand_name            : '',
+              date                   : ''
+            }    
 
           }
         },

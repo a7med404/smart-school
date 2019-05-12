@@ -90,13 +90,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الاسم </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="evaluation_item.name">
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> درجة التقييم </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="evaluation_item.degree">
                   </div>
                 </div>
               </div>
@@ -125,6 +125,16 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+        data(){ 
+          return {
+            edit: false,
+            evaluation_item:{
+              name              : '',
+              degree            : ''
+            }    
+
+          }
+        },
     }
 </script>

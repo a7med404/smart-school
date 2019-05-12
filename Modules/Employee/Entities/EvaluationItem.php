@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EvaluationItem extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'degree'
+    ];
 }

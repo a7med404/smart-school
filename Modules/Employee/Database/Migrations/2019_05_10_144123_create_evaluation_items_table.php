@@ -15,7 +15,8 @@ class CreateEvaluationItemsTable extends Migration
     {
         Schema::create('evaluation_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->longText('name')->unique();
+            $table->integer('degree');
             $table->timestamps();
         });
     }

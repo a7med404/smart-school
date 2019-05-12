@@ -98,7 +98,7 @@
                   <div class="form-group">
                     <label class="control-label">اختيار الطالب</label>
                     <fieldset>
-                      <select class="form-control select2" name="parent">
+                      <select class="form-control select2" name="parent" v-model="student_pull.student_id">
                         <option value="1">احمد ابراهيم</option>
                         <option value="0">انثي</option>
                       </select>
@@ -108,7 +108,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">التاريخ </label>
-                    <input name="date" type="text" class="form-control" id="datepicker" />
+                    <input name="date" type="text" class="form-control" id="datepicker" v-model="student_pull.pull_date" />
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@
                 <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">السبب</label>
-                    <textarea class="form-control" placeholder="" name="note"></textarea>
+                    <textarea class="form-control" placeholder="" name="note" v-model="student_pull.reason"></textarea>
                   </div>
                 </div>
               </div>
@@ -142,9 +142,19 @@
 
 <script>
     export default {
-        // mounted() {
-        //     console.log('Component mounted.')
-        // }
+        mounted() {
+            console.log('Component mounted.')
+        },
+        data(){ 
+            return {
+              student_pull: {
+                student_id       : '',
+                pull_date        : '',
+                reason           : '',
+              }
+            }
+        }
+
     }
 </script>
 

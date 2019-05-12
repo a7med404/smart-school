@@ -81,7 +81,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="progenitor.emp_id">
                       <option value="CA">اسم الموظف</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -91,7 +91,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> المبلغ </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="progenitor.amount">
                   </div>
                 </div>
               </div>
@@ -99,7 +99,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> السنة المالية </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="progenitor.financial_year">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -109,7 +109,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الخزنة </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="progenitor.safe_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -121,13 +121,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="progenitor.date">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> عدد الشهور </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="progenitor.months_number">
                   </div>
                 </div>  
               </div>   
@@ -135,7 +135,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظات</label>
-                    <textarea class="form-control" placeholder=""></textarea>
+                    <textarea class="form-control" placeholder="" v-model="progenitor.note"></textarea>
                   </div>
                 </div>
               </div>  
@@ -163,6 +163,21 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+         data(){ 
+          return {
+            edit: false,
+           progenitor:{
+              emp_id                    : '',
+              amount                    : '',
+              financial_year            : '',
+              safe_id                   : '',
+              date                      : '',
+              months_number             : '',
+              note                      : ''
+            }    
+
+          }
+        },
     }
 </script>

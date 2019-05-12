@@ -87,7 +87,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الاجازة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="add_holiday.name">
                   </div>
                 </div>
               </div>
@@ -116,6 +116,15 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+         data(){ 
+          return {
+            edit: false,
+          add_holiday:{
+              name              : '',
+            }    
+
+          }
+        },
     }
 </script>

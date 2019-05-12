@@ -15,7 +15,9 @@ class CreateFormalHolidaysTable extends Migration
     {
         Schema::create('formal_holidays', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->string('name')->unique();
+            $table->date('start');
+            $table->date('finish');
             $table->timestamps();
         });
     }

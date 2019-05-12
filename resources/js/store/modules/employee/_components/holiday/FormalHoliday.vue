@@ -93,7 +93,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المناسبة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="formal_holiday.name">
                   </div>
                 </div>
               </div>
@@ -101,13 +101,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> بداية الآجازة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="formal_holiday.start">
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> نهاية الآجازة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="formal_holiday.finish">
                   </div>
                 </div>
               </div>
@@ -136,6 +136,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+         data(){ 
+          return {
+            edit: false,
+           formal_holiday:{
+              name                    : '',
+              start                   : '',
+              finish                  : ''
+            }    
+
+          }
+        },
     }
 </script>

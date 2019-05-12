@@ -88,7 +88,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="emp_holiday.emp_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -100,7 +100,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> نوع الأجازة </label>
-                    <select class="form-control select2" name="classroom_id">
+                    <select class="form-control select2" name="classroom_id" v-model="emp_holiday.holiday_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -110,7 +110,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label">الرصيد </label>
-                    <input class="form-control" placeholder="" disabled value="10" type="text" name="name_ar">
+                    <input class="form-control" placeholder="" disabled value="10" type="text" name="name_ar" v-model="emp_holiday.balance">
                   </div>
                 </div> 
               </div>
@@ -118,13 +118,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ من  </label>
-                    <input class="form-control" placeholder="" value="" type="text" name="name_ar">
+                    <input class="form-control" placeholder="" value="" type="text" name="name_ar" v-model="emp_holiday.from">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label">التاريخ الي </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="emp_holiday.to">
                   </div>
                 </div> 
               </div>  
@@ -132,7 +132,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظة</label>
-                    <textarea class="form-control" placeholder=""></textarea>
+                    <textarea class="form-control" placeholder="" v-model="emp_holiday.note"></textarea>
                   </div>
                 </div>
               </div>   
@@ -160,6 +160,20 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+        data(){ 
+          return {
+            edit: false,
+           emp_holiday:{
+              emp_id                    : '',
+              holiday_id                : '',
+              balance                   : '',
+              from                      : '',
+              to                        : '',
+              note                      : ''
+            }    
+
+          }
+        },
     }
 </script>

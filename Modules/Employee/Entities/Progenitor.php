@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Progenitor extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'emp_id',
+        'amount',
+        'financial_year',
+        'safe_id',
+        'date',
+        'months_number',
+        'note'
+    ];
 }

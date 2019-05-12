@@ -14,7 +14,13 @@ class CreateProgenitorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'emp_id'                       => 'integer|required',
+            'amount'                       => 'float|required',
+            'financial_year'               => 'integer|required',
+            'safe_id'                      => 'integer|required' ,
+            'date'                         => 'date|required',
+            'months_number'                => 'integer|required',
+            'note'                         => 'longText|nullable' 
         ];
     }
 

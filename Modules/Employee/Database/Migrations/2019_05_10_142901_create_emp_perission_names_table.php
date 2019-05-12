@@ -15,7 +15,8 @@ class CreateEmpPerissionNamesTable extends Migration
     {
         Schema::create('emp_perission_names', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->string('name')-unique();
+            $table->float('discount');
             $table->timestamps();
         });
     }

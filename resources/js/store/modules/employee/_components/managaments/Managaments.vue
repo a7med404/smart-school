@@ -291,7 +291,7 @@
               <div class="col col-lg-6 col-md-5 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم التخصص</label>
-                  <input class="form-control" placeholder="" type="text" v-model="specialties.name">
+                  <input class="form-control" placeholder="" type="text" v-model="specialty.name">
                 </div>
               </div>
             </div>
@@ -331,7 +331,7 @@
               manage_id              : '',
               name                   : ''
             },
-            specialties:{
+            specialty:{
               name                   : ''
             },
             

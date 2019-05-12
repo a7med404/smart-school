@@ -104,7 +104,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> السنة المالية </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="rewards_punition.finance_year">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -114,7 +114,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="rewards_punition.date">
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الادارة </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="rewards_punition.manage_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -132,7 +132,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
-                    <select class="form-control select2" name="rewards_id">
+                    <select class="form-control select2" name="rewards_id" v-model="rewards_punition.dept_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -146,7 +146,7 @@
                     <label class="control-label"> النوع </label>
                     <div class="form-group">
                       <label>
-                        <input type="radio" name="type" class="flat-red" checked> مكافاة
+                        <input type="radio" name="type" class="flat-red" v-model="rewards_punition.type" checked> مكافاة
                       </label>
                       <label>
                         <input type="radio" name="type" class="flat-red"> خصم
@@ -159,7 +159,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="rewards_punition.emp_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -169,7 +169,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> القيمة </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="rewards_punition.value">
                   </div>
                 </div> 
               </div>    
@@ -178,7 +178,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">السبب</label>
-                    <textarea class="form-control" placeholder=""></textarea>
+                    <textarea class="form-control" placeholder="" v-model="rewards_punition.reason"></textarea>
                   </div>
                 </div>
               </div>
@@ -207,6 +207,22 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+         data(){ 
+          return {
+            edit: false,
+           rewards_punition:{
+              finance_year              : '',
+              date                      : '',
+              manage_id                 : '',
+              dept_id                   : '',
+              type                      : '',
+              emp_id                    : '',
+              value                     : '',
+              reason                    : ''
+            }    
+
+          }
+        },
     }
 </script>
