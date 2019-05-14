@@ -97,8 +97,11 @@
                   <label class="control-label">اسم الخط</label>
                   <select class="form-control select2" v-model="student.religion">
                     <option value="CA">الخرطوم</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option value="TE">بحري</option>
+                    <option value="TE">امدرمان</option>
+                    <option value="TE">شرق النيل</option>
+                    <option value="TE">كرري</option>
+                    <option value="TE">امبدة</option>
                   </select>
                 </div>
               </div>
@@ -124,9 +127,11 @@
                 <div class="form-group">
                   <label class="control-label">السايق</label>
                   <select class="form-control select2" v-model="student.religion">
-                    <option value="CA">الاسلام</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option value="CA">احمد عبد الله علي جادين</option>
+                    <option value="TE">محمد مصطفى عبدلقادر</option>
+                    <option value="TE">عبد الرحمن احمد عادل</option>
+                    <option value="CA">عوض الله خضر علي جبر الدار</option>
+                    <option value="TE"> نادر حمدي زيدان هادي </option>
                   </select>
                 </div>
               </div>
@@ -134,9 +139,11 @@
                 <div class="form-group">
                   <label class="control-label">المشرف</label>
                   <select class="form-control select2" v-model="student.religion">
-                    <option value="CA">الاسلام</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option value="CA">احمد عباس محمد</option>
+                    <option value="TE">علي كوكو محمد بشير</option>
+                    <option value="TE">عباس محمد خضر علي</option>
+                    <option value="TE">  محمد الحافظ زين العابدين </option>
+                    <option value="TE">عبد الله جاد الله بعاس   </option>
                   </select>
                 </div>
               </div>

@@ -27,8 +27,12 @@
                 <div class="form-group">
                   <label class="control-label">  الطالب</label>
                   <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                        <option value="1">الكل</option>
+                        <option value="1">احمد عبد الله احمد علي</option>
+                        <option value="0">محمد سيد علي السيد</option>
+                        <option value="1">الفاضل محمد عثمان بلال</option>
+                        <option value="0">ياسر عمار محمد ادم</option>
+                        <option value="0">هاني عمار محمد ادم</option>
                   </select>
                 </div>
               </div>
@@ -37,7 +41,11 @@
                   <label class="control-label">  السنة المالية</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="0">2010</option>
+                    <option value="0">2011</option>
+                    <option value="0">2012</option>
+                    <option value="0">2013</option>
+                    <option value="0">2014</option>
                   </select>
                 </div>
               </div>
@@ -46,7 +54,12 @@
                   <label class="control-label">  العام الدراسي</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">الكل</option>
+                    <option value="0">2010-2011</option>
+                    <option value="0">2011-2012</option>
+                    <option value="0">2012-2013</option>
+                    <option value="0">2013-2014</option>
+                    <option value="0">2014-2015</option>
                   </select>
                 </div>
               </div>

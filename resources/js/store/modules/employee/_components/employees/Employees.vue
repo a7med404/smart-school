@@ -159,8 +159,8 @@
                             <label class="control-label">اسم الادارة</label>
                             <select class="form-control select2" v-model="student.start_from">
                               <option value="CA">التعلبم</option>
-                              <option value="TE">الثاني</option>
-                              <option value="TE">الثالث</option>
+                              <option value="TE">الحسابات</option>
+                              <option value="TE">شؤون الموظفين</option>
                             </select>
                           </div>
                         </div>
@@ -168,9 +168,9 @@
                           <div class="form-group">
                             <label class="control-label">التخصص</label>
                             <select class="form-control select2"  v-model="student.start_year">
-                              <option value="CA">اللغة العربية</option>
-                              <option value="TE">2014/2015</option>
-                              <option value="TE">2015/2016</option>
+                              <option value="CA">مدرس</option>
+                              <option value="TE">موظف</option>
+                              <option value="TE">عامل</option>
                             </select>
                           </div>
                         </div>
@@ -193,9 +193,9 @@
                           <div class="form-group">
                             <label class="control-label"> الحالة الاجنماعية </label>
                             <select class="form-control select2" name="martial">
-                                <option value="CA">اختيار</option>
-                                <option value="TE">المسيحية</option>
-                                <option value="TE">اخرى</option>
+                                <option value="CA">عازب</option>
+                                <option value="TE">متزوج</option>
+                                <option value="TE">مطلق</option>
                             </select>
                           </div>
                         </div>
@@ -212,9 +212,9 @@
                           <div class="form-group">
                             <label class="control-label">المرحلة الذي الحق به الموظف</label>
                             <select class="form-control select2" v-model="student.start_from">
-                              <option value="CA">الاول</option>
-                              <option value="TE">الثاني</option>
-                              <option value="TE">الثالث</option>
+                              <option value="CA">حضانة</option>
+                              <option value="TE">اساس</option>
+                              <option value="TE">ثانوي</option>
                             </select>
                           </div>
                         </div>
@@ -287,7 +287,8 @@
                           <label class="control-label">المدينة</label>
                           <select class="form-control select2" v-model="address.city">
                             <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="0">بحري</option>
+                            <option value="0">امدرمان</option>
                           </select>
                         </div>
                       </div>
@@ -296,7 +297,11 @@
                           <label class="control-label">المحلية</label>
                           <select class="form-control select2" v-model="address.local">
                             <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="0">جبل اولياء</option>
+                            <option value="1">شرق النيل</option>
+                            <option value="0">امدرمان</option>
+                            <option value="0">كرري</option>
+                            <option value="0">الثورة</option>
                           </select>
                         </div>
                       </div>
@@ -375,7 +380,11 @@
                           <label class="control-label"> النوع </label>
                           <select class="form-control select2" v-model="health.blood_type">
                             <option value="1">بكالوريوس</option>
-                            <option value="0">انثي</option>
+                            <option value="0">دبلوم</option>
+                            <option value="1">بكالوريوس شرف</option>
+                            <option value="0"> دبلوم عالي</option>
+                            <option value="1"> ماجستير</option>
+                            <option value="0"> دكتوراة </option>
                           </select>
                         </div>
                       </div>
@@ -392,7 +401,9 @@
                           <label class="control-label"> التقدير </label>
                           <select class="form-control select2" v-model="health.blood_type">
                             <option value="1">امتياز</option>
-                            <option value="0">انثي</option>
+                            <option value="0">جيد جدا</option>
+                            <option value="1">جيد</option>
+                            <option value="0">مقبول </option>
                           </select>
                         </div>
                       </div>
@@ -411,6 +422,8 @@
                           <select class="form-control select2" v-model="health.blood_type">
                             <option value="1">1</option>
                             <option value="2">2</option>
+                            <option value="1">3</option>
+                            <option value="2">اكثر</option>
                           </select>
                         </div>
                       </div>

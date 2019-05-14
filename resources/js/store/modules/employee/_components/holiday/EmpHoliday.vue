@@ -89,9 +89,10 @@
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
                     <select class="form-control select2" name="level_id" v-model="emp_holiday.emp_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                    <option value="1">احمد محمد احمد علي</option>
+                    <option value="0">عباس الخير عبد الرحمن محمد</option>
+                    <option value="1">الفاضل محمد عثمان بلال</option>
+                    <option value="0">معتز احمد محمد حنفي</option>
                     </select>
                   </div>
                 </div>
@@ -101,9 +102,10 @@
                   <div class="form-group">
                     <label class="control-label"> نوع الأجازة </label>
                     <select class="form-control select2" name="classroom_id" v-model="emp_holiday.holiday_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">سنوية</option>
+                      <option value="TE">مرضية</option>
+                      <option value="TE">طارئة</option>
+                      <option value="TE">سفر</option>
                     </select>
                   </div>
                 </div>

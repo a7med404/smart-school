@@ -60,7 +60,8 @@
                     <label class="control-label">صلة القرابة</label>
                     <select class="form-control select2" name="relation">
                       <option value="1">اب</option>
-                      <option value="0">انثي</option>
+                      <option value="0">عم</option>
+                      <option value="0">خال</option>
                     </select>
                   </div>
                 </div>
@@ -68,9 +69,9 @@
                   <div class="form-group">
                     <label class="control-label">الجنسية</label>
                     <select class="form-control select2" name="nationality">
-                      <option value="CA">الاسلام</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">السودان</option>
+                      <option value="TE">مصر</option>
+                      <option value="TE">جنوب السودان</option>
                     </select>
                   </div>
                 </div>
@@ -110,9 +111,9 @@
                   <div class="form-group">
                     <label class="control-label"> الحالة الاجنماعية </label>
                     <select class="form-control select2" name="martial">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">عازب</option>
+                      <option value="TE">متزوج</option>
+                      <option value="TE">مطلق</option>
                     </select>
                   </div>
                 </div>

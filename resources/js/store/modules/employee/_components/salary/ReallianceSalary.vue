@@ -27,8 +27,12 @@
                 <div class="form-group">
                   <label class="control-label">السنة المالية</label>
                   <select class="form-control select2">
-                    <option value="1">2018-2019</option>
-                    <option value="0">انثي</option>
+                      <option value="CA">2010</option>
+                      <option value="TE">2011</option>
+                      <option value="TE">2012</option>
+                      <option value="CA">2013</option>
+                      <option value="TE">2014</option>
+                      <option value="TE">2015</option>
                   </select>
                 </div>
               </div>
@@ -36,8 +40,9 @@
                 <div class="form-group">
                   <label class="control-label">الادارة</label>
                   <select class="form-control select2">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
+                      <option value="CA">التعلبم</option>
+                      <option value="TE">الحسابات</option>
+                      <option value="TE">شؤون الموظفين</option>
                   </select>
                 </div>
               </div>
@@ -47,8 +52,9 @@
                 <div class="form-group">
                   <label class="control-label"> القسم</label>
                   <select class="form-control select2">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
+                      <option value="CA">اداري</option>
+                      <option value="TE">معلم</option>
+                      <option value="TE">عامل</option>
                   </select>
                 </div>
               </div>

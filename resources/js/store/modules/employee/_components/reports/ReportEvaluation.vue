@@ -27,8 +27,9 @@
                 <div class="form-group">
                   <label class="control-label">الادارة التعليمية</label>
                   <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="CA">التعلبم</option>
+                    <option value="TE">الحسابات</option>
+                    <option value="TE">شؤون الموظفين</option>
                   </select>
                 </div>
               </div>
@@ -36,8 +37,9 @@
                 <div class="form-group">
                   <label class="control-label">اسم القسم</label>
                   <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">شؤون الموظفين</option>
+                    <option value="0">معلمين</option>
+                    <option value="0">موظفين</option>
                   </select>
                 </div>
               </div>
@@ -48,7 +50,10 @@
                   <label class="control-label">اسم الموظف</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">احمد محمد احمد علي</option>
+                    <option value="0">عباس الخير عبد الرحمن محمد</option>
+                    <option value="1">الفاضل محمد عثمان بلال</option>
+                    <option value="0">معتز احمد محمد حنفي</option>
                   </select>
                 </div>
               </div>
