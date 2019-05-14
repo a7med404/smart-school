@@ -183,7 +183,7 @@
                 <!-- PRODUCT LIST -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                    <h3 class="box-title">Recently Added</h3>
+                    <h3 class="box-title">اخر 5 عمليات مالية</h3>
 
                     <div class="box-tools pull-left">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -199,10 +199,10 @@
                             <img src="modules/master/images/default-50x50.gif" alt="Product Image">
                         </div>
                         <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">Samsung TV
-                            <span class="label label-warning pull-left">$1800</span></a>
+                            <a href="javascript:void(0)" class="product-title">ابراهيم السيد
+                            <span class="label label-success pull-left">399</span></a>
                                 <span class="product-description">
-                                Samsung 32" 1080p 60Hz LED Smart HDTV.
+                                دفع رسوم التسجيل 
                                 </span>
                         </div>
                         </li>
@@ -212,10 +212,10 @@
                             <img src="modules/master/images/default-50x50.gif" alt="Product Image">
                         </div>
                         <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">Bicycle
-                            <span class="label label-info pull-left">$700</span></a>
+                            <a href="javascript:void(0)" class="product-title">محمد ابراهيم 
+                            <span class="label label-warning pull-left">1800</span></a>
                                 <span class="product-description">
-                                26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                                دفع رسوم تعليمية للطالب ابراهيم السيد 
                                 </span>
                         </div>
                         </li>
@@ -225,9 +225,10 @@
                             <img src="modules/master/images/default-50x50.gif" alt="Product Image">
                         </div>
                         <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">Xbox One <span class="label label-danger pull-left">$350</span></a>
+                            <a href="javascript:void(0)" class="product-title">ابراهيم السيد
+                            <span class="label label-info pull-left">700</span></a>
                                 <span class="product-description">
-                                Xbox One Console Bundle with Halo Master Chief Collection.
+                                اخذ مكافة ايمان السيد ابو العلا 
                                 </span>
                         </div>
                         </li>
@@ -237,10 +238,9 @@
                             <img src="modules/master/images/default-50x50.gif" alt="Product Image">
                         </div>
                         <div class="product-info">
-                            <a href="javascript:void(0)" class="product-title">PlayStation 4
-                            <span class="label label-success pull-left">$399</span></a>
+                            <a href="javascript:void(0)" class="product-title"> السيد ابو العلا <span class="label label-danger pull-left">350</span></a>
                                 <span class="product-description">
-                                PlayStation 4 500GB Console (PS4)
+                                اخذ سٌلف ايمان السيد ابو العلا 
                                 </span>
                         </div>
                         </li>
@@ -318,59 +318,59 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                            <td>Call of Duty IV</td>
-                            <td><span class="label label-success">Shipped</span></td>
+                            <td><a href="pages/examples/invoice.html">ايمان السيد ابو العلا</a></td>
+                            <td>450 ج.س</td>
+                            <td><span class="label label-success">رسوم تعليمية</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                            <div class="sparkbar" data-color="#00a65a" data-height="20">10/03/2019 12:00:00 ص</div>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                            <td>Samsung Smart TV</td>
-                            <td><span class="label label-warning">Pending</span></td>
+                            <td><a href="pages/examples/invoice.html">ايمان السيد ابو العلا</a></td>
+                            <td>5000 ج.س</td>
+                            <td><span class="label label-warning">زي مدرسي</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                            <div class="sparkbar" data-color="#f39c12" data-height="20">3/03/2019 12:00:00 ص</div>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                            <td>iPhone 6 Plus</td>
-                            <td><span class="label label-danger">Delivered</span></td>
+                            <td><a href="pages/examples/invoice.html">محمد ابراهيم ابراهيم السيد</a></td>
+                            <td>600 ج.س</td>
+                            <td><span class="label label-danger">كتب</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                            <div class="sparkbar" data-color="#f56954" data-height="20">20/03/2019 7:00:00 ص</div>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                            <td>Samsung Smart TV</td>
-                            <td><span class="label label-info">Processing</span></td>
+                            <td><a href="pages/examples/invoice.html">السيد ابو العل</a></td>
+                            <td>70 ج.س</td>
+                            <td><span class="label label-info">مصروفات عامة</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
+                            <div class="sparkbar" data-color="#00c0ef" data-height="20">20/03/2019 12:00:00 ص</div>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                            <td>Samsung Smart TV</td>
-                            <td><span class="label label-warning">Pending</span></td>
+                            <td><a href="pages/examples/invoice.html"> ابراهيم ابراهيم السيد</a></td>
+                            <td>3000 ج.س</td>
+                            <td><span class="label label-warning">زي مدرسي</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                            <div class="sparkbar" data-color="#f39c12" data-height="20">20/03/2019 12:00:00 ص</div>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                            <td>iPhone 6 Plus</td>
-                            <td><span class="label label-danger">Delivered</span></td>
+                            <td><a href="pages/examples/invoice.html">ابراهيم السيد</a></td>
+                            <td>200 ج.س</td>
+                            <td><span class="label label-danger">كتب</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                            <div class="sparkbar" data-color="#f56954" data-height="20">20/03/2019 12:00:00 ص</div>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                            <td>Call of Duty IV</td>
-                            <td><span class="label label-success">Shipped</span></td>
+                            <td><a href="pages/examples/invoice.html">السيد ابو العل</a></td>
+                            <td>500 ج.س</td>
+                            <td><span class="label label-success">رسوم تعليمية</span></td>
                             <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                            <div class="sparkbar" data-color="#00a65a" data-height="20">20/03/2019 12:00:00 ص</div>
                             </td>
                         </tr>
                         </tbody>
@@ -389,7 +389,7 @@
                 <!-- USERS LIST -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                    <h3 class="box-title">النشطون حاليا</h3>
+                    <h3 class="box-title"> الموظفين النشطون حاليا</h3>
 
                     <div class="box-tools pull-right">
                         <span class="label label-danger"> 8 </span>
@@ -413,11 +413,6 @@
                         <span class="users-list-date">Yesterday</span>
                         </li>
                         <li>
-                        <img src="modules/master/images/user7-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Jane</a>
-                        <span class="users-list-date">12 Jan</span>
-                        </li>
-                        <li>
                         <img src="modules/master/images/user6-128x128.jpg" alt="User Image">
                         <a class="users-list-name" href="#">John</a>
                         <span class="users-list-date">12 Jan</span>
@@ -426,21 +421,6 @@
                         <img src="modules/master/images/user2-160x160.jpg" alt="User Image">
                         <a class="users-list-name" href="#">Alexander</a>
                         <span class="users-list-date">13 Jan</span>
-                        </li>
-                        <li>
-                        <img src="modules/master/images/user5-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Sarah</a>
-                        <span class="users-list-date">14 Jan</span>
-                        </li>
-                        <li>
-                        <img src="modules/master/images/user4-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Nora</a>
-                        <span class="users-list-date">15 Jan</span>
-                        </li>
-                        <li>
-                        <img src="modules/master/images/user3-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Nadia</a>
-                        <span class="users-list-date">15 Jan</span>
                         </li>
                     </ul>
                     <!-- /.users-list -->

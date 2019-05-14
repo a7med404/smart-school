@@ -30,7 +30,7 @@
                   <th>اسم الموظف</th>
                   <th> التاريخ من</th>
                   <th> التاريخ الي</th>
-                  <th>عدد ايام الغياب</th>
+                  <th>عدد بايام الغيا</th>
                   <th>ملاحظات</th>
                   <th>options</th>
               </tr>
@@ -38,11 +38,11 @@
             <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>500</td>
+                  <td>محمد ابراهيم ابراهيم السيد</td>
+                  <td>10/10/2019</td>
+                  <td>13/10/2019</td>
+                  <td>3</td>
+                  <td>حالة وفاة</td>
                   <td>
                     <div class="btn-group">
                       <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -53,11 +53,11 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>1500</td>
+                  <td>ابراهيم السيد</td>
+                  <td>10/10/2019</td>
+                  <td>15/10/2019</td>
+                  <td>5</td>
+                  <td>...</td>
                   <td>
                     <div class="btn-group">
                       <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

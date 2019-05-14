@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><a href="#" class="">بدل انتقال</a></td>
+                            <td><a href="#" class="">بدل سكن</a></td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

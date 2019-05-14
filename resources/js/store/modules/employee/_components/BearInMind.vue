@@ -44,7 +44,7 @@
                           <td>1</td>
                           <td><a href="#" class="">محمد ابراهيم ابراهيم السيد</a></td>
                           <td><a href="#" class="">10/10/2019</a></td>
-                          <td><a href="#" class="">10/10/2019</a></td>
+                          <td><a href="#" class="">التواجد دون مبرر في غير مكان العمل</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -55,9 +55,9 @@
                       </tr>
                       <tr>
                           <td>2</td>
-                          <td><a href="#" class=""> محمد ابراهيم ابراهيم السيد</a></td>
+                          <td><a href="#" class=""> السيد ابراهيم  </a></td>
                           <td><a href="#" class="">10/10/2019</a></td>
-                          <td><a href="#" class="">10/10/2019</a></td>
+                          <td><a href="#" class="">التواجد دون مبرر في غير مكان العمل</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

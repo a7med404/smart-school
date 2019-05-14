@@ -109,7 +109,7 @@
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
-                            <label class="control-label">الشعبة التعليمية</label>
+                            <label class="control-label">التخصص</label>
                             <select class="form-control select2"  v-model="employee.dept_id">
                               <option value="CA">اللغة العربية</option>
                               <option value="TE">2014/2015</option>

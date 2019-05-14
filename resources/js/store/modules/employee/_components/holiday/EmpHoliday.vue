@@ -39,11 +39,11 @@
             <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td><a href="#" class="">Description</a></td>
+                  <td> علي اسامة</td>
+                  <td>30/03/2019</td>
+                  <td>29/03/2019</td>
+                  <td>أجازة الحج والعمرة</td>
+                  <td><a href="#" class="">لا يوجد</a></td>
                   <td>
                     <div class="btn-group">
                         <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -54,11 +54,11 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td><a href="#" class="">Description</a></td>
+                  <td>محمد علي اسامة</td>
+                  <td>29/03/2019</td>
+                  <td>30/03/2019</td>
+                  <td>أجازة الحج</td>
+                  <td><a href="#" class="">لا يوجد</a></td>
                   <td>
                     <div class="btn-group">
                         <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

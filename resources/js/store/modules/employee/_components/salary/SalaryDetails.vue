@@ -53,40 +53,40 @@
                       <tbody>
                           <tr>
                               <td>1</td>
+                              <td>محمد علي اسام</td>
+                              <td>معلم رياضيات	</td>
+                              <td>1000</td>
+                              <td>50.00</td>
+                              <td>4000.00	</td>
+                              <td>0</td>
+                              <td>3625.00</td>
+                              <td>5510.00</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>200.00</td>
                               <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
+                              <td>5090.00 </td>
                               <td>
                                 <a class="btn btn-info" href="#">طباعة</a>
                               </td>
                           </tr>
                           <tr>
                               <td>2</td>
+                              <td>محمد ابراهيم ابراهيم السيد</td>
+                              <td>مدير</td>
+                              <td>7200</td>
+                              <td>50.00</td>
+                              <td>9135.00	</td>
+                              <td>0</td>
+                              <td>325.00 </td>
+                              <td>2510.00</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
                               <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
-                              <td>Description</td>
+                              <td>4290.00 </td>
                               <td>
                                 <a class="btn btn-info" href="#">طباعة</a>
                               </td>

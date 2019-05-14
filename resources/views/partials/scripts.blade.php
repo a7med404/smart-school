@@ -340,8 +340,8 @@ $.widget.bridge('uibutton', $.ui.button);
             saveAsImage : {
                 show: true,
                 type: 'jpeg', 
-                title: 'Save Image As',
-                // pixelRatio: 55, // Resolution ratio to save image, whose default value is that of the container. Values larger than 1 (e.g.: 2) is supported when you need higher resolution.
+                title: 'حفظ صورة As',
+                // pixelRatio: 55, // Resolution ratio to حفظ صورة, whose default value is that of the container. Values larger than 1 (e.g.: 2) is supported when you need higher resolution.
             }
             }
         },
@@ -742,7 +742,7 @@ $.widget.bridge('uibutton', $.ui.button);
                 },
                 saveAsImage: {
                     show: true,
-                    title: "Save Image"
+                    title: "حفظ صورة"
                 }
                 }
             },
@@ -773,11 +773,11 @@ $.widget.bridge('uibutton', $.ui.button);
                 },
                 data: [
                     {
-                    value: '12',
-                    name: 'الذكور (12)',
+                    value: '1200',
+                    name: 'الذكور (1200)',
                     }, {
-                    value: '4',
-                    name: 'الاناث (4)'
+                    value: '400',
+                    name: 'الاناث (400)'
                     }
                 ]
             }]
@@ -799,7 +799,7 @@ $.widget.bridge('uibutton', $.ui.button);
         legend: {
             x: 'center',
             y: 'bottom',
-            data: ['مرحلة رياض الاطفال', 'المرحلة الابتدائية', 'المرحلة المتوسطة']
+            data: ['مرحلة رياض الاطفال', 'المرحلة الاساسية', 'المرحلة الثانوية']
         },
         toolbox: {
             show: true,
@@ -814,7 +814,7 @@ $.widget.bridge('uibutton', $.ui.button);
             },
             saveAsImage: {
                 show: true,
-                title: "Save Image"
+                title: "حفظ صورة"
             }
             }
         },
@@ -826,17 +826,17 @@ $.widget.bridge('uibutton', $.ui.button);
             center: ['50%', 170],
             roseType: 'area',
             x: '50%',
-            max: 40,
+            max: 800,
             sort: 'ascending',
             data: [{
-            value: 10,
+            value: 110,
             name: 'مرحلة رياض الاطفال'
             }, {
-            value: 5,
-            name: 'المرحلة الابتدائية'
+            value: 800,
+            name: 'المرحلة الاساسية'
             }, {
-            value: 15,
-            name: 'المرحلة المتوسطة'
+            value: 500,
+            name: 'المرحلة الثانوية'
             }]
         }]
         });
@@ -880,7 +880,7 @@ $.widget.bridge('uibutton', $.ui.button);
             },
             saveAsImage: {
                 show: true,
-                title: "Save Image"
+                title: "حفظ صورة"
             }
             }
         },
@@ -976,7 +976,7 @@ $.widget.bridge('uibutton', $.ui.button);
             },
             saveAsImage: {
                 show: true,
-                title: "Save Image"
+                title: "حفظ صورة"
             }
             }
         },
@@ -1060,7 +1060,7 @@ $.widget.bridge('uibutton', $.ui.button);
                 },
                 saveAsImage: {
                     show: true,
-                    title: "Save Image"
+                    title: "حفظ صورة"
                 }
             }
         },
@@ -1140,7 +1140,7 @@ $.widget.bridge('uibutton', $.ui.button);
             },
             saveAsImage: {
                 show: true,
-                title: "Save Image"
+                title: "حفظ صورة"
             }
             }
         },
@@ -1227,7 +1227,7 @@ $.widget.bridge('uibutton', $.ui.button);
             },
             saveAsImage: {
                 show: true,
-                title: "Save Image"
+                title: "حفظ صورة"
             }
             }
         },

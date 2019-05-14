@@ -172,14 +172,15 @@
         </div>
         <div class="modal-body">
           <!-- Personal Information Form  -->
-          <form role="form" @submit.prevent = "edit ? updatecalends(calends.id) : createcalends()">
+          <!-- <form role="form" @submit.prevent = "edit ? updatecalends(calends.id) : createcalends()"> -->
+          <form role="form">
 
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">نوع المخالفة </label>
-                  <select class="form-control select2" v-model="calends.route_id">
-                    	<option value="0">--اختر--</option>
+                  <select class="form-control select2" v-model="calend.type">
+                    	<option value="0" selected>--اختر--</option>
                       <option value="1">مخالفات متعلقة بنظام العمل</option>
                       <option value="2">مخالفات متعلقة بسلوك العمل </option>
                       <option value="3">مخالفات متعلقة بمواعيد العمل</option>
@@ -231,6 +232,7 @@
           return {
             edit: false,
             calend: {
+              type                   : '',
               name                   : '',  
               discount_percentage    : '' 
             },

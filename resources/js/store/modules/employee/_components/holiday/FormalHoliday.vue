@@ -55,9 +55,9 @@
                       </tr>
                       <tr>
                           <td>2</td>
-                          <td><a href="#" class=""> عيد الاضحي</a></td>
+                          <td><a href="#" class=""> عيد الفطر المبارك</a></td>
                           <td><a href="#" class="">10/10/2019</a></td>
-                          <td><a href="#" class="">10/10/2019</a></td>
+                          <td><a href="#" class="">25/10/2019</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

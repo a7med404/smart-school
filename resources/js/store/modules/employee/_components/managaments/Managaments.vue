@@ -4,7 +4,7 @@
     <section class="content-header">
       <h1>
         الهيكل الاداري 
-        <small>13 new messages</small>
+        <!-- <small>13 new messages</small> -->
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
@@ -54,7 +54,7 @@
                           <tbody>
                               <tr>
                                 <td>1</td>
-                                <td>Description</td>
+                                <td>ادارة الحسابات</td>
                                 <td>
                                   <div class="btn-group">
                                     <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -65,7 +65,7 @@
                               </tr>
                               <tr>
                                 <td>2</td>
-                                <td>Description</td>
+                                <td>الادارة التعليمية</td>
                                 <td>
                                   <div class="btn-group">
                                     <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -102,8 +102,8 @@
                           <tbody>
                               <tr>
                                 <td>1</td>
-                                <td>Description</td>
-                                <td>Description</td>
+                                <td>الادارة التعليمية</td>
+                                <td>المعلمين</td>
                                 <td>
                                   <div class="btn-group">
                                     <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -114,8 +114,8 @@
                               </tr>
                               <tr>
                                 <td>2</td>
-                                <td>Description</td>
-                                <td>Description</td>
+                                <td>ادارة الحسابات</td>
+                                <td>قسم الحسابات العامة</td>
                                 <td>
                                   <div class="btn-group">
                                     <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -150,7 +150,7 @@
                           <tbody>
                               <tr>
                                 <td>1</td>
-                                <td>Description</td>
+                                <td>مدرس انجليزى</td>
                                 <td>
                                   <div class="btn-group">
                                     <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -161,7 +161,29 @@
                               </tr>
                               <tr>
                                 <td>2</td>
-                                <td>Description</td>
+                                <td>وكيل مالى وإدارى</td>
+                                <td>
+                                  <div class="btn-group">
+                                    <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
+                                    <a class="btn btn-info" type="button" data-toggle="modal" data-target="#popup-add-vehicle"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td>وكيل شئون مالية وحسابات</td>
+                                <td>
+                                  <div class="btn-group">
+                                    <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
+                                    <a class="btn btn-info" type="button" data-toggle="modal" data-target="#popup-add-vehicle"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>4</td>
+                                <td>مشرف رياض أطفال</td>
                                 <td>
                                   <div class="btn-group">
                                     <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>

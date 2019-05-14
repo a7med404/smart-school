@@ -38,8 +38,8 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
+                      <td>محمد ابراهيم ابراهيم السيد</td>
+                      <td>معلمين</td>
                       <td>Description</td>
                       <td>Description</td>
                       <td>Description</td>
@@ -53,7 +53,7 @@
                   </tr>
                   <tr>
                       <td>Description</td>
-                      <td>Description</td>
+                      <td>معلمين</td>
                       <td>Description</td>
                       <td>Description</td>
                       <td>Description</td>
@@ -166,7 +166,7 @@
                         </div>
                         <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                           <div class="form-group">
-                            <label class="control-label">الشعبة التعليمية</label>
+                            <label class="control-label">التخصص</label>
                             <select class="form-control select2"  v-model="student.start_year">
                               <option value="CA">اللغة العربية</option>
                               <option value="TE">2014/2015</option>

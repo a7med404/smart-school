@@ -50,9 +50,9 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>ابراهيم السيد</td>
+                  <td>22/5/2012</td>
+                  <td>التحريض على مخالفة الأوامر والتعليمات الخطية الخاصة بالعمل</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-calends', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -89,7 +89,6 @@
                     	<option value="0">الادارة المدرسية</option>
                       <option value="1">الاداره التعليميه</option>
                       <option value="2">ادارة الحسابات </option>
-                      <option value="3">مخالفات متعلقة بمواعيد العمل</option>
                   </select>
                 </div>
               </div>
