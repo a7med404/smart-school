@@ -43,8 +43,8 @@
                   <tbody>
                       <tr>
                           <td>1</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>هاني عمار محمد ادم</td>
+                          <td>27/03/2019 06:39:44 م</td>
                           <td>ظروف مرضية</td>
                           <td>
                               <div class="btn-group">
@@ -56,9 +56,9 @@
                       </tr>
                       <tr>
                           <td>2</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>محمد سيد علي السيد</td>
+                          <td>27/03/2019 06:39:44 م</td>
+                          <td>ظروف مرضية</td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

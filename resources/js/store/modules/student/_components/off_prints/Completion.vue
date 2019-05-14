@@ -30,7 +30,7 @@
           </a>
           <div class="row">
             <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
+              <table class="table table-striped table-bordered table-hover full-width" id="table_id">
                   <thead>
                       <tr>
                           <th>#ID</th>
@@ -43,9 +43,9 @@
                   <tbody>
                       <tr>
                           <td>1</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>هاني عمار محمد ادم</td>
+                          <td>27/03/2019</td>
+                          <td><a href="#" class="">shahab</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -56,9 +56,9 @@
                       </tr>
                       <tr>
                           <td>2</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td> عمار محمد ادم</td>
+                          <td>25/03/2019</td>
+                          <td><a href="#" class="">shahab</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -93,7 +93,7 @@
           <div class="modal-body">
             <form role="form">
               <div class="row">
-                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                   <div class="title"> اختيار الطالب:</div>
                   <fieldset class="form-group">
                     <select class="form-control select2" name="parent">

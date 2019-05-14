@@ -245,11 +245,11 @@
       </li>
 
 
-      <li class="header">شوؤن تعليمية</li>
+      <li class="header"> شوؤن تعليمية </li>
       <li class="treeview">
-        <router-link :to="{name: 'education'}"> <i class="fa fa-book text-green"></i><span>شوؤن تعليمية</span>
-          <span class="pull-right-container">
-            <small class="label pull-right bg-yellow">12</small>
+        <router-link :to="{name: 'education-levels'}"> <i class="fa fa-book text-green"></i><span>شوؤن تعليمية</span>
+          <span class="pull-right-container"> 
+            <small class="label pull-right bg-yellow">12</small> 
             <small class="label pull-right bg-green">16</small>
             <small class="label pull-right bg-red">5</small>
           </span>
@@ -257,7 +257,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-        <i class="fa fa-users text-green"></i> <span>شوؤن تعليمية</span>
+        <i class="fa fa-users text-green"></i> <span> تقرير شوؤن تعليمية </span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
           </span>

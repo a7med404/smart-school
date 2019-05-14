@@ -42,8 +42,8 @@
                   <tbody>
                       <tr>
                           <td>1</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>هاني عمار محمد ادم</td>
+                          <td><a href="#" class="">ahmed</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -54,8 +54,8 @@
                       </tr>
                       <tr>
                           <td>2</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>ياسر عمار محمد ادم</td>
+                          <td><a href="#" class="">shahab</a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

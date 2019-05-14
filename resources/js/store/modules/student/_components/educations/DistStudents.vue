@@ -8,116 +8,170 @@
         <li class="active">توزيع الطلاب علي الفصول</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
-      <!-- Default box -->
-      <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 class="box-title">توزيع الطلاب علي الفصول</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
+      <div class="row">
+        <div class="col-md-3">
+          <a href="mailbox.html" class="btn btn-primary btn-block margin-bottom">شوؤن تعليمية</a>
+
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">شوؤن تعليمية</h3>
+
+              <div class="box-tools">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body no-padding">
+              <ul class="nav nav-pills nav-stacked">
+
+
+                <li><router-link :to="{name: 'education-levels'}"> <i class="fa fa-envelope-o"></i>المراحل التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
+                <li><router-link :to="{name: 'classrooms'}"> <i class="fa fa-filter"></i> الصفوف التعلمية</router-link></li>
+                <li><router-link :to="{name: 'part-rooms'}"> <i class="fa fa-envelope-o"></i> الفصول التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
+                <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب علي الفصول</router-link></li>
+                
+              </ul>
+            </div>
+            <!-- /.box-body -->
           </div>
+          <!-- /. box -->
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Labels</h3>
+
+              <div class="box-tools">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
+                <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-        <div class="box-body">
-          <form role="form">
-
-            <div class="row">
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">القسم</label>
-                  <select class="form-control select2">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">المرحلة التعليمية</label>
-                  <select class="form-control select2">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
-                  </select>
-                </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <!-- Default box -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">توزيع الطلاب علي الفصول</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                  <i class="fa fa-times"></i></button>
               </div>
             </div>
+            <div class="box-body">
+              <form role="form">
 
-            <div class="row">
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">اسم الصف</label>
-                  <select class="form-control select2">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">الترتيب حسب السن</label>
-                  <select class="form-control select2">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                <button href="#" class="btn btn-primary">اضافة</button>
-              </div>
-            </div>
-
-          </form>
-
-          <!-- START CUSTOM TABS -->
-
-          <div class="m-t-50">
-            <div class="row">
-              <div class="col-md-12">
-                <!-- Custom Tabs -->
-                <div class="nav-tabs-custom">
-                  <ul class="nav nav-tabs pull-right">
-                    <li class="active"><a href="#manual" data-toggle="tab">بيانات عامة</a></li>
-                    <li><a href="#random" data-toggle="tab">عنوان الطالب</a></li>
-                    <li><a href="#alphabetic" data-toggle="tab">بيانات الاتصال</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="manual">
-                      <p>بيانات عامة:</p>
-                      <a type="button" data-toggle="modal" data-target="#popup-add-manual" href="#" class="btn btn-info">توزيع</a>
+                <div class="row">
+                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="form-group">
+                      <label class="control-label">القسم</label>
+                      <select class="form-control select2">
+                        <option value="1">الخرطوم</option>
+                        <option value="0">انثي</option>
+                      </select>
                     </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="random">
-                      <p>بيانات عامة:</p>
-                      <a type="button" data-toggle="modal" data-target="#popup-add-random" href="#" class="btn btn-info">توزيع</a>
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="alphabetic">
-                      <p>بيانات عامة:</p>
-                      <a type="button" data-toggle="modal" data-target="#popup-add-alphabetic" href="#" class="btn btn-info">توزيع</a>
-                    </div>
-                    <!-- /.tab-pane -->
                   </div>
-                  <!-- /.tab-content -->
+                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="form-group">
+                      <label class="control-label">المرحلة التعليمية</label>
+                      <select class="form-control select2">
+                        <option value="1">الخرطوم</option>
+                        <option value="0">انثي</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <!-- nav-tabs-custom -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-          </div>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-    </section>
 
+                <div class="row">
+                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="form-group">
+                      <label class="control-label">اسم الصف</label>
+                      <select class="form-control select2">
+                        <option value="1">الخرطوم</option>
+                        <option value="0">انثي</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                    <div class="form-group">
+                      <label class="control-label">الترتيب حسب السن</label>
+                      <select class="form-control select2">
+                        <option value="1">الخرطوم</option>
+                        <option value="0">انثي</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+                    <button href="#" class="btn btn-primary">اضافة</button>
+                  </div>
+                </div>
+
+              </form>
+
+              <!-- START CUSTOM TABS -->
+
+              <div class="m-t-50">
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- Custom Tabs -->
+                    <div class="nav-tabs-custom">
+                      <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a href="#manual" data-toggle="tab">بيانات عامة</a></li>
+                        <li><a href="#random" data-toggle="tab">عنوان الطالب</a></li>
+                        <li><a href="#alphabetic" data-toggle="tab">بيانات الاتصال</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="manual">
+                          <p>بيانات عامة:</p>
+                          <a type="button" data-toggle="modal" data-target="#popup-add-manual" href="#" class="btn btn-info">توزيع</a>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="random">
+                          <p>بيانات عامة:</p>
+                          <a type="button" data-toggle="modal" data-target="#popup-add-random" href="#" class="btn btn-info">توزيع</a>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="alphabetic">
+                          <p>بيانات عامة:</p>
+                          <a type="button" data-toggle="modal" data-target="#popup-add-alphabetic" href="#" class="btn btn-info">توزيع</a>
+                        </div>
+                        <!-- /.tab-pane -->
+                      </div>
+                      <!-- /.tab-content -->
+                    </div>
+                    <!-- nav-tabs-custom -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    
     <!-- Popup  -->
     <div class="modal fade" id="popup-add-manual">
       <div class="modal-dialog modal-md" role="document">
