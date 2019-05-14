@@ -28,8 +28,11 @@
                 <div class="form-group">
                   <label class="control-label">الطالب</label>
                   <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                        <option value="1">احمد عبد الله احمد علي</option>
+                        <option value="0">محمد سيد علي السيد</option>
+                        <option value="1">الفاضل محمد عثمان بلال</option>
+                        <option value="0">ياسر عمار محمد ادم</option>
+                        <option value="0">هاني عمار محمد ادم</option>
                   </select>
                 </div>
               </div>

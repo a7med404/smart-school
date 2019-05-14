@@ -29,7 +29,8 @@
                   <label class="control-label">بحـــث فـي</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="0">الموظفين</option>
+                    <option value="1">اولياء الامر</option>
                   </select>
                 </div>
               </div>

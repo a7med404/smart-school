@@ -28,16 +28,9 @@
                   <label class="control-label">اسم المرحلة التعليمية</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">اسم القسم</label>
-                  <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">رياض اطفال</option>
+                    <option value="0">أساس</option>
+                    <option value="0">ثانوي</option>
                   </select>
                 </div>
               </div>
@@ -48,6 +41,7 @@
                   <label class="control-label">النوع</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
+                    <option value="0">ذكر</option>
                     <option value="0">انثي</option>
                   </select>
                 </div>

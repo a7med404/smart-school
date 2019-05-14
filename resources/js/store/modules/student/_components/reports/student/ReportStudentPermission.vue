@@ -36,6 +36,18 @@
                   <input name="absence_date" type="text" class="form-control" id="datepicker" />
                 </div>
               </div>
+              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label"> الطالب</label>
+                  <select class="form-control select2">
+                        <option value="1">احمد عبد الله احمد علي</option>
+                        <option value="0">محمد سيد علي السيد</option>
+                        <option value="1">الفاضل محمد عثمان بلال</option>
+                        <option value="0">ياسر عمار محمد ادم</option>
+                        <option value="0">هاني عمار محمد ادم</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
