@@ -20,7 +20,39 @@ const Agreements = resolve => {
     resolve(require('../../employee/_components/Agreements'))
   });
 };
+const SMS = resolve => {
+  require.ensure(['../../student/_components/account/SMS'], () => {
+    resolve(require('../../student/_components/account/SMS'))
+  });
+};
 
+
+
+const Pay = resolve => {
+  require.ensure(['../../student/_components/account/fees/Pay'], () => {
+    resolve(require('../../student/_components/account/fees/Pay'))
+  });
+};
+const PayClasses = resolve => {
+  require.ensure(['../../student/_components/account/fees/PayClasses'], () => {
+    resolve(require('../../student/_components/account/fees/PayClasses'))
+  });
+};
+const Settings = resolve => {
+  require.ensure(['../../student/_components/account/fees/Settings'], () => {
+    resolve(require('../../student/_components/account/fees/Settings'))
+  });
+};
+const Registration = resolve => {
+  require.ensure(['../../student/_components/account/fees/Registration'], () => {
+    resolve(require('../../student/_components/account/fees/Registration'))
+  });
+};
+const ReciptSettings = resolve => {
+  require.ensure(['../../student/_components/account/fees/ReciptSettings'], () => {
+    resolve(require('../../student/_components/account/fees/ReciptSettings'))
+  });
+};
 
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
@@ -104,11 +136,11 @@ import CutAllowance from '../../employee/_components/CutAllowance';
 import EmpPool from '../../employee/_components/EmpPool';
 
 import PayRuls from '../../student/_components/account/PayRuls';
-import Classes from '../../student/_components/account/Classes';
-import Pay from '../../student/_components/account/Pay';
-import Settings from '../../student/_components/account/Settings';
-import Registration from '../../student/_components/account/Registration';
-import ReciptSettings from '../../student/_components/account/ReciptSettings';
+// import Classes from '../../student/_components/account/Classes';
+// import Pay from '../../student/_components/account/Pay';
+// import Settings from '../../student/_components/account/Settings';
+// import Registration from '../../student/_components/account/Registration';
+// import ReciptSettings from '../../student/_components/account/ReciptSettings';
 import Crideit from '../../student/_components/account/Crideit';
 
 import ReportQuality from '../../student/_components/reports/ReportQuality';
@@ -134,7 +166,7 @@ import ReportCountParts from '../../student/_components/reports/parts/ReportCoun
 
 import ReportDataClassrooms from '../../student/_components/reports/classrooms/ReportDataClassrooms';
 
- 
+
 
 import VehicleRoutes from '../../vehicle/_components/VehicleRoutes';
 import Drivers from '../../vehicle/_components/Drivers';
@@ -143,16 +175,21 @@ import Stations from '../../vehicle/_components/Stations';
 import Subscriptions from '../../vehicle/_components/Subscriptions';
 import Vehicle from '../../vehicle/_components/Vehicle';
 import Attendees from '../../vehicle/_components/Attendees';
-import { resolve } from 'q';
 
 
 const routes = [
-  
+
   {
     path: '/agreements',
     props: true,
     name: 'agreements',
     component:  Agreements
+  },   
+  {
+    path: '/sms',
+    props: true,
+    name: 'sms',
+    component:  SMS
   }, 
   {
     path: '/report-data-classrooms',
@@ -513,7 +550,7 @@ const routes = [
     path: '/pay-classes',
     props: true,
     name: 'pay-classes',
-    component:  Classes
+    component:  PayClasses
   }, 
   {
     path: '/pay',

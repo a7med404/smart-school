@@ -90,7 +90,7 @@
           <div class="modal-body">
             <form role="form">
               <div class="row">
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">اسم الموظف</label>
                     <select class="form-control select2">
@@ -110,7 +110,7 @@
                   <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">ملاحظة</label>
-                      <textarea class="form-control" placeholder="" v-model="student.note"></textarea>
+                      <textarea class="form-control" placeholder="" name="note"></textarea>
                     </div>
                   </div>
                 </div>

@@ -196,8 +196,8 @@
         </a>
         <ul class="treeview-menu">
           <li><router-link :to="{name: 'pay-ruls'}"> <i class="fa fa-circle-o"></i>بنود رسوم الطلاب</router-link></li>
-          <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> دفع الرسوم لاكثر من طالب </router-link></li>
           <li><router-link :to="{name: 'crideit'}"> <i class="fa fa-circle-o"></i> المديونيات </router-link></li>
+          <li><router-link :to="{name: 'sms'}"> <i class="fa fa-circle-o"></i> ارسال رسائل SMS للرسوم </router-link></li>
           <li><router-link :to="{name: 'student-indebtedness'}"> <i class="fa fa-circle-o"></i>مديونيات الطلاب</router-link></li>
           <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الرسوم
@@ -208,12 +208,12 @@
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'pay-classes'}"> <i class="fa fa-circle-o"></i>رسوم الصفوف </router-link></li>
               <li><router-link :to="{name: 'pay'}"> <i class="fa fa-circle-o"></i>دفع رسوم</router-link></li>
-              <li><router-link :to="{name: 'settings'}"> <i class="fa fa-circle-o"></i>اعدادت الرسوم </router-link></li>
+              <!-- <li><router-link :to="{name: 'settings'}"> <i class="fa fa-circle-o"></i>اعدادت الرسوم </router-link></li> -->
               <li><router-link :to="{name: 'registration'}"> <i class="fa fa-circle-o"></i>رسوم تسجيل الطالب</router-link></li>
               <li><router-link :to="{name: 'recipt-settings'}"> <i class="fa fa-circle-o"></i>اعدادت الايصال</router-link></li>
             </ul>
           </li>
-          <li>
+          <!-- <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الخصومات
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -226,7 +226,7 @@
               <li><router-link :to="{name: 'registration'}"> <i class="fa fa-circle-o"></i>رسوم تسجيل الطالب</router-link></li>
               <li><router-link :to="{name: 'recipt-settings'}"> <i class="fa fa-circle-o"></i>اعدادت الايصال</router-link></li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </li>
 
