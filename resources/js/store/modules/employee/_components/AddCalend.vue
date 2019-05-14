@@ -97,9 +97,8 @@
                   <label class="control-label"> اسم القسم </label>
                   <select class="form-control select2" v-model="add_calend.dept_id">
                     	<option value="0">المعلمين</option>
-                      <option value="1">مخالفات متعلقة بنظام العمل</option>
-                      <option value="2">مخالفات متعلقة بسلوك العمل </option>
-                      <option value="3">مخالفات متعلقة بمواعيد العمل</option>
+                      <option value="1">اداري</option>
+                      <option value="2">الحسابات</option>
                   </select>
                 </div>
               </div>

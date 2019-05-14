@@ -27,8 +27,9 @@
                 <div class="form-group">
                   <label class="control-label">اسم الشريحة</label>
                   <select class="form-control select2">
-                    <option value="1">2018-2019</option>
-                    <option value="0">انثي</option>
+                    <option value="1">عمال</option>
+                    <option value="0">موظفين</option>
+                    <option value="0">اساتذة</option>
                   </select>
                 </div>
               </div>

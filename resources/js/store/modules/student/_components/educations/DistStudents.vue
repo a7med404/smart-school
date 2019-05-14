@@ -14,36 +14,51 @@
         <div class="col-md-3">
           <a href="mailbox.html" class="btn btn-primary btn-block margin-bottom">شوؤن تعليمية</a>
 
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">شوؤن تعليمية</h3>
-
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
+            <div class="row">
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">المرحلة التعليمية</label>
+                  <select class="form-control select2">
+                    <option value="1">رياض اطفال</option>
+                    <option value="0">أساس</option>
+                    <option value="0">ثانوي</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
 
-
-                <li><router-link :to="{name: 'education-levels'}"> <i class="fa fa-envelope-o"></i>المراحل التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
-                <li><router-link :to="{name: 'classrooms'}"> <i class="fa fa-filter"></i> الصفوف التعلمية</router-link></li>
-                <li><router-link :to="{name: 'part-rooms'}"> <i class="fa fa-envelope-o"></i> الفصول التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
-                <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب علي الفصول</router-link></li>
-                
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /. box -->
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Labels</h3>
-
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
+            <div class="row">
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">اسم الصف</label>
+                  <select class="form-control select2">
+                    <option value="1">حضانة</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الثالث</option>
+                    <option value="1">الرابع</option>
+                    <option value="0">الخامس</option>
+                    <option value="0">السادس</option>
+                    <option value="1">السابع</option>
+                    <option value="0">الثامن</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الثالث</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">الترتيب حسب السن</label>
+                  <select class="form-control select2">
+                    <option value="1">تصاعدي</option>
+                    <option value="0">تنازلي</option>
+                  </select>
+                </div>
               </div>
             </div>
             <!-- /.box-header -->
@@ -188,8 +203,10 @@
                     <label class="control-label"> اسم الصف </label>
                     <select class="form-control select2" name="martial">
                       <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="1">ابوبكر</option>
+                      <option value="0">عمر</option>
+                      <option value="1">علي</option>
+                      <option value="0">عثمان</option>
                     </select>
                   </div>
                 </div>
@@ -224,8 +241,10 @@
                     <label class="control-label"> اسم الصف </label>
                     <select class="form-control select2" name="martial">
                       <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="1">ابوبكر</option>
+                      <option value="0">عمر</option>
+                      <option value="1">علي</option>
+                      <option value="0">عثمان</option>
                     </select>
                   </div>
                 </div>
@@ -260,8 +279,10 @@
                     <label class="control-label"> اسم الصف </label>
                     <select class="form-control select2" name="martial">
                       <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="1">ابوبكر</option>
+                      <option value="0">عمر</option>
+                      <option value="1">علي</option>
+                      <option value="0">عثمان</option>
                     </select>
                   </div>
                 </div>

@@ -88,8 +88,11 @@
                   <label class="control-label">اسم الخط</label>
                   <select class="form-control select2" v-model="station.route_id">
                     <option value="CA">الخرطوم</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option value="TE">بحري</option>
+                    <option value="TE">امدرمان</option>
+                    <option value="TE">شرق النيل</option>
+                    <option value="TE">كرري</option>
+                    <option value="TE">امبدة</option>
                   </select>
                 </div>
               </div>

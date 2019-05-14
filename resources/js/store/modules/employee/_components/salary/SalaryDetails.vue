@@ -120,9 +120,12 @@
                   <div class="form-group">
                     <label class="control-label"> السنة المالية </label>
                     <select class="form-control select2" name="level_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">2010</option>
+                      <option value="TE">2011</option>
+                      <option value="TE">2012</option>
+                      <option value="CA">2013</option>
+                      <option value="TE">2014</option>
+                      <option value="TE">2015</option>
                     </select>
                   </div>
                 </div>
@@ -138,9 +141,9 @@
                   <div class="form-group">
                     <label class="control-label"> اسم الادارة </label>
                     <select class="form-control select2" name="level_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">التعلبم</option>
+                      <option value="TE">الحسابات</option>
+                      <option value="TE">شؤون الموظفين</option>
                     </select>
                   </div>
                 </div>
@@ -148,9 +151,9 @@
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
                     <select class="form-control select2" name="rewards_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">اداري</option>
+                      <option value="TE">معلم</option>
+                      <option value="TE">عامل</option>
                     </select>
                   </div>
                 </div>
@@ -175,9 +178,10 @@
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
                     <select class="form-control select2" name="level_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                    <option value="1">احمد محمد احمد علي</option>
+                    <option value="0">عباس الخير عبد الرحمن محمد</option>
+                    <option value="1">الفاضل محمد عثمان بلال</option>
+                    <option value="0">معتز احمد محمد حنفي</option>
                     </select>
                   </div>
                 </div>

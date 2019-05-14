@@ -95,9 +95,9 @@
                   <div class="form-group">
                     <label class="control-label">اسم الادارة</label>
                     <select class="form-control select2" name="level_id" v-model="emp_perission.manage_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">التعلبم</option>
+                      <option value="TE">الحسابات</option>
+                      <option value="TE">شؤون الموظفين</option>
                     </select>
                   </div>
                 </div>
@@ -105,9 +105,9 @@
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
                     <select class="form-control select2" name="classroom_id" v-model="emp_perission.dept_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">اداري</option>
+                      <option value="TE">معلم</option>
+                      <option value="TE">عامل</option>
                     </select>
                   </div>
                 </div>
@@ -117,9 +117,10 @@
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
                     <select class="form-control select2" name="level_id" v-model="emp_perission.emp_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                    <option value="1">احمد محمد احمد علي</option>
+                    <option value="0">عباس الخير عبد الرحمن محمد</option>
+                    <option value="1">الفاضل محمد عثمان بلال</option>
+                    <option value="0">معتز احمد محمد حنفي</option>
                     </select>
                   </div>
                 </div>
@@ -127,9 +128,9 @@
                   <div class="form-group">
                     <label class="control-label"> الاذونات </label>
                     <select class="form-control select2" name="classroom_id" v-model="emp_perission.perission_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">اذن وفاة</option>
+                      <option value="TE">اذن مرض</option>
+                      <option value="TE">اذن طارئ</option>
                     </select>
                   </div>
                 </div>

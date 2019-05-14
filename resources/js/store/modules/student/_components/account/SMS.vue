@@ -29,7 +29,11 @@
                   <label class="control-label">  العام الدراسي </label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="0">2010-2011</option>
+                    <option value="0">2011-2012</option>
+                    <option value="0">2012-2013</option>
+                    <option value="0">2013-2014</option>
+                    <option value="0">2014-2015</option>
                   </select>
                 </div>
               </div>
@@ -38,7 +42,9 @@
                   <label class="control-label">اسم المرحلة التعليمية</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">رياض اطفال</option>
+                    <option value="0">أساس</option>
+                    <option value="0">ثانوي</option>
                   </select>
                 </div>
               </div>
@@ -47,7 +53,20 @@
                   <label class="control-label">اسم الصف</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">حضانة</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الثالث</option>
+                    <option value="1">الرابع</option>
+                    <option value="0">الخامس</option>
+                    <option value="0">السادس</option>
+                    <option value="1">السابع</option>
+                    <option value="0">الثامن</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الثالث</option>
                   </select>
                 </div>
               </div>
@@ -56,7 +75,10 @@
                   <label class="control-label">الفصول</label>
                   <select class="form-control select2">
                     <option value="1">الكل</option>
-                    <option value="0">انثي</option>
+                    <option value="1">ابوبكر</option>
+                    <option value="0">عمر</option>
+                    <option value="1">علي</option>
+                    <option value="0">عثمان</option>
                   </select>
                 </div>
               </div>
