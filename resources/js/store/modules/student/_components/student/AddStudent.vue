@@ -170,7 +170,9 @@
                           <label class="control-label">المدينة</label>
                           <select class="form-control select2" v-model="address.city">
                             <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="0">بحري</option>
+                            <option value="0">امدرمان</option>
+                            <option value="0">جبل اولياء</option>
                           </select>
                         </div>
                       </div>
@@ -179,7 +181,12 @@
                           <label class="control-label">المحلية</label>
                           <select class="form-control select2" v-model="address.local">
                             <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="0">جبل اولياء</option>
+                            <option value="1">بحري</option>
+                            <option value="0">شرق النيل </option>
+                            <option value="1">امدرمان</option>
+                            <option value="1">امبدة</option>
+                            <option value="1">كرري</option>
                           </select>
                         </div>
                       </div>
@@ -240,19 +247,11 @@
                     <div class="row">
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
-                          <label class="control-label">القسم</label>
-                          <select class="form-control select2" name="">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div class="form-group">
                           <label class="control-label">المرحلة التعليمية</label>
                           <select class="form-control select2" name="level_id">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="1">حضانة </option>
+                            <option value="0">اساس</option>
+                            <option value="0">ثانوي</option>
                           </select>
                         </div>
                       </div>
@@ -262,8 +261,20 @@
                         <div class="form-group">
                           <label class="control-label">اسم الصف</label>
                           <select class="form-control select2" name="classroom_id">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="1">حضانة</option>
+                            <option value="0">الاول</option>
+                            <option value="1">الثاني</option>
+                            <option value="0">الاول</option>
+                            <option value="1">الثاني</option>
+                            <option value="0">الثالث</option>
+                            <option value="1">الرابع</option>
+                            <option value="0">الخامس</option>
+                            <option value="0">السادس</option>
+                            <option value="1">السابع</option>
+                            <option value="0">الثامن</option>
+                            <option value="0">الاول</option>
+                            <option value="1">الثاني</option>
+                            <option value="0">الثالث</option>
                           </select>
                         </div>
                       </div>
@@ -271,8 +282,10 @@
                         <div class="form-group">
                           <label class="control-label"> اسم الفصل</label>
                           <select class="form-control select2" name="part_id">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="1">ابوبكر</option>
+                            <option value="0">عمر</option>
+                            <option value="1">علي</option>
+                            <option value="0">عثمان</option>
                           </select>
                         </div>
                       </div>
@@ -309,8 +322,14 @@
                         <div class="form-group">
                           <label class="control-label">فصيل الدم</label>
                           <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">انثي</option>
+                            <option value="1">O+</option>
+                            <option value="0">O-</option>
+                            <option value="1">A+</option>
+                            <option value="0">A-</option>
+                            <option value="1">B+</option>
+                            <option value="0">B-</option>
+                            <option value="1">AB+</option>
+                            <option value="0">AB-</option>
                           </select>
                         </div>
                       </div>
@@ -353,8 +372,12 @@
                               <div class="form-group">
                                 <label class="control-label">اختيار ولي امر</label>
                                 <select class="form-control select2" name="parent">
-                                  <option value="1">اب</option>
-                                  <option value="0">انثي</option>
+                                  <option value="1">عباس احمد محمد طاهر</option>
+                                  <option value="0">عوض الله عامر محمد الحسن</option>
+                                  <option value="1">تامر محمد هاني تمار</option>
+                                  <option value="0">شريف عمر ربيع قدورة</option>
+                                  <option value="1">ياسر عامر محمد خميس</option>
+                                  <option value="0">كمال هاني صديق رؤوف</option>
                                 </select>
                               </div>
                             </div>
@@ -369,8 +392,12 @@
                               <div class="form-group">
                                 <label class="control-label">اختيار ولي امر</label>
                                 <select class="form-control select2" name="parent">
-                                  <option value="1">اب</option>
-                                  <option value="0">انثي</option>
+                                  <option value="1">فرحة احمد محمد طاهر</option>
+                                  <option value="0">ربا عامر محمد الحسن</option>
+                                  <option value="1">روعة محمد هاني تمار</option>
+                                  <option value="0">ثويبة عمر ربيع قدورة</option>
+                                  <option value="1">فتحية عامر محمد خميس</option>
+                                  <option value="0">مرام هاني صديق رؤوف</option>
                                 </select>
                               </div>
                             </div>
@@ -492,9 +519,12 @@
                 <div class="form-group">
                   <label class="control-label">الجنسية</label>
                   <select class="form-control select2" name="nationality">
-                    <option value="CA">الاسلام</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option value="CA">السودان</option>
+                    <option value="TE">الولايات المتحدة</option>
+                    <option value="TE">المملكة المتحدة</option>
+                    <option value="CA">اثيوبيا</option>
+                    <option value="TE">سوريا</option>
+                    <option value="TE">جنوب السودان</option>
                   </select>
                 </div>
               </div>
@@ -534,9 +564,9 @@
                 <div class="form-group">
                   <label class="control-label"> الحالة الاجنماعية </label>
                   <select class="form-control select2" name="martial">
-                    <option value="CA">اختيار</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option value="CA">اعزب</option>
+                    <option value="TE">متزوج</option>
+                    <option value="TE">مطلق</option>
                   </select>
                 </div>
               </div>
