@@ -101,8 +101,9 @@
                     <label class="control-label">اختيار المرحلة التعليمية </label>
                     <select class="form-control select2" name="level_id">
                       <option value="DA">اختيار المرحلة التعليمية</option>
-                      <option value="NU">Number of Likes</option>
-                      <option value="NU">Number of Shared</option>
+                      <option value="1">رياض اطفال</option>
+                      <option value="0">أساس</option>
+                      <option value="0">ثانوي</option>
                     </select>
                   </fieldset>
                 </div>
@@ -111,8 +112,20 @@
                     <label class="control-label">اختيار الصف </label>
                     <select class="form-control select2" name="class_id">
                       <option value="DA">اختيار الصف </option>
-                      <option value="NU">Number of Likes</option>
-                      <option value="NU">Number of Shared</option>
+                      <option value="1">حضانة</option>
+                      <option value="0">الاول</option>
+                      <option value="1">الثاني</option>
+                      <option value="0">الاول</option>
+                      <option value="1">الثاني</option>
+                      <option value="0">الثالث</option>
+                      <option value="1">الرابع</option>
+                      <option value="0">الخامس</option>
+                      <option value="0">السادس</option>
+                      <option value="1">السابع</option>
+                      <option value="0">الثامن</option>
+                      <option value="0">الاول</option>
+                      <option value="1">الثاني</option>
+                      <option value="0">الثالث</option>
                     </select>
                   </fieldset>
                 </div>
@@ -121,8 +134,10 @@
                     <label class="control-label">اختيار الفصل </label>
                     <select class="form-control select2" name="part_id">
                       <option value="DA">اختيار الفصل</option>
-                      <option value="NU">Number of Likes</option>
-                      <option value="NU">Number of Shared</option>
+                      <option value="1">ابوبكر</option>
+                      <option value="0">عمر</option>
+                      <option value="1">علي</option>
+                      <option value="0">عثمان</option>
                     </select>
                   </fieldset>
                 </div>

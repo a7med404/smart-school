@@ -27,8 +27,9 @@
                 <div class="form-group">
                   <label class="control-label">المرحلة التعليمية</label>
                   <select class="form-control select2" v-model="addToClass.level_id">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">رياض اطفال</option>
+                    <option value="0">أساس</option>
+                    <option value="0">ثانوي</option>
                   </select>
                 </div>
               </div>
@@ -36,8 +37,20 @@
                 <div class="form-group">
                   <label class="control-label">اسم الصف</label>
                   <select class="form-control select2" v-model="addToClass.classroom_id">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">حضانة</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الثالث</option>
+                    <option value="1">الرابع</option>
+                    <option value="0">الخامس</option>
+                    <option value="0">السادس</option>
+                    <option value="1">السابع</option>
+                    <option value="0">الثامن</option>
+                    <option value="0">الاول</option>
+                    <option value="1">الثاني</option>
+                    <option value="0">الثالث</option>
                   </select>
                 </div>
               </div>
@@ -45,8 +58,10 @@
                 <div class="form-group">
                   <label class="control-label"> اسم الفصل</label>
                   <select class="form-control select2" v-model="addToClass.part_id">
-                    <option value="1">الخرطوم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">ابوبكر</option>
+                    <option value="0">عمر</option>
+                    <option value="1">علي</option>
+                    <option value="0">عثمان</option>
                   </select>
                 </div>
               </div>
@@ -56,8 +71,8 @@
                 <div class="form-group">
                   <label class="control-label"> الادارة التعليمية</label>
                   <select class="form-control select2" v-model="addToClass.manage_id">
-                    <option value="1">احمد ابراهيم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">مدرس </option>
+                    <option value="0">ثانوي</option>
                   </select>
                 </div>
               </div>
@@ -65,8 +80,12 @@
                 <div class="form-group">
                   <label class="control-label">اختيار المادة</label>
                   <select class="form-control select2" >
-                    <option value="1">احمد ابراهيم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">عربي </option>
+                    <option value="0">دين</option>
+                    <option value="1">رياضيات </option>
+                    <option value="0">انجليزي</option>
+                    <option value="1">رياضة </option>
+                    <option value="0">علوم</option>
                   </select>
                 </div>
               </div>
@@ -74,8 +93,12 @@
                 <div class="form-group">
                   <label class="control-label"> التخصص</label>
                   <select class="form-control select2">
-                    <option value="1">احمد ابراهيم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">مدرس عربي  </option>
+                    <option value="0">مدرس دين </option>
+                    <option value="1">مدرس رياضيات  </option>
+                    <option value="0">مدرس انجليزي</option>
+                    <option value="1">مدرس رياضة </option>
+                    <option value="0">مدرس علوم</option>
                   </select>
                 </div>
               </div>
@@ -85,8 +108,10 @@
                 <div class="form-group">
                   <label class="control-label">اختيار الموظف</label>
                   <select class="form-control select2">
-                    <option value="1">احمد ابراهيم</option>
-                    <option value="0">انثي</option>
+                    <option value="1">احمد محمد احمد علي</option>
+                    <option value="0">عباس الخير عبد الرحمن محمد</option>
+                    <option value="1">الفاضل محمد عثمان بلال</option>
+                    <option value="0">معتز احمد محمد حنفي</option>
                   </select>
                 </div>
               </div>
