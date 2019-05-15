@@ -327,7 +327,7 @@
                             <tr>
                               <td>1</td>
                               <td>محمد ابراهيم ابراهيم السيد</td>
-                              <td>Description</td>
+                              <td>اقرار استلام</td>
                               <td>
                                 <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -338,8 +338,8 @@
                             </tr>
                             <tr>
                               <td>2</td>
-                              <td>محمد ابراهيم ابراهيم السيد</td>
-                              <td>Description</td>
+                              <td>عوض الله محمد خالد</td>
+                              <td>اقرار استلام</td>
                               <td>
                                 <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

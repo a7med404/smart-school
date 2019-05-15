@@ -107,12 +107,12 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>1</td>
+                      <td>الفاضل محمد عثمان بلال</td>
+                      <td>30-3-1995</td>
+                      <td>امدرمان</td>
+                      <td>امبدة</td>
+                      <td><a href="#" class="">ذكر</a></td>
                       <td>
                           <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -122,12 +122,12 @@
                       </td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>2</td>
+                      <td>لمياء عبد القوي حسن</td>
+                      <td>3-5-2000</td>
+                      <td>الخرطوم</td>
+                      <td>الخرطوم</td>
+                      <td><a href="#" class="">انثى</a></td>
                       <td>
                           <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

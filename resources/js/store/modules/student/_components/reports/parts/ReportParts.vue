@@ -107,20 +107,20 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>1</td>
+                      <td>محمد عبد الرحمن علي</td>
+                      <td>20-12-1999</td>
+                      <td>الخرطوم</td>
+                      <td>الخرطوم</td>
+                      <td><a href="#" class="">ذكر</a></td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>2</td>
+                      <td>علي عبد الرحمن علي</td>
+                      <td>20-12-1999</td>
+                      <td>الخرطوم</td>
+                      <td>الخرطوم</td>
+                      <td><a href="#" class="">ذكر</a></td>
                   </tr>
               </tbody>
           </table>

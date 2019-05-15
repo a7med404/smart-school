@@ -112,22 +112,22 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
+                      <td>1</td>
+                      <td>محمد عبد الرحمن علي</td>
+                      <td>20-12-2018</td>
+                      <td>اساس</td>
+                      <td>الثامن</td>
+                      <td>عمر</td>
+                      <td>غياب مرضي</td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
+                      <td>2</td>
+                      <td>علي عبد الرحمن علي</td>
+                      <td>20-12-2018</td>
+                      <td>اساس</td>
+                      <td>السابع</td>
+                      <td>ابوبكر</td>
+                      <td>غياب مرضي</td>
                   </tr>
               </tbody>
           </table>

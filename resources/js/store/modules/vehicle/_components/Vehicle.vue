@@ -41,12 +41,12 @@
             <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>محمد عبد الكريم علي</td>
+                  <td>روزا</td>
+                  <td>2342</td>
+                  <td>بحري</td>
+                  <td>معتز احمد محمد </td>
+                  <td>24</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -57,12 +57,12 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>محمد ادم عباس الخالق</td>
+                  <td>كريس</td>
+                  <td>34343</td>
+                  <td>امدرمان</td>
+                  <td>عمر الفروق عبد الحفيظ</td>
+                  <td>11</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>

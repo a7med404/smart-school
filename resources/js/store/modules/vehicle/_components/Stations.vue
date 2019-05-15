@@ -38,9 +38,9 @@
             <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>المحطة الوسطى</td>
+                  <td>بحري</td>
+                  <td>300</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-station', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -51,9 +51,9 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>سراج</td>
+                  <td>امدرمان</td>
+                  <td>500</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-station', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>

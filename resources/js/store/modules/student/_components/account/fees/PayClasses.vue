@@ -43,12 +43,12 @@
                   </thead>
                   <tbody>
                       <tr>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
+                          <td>1</td>
+                          <td>اساس</td>
+                          <td>الثامن</td>
+                          <td>رسوم دراسة</td>
+                          <td>اجباري</td>
+                          <td>2018-2019</td>
                           <td><a href="#" class="">Description</a></td>
                           <td>
                               <div class="btn-group">
@@ -59,12 +59,12 @@
                           </td>
                       </tr>
                       <tr>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
+                          <td>2</td>
+                          <td>اساس</td>
+                          <td>السابع</td>
+                          <td>رسوم زي مدرسي </td>
+                          <td>اختياري</td>
+                          <td>2018-2019</td>
                           <td><a href="#" class="">Description</a></td>
                           <td>
                               <div class="btn-group">

@@ -75,29 +75,26 @@
                           <th>اسم الطالب</th>
                           <th>اسم المرحلة التعليمية</th>
                           <th>اسم الصف</th>
-                          <th>اسم القسم</th>
                           <th>تليفون الطالب</th>
                           <th>الهاتف الخلوى للاب</th>
                       </tr>
                   </thead>
                   <tbody>
                       <tr>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>1</td>
+                          <td>محمد عبد الرحمن علي</td>
+                          <td>اساس</td>
+                          <td>الثامن</td>
+                          <td>012343454</td>
+                          <td><a href="#" class="">012354545</a></td>
                       </tr>
                       <tr>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td><a href="#" class="">Description</a></td>
+                          <td>2</td>
+                          <td>علي عبد الرحمن علي</td>
+                          <td>اساس</td>
+                          <td>السابع</td>
+                          <td>012356434</td>
+                          <td><a href="#" class="">012354545</a></td>
                       </tr>
                   </tbody>
               </table>

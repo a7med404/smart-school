@@ -88,13 +88,13 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>1</td>
+                      <td>محمد عبدالقادر علي</td>
+                      <td>قرار فصل</td>
+                      <td>20-3-2019</td>
+                      <td>30-3-209</td>
+                      <td>فصل لمدة اسبوع</td>
+                      <td><a href="#" class="">2019-2020</a></td>
                       <td>
                           <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -104,13 +104,13 @@
                       </td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>2</td>
+                      <td>علي عبدالقادر علي</td>
+                      <td>قرار فصل</td>
+                      <td>20-3-2019</td>
+                      <td>30-3-2019</td>
+                      <td>فصل لمدة اسبوع</td>
+                      <td><a href="#" class="">2019-2020</a></td>
                       <td>
                           <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

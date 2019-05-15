@@ -36,8 +36,8 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Description</td>
-                    <td>Description</td>
+                    <td>محمد عبد القادر علي</td>
+                    <td>20-12-2018</td>
                     <td>500</td>
                     <td>
                         <div class="btn-group">
@@ -49,8 +49,8 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Description</td>
-                    <td>Description</td>
+                    <td>علي عبد القادر علي</td>
+                    <td>20-12-2018</td>
                     <td>1500</td>
                     <td>
                         <div class="btn-group">

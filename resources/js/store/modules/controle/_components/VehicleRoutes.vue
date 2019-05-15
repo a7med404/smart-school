@@ -38,9 +38,9 @@
             <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>خط بحري</td>
+                  <td>الخرطوم</td>
+                  <td>بحري</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -51,9 +51,9 @@
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Description</td>
-                  <td>Description</td>
-                  <td>Description</td>
+                  <td>خط امدرمان</td>
+                  <td>الخرطوم</td>
+                  <td>امدرمان</td>
                   <td>
                     <div class="btn-group">
                       <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>

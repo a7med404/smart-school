@@ -84,18 +84,18 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>1</td>
+                      <td>اساس</td>
+                      <td>الثامن</td>
+                      <td>4</td>
+                      <td><a href="#" class="">120</a></td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>2</td>
+                      <td>اساس</td>
+                      <td>السابع</td>
+                      <td>4</td>
+                      <td><a href="#" class="">100</a></td>
                   </tr>
               </tbody>
           </table>
