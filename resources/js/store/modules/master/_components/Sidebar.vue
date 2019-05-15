@@ -213,6 +213,17 @@
               <li><router-link :to="{name: 'recipt-settings'}"> <i class="fa fa-circle-o"></i>اعدادت الايصال</router-link></li>
             </ul>
           </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الخصومات
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'discount'}"> <i class="fa fa-circle-o"></i>تنزيل خصومات </router-link></li>
+              <li><router-link :to="{name: 'discount-setting'}"> <i class="fa fa-circle-o"></i>اعدادات الخصومات</router-link></li>
+            </ul>
+          </li>
           <!-- <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الخصومات
               <span class="pull-right-container">

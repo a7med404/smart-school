@@ -24,74 +24,44 @@
         <div class="box-body">
           <form role="form">
             <div class="row">
-              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+              <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
-                  <label class="control-label">  العام الدراسي </label>
+                  <label class="control-label"> الطالب</label>
                   <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">2010-2011</option>
-                    <option value="0">2011-2012</option>
-                    <option value="0">2012-2013</option>
-                    <option value="0">2013-2014</option>
-                    <option value="0">2014-2015</option>
+                    <option value="1">احمد عبد الله احمد علي</option>
+                    <option value="0">محمد سيد علي السيد</option>
+                    <option value="1">الفاضل محمد عثمان بلال</option>
+                    <option value="0">ياسر عمار محمد ادم</option>
+                    <option value="0">هاني عمار محمد ادم</option>
                   </select>
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
-                  <label class="control-label">اسم المرحلة التعليمية</label>
-                  <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="1">رياض اطفال</option>
-                    <option value="0">أساس</option>
-                    <option value="0">ثانوي</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">اسم الصف</label>
-                  <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="1">حضانة</option>
-                    <option value="0">الاول</option>
-                    <option value="1">الثاني</option>
-                    <option value="0">الاول</option>
-                    <option value="1">الثاني</option>
-                    <option value="0">الثالث</option>
-                    <option value="1">الرابع</option>
-                    <option value="0">الخامس</option>
-                    <option value="0">السادس</option>
-                    <option value="1">السابع</option>
-                    <option value="0">الثامن</option>
-                    <option value="0">الاول</option>
-                    <option value="1">الثاني</option>
-                    <option value="0">الثالث</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label">نوع الرسوم</label>
-                  <select class="form-control select2">
-                    <option value="1">الكل</option>
-                    <option value="0">زس مدرسي</option>
-                    <option value="1">كتب</option>
-                    <option value="0">تسجيل</option>
-                    <option value="0">دراسة</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                <div class="form-group">
-                  <label class="control-label"> القيمة </label>
+                  <label class="control-label"> المبلغ </label>
                   <input class="form-control" placeholder="" type="text" name="name">
+                </div>
+              </div>
+              <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">  رسوم التسجيل   </label>
+                  <input class="form-control" disabled placeholder="" type="text" name="name" value="500 ج.س">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">ملاحظة</label>
+                  <textarea class="form-control" placeholder="" ></textarea>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                <button href="#" class="btn btn-primary">عرض</button>
+                <button href="#" class="btn btn-primary">حفظ</button>
               </div>
             </div>
 

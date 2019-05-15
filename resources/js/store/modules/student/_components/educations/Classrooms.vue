@@ -252,7 +252,6 @@
                   </div>
                 </div>
               </div>
-              
               <div class="row">
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
@@ -264,16 +263,12 @@
                     </select>
                   </div>
                 </div>
-
                 <div class="col col-xl-6 col-lg-6 col-md-6 m-t-30">
                   <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn  btn-info">
                     <i class="fa fa-plus"></i> اضافة صف 
                   </a>
                 </div>
               </div>
-
-
-
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <button href="#" class="btn btn-primary">اضافة</button>

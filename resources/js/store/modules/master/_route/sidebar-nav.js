@@ -20,9 +20,23 @@ const Agreements = resolve => {
     resolve(require('../../employee/_components/Agreements'))
   });
 };
+
 const SMS = resolve => {
   require.ensure(['../../student/_components/account/SMS'], () => {
     resolve(require('../../student/_components/account/SMS'))
+  });
+};
+
+const Discount = resolve => {
+  require.ensure(['../../student/_components/account/Discount'], () => {
+    resolve(require('../../student/_components/account/Discount'))
+  });
+};
+
+
+const DiscountSetting = resolve => {
+  require.ensure(['../../student/_components/account/DiscountSetting'], () => {
+    resolve(require('../../student/_components/account/DiscountSetting'))
   });
 };
 
@@ -190,6 +204,18 @@ const routes = [
     props: true,
     name: 'sms',
     component:  SMS
+  }, 
+  {
+    path: '/discount-setting',
+    props: true,
+    name: 'discount-setting',
+    component:  DiscountSetting
+  }, 
+  {
+    path: '/discount',
+    props: true,
+    name: 'discount',
+    component:  Discount
   }, 
   {
     path: '/report-data-classrooms',

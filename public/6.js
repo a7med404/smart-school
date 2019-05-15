@@ -85,14 +85,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -179,104 +171,94 @@ var staticRenderFns = [
               _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
-                  { staticClass: "col col-lg-3 col-md-3 col-sm-12 col-12" },
+                  { staticClass: "col col-lg-6 col-md-6 col-sm-12 col-12" },
                   [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { staticClass: "control-label" }, [
-                        _vm._v("  العام الدراسي ")
+                        _vm._v(" الطالب")
                       ]),
                       _vm._v(" "),
                       _c("select", { staticClass: "form-control select2" }, [
                         _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("الكل")
+                          _vm._v("احمد عبد الله احمد علي")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "0" } }, [
-                          _vm._v("انثي")
+                          _vm._v("محمد سيد علي السيد")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v("الفاضل محمد عثمان بلال")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "0" } }, [
+                          _vm._v("ياسر عمار محمد ادم")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "0" } }, [
+                          _vm._v("هاني عمار محمد ادم")
                         ])
                       ])
                     ])
                   ]
-                ),
-                _vm._v(" "),
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
                   { staticClass: "col col-lg-3 col-md-3 col-sm-12 col-12" },
                   [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { staticClass: "control-label" }, [
-                        _vm._v("اسم المرحلة التعليمية")
-                      ]),
-                      _vm._v(" "),
-                      _c("select", { staticClass: "form-control select2" }, [
-                        _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("الكل")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "0" } }, [
-                          _vm._v("انثي")
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col col-lg-3 col-md-3 col-sm-12 col-12" },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { staticClass: "control-label" }, [
-                        _vm._v("اسم الصف")
-                      ]),
-                      _vm._v(" "),
-                      _c("select", { staticClass: "form-control select2" }, [
-                        _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("الكل")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "0" } }, [
-                          _vm._v("انثي")
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col col-lg-3 col-md-3 col-sm-12 col-12" },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { staticClass: "control-label" }, [
-                        _vm._v("نوع الرسوم")
-                      ]),
-                      _vm._v(" "),
-                      _c("select", { staticClass: "form-control select2" }, [
-                        _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("الكل")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "0" } }, [
-                          _vm._v("انثي")
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col col-lg-3 col-md-3 col-sm-12 col-12" },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { staticClass: "control-label" }, [
-                        _vm._v(" القيمة ")
+                        _vm._v(" المبلغ ")
                       ]),
                       _vm._v(" "),
                       _c("input", {
                         staticClass: "form-control",
                         attrs: { placeholder: "", type: "text", name: "name" }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col col-lg-3 col-md-3 col-sm-12 col-12" },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { staticClass: "control-label" }, [
+                        _vm._v("  رسوم التسجيل   ")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          disabled: "",
+                          placeholder: "",
+                          type: "text",
+                          name: "name",
+                          value: "500 ج.س"
+                        }
+                      })
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col col-lg-6 col-md-6 col-sm-12 col-12" },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { staticClass: "control-label" }, [
+                        _vm._v("ملاحظة")
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        staticClass: "form-control",
+                        attrs: { placeholder: "" }
                       })
                     ])
                   ]
@@ -291,7 +273,7 @@ var staticRenderFns = [
                     _c(
                       "button",
                       { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                      [_vm._v("عرض")]
+                      [_vm._v("حفظ")]
                     )
                   ]
                 )

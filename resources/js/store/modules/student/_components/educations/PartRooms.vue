@@ -48,13 +48,13 @@
               </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body no-padding">
+            <!-- <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
                 <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
               </ul>
-            </div>
+            </div> -->
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

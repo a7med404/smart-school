@@ -165,7 +165,7 @@
               </div>
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">عرض</button>
+                  <button href="#" class="btn btn-primary">اضافة</button>
                 </div>
               </div>
 
