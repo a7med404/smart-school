@@ -326,17 +326,17 @@ var staticRenderFns = [
                       _vm._v(" "),
                       _c("tbody", [
                         _c("tr", [
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("1")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("اساس")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("الثامن")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("رسوم دراسة")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("اجباري")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2018-2019")]),
                           _vm._v(" "),
                           _c("td", [
                             _c("a", { attrs: { href: "#" } }, [
@@ -377,17 +377,17 @@ var staticRenderFns = [
                         ]),
                         _vm._v(" "),
                         _c("tr", [
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("اساس")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("السابع")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("رسوم زي مدرسي ")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("اختياري")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2018-2019")]),
                           _vm._v(" "),
                           _c("td", [
                             _c("a", { attrs: { href: "#" } }, [

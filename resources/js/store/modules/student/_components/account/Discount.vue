@@ -65,6 +65,7 @@
                                     <td>Description</td>
                                     <td>Description</td>
                                     <td>Description</td>
+                                    <td>Description</td>
                                     <td><a href="#" class="">Description</a></td>
                                     <td>
                                         <div class="btn-group">
@@ -75,6 +76,7 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>Description</td>
                                     <td>Description</td>
                                     <td>Description</td>
                                     <td>Description</td>

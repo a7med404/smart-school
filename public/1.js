@@ -2526,7 +2526,7 @@ var staticRenderFns = [
                                       _vm._v("محمد ابراهيم ابراهيم السيد")
                                     ]),
                                     _vm._v(" "),
-                                    _c("td", [_vm._v("Description")]),
+                                    _c("td", [_vm._v("اقرار استلام")]),
                                     _vm._v(" "),
                                     _c("td", [
                                       _c("div", { staticClass: "btn-group" }, [
@@ -2576,11 +2576,9 @@ var staticRenderFns = [
                                   _c("tr", [
                                     _c("td", [_vm._v("2")]),
                                     _vm._v(" "),
-                                    _c("td", [
-                                      _vm._v("محمد ابراهيم ابراهيم السيد")
-                                    ]),
+                                    _c("td", [_vm._v("عوض الله محمد خالد")]),
                                     _vm._v(" "),
-                                    _c("td", [_vm._v("Description")]),
+                                    _c("td", [_vm._v("اقرار استلام")]),
                                     _vm._v(" "),
                                     _c("td", [
                                       _c("div", { staticClass: "btn-group" }, [

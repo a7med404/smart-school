@@ -279,8 +279,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -497,8 +495,6 @@ var staticRenderFns = [
                     [
                       _c("thead", [
                         _c("tr", [
-                          _c("th", [_vm._v("#ID")]),
-                          _vm._v(" "),
                           _c("th", [_vm._v("رقم تسلسل الطالب")]),
                           _vm._v(" "),
                           _c("th", [_vm._v("اسم الطالب")]),
@@ -517,17 +513,15 @@ var staticRenderFns = [
                         _c("tr", [
                           _c("td", [_vm._v("20001")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("محمد عبد القادر علي")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("اساس")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("الثامن")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("ابوبكر")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Description")])
+                          _c("td", [_vm._v("الخرطوم")])
                         ])
                       ])
                     ]
@@ -625,17 +619,17 @@ var staticRenderFns = [
                       _vm._v(" "),
                       _c("tbody", [
                         _c("tr", [
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("1")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2300")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("0")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("20-12-2018")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("00223323")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2019-2020")]),
                           _vm._v(" "),
                           _c("td", [
                             _c("a", { attrs: { href: "#" } }, [
@@ -730,17 +724,17 @@ var staticRenderFns = [
                         ]),
                         _vm._v(" "),
                         _c("tr", [
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2300")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("0")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("20-12-2018")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("00223324")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v("Description")]),
+                          _c("td", [_vm._v("2019-2020")]),
                           _vm._v(" "),
                           _c("td", [
                             _c("a", { attrs: { href: "#" } }, [
