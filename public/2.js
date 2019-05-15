@@ -303,6 +303,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -493,6 +495,8 @@ var staticRenderFns = [
                                   _vm._v(" "),
                                   _c("tbody", [
                                     _c("tr", [
+                                      _c("td", [_vm._v("1")]),
+                                      _vm._v(" "),
                                       _c("td", [_vm._v("Description")]),
                                       _vm._v(" "),
                                       _c("td", [_vm._v("Description")]),
@@ -562,6 +566,8 @@ var staticRenderFns = [
                                     ]),
                                     _vm._v(" "),
                                     _c("tr", [
+                                      _c("td", [_vm._v("2")]),
+                                      _vm._v(" "),
                                       _c("td", [_vm._v("Description")]),
                                       _vm._v(" "),
                                       _c("td", [_vm._v("Description")]),

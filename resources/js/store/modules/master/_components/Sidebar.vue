@@ -9,7 +9,7 @@
         <img src="modules/master/images/user.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-        <p>ahmed</p>
+        <p>shahab</p>
         <a href="#"><i class="fa fa-circle text-success"></i> متصل الان</a>
         </div>
     </div>

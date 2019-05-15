@@ -404,7 +404,7 @@
                     <ul class="users-list clearfix">
                         <li>
                         <img src="modules/master/images/user1-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">ahmed Ibrahim</a>
+                        <a class="users-list-name" href="#">shahab Ibrahim</a>
                         <span class="users-list-date">Today</span>
                         </li>
                         <li>

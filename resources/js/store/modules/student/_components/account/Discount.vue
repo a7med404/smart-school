@@ -59,7 +59,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Description</td>
+                                    <td>1</td>
                                     <td>Description</td>
                                     <td>Description</td>
                                     <td>Description</td>
@@ -76,7 +76,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Description</td>
+                                    <td>2</td>
                                     <td>Description</td>
                                     <td>Description</td>
                                     <td>Description</td>

@@ -27,7 +27,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="modules/master/images/user.png" class="user-image" alt="User Image">
-                    <span class="hidden-xs">ahmed</span>
+                    <span class="hidden-xs">shahab</span>
                     </a>
                     <ul class="dropdown-menu">
                     <!-- User image -->
@@ -35,7 +35,7 @@
                         <img src="modules/master/images/user.png" class="img-circle" alt="User Image">
         
                         <p>
-                        ahmed - مدير
+                        shahab - مدير
                         <small>عضو منذ. 2012</small>
                         </p>
                     </li>
