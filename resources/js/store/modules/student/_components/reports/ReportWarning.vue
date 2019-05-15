@@ -70,11 +70,11 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>1</td>
+                      <td>عبد الرحمن محمد عادل</td>
+                      <td>انذار فصل</td>
+                      <td>2019-2020</td>
+                      <td><a href="#" class="">انذار فصل</a></td>
                       <td>
                           <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -84,11 +84,10 @@
                       </td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td><a href="#" class="">Description</a></td>
+                      <td>2</td>
+                      <td>عمر  محمد عادل</td>
+                      <td>انذار فصل</td>
+2019-2020                      <td><a href="#" class="">انذار فصل</a></td>
                       <td>
                           <div class="btn-group">
                               <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

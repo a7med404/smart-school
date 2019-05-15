@@ -38,11 +38,11 @@
               </thead>
               <tbody>
                   <tr>
+                      <td>1</td>
                       <td>محمد ابراهيم ابراهيم السيد</td>
-                      <td>معلمين</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
+                      <td>معلم </td>
+                      <td>اللغة العربية</td>
+                      <td>الاساس</td>
                       <td>
                           <div class="btn-group">
                               <router-link :to="{name: 'view-employee', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
@@ -52,11 +52,11 @@
                       </td>
                   </tr>
                   <tr>
-                      <td>Description</td>
-                      <td>معلمين</td>
-                      <td>Description</td>
-                      <td>Description</td>
-                      <td>Description</td>
+                      <td>2</td>
+                      <td>عبد الله علي حمد النيل</td>
+                      <td>معلم</td>
+                      <td>التاريخ</td>
+                      <td>الثانوية</td>
                       <td>
                           <div class="btn-group">
                               <router-link :to="{name: 'view-employee', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>

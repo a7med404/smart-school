@@ -89,10 +89,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
+                        <td>1</td>
+                        <td>الاساس</td>
+                        <td>الاول</td>
+                        <td>ابوبكر</td>
                         <td>60</td>
                         <td><a href="#" class="">2</a></td>
                         <td>
@@ -104,10 +104,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
-                        <td>Description</td>
+                        <td>2</td>
+                        <td>رياض الاطفال</td>
+                        <td>الثاني</td>
+                        <td>علي</td>
                         <td>50</td>
                         <td><a href="#" class="">1</a></td>
                         <td>
@@ -146,9 +146,9 @@
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
                     <select class="form-control select2" name="level_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                      <option value="CA">رياض الاطفال</option>
+                      <option value="TE">الاساس</option>
+                      <option value="TE">الثانوي</option>
                     </select>
                   </div>
                 </div>

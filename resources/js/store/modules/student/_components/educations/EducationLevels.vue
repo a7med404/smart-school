@@ -97,9 +97,9 @@
                         <tr>
                             <td>1</td>
                             <td>مرحلة رياض الاطفال</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td><a href="#" class="">Description</a></td>
+                            <td>1</td>
+                            <td>اماني محمد احمد</td>
+                            <td><a href="#" class="">سمية ادم جبريل</a></td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -111,9 +111,9 @@
                         <tr>
                             <td>2</td>
                             <td>المرحلة الثانوية</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td><a href="#" class="">Description</a></td>
+                            <td>3</td>
+                            <td>عباس عوض الشيخ</td>
+                            <td><a href="#" class="">محمد عثمان عب الله</a></td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>

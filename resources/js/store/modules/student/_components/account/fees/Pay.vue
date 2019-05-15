@@ -75,7 +75,6 @@
               <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
                   <thead>
                       <tr>
-                          <th>#ID</th>
                           <th>رقم تسلسل الطالب</th>
                           <th>اسم الطالب</th>
                           <th>اسم المرحلة التعليمية</th>
@@ -87,12 +86,11 @@
                   <tbody>
                       <tr>
                           <td>20001</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
+                          <td>محمد عبد القادر علي</td>
+                          <td>اساس</td>
+                          <td>الثامن</td>
+                          <td>ابوبكر</td>
+                          <td>الخرطوم</td>
                       </tr>
                   </tbody>
               </table>
@@ -141,12 +139,12 @@
                   </thead>
                   <tbody>
                       <tr>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
+                          <td>1</td>
+                          <td>2300</td>
+                          <td>0</td>
+                          <td>20-12-2018</td>
+                          <td>00223323</td>
+                          <td>2019-2020</td>
                           <td><a href="#" class="">Description</a></td>
                           <td>
                              <div class="dropdown">
@@ -164,12 +162,12 @@
                           </td>
                       </tr>
                       <tr>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
-                          <td>Description</td>
+                          <td>2</td>
+                          <td>2300</td>
+                          <td>0</td>
+                          <td>20-12-2018</td>
+                          <td>00223324</td>
+                          <td>2019-2020</td>
                           <td><a href="#" class="">Description</a></td>
                           <td>
                              <div class="dropdown">

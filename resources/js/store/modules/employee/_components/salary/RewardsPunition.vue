@@ -45,13 +45,13 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
+                            <td>ادارة التعليم</td>
+                            <td>معلم</td>
+                            <td>محمد عبد القادر علي</td>
+                            <td>20-12-2018</td>
+                            <td>200</td>
+                            <td>مكافأة</td>
+                            <td>عمل اضافي</td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -62,13 +62,13 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
-                            <td>Description</td>
+                            <td>ادارة التعليم</td>
+                            <td>معلم</td>
+                            <td>علي عبد القادر علي</td>
+                            <td>20-12-2018</td>
+                            <td>200</td>
+                            <td>مكافأة</td>
+                            <td>عمل اضافي</td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
