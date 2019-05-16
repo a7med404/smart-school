@@ -3,6 +3,7 @@
 namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Student\Entities\Student;
 
 class StudentPull extends Model
 {
@@ -11,4 +12,9 @@ class StudentPull extends Model
         'pull_date',
         'reason'
     ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::Class);
+    }
 }

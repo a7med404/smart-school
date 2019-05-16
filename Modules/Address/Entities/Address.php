@@ -12,11 +12,12 @@ class Address extends Model
 
     public function student()
     {
-        return $this->belongsTo(Student::Class, 'id', 'address_id');
+        return $this->belongsTo(Student::Class);
+        // return $this->belongsTo('App\User', 'address_id', 'other_key');
     }
 
     public function employee()
     {
-        return $this->belongsTo(Employee::Class, 'id', 'address_id');
+        return $this->belongsTo(Employee::Class);
     }
 }

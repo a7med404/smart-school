@@ -7,4 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     protected $fillable = ['number_1', 'number_2', 'email', 'note'];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::Class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::Class);
+    }
 }

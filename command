@@ -4,14 +4,14 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory StudentPullFactory
+php artisan module:make-factory FileFactory
 
-php artisan module:make-request CreateStudentPullRequest
+php artisan module:make-request CreateFileRequest
 
-php artisan module:make-resource StudentPullResource --collection
+php artisan module:make-resource FileResource --collection
 
-php artisan module:make-model StudentPull --migration
-php artisan module:make-controller StudentPullController
+php artisan module:make-model File --migration
+php artisan module:make-controller FileController
 
 
 php artisan module:migrate
@@ -35,7 +35,7 @@ $table->integer('votes');
 $table->decimal('amount', 8, 2);
 $table->float('amount', 8, 2);
 $table->double('amount', 8, 2);
-$table->enum('StudentPull', ['easy', 'hard']);
+$table->enum('File', ['easy', 'hard']);
 
 $table->string('name', 100);
 $table->text('description');
