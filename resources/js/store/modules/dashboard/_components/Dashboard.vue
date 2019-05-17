@@ -249,7 +249,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer text-center">
-                    <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                    <a href="javascript:void(0)" class="uppercase">عرض الكل</a>
                     </div>
                     <!-- /.box-footer -->
                 </div>
@@ -427,7 +427,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer text-center">
-                    <a href="javascript:void(0)" class="uppercase">View All Users</a>
+                    <a href="javascript:void(0)" class="uppercase">عرض الكل</a>
                     </div>
                     <!-- /.box-footer -->
                 </div>

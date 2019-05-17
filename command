@@ -4,14 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory FileFactory
+php artisan module:make-factory DiscountSettingParentFactory
+php artisan make:seeder DiscountSettingParentTableSeeder
 
-php artisan module:make-request CreateFileRequest
+php artisan module:make-request CreateDiscountSettingParentRequest
 
-php artisan module:make-resource FileResource --collection
+php artisan module:make-resource DiscountSettingParentResource --collection
 
-php artisan module:make-model File --migration
-php artisan module:make-controller FileController
+php artisan module:make-model DiscountSettingParent --migration
+php artisan module:make-controller DiscountSettingParentController
 
 
 php artisan module:migrate
