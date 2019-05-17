@@ -15,17 +15,16 @@ class CreatePartsTable extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_ar', 100)->unique();
-            $table->string('name_en', 100)->unique();
+            $table->string('name', 100)->unique();
             $table->integer('sort')->unique();
             $table->integer('max_student_number');
             
+            $table->integer('level_id');
             $table->foreign('level_id')
-                ->references('id')->on('levels')
-                ->onDelete('cascade');
+                ->references('id')->on('levels');
+            $table->integer('classroom_id');
             $table->foreign('classroom_id')
-                ->references('id')->on('classrooms')
-                ->onDelete('cascade');
+                ->references('id')->on('classrooms');
             $table->timestamps();
         });
     }

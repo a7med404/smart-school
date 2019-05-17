@@ -10,6 +10,7 @@ use Modules\Student\Entities\health;
 use Modules\Student\Entities\StudentParent;
 use Modules\Student\Entities\Permissiontodepart;
 use Modules\Student\Entities\Absence;
+use Modules\Student\Entities\Attendance;
 
 class Student extends Model
 {
@@ -46,14 +47,18 @@ class Student extends Model
         return $this->belongsTo(StudentParent::class);
     }
 
-    public function permissiontodepart()
+    public function permissiontodeparts()
     {
         return $this->hasMany(Permissiontodepart::class);
     }
 
-    public function absence()
+    public function absences()
     {
         return $this->hasMany(Absence::class);
     }
 
+    public function attendances()
+    {
+        return $this->belongsToMany(Attendance::Class, 'attendance_student', 'attendance_id', 'student_id');
+    }
 }

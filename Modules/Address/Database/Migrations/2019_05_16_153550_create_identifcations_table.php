@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateIdentifcationsTable extends Migration
-{
+{ 
     /**
      * Run the migrations.
      *
@@ -15,7 +15,10 @@ class CreateIdentifcationsTable extends Migration
     {
         Schema::create('identifcations', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->tinyInteger('type')->default(0); // Sudan ID, Passport
+            $table->date('issue_date')->nullable();
+            $table->string('issue_place')->nullable();
+            $table->unsignedInteger('identable_id');
             $table->timestamps();
         });
     }

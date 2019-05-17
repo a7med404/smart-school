@@ -3,14 +3,19 @@
 namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Student\Entities\Student;
 
 class Attendance extends Model
 {
     protected $fillable = [
         'student_id',
-        'absence_from',
-        'absence_to',
-        'absence_reason'
+        'data',
+        'status',
+        'note'
     ];
     
+    public function students()
+    {
+        return $this->belongsToMany(Student::Class, 'attendance_student', 'student_id', 'attendance_id');
+    }
 }

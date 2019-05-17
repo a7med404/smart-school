@@ -15,16 +15,12 @@ class CreateClassroomsTable extends Migration
     {
         Schema::create('classrooms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_ar', 100)->unique();
-            $table->string('name_en', 100)->unique();
+            $table->string('name', 100)->unique();
             $table->integer('sort')->unique();
             $table->boolean('is_end');
+            $table->integer('level_id');
             $table->foreign('level_id')
-                ->references('id')->on('levels')
-                ->onDelete('cascade');
-            $table->foreign('division_id')
-                ->references('id')->on('divisions')
-                ->onDelete('cascade');
+                ->references('id')->on('levels');
             $table->timestamps();
         });
     }

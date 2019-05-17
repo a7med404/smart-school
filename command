@@ -4,15 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory DiscountSettingParentFactory
-php artisan make:seeder DiscountSettingParentTableSeeder
+php artisan module:make-factory DiscountFactory
+php artisan make:seeder DiscountTableSeeder
 
-php artisan module:make-request CreateDiscountSettingParentRequest
+php artisan module:make-request CreateDiscountRequest
 
-php artisan module:make-resource DiscountSettingParentResource --collection
+php artisan module:make-resource DiscountResource --collection
 
-php artisan module:make-model DiscountSettingParent --migration
-php artisan module:make-controller DiscountSettingParentController
+php artisan module:make-model Discount --migration
+php artisan module:make-controller DiscountController
 
 
 php artisan module:migrate

@@ -16,6 +16,9 @@ class CreatePayRulsTable extends Migration
         Schema::create('pay_ruls', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->string('name', 100)->unique();
+            $table->boolean('is_mandatary');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

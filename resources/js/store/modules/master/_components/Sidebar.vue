@@ -196,9 +196,7 @@
         </a>
         <ul class="treeview-menu">
           <li><router-link :to="{name: 'pay-ruls'}"> <i class="fa fa-circle-o"></i>بنود رسوم الطلاب</router-link></li>
-          <li><router-link :to="{name: 'crideit'}"> <i class="fa fa-circle-o"></i> المديونيات </router-link></li>
           <li><router-link :to="{name: 'sms'}"> <i class="fa fa-circle-o"></i> ارسال رسائل SMS للرسوم </router-link></li>
-          <li><router-link :to="{name: 'student-indebtedness'}"> <i class="fa fa-circle-o"></i>مديونيات الطلاب</router-link></li>
           <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الرسوم
               <span class="pull-right-container">

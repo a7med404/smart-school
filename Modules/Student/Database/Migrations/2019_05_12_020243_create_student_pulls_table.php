@@ -15,9 +15,9 @@ class CreateStudentPullsTable extends Migration
     {
         Schema::create('student_pulls', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('student_id')->foreign()->references('id')->on('Student');
+            $table->integer('student_id')->foreign()->references('id')->on('students');
             $table->date('pull_date');
-            $table->longTexr('reason')->nullable();
+            $table->longText('reason')->nullable();
             $table->timestamps();
         });
     }

@@ -30,6 +30,8 @@ class CreateEmployeesTable extends Migration
             $table->integer('join_year');
             $table->string('picture')->nullable();
             $table->longText('note')->nullable();
+            
+            $table->integer('identifcation_id')->foreign()->references('id')->on('identifcations');
             $table->timestamps();
         });
     }

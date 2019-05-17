@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class AttendanceStudent extends Model
 {
-    protected $fillable = [];
+    protected $fillable = ['attendance_id', 'student_id'];
 }

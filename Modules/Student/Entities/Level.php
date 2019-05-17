@@ -7,9 +7,9 @@ use Modules\Student\Entities\Classroom;
 
 class Level extends Model
 {
-    protected $fillable = ['name_ar', 'name_en', 'sort', '', ''];
+    protected $fillable = ['name', 'sort', 'manager_name', 'super_name'];
 
-    public function classroom()
+    public function classrooms()
     {
         return $this->hasMany(Classroom::class);
     }

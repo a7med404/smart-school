@@ -16,6 +16,10 @@ class CreateClassroomPayClassesTable extends Migration
         Schema::create('classroom_pay_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->integer('classroom_id')->foreign()
+                ->references('id')->on('classrooms');
+            $table->integer('pay_class_id')->foreign()
+                ->references('id')->on('pay_classes');
             $table->timestamps();
         });
     }
