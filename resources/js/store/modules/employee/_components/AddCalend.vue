@@ -85,7 +85,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الادارة  </label>
-                  <select class="form-control select2" v-model="add_calend.manage_id">
+                  <select class="form-control select2" v-model="add_calend.managament_id">
                     	<option value="0">الادارة المدرسية</option>
                       <option value="1">الاداره التعليميه</option>
                       <option value="2">ادارة الحسابات </option>
@@ -95,7 +95,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> اسم القسم </label>
-                  <select class="form-control select2" v-model="add_calend.dept_id">
+                  <select class="form-control select2" v-model="add_calend.department_id">
                     	<option value="0">المعلمين</option>
                       <option value="1">اداري</option>
                       <option value="2">الحسابات</option>
@@ -106,12 +106,13 @@
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
-                  <label class="control-label">نوع المخالفة </label>
+                  <label class="control-label">اسم الموظف</label>
                   <select class="form-control select2" v-model="add_calend.celand_name">
                     	<option value="0">--اختر--</option>
-                      <option value="1">مخالفات متعلقة بنظام العمل</option>
-                      <option value="2">مخالفات متعلقة بسلوك العمل </option>
-                      <option value="3">مخالفات متعلقة بمواعيد العمل</option>
+                      <option value="1">احمد محمد احمد علي</option>
+                      <option value="0">عباس الخير عبد الرحمن محمد</option>
+                      <option value="1">الفاضل محمد عثمان بلال</option>
+                      <option value="0">معتز احمد محمد حنفي</option>
                   </select>
                 </div>
               </div>
@@ -119,6 +120,20 @@
                 <div class="form-group">
                   <label class="control-label"> التاريخ </label>
                   <input class="form-control" placeholder="" type="text" v-model="add_calend.date">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">نوع المخالفة </label>
+                  <select class="form-control select2" v-model="add_calend.celand_name">
+                    	<option value="0">--اختر--</option>
+                      <option value="1">مخالفات متعلقة بنظام العمل</option>
+                      <option value="2">مخالفات متعلقة بسلوك العمل </option>
+                      <option value="3">مخالفات متعلقة بمواعيد العمل</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -178,8 +193,8 @@
 
             },
             add_calend:{
-              manage_id              : '',
-              dept_id                : '',
+              managament_id              : '',
+              department_id                : '',
               celand_name            : '',
               date                   : ''
             }    

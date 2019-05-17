@@ -14,7 +14,7 @@ class CreateDepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'manage_id'            => 'integer|required',
+            'managament_id'            => 'integer|required',
             'name'                 => 'string|required'
         ];
     }

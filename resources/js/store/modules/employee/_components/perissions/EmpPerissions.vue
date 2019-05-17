@@ -94,7 +94,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label">اسم الادارة</label>
-                    <select class="form-control select2" name="level_id" v-model="emp_perission.manage_id">
+                    <select class="form-control select2" name="level_id" v-model="emp_perission.managament_id">
                       <option value="CA">التعلبم</option>
                       <option value="TE">الحسابات</option>
                       <option value="TE">شؤون الموظفين</option>
@@ -104,7 +104,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
-                    <select class="form-control select2" name="classroom_id" v-model="emp_perission.dept_id">
+                    <select class="form-control select2" name="classroom_id" v-model="emp_perission.department_id">
                       <option value="CA">اداري</option>
                       <option value="TE">معلم</option>
                       <option value="TE">عامل</option>
@@ -116,7 +116,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id" v-model="emp_perission.emp_id">
+                    <select class="form-control select2" name="level_id" v-model="emp_perission.employee_id">
                     <option value="1">احمد محمد احمد علي</option>
                     <option value="0">عباس الخير عبد الرحمن محمد</option>
                     <option value="1">الفاضل محمد عثمان بلال</option>
@@ -192,9 +192,9 @@
           return {
             edit: false,
            emp_perission:{
-              manage_id                    : '',
-              dept_id                      : '',
-              emp_id                       : '',
+              managament_id                    : '',
+              department_id                      : '',
+              employee_id                       : '',
               perission_id                 : '',
               from_houre                   : '',
               to_houre                     : '',

@@ -385,9 +385,9 @@
                       <label class="control-label">اسم الموظف</label>
                       <select class="form-control select2"  v-model="student.gender">
                         <option value="1">احمد محمد احمد علي</option>
-                    <option value="0">عباس الخير عبد الرحمن محمد</option>
-                    <option value="1">الفاضل محمد عثمان بلال</option>
-                    <option value="0">معتز احمد محمد حنفي</option>
+                        <option value="0">عباس الخير عبد الرحمن محمد</option>
+                        <option value="1">الفاضل محمد عثمان بلال</option>
+                        <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
                   </div>

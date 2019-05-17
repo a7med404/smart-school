@@ -15,8 +15,8 @@ class CreateEmpHolidaysTable extends Migration
     {
         Schema::create('emp_holidays', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('emp_id')->foreign()->references('id')->on('employee');
-            $table->integer('holiday_id')->foreign()->references('id')->on('formalholiday');
+            $table->integer('employee_id')->foreign()->references('id')->on('employees');
+            $table->integer('add_holiday_id')->foreign()->references('id')->on('add_holidays');
             $table->integer('balance')->unsigned();
             $table->date('from');
             $table->date('to');

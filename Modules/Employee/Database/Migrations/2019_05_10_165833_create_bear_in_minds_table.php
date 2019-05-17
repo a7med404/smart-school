@@ -15,7 +15,9 @@ class CreateBearInMindsTable extends Migration
     {
         Schema::create('bear_in_minds', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->longText('name');
+            $table->date('date');
+            $table->integer('empolyee_id')->foreign()->references('id')->on('empolyees');
             $table->timestamps();
         });
     }

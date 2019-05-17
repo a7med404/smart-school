@@ -8,8 +8,8 @@ class EvaluationEmp extends Model
 {
     protected $fillable = [
     'education_level',
-    'dept_id',
-    'emp_id',
+    'department_id',
+    'employee_id',
     'item_id',
     'real_degree',
     'degree',

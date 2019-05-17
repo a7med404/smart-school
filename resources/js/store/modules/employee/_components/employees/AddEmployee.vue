@@ -100,7 +100,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">اسم الادارة</label>
-                            <select class="form-control select2" v-model="employee.manage_id">
+                            <select class="form-control select2" v-model="employee.managament_id">
                               <option value="CA">التعلبم</option>
                               <option value="TE">الحسابات</option>
                               <option value="TE">شؤون الموظفين</option>
@@ -110,7 +110,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">التخصص</label>
-                            <select class="form-control select2"  v-model="employee.dept_id">
+                            <select class="form-control select2"  v-model="employee.department_id">
                               <option value="CA">مدرس</option>
                               <option value="TE">موظف</option>
                               <option value="TE">عامل</option>
@@ -534,8 +534,8 @@
               religion:                  '',
               birth_date:                '',
               identification_number:     '',
-              manage_id:                 '',
-              dept_id:                   '',
+              managament_id:                 '',
+              department_id:                   '',
               hiring_date:               '',
               job_title:                 '',
               martial_status:            '',

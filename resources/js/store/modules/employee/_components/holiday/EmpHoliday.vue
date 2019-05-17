@@ -88,7 +88,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id" v-model="emp_holiday.emp_id">
+                    <select class="form-control select2" name="level_id" v-model="emp_holiday.employee_id">
                     <option value="1">احمد محمد احمد علي</option>
                     <option value="0">عباس الخير عبد الرحمن محمد</option>
                     <option value="1">الفاضل محمد عثمان بلال</option>
@@ -167,7 +167,7 @@
           return {
             edit: false,
            emp_holiday:{
-              emp_id                    : '',
+              employee_id                    : '',
               holiday_id                : '',
               balance                   : '',
               from                      : '',

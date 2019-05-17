@@ -107,7 +107,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
-                    <select class="form-control select2" name="evaluation_id" v-model="evaluation_emp.dept_id">
+                    <select class="form-control select2" name="evaluation_id" v-model="evaluation_emp.department_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -119,7 +119,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.emp_id">
+                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.employee_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -187,8 +187,8 @@
             edit: false,
             evaluation_emp:{
               education_level           : '',
-              dept_id                   : '',
-              emp_id                    : '',
+              department_id                   : '',
+              employee_id                    : '',
               item_id                   : '',
               real_degree               : '',
               degree                    : '',

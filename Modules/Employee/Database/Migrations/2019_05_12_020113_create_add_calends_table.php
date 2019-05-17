@@ -15,10 +15,9 @@ class CreateAddCalendsTable extends Migration
     {
         Schema::create('add_calends', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('manage_id')->foreign()->references('id')->on('management');
-            $table->integer('dept_id')->foreign()->references('id')->on('department');
-            $table->longText('celand_name');
-            $table->date('date');
+            $table->integer('managament_id')->foreign()->references('id')->on('managements');
+            $table->integer('department_id')->foreign()->references('id')->on('departments');
+            $table->integer('employee_id')->foreign()->references('id')->on('employees');
             $table->timestamps();
         });
     }

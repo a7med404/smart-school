@@ -20,8 +20,8 @@ class CreateEmployeesTable extends Migration
             $table->integer('religion')->nullable();
             $table->date('birth_date');
             $table->integer('identification_number')->unique();
-            $table->integer('manage_id')->foreign()->references('id')->on('management');
-            $table->integer('dept_id')->foreign()->references('id')->on('department');
+            $table->integer('managament_id')->foreign()->references('id')->on('management');
+            $table->integer('department_id')->foreign()->references('id')->on('department');
             $table->date('hiring_date')->nullable();
             $table->string('job_title')->nullable();
             $table->integer('martial_status');

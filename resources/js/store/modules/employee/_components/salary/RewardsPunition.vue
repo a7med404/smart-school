@@ -125,7 +125,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الادارة </label>
-                    <select class="form-control select2" name="level_id" v-model="rewards_punition.manage_id">
+                    <select class="form-control select2" name="level_id" v-model="rewards_punition.managament_id">
                       <option value="CA">التعلبم</option>
                       <option value="TE">الحسابات</option>
                       <option value="TE">شؤون الموظفين</option>
@@ -135,7 +135,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
-                    <select class="form-control select2" name="rewards_id" v-model="rewards_punition.dept_id">
+                    <select class="form-control select2" name="rewards_id" v-model="rewards_punition.department_id">
                       <option value="CA">اداري</option>
                       <option value="TE">معلم</option>
                       <option value="TE">عامل</option>
@@ -162,7 +162,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id" v-model="rewards_punition.emp_id">
+                    <select class="form-control select2" name="level_id" v-model="rewards_punition.employee_id">
                       <option value="1">احمد محمد احمد علي</option>
                     <option value="0">عباس الخير عبد الرحمن محمد</option>
                     <option value="1">الفاضل محمد عثمان بلال</option>
@@ -218,10 +218,10 @@
            rewards_punition:{
               finance_year              : '',
               date                      : '',
-              manage_id                 : '',
-              dept_id                   : '',
+              managament_id                 : '',
+              department_id                   : '',
               type                      : '',
-              emp_id                    : '',
+              employee_id                    : '',
               value                     : '',
               reason                    : ''
             }    

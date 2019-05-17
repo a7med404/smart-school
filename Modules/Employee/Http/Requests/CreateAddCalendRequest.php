@@ -14,8 +14,8 @@ class CreateAddCalendRequest extends FormRequest
     public function rules()
     {
         return [
-            'manage_id'                 => 'integer|required',
-            'dept_id'                   => 'integer|required',
+            'managament_id'                 => 'integer|required',
+            'department_id'                   => 'integer|required',
             'celand_name'               => 'longText|required',
             'date'                      => 'date|required'   
         ];

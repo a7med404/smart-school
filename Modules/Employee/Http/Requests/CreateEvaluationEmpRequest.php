@@ -15,8 +15,8 @@ class CreateEvaluationEmpRequest extends FormRequest
     {
         return [
             'education_level'           => 'integer|required',
-            'dept_id'                   => 'integer|required',
-            'emp_id'                    => 'integer|required',
+            'department_id'                   => 'integer|required',
+            'employee_id'                    => 'integer|required',
             'item_id'                   => 'integer|required',
             'real_degree'               => 'integer|required',
             'degree'                    => 'integer|required',

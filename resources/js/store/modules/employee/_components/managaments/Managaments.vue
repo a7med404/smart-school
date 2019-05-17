@@ -261,7 +261,7 @@
               <div class="col col-lg-6 col-md-5 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الادارة</label>
-                  <select class="form-control select2" v-model="department.manage_id">
+                  <select class="form-control select2" v-model="department.managament_id">
                     <option value="CA">الاسلام</option>
                     <option value="TE">المسيحية</option>
                     <option value="TE">اخرى</option>
@@ -350,7 +350,7 @@
               name                   : ''
             },
             department:{
-              manage_id              : '',
+              managament_id              : '',
               name                   : ''
             },
             specialty:{

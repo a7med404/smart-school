@@ -15,7 +15,7 @@ class CreateProgenitorsTable extends Migration
     {
         Schema::create('progenitors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('emp_id')->foreign()->references('id')->on('employee');
+            $table->integer('employee_id')->foreign()->references('id')->on('employees');
             $table->float('amount')->unsigned();
             $table->integer('financial_year');
             $table->integer('safe_id');

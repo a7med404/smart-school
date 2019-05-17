@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class EmpPerissions extends Model
 {
     protected $fillable = [
-        'manage_id',
-        'dept_id',
-        'emp_id',
+        'managament_id',
+        'department_id',
+        'employee_id',
         'perission_id',
         'from_houre',
         'to_houre',

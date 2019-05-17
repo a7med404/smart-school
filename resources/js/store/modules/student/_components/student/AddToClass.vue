@@ -70,7 +70,7 @@
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> الادارة التعليمية</label>
-                  <select class="form-control select2" v-model="addToClass.manage_id">
+                  <select class="form-control select2" v-model="addToClass.managament_id">
                     <option value="1">مدرس </option>
                     <option value="0">ثانوي</option>
                   </select>
