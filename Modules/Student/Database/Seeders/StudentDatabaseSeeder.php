@@ -15,7 +15,7 @@ class StudentDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
+        // Model::unguard();
 
         // $this->call(ProviderTableSeeder::class);
         factory(Student::class, 10)->create();

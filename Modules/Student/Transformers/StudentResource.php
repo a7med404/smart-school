@@ -14,6 +14,11 @@ class StudentResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'created_at' => $request->name,
+            'created_at' => $request->name
+        ];
+
+        // return parent::toArray($request);
     }
 }

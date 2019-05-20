@@ -9,7 +9,9 @@ html, body {
   margin-right: auto;
   margin-left: 10px;
 }
-
+.sidebar-menu .treeview-menu > li > a {
+  font-size: 15px;
+}
 .dropdown-menu {
   text-align: right !important;
 }
