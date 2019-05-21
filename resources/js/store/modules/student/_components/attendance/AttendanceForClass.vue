@@ -71,7 +71,6 @@
                 <div class="form-group">
                   <label class="control-label">التاريخ </label>
                   <input name="absence_date" type="text" class="form-control" id="datepicker" />
-                  </span>
                 </div>
               </div>
               <div class="col col-lg-2 col-md-2 col-sm-12 col-12">

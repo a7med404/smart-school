@@ -58,6 +58,8 @@ class CreateStudentsTable extends Migration
                 ->references('id')->on('parts')
                 ->onDelete('cascade'); */
             $table->integer('health_id');
+            $table->foreign('health_id')
+                ->references('id')->on('healths');
             $table->timestamps();
         });
     }

@@ -150,5 +150,6 @@
         mounted() {
             console.log('Component mounted.')
         }
+         
     }
 </script>

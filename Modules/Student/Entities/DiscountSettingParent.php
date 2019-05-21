@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DiscountSettingParent extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'value',
+        'experience_years',
+        'type'    
+    ];
 }

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class PayRuls extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'name',
+        'is_mandatary',
+        'note',
+    ];
 }

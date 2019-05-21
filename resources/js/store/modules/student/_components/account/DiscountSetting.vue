@@ -157,13 +157,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label"> القيمة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="discount_setting_parent.value">
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label"> عدد سنوات الخبره </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="discount_setting_parent.experience_years">
                   </div>
                 </div>
               </div>
@@ -171,7 +171,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">
-                      <input type="checkbox" class="minimal">
+                      <input type="checkbox" class="minimal" v-model="discount_setting_parent.type">
                       نسبة
                     </label>
                   </div>
@@ -205,7 +205,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">الترتيب</label>
-                    <select class="form-control select2" name="addToClass.level_id">
+                    <select class="form-control select2" name="addToClass.level_id" v-model="discount_setting_sibling.ranking">
                       <option selected="selected" value="1">الاول</option>
                       <option value="2">الثاني</option>
                       <option value="3">الثالث</option>
@@ -222,14 +222,14 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label"> القيمة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="discount_setting_sibling.value">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label m-l-10">
-                        <input type="checkbox" class="minimal">
+                        <input type="checkbox" class="minimal" v-model="discount_setting_sibling.type">
                         نسبة
                       </label>
                     </div>
@@ -256,6 +256,20 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+            return {
+              discount_setting_sibling: {
+                ranking         : '',
+                value           : '',
+                type            : ''
+               },
+              discount_setting_parent: {
+                value                  : '',
+                experience_years       : '',
+                type                   : ''
+              }
+            }
         }
     }
 </script>
