@@ -4,15 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory EmptyPalceFactory
-php artisan module:make-seed EmptyPalceTableSeeder
+php artisan module:make-factory OffPrintFactory
+php artisan module:make-seed OffPrintTableSeeder
 
-php artisan module:make-request CreateEmptyPalceRequest
+php artisan module:make-request CreateOffPrintRequest
 
-php artisan module:make-resource EmptyPalceResource --collection
+php artisan module:make-resource OffPrintResource --collection
 
-php artisan module:make-model EmptyPalce --migration
-php artisan module:make-controller EmptyPalceController
+php artisan module:make-model OffPrint --migration
+php artisan module:make-controller OffPrintController
 
 
 php artisan module:migrate

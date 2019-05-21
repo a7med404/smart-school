@@ -4,7 +4,7 @@ namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kindness extends Model
+class OffPrint extends Model
 {
     protected $fillable = [];
 }

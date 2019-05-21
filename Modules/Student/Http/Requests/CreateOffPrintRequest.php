@@ -4,7 +4,7 @@ namespace Modules\Student\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRecordRequest extends FormRequest
+class CreateOffPrintRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
