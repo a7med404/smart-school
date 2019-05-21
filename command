@@ -4,15 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory AddCalendEmployeeFactory
-php artisan make:seeder AddCalendEmployeeTableSeeder
+php artisan module:make-factory EmptyPalceFactory
+php artisan module:make-seed EmptyPalceTableSeeder
 
-php artisan module:make-request CreateAddCalendEmployeeRequest
+php artisan module:make-request CreateEmptyPalceRequest
 
-php artisan module:make-resource AddCalendEmployeeResource --collection
+php artisan module:make-resource EmptyPalceResource --collection
 
-php artisan module:make-model AddCalendEmployee --migration
-php artisan module:make-controller AddCalendEmployeeController
+php artisan module:make-model EmptyPalce --migration
+php artisan module:make-controller EmptyPalceController
 
 
 php artisan module:migrate

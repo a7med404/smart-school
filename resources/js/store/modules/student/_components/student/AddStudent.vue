@@ -32,6 +32,7 @@
                 <li class="active"><a href="#info" data-toggle="tab">بيانات عامة</a></li>
                 <li><a href="#address" data-toggle="tab">عنوان الطالب</a></li>
                 <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
+                <li><a href="#identifcation" data-toggle="tab">اثبات الشخصية</a></li>
                 <li><a href="#dist" data-toggle="tab">توزيع الطالب</a></li>
                 <li><a href="#health" data-toggle="tab">الحالة الصحية</a></li>
                 <li><a href="#master" data-toggle="tab">بيانات ولي امر الطالب</a></li>
@@ -230,6 +231,49 @@
                         <div class="form-group">
                           <label class="control-label"> البريد الالكتروني </label>
                           <input class="form-control" placeholder="" type="text" v-model="contact.email">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                        <button class="btn btn-primary btn-md">حفــظ</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="identifcation">
+                  <form role="form">
+                    <div class="row">
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label">نوع اثبات الشخصية</label>
+                          <select class="form-control select2" v-model="health.blood_type">
+                            <option value="1">O+</option>
+                            <option value="0">O-</option>
+                            <option value="1">A+</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label">رقم اثبات الشخصية </label>
+                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label"> تاريخ الانتهاء </label>
+                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_name">
+                        </div>
+                      </div>
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label"> مكان الاستخراج </label>
+                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_number">
                         </div>
                       </div>
                     </div>
