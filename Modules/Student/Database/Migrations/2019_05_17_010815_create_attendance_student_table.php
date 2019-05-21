@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePermissiontodepartsTable extends Migration
+class CreateAttendanceStudentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreatePermissiontodepartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissiontodeparts', function (Blueprint $table) {
+        Schema::create('attendance_student', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date');
-            $table->text('note')->nullable();
+
+            $table->integer('attendance_id');
+           /*  $table->foreign('attendance_id')
+                ->references('id')->on('attendances')
+                ->onDelete('cascade'); */
             $table->integer('student_id');
-           /*  $table->foreign('student_id')
+            /* $table->foreign('student_id')
                 ->references('id')->on('students')
                 ->onDelete('cascade'); */
             $table->timestamps();
@@ -32,6 +35,6 @@ class CreatePermissiontodepartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissiontodeparts');
+        Schema::dropIfExists('attendance_student');
     }
 }
