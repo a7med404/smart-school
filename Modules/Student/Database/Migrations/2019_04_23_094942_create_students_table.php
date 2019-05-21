@@ -30,33 +30,33 @@ class CreateStudentsTable extends Migration
             $table->text('note');
             
             $table->integer('identifcation_id');
-            $table->foreign('identifcation_id')
+            /* $table->foreign('identifcation_id')
                 ->references('id')->on('identifcations')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('student_parent_id');
-            $table->foreign('student_parent_id')
+            /* $table->foreign('student_parent_id')
                 ->references('id')->on('student_parents')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('address_id');
-            $table->foreign('address_id')
+           /*  $table->foreign('address_id')
                 ->references('id')->on('addresses')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('contact_id');
-            $table->foreign('contact_id')
+            /* $table->foreign('contact_id')
                 ->references('id')->on('contacts')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('level_id');
-            $table->foreign('level_id')
+            /* $table->foreign('level_id')
                 ->references('id')->on('levels')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('classroom_id');
-            $table->foreign('classroom_id')
+            /* $table->foreign('classroom_id')
                 ->references('id')->on('classrooms')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('part_id');
-            $table->foreign('part_id')
+            /* $table->foreign('part_id')
                 ->references('id')->on('parts')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('health_id');
             $table->foreign('health_id')
                 ->references('id')->on('healths');

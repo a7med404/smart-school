@@ -17,13 +17,13 @@ class CreateAttendanceStudentTable extends Migration
             $table->bigIncrements('id');
 
             $table->integer('attendance_id');
-            $table->foreign('attendance_id')
+           /*  $table->foreign('attendance_id')
                 ->references('id')->on('attendances')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->integer('student_id');
-            $table->foreign('student_id')
+            /* $table->foreign('student_id')
                 ->references('id')->on('students')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->timestamps();
         });
     }

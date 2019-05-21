@@ -18,7 +18,7 @@ class CreateHealthsTable extends Migration
             $table->string('doctor_name', 255);
             $table->string('doctor_number', 14);
             $table->integer('blood_type');
-            $table->string('insurance_number', 255)->unique()->nullable();
+            $table->string('insurance_number')->unique()->nullable();
             $table->text('health_status');
             // $table->integer('student_id');
             $table->integer('student_id')->foreign()->references('id')->on('students');

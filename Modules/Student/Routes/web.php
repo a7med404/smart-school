@@ -13,5 +13,6 @@
 
 Route::prefix('student')->group(function() {
     Route::get('/', 'StudentController@index');
+    Route::get('/Classroom', 'ClassroomController@index');
     
 });

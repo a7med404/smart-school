@@ -5,7 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\Classroom;
+use Modules\Student\Transformers\ClassroomResource;
+use Modules\Student\Http\Requests\CreateClassroomRequest;
 class ClassroomController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return new ClassroomResource(Classroom::all());
     }
 
     /**
@@ -31,7 +33,7 @@ class ClassroomController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateClassroomRequest $request)
     {
         //
     }
