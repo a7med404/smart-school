@@ -185,6 +185,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+         return {
+        pay_class: {
+                value               : '',
+                pay_rul_id          : '',
+                level_id            : '',
+                classroom_id        : ''
+              }
+            }
         }
+
     }
 </script>

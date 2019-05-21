@@ -14,7 +14,9 @@ class CreateDiscountSettingParentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'value'                     => 'required|float',
+            'experience_years'          => 'required|integer',
+            'type'                      => 'required|boolean'
         ];
     }
 

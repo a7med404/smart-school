@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DiscountSettingSibling extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'ranking',
+        'value',
+        'type'
+    ];
 }
