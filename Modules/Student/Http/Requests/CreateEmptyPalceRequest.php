@@ -14,7 +14,10 @@ class CreateEmptyPalceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'level_id'              => 'required|integer',
+            'classroom_id'          => 'required|integer',
+            'part_id'               => 'required|integer',
+            'name'                  => 'required|string'
         ];
     }
 

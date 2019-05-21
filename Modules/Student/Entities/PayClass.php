@@ -11,7 +11,8 @@ class PayClass extends Model
         'value',
         'pay_rul_id',
         'level_id',
-        'classroom_id'
+        'classroom_id',
+        'academic_year'
     ];
         
     public function Classrooms()

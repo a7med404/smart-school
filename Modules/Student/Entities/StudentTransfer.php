@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentTransfer extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'student_id',
+        'transfer_to',
+        'duration',
+        'payment_status'                        
+    ];
 }

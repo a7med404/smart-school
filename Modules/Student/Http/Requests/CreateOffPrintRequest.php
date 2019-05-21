@@ -14,7 +14,9 @@ class CreateOffPrintRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'student_id'          => 'required|integer',
+            'employee_id'         => 'required|integer',
+            'type'                => 'required|integer'
         ];
     }
 
