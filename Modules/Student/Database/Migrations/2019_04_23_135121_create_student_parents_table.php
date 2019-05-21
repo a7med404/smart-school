@@ -20,7 +20,7 @@ class CreateStudentParentsTable extends Migration
             $table->integer('religion')->nullable();
             $table->integer('relation');
             $table->integer('nationality')->nullable();
-            $table->string('identifcation_number', 255)->unique()->nullable();
+            $table->string('identifcation_number')->unique()->nullable();
             $table->integer('qualification')->nullable();
             $table->string('job', 255)->nullable();
             $table->string('work_place', 255)->nullable();
@@ -31,9 +31,9 @@ class CreateStudentParentsTable extends Migration
             $table->text('note')->nullable();
             
             $table->integer('address_id');
-            $table->foreign('address_id')
+            /* $table->foreign('address_id')
                 ->references('id')->on('addresses')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); */
             $table->timestamps();
         });
     }
