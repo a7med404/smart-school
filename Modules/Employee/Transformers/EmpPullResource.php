@@ -4,7 +4,7 @@ namespace Modules\Employee\Transformers;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class EmpPoolResource extends ResourceCollection
+class EmpPullResource extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

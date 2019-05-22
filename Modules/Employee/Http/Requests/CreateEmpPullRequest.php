@@ -4,7 +4,7 @@ namespace Modules\Employee\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateEmpPoolRequest extends FormRequest
+class CreateEmpPullRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.

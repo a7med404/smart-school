@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmpPoolsTable extends Migration
+class CreateEmpPullsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEmpPoolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('emp_pools', function (Blueprint $table) {
+        Schema::create('emp_pulls', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateEmpPoolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('emp_pools');
+        Schema::dropIfExists('emp_pulls');
     }
 }

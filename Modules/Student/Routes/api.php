@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/student', function (Request $request) {
 });
 
 Route::group(['prefix' => '/student'], function () {
+
+  Route::resource('/levels', 'LevelController');
     Route::get('levels', function () {
 
         // return factory('Modules\Student\Entities\Level', 10)->make();

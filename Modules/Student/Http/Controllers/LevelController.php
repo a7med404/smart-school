@@ -10,7 +10,7 @@ use Modules\Student\Transformers\LevelResource;
 use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 class LevelController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      * @return Response

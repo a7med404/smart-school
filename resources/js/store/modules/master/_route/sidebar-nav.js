@@ -147,7 +147,7 @@ import AddCalend from '../../employee/_components/AddCalend';
 import BearInMind from '../../employee/_components/BearInMind';
 import EmpAbsence from '../../employee/_components/EmpAbsence';
 import CutAllowance from '../../employee/_components/CutAllowance';
-import EmpPool from '../../employee/_components/EmpPool';
+import EmpPull from '../../employee/_components/EmpPull';
 
 import PayRuls from '../../student/_components/account/PayRuls';
 // import Classes from '../../student/_components/account/Classes';
@@ -540,10 +540,10 @@ const routes = [
     component:  CutAllowance
   }, 
   {
-    path: '/emp-pool',
+    path: '/emp-pull',
     props: true,
-    name: 'emp-pool',
-    component:  EmpPool
+    name: 'emp-pull',
+    component:  EmpPull
   }, 
 
   {
