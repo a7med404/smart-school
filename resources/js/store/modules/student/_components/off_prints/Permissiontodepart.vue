@@ -100,7 +100,7 @@
                   <div class="form-group">
                     <label class="control-label">اختيار الطالب </label>
                     <fieldset>
-                      <select class="form-control select2" name="parent">
+                      <select class="form-control select2" name="parent" v-model="permissiontodepart.student_id">
                         <option value="1">احمد عبد الله احمد علي</option>
                         <option value="0">محمد سيد علي السيد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
@@ -113,7 +113,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">التاريخ </label>
-                    <input name="date" type="text" class="form-control" id="datepicker" />
+                    <input name="date" type="text" class="form-control" id="datepicker" v-model="permissiontodepart.date" />
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظات</label>
-                    <textarea class="form-control" placeholder="" name="note"></textarea>
+                    <textarea class="form-control" placeholder="" name="note" v-model="permissiontodepart.note"></textarea>
                   </div>
                 </div>
               </div>
@@ -149,6 +149,16 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+          return {
+            permissiontodepart: {
+              student_id               : '',  
+              date                     : '',  
+              note                     : ''
+            }
+          }
         }
+         
     }
 </script>

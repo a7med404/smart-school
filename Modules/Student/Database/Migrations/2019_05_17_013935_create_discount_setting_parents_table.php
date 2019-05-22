@@ -15,7 +15,9 @@ class CreateDiscountSettingParentsTable extends Migration
     {
         Schema::create('discount_setting_parents', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->float('value');
+            $table->integer('experience_years');
+            $table->boolean('type');
             $table->timestamps();
         });
     }

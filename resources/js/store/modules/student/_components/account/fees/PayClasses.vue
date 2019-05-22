@@ -101,7 +101,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">  العام الدراسي </label>
-                    <select class="form-control select2">
+                    <select class="form-control select2" v-model="pay_class.academic_year">
                     <option value="1">الكل</option>
                     <option value="0">2010-2011</option>
                     <option value="0">2011-2012</option>
@@ -114,7 +114,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">اسم المرحلة التعليمية</label>
-                    <select class="form-control select2">
+                    <select class="form-control select2" v-model="pay_class.level_id">
                       <option value="1">الكل</option>
                       <option value="1">رياض اطفال</option>
                       <option value="0">أساس</option>
@@ -125,7 +125,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">اسم الصف</label>
-                    <select class="form-control select2">
+                    <select class="form-control select2" v-model="pay_class.classroom_id">
                       <option value="1">الكل</option>
                       <option value="1">حضانة</option>
                       <option value="0">الاول</option>
@@ -147,7 +147,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">نوع الرسوم</label>
-                    <select class="form-control select2">
+                    <select class="form-control select2" v-model="pay_class.pay_rul_id">
                       <option value="1">الكل</option>
                       <option value="0">زي مدرسي</option>
                       <option value="0">كتب</option>
@@ -159,7 +159,7 @@
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label"> القيمة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="pay_class.value">
                   </div>
                 </div>
               </div>
@@ -185,6 +185,18 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+         return {
+        pay_class: {
+                value               : '',
+                pay_rul_id          : '',
+                level_id            : '',
+                classroom_id        : '',
+                academic_year       : ''
+              }
+            }
         }
+
     }
 </script>

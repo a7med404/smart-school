@@ -16,7 +16,7 @@ class CreatePermissiontodepartRequest extends FormRequest
         return [
             'date'        => 'required|date',
             'note'        => 'nullable|string',
-            'student_id'  => 'required|integer',
+            'student_id'  => 'required|integer'
         ];
     }
 

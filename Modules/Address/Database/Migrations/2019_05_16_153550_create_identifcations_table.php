@@ -16,6 +16,7 @@ class CreateIdentifcationsTable extends Migration
         Schema::create('identifcations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->tinyInteger('type')->default(0); // Sudan ID, Passport
+            $table->string('identifcation_number')->nullable();
             $table->date('issue_date')->nullable();
             $table->string('issue_place')->nullable();
             $table->unsignedInteger('identable_id');

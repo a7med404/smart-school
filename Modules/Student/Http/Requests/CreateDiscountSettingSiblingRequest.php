@@ -14,7 +14,9 @@ class CreateDiscountSettingSiblingRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ranking'          => 'required|integer',
+            'value'            => 'required|float',
+            'type'             => 'required|boolean'
         ];
     }
 

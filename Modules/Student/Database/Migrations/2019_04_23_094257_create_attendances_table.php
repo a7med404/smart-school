@@ -18,6 +18,10 @@ class CreateAttendancesTable extends Migration
             $table->date('data');
             $table->tinyInteger('status');
             $table->text('note')->nullable();
+            $table->integer('student_id');
+            $table->foreign('student_id')
+                ->references('id')->on('students')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

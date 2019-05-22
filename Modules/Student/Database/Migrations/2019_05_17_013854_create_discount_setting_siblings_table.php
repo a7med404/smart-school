@@ -15,7 +15,9 @@ class CreateDiscountSettingSiblingsTable extends Migration
     {
         Schema::create('discount_setting_siblings', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->integer('ranking');
+            $table->float('value');
+            $table->boolean('type');
             $table->timestamps();
         });
     }

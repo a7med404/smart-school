@@ -14,7 +14,11 @@ class CreatePayClassRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+        'value'                => 'required|string',
+        'pay_rul_id'           => 'required|integer',
+        'level_id'             => 'required|integer',
+        'classroom_id'         => 'required|integer',
+        'academic_year'        => 'required|string'
         ];
     }
 

@@ -96,16 +96,17 @@
                 <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                   <div class="title"> اختيار الطالب:</div>
                   <fieldset class="form-group">
-                    <select class="form-control select2" name="parent">
-                        <option value="1">احمد عبد الله احمد علي</option>
-                        <option value="0">محمد سيد علي السيد</option>
-                        <option value="1">الفاضل محمد عثمان بلال</option>
-                        <option value="0">ياسر عمار محمد ادم</option>
-                        <option value="0">هاني عمار محمد ادم</option>
+                    <select class="form-control select2" name="parent" v-model="off_print.student_id">
+                      <option value="1">احمد عبد الله احمد علي</option>
+                      <option value="0">محمد سيد علي السيد</option>
+                      <option value="1">الفاضل محمد عثمان بلال</option>
+                      <option value="0">ياسر عمار محمد ادم</option>
+                      <option value="0">هاني عمار محمد ادم</option>
                     </select>
                   </fieldset>
                 </div>
               </div>
+              <input type="hidden" name="type" value="3" v-model="off_print.type">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <button href="#" class="btn btn-primary">اضافة</button>
@@ -130,6 +131,15 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+          return {
+            off_print: {
+              student_id               : '',  
+              employee_id              : '',  
+              type                     : ''
+            }
+          }
         }
     }
 </script>

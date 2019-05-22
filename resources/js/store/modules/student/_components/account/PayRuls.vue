@@ -93,7 +93,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الاسم </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="pay_rul.name">
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">
-                      <input type="checkbox" class="minimal">
+                      <input type="checkbox" class="minimal" v-model="pay_rul.is_mandatary">
                       اجباري
                     </label>
                   </div>
@@ -111,7 +111,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظة</label>
-                    <textarea class="form-control" placeholder="" name="note"></textarea>
+                    <textarea class="form-control" placeholder="" name="note" v-model="pay_rul.note"></textarea>
                   </div>
                 </div>
               </div>
@@ -140,6 +140,15 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+            return {
+              pay_rul: {
+                name                : '',
+                is_mandatary        : '',
+                note                : ''
+              }
+            }
         }
     }
 </script>
