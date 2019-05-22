@@ -5,7 +5,10 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\Part;
+use Modules\Student\Transformers\PartResource;
+use Modules\Student\Transformers\SinglepartResource;
+use Modules\Student\Http\Requests\CreatePartRequest;
 class PartController extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class PartController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return new PartResource(Part::all());
     }
 
     /**
@@ -31,9 +34,12 @@ class PartController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreatePartRequest $request)
     {
-        //
+        Part::create($request->all());
+            return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class PartController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new SinglepartResource(Part::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class PartController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new SinglepartResource(Part::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +70,12 @@ class PartController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePartRequest $request, $id)
     {
-        //
+       Part::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
 
     /**
@@ -74,6 +85,10 @@ class PartController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Part::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+  
 }

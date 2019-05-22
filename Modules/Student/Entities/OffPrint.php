@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class OffPrint extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'student_id',
+        'employee_id',
+        'type'
+    ];
 }

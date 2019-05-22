@@ -15,7 +15,10 @@ class CreateEmptyPalcesTable extends Migration
     {
         Schema::create('empty_palces', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->integer('level_id')->foreign()->references('id')->on('levels');
+            $table->integer('classroom_id')->foreign()->references('id')->on('classrooms');
+            $table->integer('part_id')->foreign()->references('id')->on('parts');
+            $table->string('name');
             $table->timestamps();
         });
     }

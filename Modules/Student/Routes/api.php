@@ -38,3 +38,4 @@ Route::group(['prefix' => '/student'], function () {
           ]);
     });
 });
+    Route::resource('/Classroom', 'ClassroomController');

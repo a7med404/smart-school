@@ -14,8 +14,7 @@ class CreateClassroomRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ar' => 'required|string|min:2',
-            'name_en' => 'required|string|min:2',
+            'name' => 'required|string|min:2',
             'sort' => 'required|integer',
             'is_end' => 'boolean',
             'level_id' => 'required|integer',
@@ -23,6 +22,7 @@ class CreateClassroomRequest extends FormRequest
         ];
     }
 
+    
     /**
      * Determine if the user is authorized to make this request.
      *

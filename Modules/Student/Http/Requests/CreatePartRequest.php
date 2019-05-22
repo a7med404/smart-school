@@ -14,10 +14,10 @@ class CreatePartRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ar'       => 'required|string|min:2',
-            'name_en'       => 'required|string|min:2',
+            'name'       => 'required|string|min:2',
             'sort'          => 'required|integer',
             'level_id'      => 'required|integer',
+            'max_student_number'      => 'required|integer',
             'classroom_id'  => 'required|integer'
         ];
     }

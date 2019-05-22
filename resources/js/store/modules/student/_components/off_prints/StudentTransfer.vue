@@ -96,7 +96,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="title"> اختيار الطالب:</div>
                   <fieldset class="form-group">
-                    <select class="form-control select2" name="parent">
+                    <select class="form-control select2" name="parent" v-model="student_transfer.student_id">
                         <option value="1">احمد عبد الله احمد علي</option>
                         <option value="0">محمد سيد علي السيد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
@@ -110,13 +110,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">الجهة المحول لها </label>
-                    <input name="date" type="text" class="form-control" />
+                    <input name="date" type="text" class="form-control" v-model="student_transfer.transfer_to" />
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">مدة بقائه في المدرسة </label>
-                    <input name="date" type="text" class="form-control" />
+                    <input name="date" type="text" class="form-control" v-model="student_transfer.duration" />
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">موقفه من سداد الرسوم </label>
-                    <input name="date" type="text" class="form-control" />
+                    <input name="date" type="text" class="form-control" v-model="student_transfer.payment_status" />
                   </div>
                 </div>
               </div>
@@ -152,6 +152,16 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){ 
+          return {
+            student_transfer: {
+              student_id                      : '',  
+              transfer_to                     : '',  
+              duration                        : '',
+              payment_status                  : ''
+            }
+          }
         }
     }
 </script>

@@ -99,7 +99,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <fieldset class="form-group">
                     <label class="control-label">اختيار المرحلة التعليمية </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="empty_palce.level_id">
                       <option value="DA">اختيار المرحلة التعليمية</option>
                       <option value="1">رياض اطفال</option>
                       <option value="0">أساس</option>
@@ -110,7 +110,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <fieldset class="form-group">
                     <label class="control-label">اختيار الصف </label>
-                    <select class="form-control select2" name="class_id">
+                    <select class="form-control select2" name="class_id" v-model="empty_palce.classroom_id">
                       <option value="DA">اختيار الصف </option>
                       <option value="1">حضانة</option>
                       <option value="0">الاول</option>
@@ -132,7 +132,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <fieldset class="form-group">
                     <label class="control-label">اختيار الفصل </label>
-                    <select class="form-control select2" name="part_id">
+                    <select class="form-control select2" name="part_id" v-model="empty_palce.part_id">
                       <option value="DA">اختيار الفصل</option>
                       <option value="1">ابوبكر</option>
                       <option value="0">عمر</option>
@@ -144,7 +144,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">الطالب </label>
-                    <input name="date" type="text" class="form-control" />
+                    <input name="date" type="text" class="form-control" v-model="empty_palce.name" />
                   </div>
                 </div>
               </div>
@@ -173,6 +173,16 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+         data(){ 
+          return {
+            empty_palce: {
+              level_id                         : '',  
+              classroom_id                     : '',  
+              part_id                          : '',
+              name                             : ''
+            }
+          }
         }
     }
 </script>

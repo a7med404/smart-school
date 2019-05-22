@@ -16,17 +16,18 @@ class CreatePayClassesTable extends Migration
         Schema::create('pay_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            
-            $table->string('value');
+            $table->string('academic_year');
+            $table->integer('level_id');
+            /* $table->integer('level_id')->foreign()
+                ->references('id')->on('levels'); */
+            $table->integer('classroom_id');
+                /* $table->foreign('classroom_id')
+                    ->references('id')->on('classrooms'); */
             $table->integer('pay_rul_id');
             /* $table->integer('pay_rul_id')->foreign()
                 ->references('id')->on('pay_ruls'); */
-            $table->integer('level_id');
-                /* $table->integer('level_id')->foreign()
-                ->references('id')->on('levels'); */
-            $table->integer('classroom_id');
-            /* $table->foreign('classroom_id')
-                ->references('id')->on('classrooms'); */
+
+             $table->float('value');
             $table->timestamps();
         });
     }

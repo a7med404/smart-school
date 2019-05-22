@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Classroom;
 use Modules\Student\Transformers\ClassroomResource;
+use Modules\Student\Transformers\singleClassroomResource;
 use Modules\Student\Http\Requests\CreateClassroomRequest;
 class ClassroomController extends Controller
 {
@@ -35,7 +36,10 @@ class ClassroomController extends Controller
      */
     public function store(CreateClassroomRequest $request)
     {
-        //
+         Classroom::create($request->all());
+            return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+            ], 201);
     }
 
     /**
@@ -45,7 +49,8 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new singleClassroomResource(Classroom::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -55,7 +60,8 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new singleClassroomResource(Classroom::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -64,9 +70,12 @@ class ClassroomController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateClassroomRequest $request, $id)
     {
-        //
+        Classroom::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
 
     /**
@@ -76,6 +85,9 @@ class ClassroomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Classroom::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
 }
