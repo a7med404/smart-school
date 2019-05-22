@@ -5,7 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\Level;
+use Modules\Student\Transformers\LevelResource;
+use Modules\Student\Http\Requests\CreateLevelRequest;
 class LevelController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return new LevelResource(Level::all());
     }
 
     /**
@@ -31,9 +33,12 @@ class LevelController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateLevelRequest $request)
     {
-        //
+         Level::create($request->all());
+            return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+            ], 201);
     }
 
     /**
@@ -43,7 +48,8 @@ class LevelController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new LevelResource(Level::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +59,8 @@ class LevelController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new LevelResource(Level::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +69,12 @@ class LevelController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateLevelRequest $request, $id)
     {
-        //
+        Level::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
 
     /**
@@ -74,6 +84,10 @@ class LevelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Level::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }
