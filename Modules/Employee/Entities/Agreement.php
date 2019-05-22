@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Agreement extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'employee_id',
+        'type'
+    ];
 }

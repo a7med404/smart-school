@@ -14,7 +14,7 @@ class CreateEmpPullRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'employee_id'      => 'integer|required'
         ];
     }
 

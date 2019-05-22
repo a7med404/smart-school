@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmpPull extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'employee_id'
+    ];
 }

@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class BearInMind extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'note',
+        'date',
+        'empolyee_id'
+    ];
 }
