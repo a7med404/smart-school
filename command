@@ -4,15 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory OffPrintFactory
-php artisan module:make-seed OffPrintTableSeeder
+php artisan module:make-factory AgreementFactory
+php artisan module:make-seed AgreementTableSeeder
 
-php artisan module:make-request CreateOffPrintRequest
+php artisan module:make-request CreateAgreementRequest
 
-php artisan module:make-resource OffPrintResource --collection
+php artisan module:make-resource AgreementResource --collection
 
-php artisan module:make-model OffPrint --migration
-php artisan module:make-controller OffPrintController
+php artisan module:make-model Agreement --migration
+php artisan module:make-controller AgreementController
 
 
 php artisan module:migrate

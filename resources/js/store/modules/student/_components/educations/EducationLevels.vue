@@ -79,7 +79,20 @@
             </div>
           </div>
           <div class="box-body">
-                    
+            <form role="form">
+              <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+                  <div class="form-group">
+                    <label class="control-label"> اسم المرحلة التعليمية </label>
+                    <select class="form-control select2" @change="filterLevels($event)">
+                      <option value="1">1</option>
+                      <option value="5">5</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
             <div class="row">
               <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
@@ -94,31 +107,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="level in allLevels" :key="level.id">
                             <td>1</td>
-                            <td>مرحلة رياض الاطفال</td>
-                            <td>1</td>
-                            <td>اماني محمد احمد</td>
-                            <td><a href="#" class="">سمية ادم جبريل</a></td>
+                            <td v-text="level.name"></td>
+                            <td v-text="level.sort"></td>
+                            <td v-text="level.school_master"></td>
+                            <td v-text="level.head_master"><a href="#" class=""></a></td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                    <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                    <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>المرحلة الثانوية</td>
-                            <td>3</td>
-                            <td>عباس عوض الشيخ</td>
-                            <td><a href="#" class="">محمد عثمان عب الله</a></td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                    <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                    <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                                    <a class="btn btn-info" @click.prevent="editLevel(level.id)" type="button" data-toggle="modal" data-target="#popup-add-level"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(level)"> <i class="fa fa-times"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -148,18 +147,18 @@
             <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form @submit.prevent = "edit ? updateLevel(Level.id) : createLevel()" role="form">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <input class="form-control" placeholder="" type="text" name="name_ar">
+                    <input class="form-control" placeholder="" type="text" v-model="level.name">
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الترتيب </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" v-model="level.sort">
                   </div>
                 </div>
               </div>
@@ -167,13 +166,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> مدير المدرسة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" v-model="level.head_master">
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> ناظر المدرسة </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" v-model="level.school_master">
                   </div>
                 </div>
               </div>
@@ -198,10 +197,54 @@
 </template>
 
 <script>
-
-    export default {
-        mounted() {
-            console.log('Component mounted.')
+  import { mapGetters, mapActions } from 'vuex';
+  export default {
+      mounted() {
+      },
+      computed: {
+        ...mapGetters(['allLevels'])
+      },
+      created() {
+        let self = this;
+        self.fetchLevels;
+      },
+      data(){
+        return {
+          level: {
+            name:  '',
+            sort: '',
+            head_master: '',
+            school_master: '',
+          },
+          edit: false,
         }
-    }
+      },
+      methods:{
+        ...mapActions(['fetchLevels', 'addLevel', 'deleteLevel', 'filterLevels', 'updateLevel']),
+        createLevel: function() {
+          let self = this;
+          let params = Object.assign({}, self.level);
+          this.addLevel(params);
+
+        },
+        
+        editLevel: function(level) {
+          let self = this;
+          self.edit = true;
+          axios.get('/api/student/levels/'+level.id)
+          .then(function(response){
+            self.level.name = response.data.name;
+            self.level.sort = response.data.sort;
+            self.level.head_master = response.data.head_master;
+            self.level.school_master = response.data.school_master;
+          })
+          .catch(function(error){
+            console.log(error);
+          });
+          
+          let params = Object.assign({}, self.level);
+          this.updateLevel(params);
+        },
+      }
+  }
 </script>

@@ -147,7 +147,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> درجة التقييم </label>
-                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name_ar">
+                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">

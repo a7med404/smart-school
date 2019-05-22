@@ -168,7 +168,7 @@
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'report-data-classrooms'}"> <i class="fa fa-circle-o"></i>تقرير كل بيانات الصف</router-link></li>
-              <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li>
+              <!-- <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li> -->
             </ul>
           </li> 
           <li>

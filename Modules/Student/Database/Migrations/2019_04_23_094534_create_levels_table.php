@@ -17,8 +17,8 @@ class CreateLevelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 100)->unique();
             $table->integer('sort')->unique();
-            $table->string('manager_name', 100);
-            $table->string('super_name', 100);
+            $table->string('head_master', 100);
+            $table->string('school_master', 100);
             $table->timestamps();
         });
     }

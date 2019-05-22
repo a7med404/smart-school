@@ -778,10 +778,10 @@ const routes = [
     path: '/redirect-me',
     redirect: '/dashbord',
   },
-  {
-    path: '*',
-    redirect: '/Dashboard',
-  },
+  // {
+  //   path: '*',
+  //   redirect: '/Dashboard',
+  // },
 ]
 
 export default routes;

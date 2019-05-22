@@ -194,6 +194,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      pay_class: {
+        value: '',
+        pay_rul_id: '',
+        level_id: '',
+        classroom_id: ''
+      }
+    };
   }
 });
 

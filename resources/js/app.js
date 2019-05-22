@@ -31,7 +31,8 @@ Vue.use(VueReouter);
 
 const router = new VueReouter({
   base: '/',
-  mode: "history",  
+  mode: "history",
+  linkActiveClass: 'active',
   routes: routes,
 });
 
