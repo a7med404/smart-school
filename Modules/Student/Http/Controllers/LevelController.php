@@ -36,10 +36,14 @@ class LevelController extends Controller
      */
     public function store(CreateLevelRequest $request)
     {
-         Level::create($request->all());
-            return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-            ], 201);
+        $data = [
+            'name'          => $request->name, 
+            'sort'          => $request->sort,
+            'head_master'   => $request->head_master,  
+            'school_master' => $request->school_master, 
+        ];
+        Level::create($data);
+        return response()->json(['message' => 'تم الحفظ بنجاح', ], 201);
     }
 
     /**
@@ -72,10 +76,14 @@ class LevelController extends Controller
      */
     public function update(CreateLevelRequest $request, $id)
     {
-        Level::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $data = [
+            'name' => $request->name, 
+            'sort' => $request->sort,  
+            'head_master' => $request->head_master,  
+            'school_master' => $request->school_master, 
+        ];
+        Level::findOrfail($id)->fill($data);
+        return response()->json(['message' => 'تم التحديث بنجاح'], 200);
     }
 
     /**
@@ -86,9 +94,7 @@ class LevelController extends Controller
     public function destroy($id)
     {
         Level::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+        return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
  
 }

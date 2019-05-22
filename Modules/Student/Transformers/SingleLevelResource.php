@@ -18,8 +18,8 @@ class singleLevelResource extends Resource
             'id' => $this->id,
             'name' => $this->name,
             'sort' => $this->sort,
-            'manager_name' => $this->manager_name,
-            'super_name' => $this->super_name,
+            'head_master' => $this->head_master,
+            'school_master' => $this->school_master,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

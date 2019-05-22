@@ -668,8 +668,14 @@
     import { mapGetters, mapActions } from 'vuex';
     export default {
         mounted() { },
+        computed: {
+          computedvar: function () {
+            return globalStore.globalvar
+          }
+        },
         data(){ 
           return {
+            localvar: globalStore.globalvar,
             student: {
               name                   : '',  
               religion               : '',  
@@ -719,7 +725,9 @@
         },
         props: [],
         // computed: { ...mapGetters(['allStudent']) },
-        created() {},
+        created() {
+          console.info(localvar);
+        },
 
     }
 </script>
