@@ -14,7 +14,8 @@ class CreateAgreementRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'employee_id'                 => 'integer|required',
+            'type'                        => 'integer|required'
         ];
     }
 

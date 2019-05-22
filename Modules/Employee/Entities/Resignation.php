@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resignation extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'employee_id',
+        'applicant_to',
+        'reason'
+    ];
 }

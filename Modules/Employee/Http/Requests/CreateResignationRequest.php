@@ -14,7 +14,9 @@ class CreateResignationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'employee_id'                         => 'integer|required',
+            'applicant_to'                        => 'string|required',
+            'reason'                              => 'longText|required'
         ];
     }
 

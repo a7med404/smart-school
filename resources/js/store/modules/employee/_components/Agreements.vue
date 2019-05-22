@@ -383,7 +383,7 @@
                   <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="resignation.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
@@ -394,7 +394,7 @@
                   <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">مقدم لـ</label>
-                      <input class="form-control" placeholder="" type="text" name="home_number">
+                      <input class="form-control" placeholder="" type="text" name="home_number" v-model="resignation.applicant_to">
                     </div>
                   </div>
                 </div>
@@ -402,7 +402,7 @@
                   <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">السبب</label>
-                      <textarea class="form-control" placeholder="" name="health_status"></textarea>
+                      <textarea class="form-control" placeholder="" name="health_status" v-model="resignation.reason"></textarea>
                     </div>
                   </div>
                 </div>
@@ -439,13 +439,14 @@
                   <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="agreement.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
                         <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
+                    <input type="hidden" name="type" value="1" v-model="agreement.type">
                   </div>
                 </div>
                 <div class="row">
@@ -480,13 +481,14 @@
                   <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="agreement.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
                         <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
+                    <input type="hidden" name="type" value="2" v-model="agreement.type">
                   </div>
                 </div>
                 <div class="row">
@@ -521,13 +523,14 @@
                   <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="agreement.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
                         <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
+                    <input type="hidden" name="type" value="3" v-model="agreement.type">
                   </div>
                 </div>
                 <div class="row">
@@ -562,13 +565,14 @@
                   <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="agreement.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
                         <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
+                    <input type="hidden" name="type" value="4" v-model="agreement.type">
                   </div>
                 </div>
                 <div class="row">
@@ -603,13 +607,14 @@
                   <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="agreement.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
                         <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
+                    <input type="hidden" name="type" value="5" v-model="agreement.type">
                   </div>
                 </div>
                 <div class="row">
@@ -644,13 +649,14 @@
                   <div class="col col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">اسم الموظف</label>
-                      <select class="form-control select2"  v-model="student.gender">
+                      <select class="form-control select2"  v-model="agreement.employee_id">
                         <option value="1">احمد محمد احمد علي</option>
                         <option value="0">عباس الخير عبد الرحمن محمد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
                         <option value="0">معتز احمد محمد حنفي</option>
                       </select>
                     </div>
+                    <input type="hidden" name="type" value="6" v-model="agreement.type">
                   </div>
                 </div>
                 <div class="row">
@@ -722,6 +728,16 @@
               insurance_number: '',
               health_status: ''
             },
+
+            resignation: {
+              employee_id        : '',
+              applicant_to       : '',
+              reason             : ''
+            },
+            greement: {
+              employee_id        : '',
+              type               : ''
+            }
             
           }
         },

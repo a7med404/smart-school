@@ -15,7 +15,9 @@ class CreateResignationsTable extends Migration
     {
         Schema::create('resignations', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->integer('employee_id')->foreign()->references('id')->on('employees');
+            $table->string('applicant_to');
+            $table->longText('reason');
             $table->timestamps();
         });
     }
