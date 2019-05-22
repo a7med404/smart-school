@@ -18,9 +18,9 @@ class CreateClassroomsTable extends Migration
             $table->string('name', 100)->unique();
             $table->integer('sort')->unique();
             $table->boolean('is_end');
-            $table->unsignedInteger('level_id');
-            /* $table->foreign('level_id')
-                ->references('id')->on('levels'); */
+            $table->unsignedBigInteger('level_id');
+            $table->foreign('level_id')
+                ->references('id')->on('levels'); 
             $table->timestamps();
         });
     }

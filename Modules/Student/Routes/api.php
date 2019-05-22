@@ -21,23 +21,23 @@ Route::middleware('auth:api')->get('/student', function (Request $request) {
 Route::group(['prefix' => '/student'], function () {
 
   Route::resource('/levels', 'LevelController');
-    Route::get('levels', function () {
+    // Route::get('levels', function () {
 
         // return factory('Modules\Student\Entities\Level', 10)->make();
-        return response()->json([
-            [
-              'name' => 'مرحلة رياض الاطفال',
-              'sort' =>2,
-              'head_master' =>'سمية ادم جبريل',
-              'school_master' =>'محمد عثمان عب الله',
-            ],
-            [
-              'name' => 'المرحلة الثانوية',
-              'sort' =>1,
-              'head_master' =>'محمد عثمان عب الله',
-              'school_master' =>'سمية ادم جبريل',
-            ],
-          ]);
-    });
+        // return response()->json([
+        //     [
+        //       'name' => 'مرحلة رياض الاطفال',
+        //       'sort' =>2,
+        //       'head_master' =>'سمية ادم جبريل',
+        //       'school_master' =>'محمد عثمان عب الله',
+        //     ],
+        //     [ 
+        //       'name' => 'المرحلة الثانوية',
+        //       'sort' =>1,
+        //       'head_master' =>'محمد عثمان عب الله',
+        //       'school_master' =>'سمية ادم جبريل',
+        //     ],
+        //   ]);
+    // });
 });
     Route::resource('/Classroom', 'ClassroomController');

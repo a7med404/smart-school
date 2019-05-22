@@ -19,7 +19,7 @@ class CreateIdentifcationsTable extends Migration
             $table->string('identifcation_number')->nullable();
             $table->date('issue_date')->nullable();
             $table->string('issue_place')->nullable();
-            $table->unsignedInteger('identable_id');
+            $table->unsignedBigInteger('identable_id');
             $table->timestamps();
         });
     }

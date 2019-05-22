@@ -16,6 +16,7 @@ export default {
   async fetchLevels({ commit }, state){
     try {
       const response = await axios.get('/api/student/levels');
+      console.log(response);
       commit('ALL_LEVELS', response.data);
     } catch (error) {
       commit('ALL_LEVELS', []);

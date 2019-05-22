@@ -68,6 +68,12 @@ const ReciptSettings = resolve => {
   });
 };
 
+const AllStudents = resolve => {
+  require.ensure(['../../student/_components/student/AllStudents'], () => {
+    resolve(require('../../student/_components/student/AllStudents'))
+  });
+};
+
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
 import AddToClass from '../../student/_components/student/AddToClass';
@@ -615,6 +621,13 @@ const routes = [
     component:  AddStudent,
   },
   {
+    path: '/all-students',
+    props: true,
+    name: 'all-students',
+    component:  AllStudents,
+  },
+  {
+    
     path: '/students/add-to-class',
     props: true,
     name: 'add-to-class',
