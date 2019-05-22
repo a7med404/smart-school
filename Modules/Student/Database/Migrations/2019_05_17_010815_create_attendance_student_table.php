@@ -20,7 +20,7 @@ class CreateAttendanceStudentTable extends Migration
            /*  $table->foreign('attendance_id')
                 ->references('id')->on('attendances')
                 ->onDelete('cascade'); */
-            $table->integer('student_id');
+            $table->unsignedBigInteger('student_id');
             /* $table->foreign('student_id')
                 ->references('id')->on('students')
                 ->onDelete('cascade'); */

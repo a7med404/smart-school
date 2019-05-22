@@ -59,6 +59,7 @@
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة طالب</router-link></li>
+              <li><router-link :to="{name: 'all-students'}"> <i class="fa fa-circle-o"></i>الطلاب</router-link></li>
               <li><router-link :to="{name: 'add-student-manual'}"> <i class="fa fa-circle-o"></i>اضافة طالب يدويا</router-link></li>
             </ul>
           </li>
