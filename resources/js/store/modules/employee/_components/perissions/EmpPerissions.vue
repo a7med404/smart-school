@@ -139,7 +139,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> من الساعة </label>
-                    <input class="form-control" placeholder="" value="10" type="text" name="name_ar" v-model="emp_perission.from_houre">
+                    <input class="form-control" placeholder="" value="10" type="text" name="name" v-model="emp_perission.from_houre">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">

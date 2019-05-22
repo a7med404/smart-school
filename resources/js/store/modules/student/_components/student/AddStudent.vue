@@ -72,22 +72,6 @@
                             </select>
                           </div>
                         </div>
-                      </div>
-
-
-                      <div class="row">
-                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                          <div class="form-group">
-                            <label class="control-label"> الرقم القومي للطالب </label>
-                            <input class="form-control" placeholder="" type="text" value="" v-model="student.identifcation_number">
-                          </div>
-                        </div>
-                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                          <div class="form-group">
-                            <label class="control-label">تاريخ انتهاء الرقم القومي / رقم الهوية</label>
-                            <input type="text" class="form-control" id="identifcation_expire" v-model="student.identifcation_expire"/>
-                          </div>
-                        </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">تاريخ الميلاد</label>
@@ -95,7 +79,7 @@
                           </div>
                         </div>
                       </div>
-                  
+
                       <div class="row">
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
@@ -693,8 +677,6 @@
               study_lang             : '',  
               is_partner_son         : '',  
               is_staff_son           : '',  
-              identifcation_number   : '',  
-              identifcation_expire   : '',  
               birthday               : '',  
               start_data             : '', 
               start_from             : '',
