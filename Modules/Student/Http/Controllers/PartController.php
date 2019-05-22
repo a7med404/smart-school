@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Part;
 use Modules\Student\Transformers\PartResource;
+use Modules\Student\Transformers\SinglepartResource;
 use Modules\Student\Http\Requests\CreatePartRequest;
 class PartController extends Controller
 {
@@ -48,7 +49,7 @@ class PartController extends Controller
      */
     public function show($id)
     {
-        return new PartResource(Part::findOrfail($id));
+        return new SinglepartResource(Part::findOrfail($id));
         /* return view('student::show'); */
     }
 
@@ -59,7 +60,7 @@ class PartController extends Controller
      */
     public function edit($id)
     {
-        return new PartResource(Part::findOrfail($id));
+        return new SinglepartResource(Part::findOrfail($id));
         /* return view('student::edit'); */
     }
 

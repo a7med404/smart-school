@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Level;
 use Modules\Student\Transformers\LevelResource;
+use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 class LevelController extends Controller
 {
@@ -48,7 +49,7 @@ class LevelController extends Controller
      */
     public function show($id)
     {
-        return new LevelResource(Level::findOrfail($id));
+        return new SingleLevelResource(Level::findOrfail($id));
         /* return view('student::show'); */
     }
 
@@ -59,7 +60,7 @@ class LevelController extends Controller
      */
     public function edit($id)
     {
-        return new LevelResource(Level::findOrfail($id));
+        return new SingleLevelResource(Level::findOrfail($id));
         /* return view('student::edit'); */
     }
 

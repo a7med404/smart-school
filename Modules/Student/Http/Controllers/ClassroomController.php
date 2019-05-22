@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Classroom;
 use Modules\Student\Transformers\ClassroomResource;
+use Modules\Student\Transformers\singleClassroomResource;
 use Modules\Student\Http\Requests\CreateClassroomRequest;
 class ClassroomController extends Controller
 {
@@ -48,7 +49,7 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        return new ClassroomResource(Classroom::findOrfail($id));
+        return new singleClassroomResource(Classroom::findOrfail($id));
         /* return view('student::show'); */
     }
 
@@ -59,7 +60,7 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        return new ClassroomResource(Classroom::findOrfail($id));
+        return new singleClassroomResource(Classroom::findOrfail($id));
         /* return view('student::edit'); */
     }
 
