@@ -18,7 +18,6 @@ class CreateStudentsTable extends Migration
             $table->string('name', 200);
             $table->enum('gender', [0, 1]);
             $table->tinyInteger('religion');
-            $table->tinyInteger('study_lang');
             $table->boolean('is_partner_son');
             $table->boolean('is_staff_son');
             $table->date('birthday');

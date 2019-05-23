@@ -16,8 +16,7 @@ class CreateStudentRequest extends FormRequest
         return [ 
             'name'                  => 'required|max:255|min:10',  
             'religion'              => 'nullable|integer',  
-            'gender'                => 'required|integer',  
-            'study_lang'            => 'required|integer',  
+            'gender'                => 'required|integer',    
             'is_partner_son'        => 'required|integer',  
             'is_staff_son'          => 'required|integer',  
             'identifcation_number'  => 'nullable|string',  
@@ -28,7 +27,6 @@ class CreateStudentRequest extends FormRequest
             'start_year'            => 'required|date', 
             'note'                  => 'string|nullable',
             'student_parent_id'     => 'nullable|integer',
-            'study_language_id'     => 'nullable|integer',
             'address_id'            => 'nullable|integer',
             'contact_id'            => 'nullable|integer',
             'level_id'              => 'nullable|integer',

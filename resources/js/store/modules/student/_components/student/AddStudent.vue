@@ -672,9 +672,8 @@
           return {
             student: {
               name                   : '',  
-              religion               : '',  
               gender                 : '',  
-              study_lang             : '',  
+              religion               : '',  
               is_partner_son         : '',  
               is_staff_son           : '',  
               birthday               : '',  
@@ -683,7 +682,6 @@
               start_year             : '', 
               note                   : '',
               student_parent_id      : '',
-              study_language_id      : '',
               address_id             : '',
               contact_id             : '',
               level_id               : '',
