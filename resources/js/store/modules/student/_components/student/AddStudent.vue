@@ -669,13 +669,13 @@
     export default {
         mounted() { },
         computed: {
-          computedvar: function () {
-            return globalStore.globalvar
-          }
+          // computedvar: function () {
+          //   return globalStore.globalvar
+          // }
         },
         data(){ 
           return {
-            localvar: globalStore.globalvar,
+            // localvar: globalStore.globalvar,
             student: {
               name                   : '',  
               religion               : '',  
@@ -726,7 +726,7 @@
         props: [],
         // computed: { ...mapGetters(['allStudent']) },
         created() {
-          console.info(localvar);
+          // console.info(localvar);
         },
 
     }
