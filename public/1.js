@@ -684,6 +684,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -728,6 +734,15 @@ __webpack_require__.r(__webpack_exports__);
         blood_type: '',
         insurance_number: '',
         health_status: ''
+      },
+      resignation: {
+        employee_id: '',
+        applicant_to: '',
+        reason: ''
+      },
+      greement: {
+        employee_id: '',
+        type: ''
       }
     };
   },
@@ -790,8 +805,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.student.gender,
-                                  expression: "student.gender"
+                                  value: _vm.resignation.employee_id,
+                                  expression: "resignation.employee_id"
                                 }
                               ],
                               staticClass: "form-control select2",
@@ -807,8 +822,8 @@ var render = function() {
                                       return val
                                     })
                                   _vm.$set(
-                                    _vm.student,
-                                    "gender",
+                                    _vm.resignation,
+                                    "employee_id",
                                     $event.target.multiple
                                       ? $$selectedVal
                                       : $$selectedVal[0]
@@ -838,12 +853,92 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _c(
+                      "div",
+                      { staticClass: "col col-lg-6 col-md-6 col-sm-12 col-12" },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { staticClass: "control-label" }, [
+                            _vm._v("مقدم لـ")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.resignation.applicant_to,
+                                expression: "resignation.applicant_to"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              placeholder: "",
+                              type: "text",
+                              name: "home_number"
+                            },
+                            domProps: { value: _vm.resignation.applicant_to },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.resignation,
+                                  "applicant_to",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _vm._m(4),
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col col-lg-12 col-md-12 col-sm-12 col-12"
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { staticClass: "control-label" }, [
+                            _vm._v("السبب")
+                          ]),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.resignation.reason,
+                                expression: "resignation.reason"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { placeholder: "", name: "health_status" },
+                            domProps: { value: _vm.resignation.reason },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.resignation,
+                                  "reason",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(3)
                 ])
               ])
             ])
@@ -853,6 +948,110 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "modal fade", attrs: { id: "modal-docs" } }, [
+      _c(
+        "div",
+        { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
+        [
+          _c("div", { staticClass: "modal-content modal-content-box" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("form", { attrs: { role: "form" } }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-lg-8 col-md-8 col-sm-12 col-12" },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { staticClass: "control-label" }, [
+                          _vm._v("اسم الموظف")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.agreement.employee_id,
+                                expression: "agreement.employee_id"
+                              }
+                            ],
+                            staticClass: "form-control select2",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.agreement,
+                                  "employee_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("احمد محمد احمد علي")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "0" } }, [
+                              _vm._v("عباس الخير عبد الرحمن محمد")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("الفاضل محمد عثمان بلال")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "0" } }, [
+                              _vm._v("معتز احمد محمد حنفي")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.agreement.type,
+                            expression: "agreement.type"
+                          }
+                        ],
+                        attrs: { type: "hidden", name: "type", value: "1" },
+                        domProps: { value: _vm.agreement.type },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.agreement, "type", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(5)
+              ])
+            ])
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "modal-punish" } }, [
       _c(
         "div",
         { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
@@ -879,8 +1078,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.student.gender,
-                                expression: "student.gender"
+                                value: _vm.agreement.employee_id,
+                                expression: "agreement.employee_id"
                               }
                             ],
                             staticClass: "form-control select2",
@@ -895,8 +1094,8 @@ var render = function() {
                                     return val
                                   })
                                 _vm.$set(
-                                  _vm.student,
-                                  "gender",
+                                  _vm.agreement,
+                                  "employee_id",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -922,7 +1121,28 @@ var render = function() {
                             ])
                           ]
                         )
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.agreement.type,
+                            expression: "agreement.type"
+                          }
+                        ],
+                        attrs: { type: "hidden", name: "type", value: "2" },
+                        domProps: { value: _vm.agreement.type },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.agreement, "type", $event.target.value)
+                          }
+                        }
+                      })
                     ]
                   )
                 ]),
@@ -935,92 +1155,122 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "modal fade", attrs: { id: "modal-punish" } }, [
-      _c(
-        "div",
-        { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
-        [
-          _c("div", { staticClass: "modal-content modal-content-box" }, [
-            _vm._m(8),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("form", { attrs: { role: "form" } }, [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col col-lg-8 col-md-8 col-sm-12 col-12" },
-                    [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { staticClass: "control-label" }, [
-                          _vm._v("اسم الموظف")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.student.gender,
-                                expression: "student.gender"
-                              }
-                            ],
-                            staticClass: "form-control select2",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.student,
-                                  "gender",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("احمد محمد احمد علي")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("عباس الخير عبد الرحمن محمد")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("الفاضل محمد عثمان بلال")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("معتز احمد محمد حنفي")
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._m(9)
-              ])
-            ])
-          ])
-        ]
-      )
-    ]),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "modal fade", attrs: { id: "modal-start-work" } },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content modal-content-box" }, [
+              _vm._m(8),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("form", { attrs: { role: "form" } }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col col-lg-8 col-md-8 col-sm-12 col-12" },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { staticClass: "control-label" }, [
+                            _vm._v("اسم الموظف")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.agreement.employee_id,
+                                  expression: "agreement.employee_id"
+                                }
+                              ],
+                              staticClass: "form-control select2",
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.agreement,
+                                    "employee_id",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "1" } }, [
+                                _vm._v("احمد محمد احمد علي")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "0" } }, [
+                                _vm._v("عباس الخير عبد الرحمن محمد")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "1" } }, [
+                                _vm._v("الفاضل محمد عثمان بلال")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "0" } }, [
+                                _vm._v("معتز احمد محمد حنفي")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.agreement.type,
+                              expression: "agreement.type"
+                            }
+                          ],
+                          attrs: { type: "hidden", name: "type", value: "3" },
+                          domProps: { value: _vm.agreement.type },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.agreement,
+                                "type",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(9)
+                ])
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal fade", attrs: { id: "modal-permission" } },
       [
         _c(
           "div",
@@ -1048,8 +1298,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.student.gender,
-                                  expression: "student.gender"
+                                  value: _vm.agreement.employee_id,
+                                  expression: "agreement.employee_id"
                                 }
                               ],
                               staticClass: "form-control select2",
@@ -1065,8 +1315,8 @@ var render = function() {
                                       return val
                                     })
                                   _vm.$set(
-                                    _vm.student,
-                                    "gender",
+                                    _vm.agreement,
+                                    "employee_id",
                                     $event.target.multiple
                                       ? $$selectedVal
                                       : $$selectedVal[0]
@@ -1092,7 +1342,32 @@ var render = function() {
                               ])
                             ]
                           )
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.agreement.type,
+                              expression: "agreement.type"
+                            }
+                          ],
+                          attrs: { type: "hidden", name: "type", value: "4" },
+                          domProps: { value: _vm.agreement.type },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.agreement,
+                                "type",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
                       ]
                     )
                   ]),
@@ -1106,95 +1381,111 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "modal fade", attrs: { id: "modal-permission" } },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content modal-content-box" }, [
-              _vm._m(12),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("form", { attrs: { role: "form" } }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col col-lg-8 col-md-8 col-sm-12 col-12" },
-                      [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", { staticClass: "control-label" }, [
-                            _vm._v("اسم الموظف")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.student.gender,
-                                  expression: "student.gender"
-                                }
-                              ],
-                              staticClass: "form-control select2",
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.student,
-                                    "gender",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
+    _c("div", { staticClass: "modal fade", attrs: { id: "modal-warning" } }, [
+      _c(
+        "div",
+        { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
+        [
+          _c("div", { staticClass: "modal-content modal-content-box" }, [
+            _vm._m(12),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("form", { attrs: { role: "form" } }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col col-lg-8 col-md-8 col-sm-12 col-12" },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { staticClass: "control-label" }, [
+                          _vm._v("اسم الموظف")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.agreement.employee_id,
+                                expression: "agreement.employee_id"
                               }
-                            },
-                            [
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("احمد محمد احمد علي")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("عباس الخير عبد الرحمن محمد")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الفاضل محمد عثمان بلال")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("معتز احمد محمد حنفي")
-                              ])
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(13)
-                ])
+                            ],
+                            staticClass: "form-control select2",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.agreement,
+                                  "employee_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("احمد محمد احمد علي")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "0" } }, [
+                              _vm._v("عباس الخير عبد الرحمن محمد")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("الفاضل محمد عثمان بلال")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "0" } }, [
+                              _vm._v("معتز احمد محمد حنفي")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.agreement.type,
+                            expression: "agreement.type"
+                          }
+                        ],
+                        attrs: { type: "hidden", name: "type", value: "5" },
+                        domProps: { value: _vm.agreement.type },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.agreement, "type", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(13)
               ])
             ])
-          ]
-        )
-      ]
-    ),
+          ])
+        ]
+      )
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "modal fade", attrs: { id: "modal-warning" } }, [
+    _c("div", { staticClass: "modal fade", attrs: { id: "modal-do-work" } }, [
       _c(
         "div",
         { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
@@ -1221,8 +1512,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.student.gender,
-                                expression: "student.gender"
+                                value: _vm.agreement.employee_id,
+                                expression: "agreement.employee_id"
                               }
                             ],
                             staticClass: "form-control select2",
@@ -1237,8 +1528,8 @@ var render = function() {
                                     return val
                                   })
                                 _vm.$set(
-                                  _vm.student,
-                                  "gender",
+                                  _vm.agreement,
+                                  "employee_id",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -1264,95 +1555,33 @@ var render = function() {
                             ])
                           ]
                         )
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.agreement.type,
+                            expression: "agreement.type"
+                          }
+                        ],
+                        attrs: { type: "hidden", name: "type", value: "6" },
+                        domProps: { value: _vm.agreement.type },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.agreement, "type", $event.target.value)
+                          }
+                        }
+                      })
                     ]
                   )
                 ]),
                 _vm._v(" "),
                 _vm._m(15)
-              ])
-            ])
-          ])
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "modal fade", attrs: { id: "modal-do-work" } }, [
-      _c(
-        "div",
-        { staticClass: "modal-dialog modal-md", attrs: { role: "document" } },
-        [
-          _c("div", { staticClass: "modal-content modal-content-box" }, [
-            _vm._m(16),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("form", { attrs: { role: "form" } }, [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col col-lg-8 col-md-8 col-sm-12 col-12" },
-                    [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { staticClass: "control-label" }, [
-                          _vm._v("اسم الموظف")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.student.gender,
-                                expression: "student.gender"
-                              }
-                            ],
-                            staticClass: "form-control select2",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.student,
-                                  "gender",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("احمد محمد احمد علي")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("عباس الخير عبد الرحمن محمد")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("الفاضل محمد عثمان بلال")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "0" } }, [
-                              _vm._v("معتز احمد محمد حنفي")
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._m(17)
               ])
             ])
           ])
@@ -2659,42 +2888,6 @@ var staticRenderFns = [
       ),
       _vm._v(" "),
       _c("h4", { staticClass: "title" }, [_vm._v("بيانات ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col col-lg-6 col-md-6 col-sm-12 col-12" },
-      [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { staticClass: "control-label" }, [_vm._v("مقدم لـ")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { placeholder: "", type: "text", name: "home_number" }
-          })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col col-lg-12 col-md-12 col-sm-12 col-12" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { staticClass: "control-label" }, [_vm._v("السبب")]),
-          _vm._v(" "),
-          _c("textarea", {
-            staticClass: "form-control",
-            attrs: { placeholder: "", name: "health_status" }
-          })
-        ])
-      ])
     ])
   },
   function() {

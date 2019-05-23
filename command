@@ -4,15 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory ResignationFactory
-php artisan module:make-seed ResignationTableSeeder
+php artisan module:make-factory StudentStudentParentFactory
+php artisan module:make-seed StudentStudentParentTableSeeder
 
-php artisan module:make-request CreateResignationRequest
+php artisan module:make-request CreateStudentStudentParentRequest
 
-php artisan module:make-resource ResignationResource --collection
+php artisan module:make-resource StudentStudentParentResource --collection
 
-php artisan module:make-model Resignation --migration
-php artisan module:make-controller ResignationController
+php artisan module:make-model StudentStudentParent --migration
+php artisan module:make-controller StudentStudentParentController
 
 
 php artisan module:migrate
