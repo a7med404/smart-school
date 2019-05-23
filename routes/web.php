@@ -14,7 +14,7 @@
 // Route::get('/', function () {
 //     return view('app');
 // });
-Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+Route::get('/view/{any}', 'SpaController@index')->where('any', '.*');
 
   // #this for vue-router
   // Route::get('/{any?}', function(){

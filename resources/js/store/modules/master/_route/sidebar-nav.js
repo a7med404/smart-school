@@ -200,91 +200,91 @@ import Attendees from '../../vehicle/_components/Attendees';
 const routes = [
 
   {
-    path: '/agreements',
+    path: '/view/agreements',
     props: true,
     name: 'agreements',
     component:  Agreements
   },   
   {
-    path: '/sms',
+    path: '/view/sms',
     props: true,
     name: 'sms',
     component:  SMS
   }, 
   {
-    path: '/discount-setting',
+    path: '/view/discount-setting',
     props: true,
     name: 'discount-setting',
     component:  DiscountSetting
   }, 
   {
-    path: '/discount',
+    path: '/view/discount',
     props: true,
     name: 'discount',
     component:  Discount
   }, 
   {
-    path: '/report-data-classrooms',
+    path: '/view/report-data-classrooms',
     props: true,
     name: 'report-data-classrooms',
     component:  ReportDataClassrooms
   }, 
   {
-    path: '/report-count-parts',
+    path: '/view/report-count-parts',
     props: true,
     name: 'report-count-parts',
     component:  ReportCountParts
   }, 
   {
-    path: '/report-without-part',
+    path: '/view/report-without-part',
     props: true,
     name: 'report-without-part',
     component:  ReportWithoutPart
   }, 
   {
-    path: '/report-parts',
+    path: '/view/report-parts',
     props: true,
     name: 'report-parts',
     component:  ReportParts
   },
   {
-    path: '/report-student-absece',
+    path: '/view/report-student-absece',
     props: true,
     name: 'report-student-absece',
     component:  ReportStudentAbsece
   },
   {
-    path: '/report-not-complate-data',
+    path: '/view/report-not-complate-data',
     props: true,
     name: 'report-not-complate-data',
     component:  ReportNotComplateData
   }, 
   {
-    path: '/report-sudent-statement',
+    path: '/view/report-sudent-statement',
     props: true,
     name: 'report-sudent-statement',
     component:  ReportSudentStatement
   }, 
   {
-    path: '/report-student-permission',
+    path: '/view/report-student-permission',
     props: true,
     name: 'report-student-permission',
     component:  ReportStudentPermission
   }, 
   {
-    path: '/report-kindness',
+    path: '/view/report-kindness',
     props: true,
     name: 'report-kindness',
     component:  ReportKindness
   }, 
   {
-    path: '/report-fee-completion',
+    path: '/view/report-fee-completion',
     props: true,
     name: 'report-fee-completion',
     component:  ReportFeeCompletion
   }, 
   {
-    path: '/report-school-register',
+    path: '/view/report-school-register',
     props: true,
     name: 'report-school-register',
     component:  ReportSchoolRegister
@@ -293,86 +293,86 @@ const routes = [
 
   
   {
-    path: '/report-permission',
+    path: '/view/report-permission',
     props: true,
     name: 'report-permission',
     component:  ReportPermission
   }, 
   {
-    path: '/report-rewards-punition',
+    path: '/view/report-rewards-punition',
     props: true,
     name: 'report-rewards-punition',
     component:  ReportRewardsPunition
   }, 
   {
-    path: '/report-search',
+    path: '/view/report-search',
     props: true,
     name: 'report-search',
     component:  ReportSearch
   }, 
   {
-    path: '/report-salary',
+    path: '/view/report-salary',
     props: true,
     name: 'report-salary',
     component:  ReportSalary
   }, 
   {
-    path: '/report-progenitor',
+    path: '/view/report-progenitor',
     props: true,
     name: 'report-progenitor',
     component:  ReportProgenitor
   }, 
   {
-    path: '/report-absence',
+    path: '/view/report-absence',
     props: true,
     name: 'report-absence',
     component:  ReportAbsence
   }, 
   {
-    path: '/report-evaluation',
+    path: '/view/report-evaluation',
     props: true,
     name: 'report-evaluation',
     component:  ReportEvaluation
   }, 
 
   {
-    path: '/report-quality',
+    path: '/view/report-quality',
     props: true,
     name: 'report-quality',
     component:  ReportQuality
   }, 
   {
-    path: '/report-levels',
+    path: '/view/report-levels',
     props: true,
     name: 'report-levels',
     component:  ReportLevels
   }, 
   {
-    path: '/report-classrooms',
+    path: '/view/report-classrooms',
     props: true,
     name: 'report-classrooms',
     component:  ReportClassrooms
   }, 
   {
-    path: '/report-emp-student',
+    path: '/view/report-emp-student',
     props: true,
     name: 'report-emp-student',
     component:  ReportEmpStudent
   }, 
   {
-    path: '/report-separate',
+    path: '/view/report-separate',
     props: true,
     name: 'report-separate',
     component:  ReportSeparate
   }, 
   {
-    path: '/report-warning',
+    path: '/view/report-warning',
     props: true,
     name: 'report-warning',
     component:  ReportWarning
   }, 
   {
-    path: '/report-auth',
+    path: '/view/report-auth',
     props: true,
     name: 'report-auth',
     component:  ReportAuth
@@ -382,178 +382,178 @@ const routes = [
 
 
   {
-    path: '/vehicle-routes',
+    path: '/view/vehicle-routes',
     props: true,
     name: 'vehicle-routes',
     component:  VehicleRoutes
   }, 
   {
-    path: '/drivers',
+    path: '/view/drivers',
     props: true,
     name: 'drivers',
     component:  Drivers,
   }, 
   {
-    path: '/vehicle-reports',
+    path: '/view/vehicle-reports',
     props: true,
     name: 'vehicle-reports',
     component:  Reports
   }, 
   {
-    path: '/stations',
+    path: '/view/stations',
     props: true,
     name: 'stations',
     component:  Stations
   }, 
   {
-    path: '/subscriptions',
+    path: '/view/subscriptions',
     props: true,
     name: 'subscriptions',
     component:  Subscriptions
   }, 
   {
-    path: '/vehicles',
+    path: '/view/vehicles',
     props: true,
     name: 'vehicles',
     component:  Vehicle
   }, 
   {
-    path: '/evaluation-item',
+    path: '/view/evaluation-item',
     props: true,
     name: 'evaluation-item',
     component:  EvaluationItem
   }, 
   {
-    path: '/evaluation-emp',
+    path: '/view/evaluation-emp',
     props: true,
     name: 'evaluation-emp',
     component:  EvaluationEmp
   }, 
   {
-    path: '/attendees',
+    path: '/view/attendees',
     props: true,
     name: 'attendees',
     component:  Attendees
   },
   {
-    path: '/emp-holiday',
+    path: '/view/emp-holiday',
     props: true,
     name: 'emp-holiday',
     component:  EmpHoliday
   }, 
   {
-    path: '/formal-holiday',
+    path: '/view/formal-holiday',
     props: true,
     name: 'formal-holiday',
     component:  FormalHoliday
   }, 
   {
-    path: '/add-holiday',
+    path: '/view/add-holiday',
     props: true,
     name: 'add-holiday',
     component:  AddHoliday
   }, 
   {
-    path: '/salary-details',
+    path: '/view/salary-details',
     props: true,
     name: 'salary-details',
     component:  SalaryDetails
   }, 
     
   {
-    path: '/rewards-punition',
+    path: '/view/rewards-punition',
     props: true,
     name: 'rewards-punition',
     component:  RewardsPunition
   }, 
   {
-    path: '/realliance-salary',
+    path: '/view/realliance-salary',
     props: true,
     name: 'realliance-salary',
     component:  ReallianceSalary
   }, 
   {
-    path: '/progenitor',
+    path: '/view/progenitor',
     props: true,
     name: 'progenitor',
     component:  Progenitor
   }, 
   {
-    path: '/salary-statement',
+    path: '/view/salary-statement',
     props: true,
     name: 'salary-statement',
     component:  SalaryStatement
   }, 
   {
-    path: '/overpayment',
+    path: '/view/overpayment',
     props: true,
     name: 'overpayment',
     component:  Overpayment
   }, 
   {
-    path: '/overpayment-division',
+    path: '/view/overpayment-division',
     props: true,
     name: 'overpayment-division',
     component:  OverpaymentDivision
   }, 
   
   {
-    path: '/emp-perissions',
+    path: '/view/emp-perissions',
     props: true,
     name: 'emp-perissions',
     component:  EmpPerissions
   }, 
   {
-    path: '/emp-holiday-list',
+    path: '/view/emp-holiday-list',
     props: true,
     name: 'emp-holiday-list',
     component:  EmpHolidayList
   }, 
   {
-    path: '/emp-setting-perissions',
+    path: '/view/emp-setting-perissions',
     props: true,
     name: 'emp-setting-perissions',
     component:  EmpSettingPerissions
   }, 
   {
-    path: '/calends',
+    path: '/view/calends',
     props: true,
     name: 'calends',
     component:  Calends
   }, 
   {
-    path: '/add-calend',
+    path: '/view/add-calend',
     props: true,
     name: 'add-calend',
     component:  AddCalend
   }, 
   {
-    path: '/bear-in-mind',
+    path: '/view/bear-in-mind',
     props: true,
     name: 'bear-in-mind',
     component:  BearInMind
   }, 
   {
-    path: '/emp-absence',
+    path: '/view/emp-absence',
     props: true,
     name: 'emp-absence',
     component:  EmpAbsence
   }, 
   {
-    path: '/cut-allowance',
+    path: '/view/cut-allowance',
     props: true,
     name: 'cut-allowance',
     component:  CutAllowance
   }, 
   {
-    path: '/emp-pull',
+    path: '/view/emp-pull',
     props: true,
     name: 'emp-pull',
     component:  EmpPull
   }, 
 
   {
-    path: '/managaments',
+    path: '/view/managaments',
     props: true,
     name: 'managaments',
     component:  Managaments
@@ -561,140 +561,140 @@ const routes = [
   
 
   {
-    path: '/student-pull',
+    path: '/view/student-pull',
     props: true,
     name: 'student-pull',
     component:  StudentPull
   },  
   {
-    path: '/crideit',
+    path: '/view/crideit',
     props: true,
     name: 'crideit',
     component:  Crideit
   },  
   {
-    path: '/pay-ruls',
+    path: '/view/pay-ruls',
     props: true,
     name: 'pay-ruls',
     component:  PayRuls
   },
   {
-    path: '/pay-classes',
+    path: '/view/pay-classes',
     props: true,
     name: 'pay-classes',
     component:  PayClasses
   }, 
   {
-    path: '/pay',
+    path: '/view/pay',
     props: true,
     name: 'pay',
     component:  Pay
   }, 
   {
-    path: '/settings',
+    path: '/view/settings',
     props: true,
     name: 'settings',
     component:  Settings
   }, 
   {
-    path: '/registration',
+    path: '/view/registration',
     props: true,
     name: 'registration',
     component:  Registration
   },  
   {
-    path: '/recipt-settings',
+    path: '/view/recipt-settings',
     props: true,
     name: 'recipt-settings',
     component:  ReciptSettings
   },
   {
-    path: '/dashboard',
+    path: '/view/dashboard',
     props: true,
     name: 'dashboard',
     component:  Dashboard
   },
   {
-    path: '/students/add',
+    path: '/view/students/add',
     props: true,
     name: 'add-student',
     component:  AddStudent,
   },
   {
-    path: '/all-students',
+    path: '/view/all-students',
     props: true,
     name: 'all-students',
     component:  AllStudents,
   },
   {
     
-    path: '/students/add-to-class',
+    path: '/view/students/add-to-class',
     props: true,
     name: 'add-to-class',
     component:  AddToClass
   },
   {
-    path: '/parents/add',
+    path: '/view/parents/add',
     props: true,
     name: 'add-parent',
     component:  AddParent
   },
   {
-    path: '/attendance',
+    path: '/view/attendance',
     props: true,
     name: 'attendance',
     component:  Attendance
   },
   {
-    path: '/Attendancec-for-class',
+    path: '/view/Attendancec-for-class',
     props: true,
     name: 'Attendancec-for-class',
     component:  AttendanceForClass
   },
   {
-    path: '/add-student-manual',
+    path: '/view/add-student-manual',
     props: true,
     name: 'add-student-manual',
     component:  AddStudentManual
   },
   {
-    path: '/permissiontodepart',
+    path: '/view/permissiontodepart',
     props: true,
     name: 'permissiontodepart',
     component: Permissiontodepart
   },
   {
-    path: '/kindness',
+    path: '/view/kindness',
     props: true,
     name: 'kindness',
     component:  Kindness
   }, 
   {
-    path: '/student-transfer',
+    path: '/view/student-transfer',
     props: true,
     name: 'student-transfer',
     component:  StudentTransfer
   },
   {
-    path: '/empty-palce',
+    path: '/view/empty-palce',
     props: true,
     name: 'empty-palce',
     component:  EmptyPalce
   }, 
   {
-    path: '/record',
+    path: '/view/record',
     props: true,
     name: 'record',
     component:  Record
   }, 
   {
-    path: '/completion',
+    path: '/view/completion',
     props: true,
     name: 'completion',
     component:  Completion
   },   
   {
-    path: '/education',
+    path: '/view/education',
     props: true,
     name: 'education',
     component:  Education,
@@ -728,67 +728,67 @@ const routes = [
     component:  Test
   },
   {
-    path: '/dist-students',
+    path: '/view/dist-students',
     props: true,
     name: 'dist-students',
     component:  DistStudents
   },
   {
-    path: '/receipts',
+    path: '/view/receipts',
     props: true,
     name: 'receipts',
     component:  Receipts
   },
   {
-    path: '/add-receipt',
+    path: '/view/add-receipt',
     props: true,
     name: 'add-receipt',
     component:  AddReceipt
   },
   {
-    path: '/login',
+    path: '/view/login',
     props: true,
     name: 'login',
     component:  Login
   },
   {
-    path: '/logout',
+    path: '/view/logout',
     props: true,
     name: 'logout',
     component:  Logout
   },
   {
-    path: '/profile',
+    path: '/view/profile',
     props: true,
     name: 'profile',
     component:  Profile
   },
   {
-    path: '/employees',
+    path: '/view/employees',
     props: true,
     name: 'employees',
     component:  Employees
   },
   {
-    path: '/employees/add',
+    path: '/view/employees/add',
     props: true,
     name: 'add-employee',
     component:  AddEmployee
   },
   {
-    path: '/employees/view/:id',
+    path: '/view/employees/view/:id',
     props: true,
     name: 'view-employee',
     component:  viewEmployee
   },
   {
-    path: '/soon',
+    path: '/view/soon',
     props: true,
     name: 'soon',
     component:  Soon
   },
   {
-    path: '/redirect-me',
+    path: '/view/redirect-me',
     redirect: '/dashbord',
   },
   // {

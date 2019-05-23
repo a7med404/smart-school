@@ -68,6 +68,11 @@ import forms from './store/modules/master/_components/Form'
 import loading from './store/modules/master/_components/Loading'
 // Vue.component('loading', require('./store/modules/master/_components/Loading.vue'));
 
+import {globalStore} from './store/modules/helper/general.js'
+
+// var gendars = ['انثي', 'ذكر'];
+// var cities = [];
+
 const app = new Vue({
     el: '#app',
     router,
