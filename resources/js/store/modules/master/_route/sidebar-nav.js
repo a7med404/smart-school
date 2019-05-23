@@ -68,6 +68,12 @@ const ReciptSettings = resolve => {
   });
 };
 
+const AllStudents = resolve => {
+  require.ensure(['../../student/_components/student/AllStudents'], () => {
+    resolve(require('../../student/_components/student/AllStudents'))
+  });
+};
+
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
 import AddToClass from '../../student/_components/student/AddToClass';
@@ -147,7 +153,7 @@ import AddCalend from '../../employee/_components/AddCalend';
 import BearInMind from '../../employee/_components/BearInMind';
 import EmpAbsence from '../../employee/_components/EmpAbsence';
 import CutAllowance from '../../employee/_components/CutAllowance';
-import EmpPool from '../../employee/_components/EmpPool';
+import EmpPull from '../../employee/_components/EmpPull';
 
 import PayRuls from '../../student/_components/account/PayRuls';
 // import Classes from '../../student/_components/account/Classes';
@@ -540,10 +546,10 @@ const routes = [
     component:  CutAllowance
   }, 
   {
-    path: '/emp-pool',
+    path: '/emp-pull',
     props: true,
-    name: 'emp-pool',
-    component:  EmpPool
+    name: 'emp-pull',
+    component:  EmpPull
   }, 
 
   {
@@ -615,6 +621,13 @@ const routes = [
     component:  AddStudent,
   },
   {
+    path: '/all-students',
+    props: true,
+    name: 'all-students',
+    component:  AllStudents,
+  },
+  {
+    
     path: '/students/add-to-class',
     props: true,
     name: 'add-to-class',
@@ -778,10 +791,10 @@ const routes = [
     path: '/redirect-me',
     redirect: '/dashbord',
   },
-  {
-    path: '*',
-    redirect: '/Dashboard',
-  },
+  // {
+  //   path: '*',
+  //   redirect: '/Dashboard',
+  // },
 ]
 
 export default routes;

@@ -7,7 +7,12 @@ use Modules\Employee\Entities\Employee;
 
 class EmpAbsence extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'empolyee_id',
+        'absence_from',
+        'absence_to',
+        'absence_reason'
+    ];
 
     public function employee()
     {

@@ -15,7 +15,7 @@
           <a href="mailbox.html" class="btn btn-primary btn-block margin-bottom">شوؤن تعليمية</a>
 
             <div class="row">
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">المرحلة التعليمية</label>
                   <select class="form-control select2">
@@ -28,7 +28,7 @@
             </div>
             <div class="box-body no-padding">
             <div class="row">
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الصف</label>
                   <select class="form-control select2">
@@ -49,7 +49,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">الترتيب حسب السن</label>
                   <select class="form-control select2">

@@ -93,7 +93,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">اسم الموظف</label>
-                    <select class="form-control select2">
+                    <select class="form-control select2" v-model="bear_in_mind.empolyee_id">
                       <option value="1">محمد ابراهيم ابراهيم السيد</option>
                       <option value="1">احمد محمد احمد علي</option>
                       <option value="0">عباس الخير عبد الرحمن محمد</option>
@@ -105,7 +105,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="bear_in_mind.date">
                   </div>
                 </div>
               </div>
@@ -113,7 +113,7 @@
                   <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="form-group">
                       <label class="control-label">ملاحظة</label>
-                      <textarea class="form-control" placeholder="" name="note"></textarea>
+                      <textarea class="form-control" placeholder="" name="note" v-model="bear_in_mind.note"></textarea>
                     </div>
                   </div>
                 </div>
@@ -142,6 +142,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+      data(){ 
+          return {
+            edit: false,
+            bear_in_mind: {
+              empolyee_id            : '',
+              date                   : '',  
+              note                   : '' 
+            }
+
+          }
         }
     }
 </script>

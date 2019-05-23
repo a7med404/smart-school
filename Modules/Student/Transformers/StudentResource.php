@@ -14,11 +14,29 @@ class StudentResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return [
-            'created_at' => $request->name,
-            'created_at' => $request->name
+        //return parent::toArray($this);
+      return  [
+            'name'                  => $this->name,  
+            'religion'              => $this->religion, 
+            'gender'                => $this->gender, 
+            'study_lang'            => $this->study_lang, 
+            'is_partner_son'        => $this->is_partner_son,  
+            'is_staff_son'          => $this->is_staff_son,  
+            'birthday'              => $this->birthday,  
+            'start_data'            => $this->start_data, 
+            'start_from'            => $this->start_from,
+            'start_year'            => $this->start_year, 
+            'note'                  => $this->note,
+            'student_parent_id'     => $this->student_parent_id,
+            'study_language_id'     => $this->study_language_id,
+            'address_id'            => $this->address_id,
+            'contact_id'            => $this->contact_id,
+            'level_id'              => $this->level_id,
+            'classroom_id'          => $this->classroom_id,
+            'part_id'               => $this->part_id,
+            'identifcation_id'      => $this->identifcation_id
+       
         ];
 
-        // return parent::toArray($request);
     }
 }

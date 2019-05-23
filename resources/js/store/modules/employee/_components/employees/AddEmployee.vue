@@ -33,6 +33,7 @@
                 <li><a href="#salary" data-toggle="tab"> اعدادات  الراتب</a></li>
                 <li><a href="#address" data-toggle="tab">عنوان الموظف</a></li>
                 <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
+                <li><a href="#identifcation" data-toggle="tab">اثبات الشخصية</a></li>
                 <li><a href="#certificats" data-toggle="tab"> الشهادات التعليميه</a></li>
                 <li><a href="#auth" data-toggle="tab"> بيانات الدخول</a></li>
                 <li><a href="#attachments" data-toggle="tab">مرفقات الموظف</a></li>
@@ -81,21 +82,6 @@
 
 
 
-                      <div class="row">
-                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                          <div class="form-group">
-                            <label class="control-label"> الرقم القومي / رقم الهوية </label>
-                            <input class="form-control" placeholder="" type="text" value="" v-model="employee.identification_number">
-                          </div>
-                        </div>
-                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                          <div class="form-group">
-                            <label class="control-label">تاريخ انتهاء الرقم القومي / رقم الهوية</label>
-                            <input type="text" class="form-control" id="identifcation_expire" v-model="employee.nn_expired"/>
-                          </div>
-                        </div>
-                      </div>
-                  
                       <div class="row">
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
@@ -288,6 +274,49 @@
                         <div class="form-group">
                           <label class="control-label"> البريد الالكتروني </label>
                           <input class="form-control" placeholder="" type="text" v-model="contact.email">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                        <button class="btn btn-primary btn-md">حفــظ</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="identifcation">
+                  <form role="form">
+                    <div class="row">
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label">نوع اثبات الشخصية</label>
+                          <select class="form-control select2" v-model="health.blood_type">
+                            <option value="1">O+</option>
+                            <option value="0">O-</option>
+                            <option value="1">A+</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label">رقم اثبات الشخصية </label>
+                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label"> تاريخ الانتهاء </label>
+                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_name">
+                        </div>
+                      </div>
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label"> مكان الاستخراج </label>
+                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_number">
                         </div>
                       </div>
                     </div>

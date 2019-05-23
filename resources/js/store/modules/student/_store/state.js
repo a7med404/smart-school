@@ -23,4 +23,26 @@ export default {
     classroom_id           : '',
     part_id                : ''
   },
+  level: {
+    name:  '',
+    sort: '',
+    head_master: '',
+    school_master: '',
+  },
+  levels: [
+    {
+      id: 1,
+      name:  'مرحلة رياض الاطفال',
+      sort: 2,
+      head_master: 'سمية ادم جبريل',
+      school_master: 'محمد عثمان عب الله',
+    },
+    {
+      id: 2,
+      name:  'المرحلة الثانوية',
+      sort: 1,
+      head_master: 'محمد عثمان عب الله',
+      school_master: 'سمية ادم جبريل',
+    },
+  ],
 }

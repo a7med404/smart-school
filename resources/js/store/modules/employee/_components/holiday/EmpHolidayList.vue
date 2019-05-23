@@ -110,7 +110,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label">الرصيد </label>
-                    <input class="form-control" placeholder="" disabled value="10" type="text" name="name_ar">
+                    <input class="form-control" placeholder="" disabled value="10" type="text" name="name">
                   </div>
                 </div> 
               </div>
@@ -118,7 +118,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ من  </label>
-                    <input class="form-control" placeholder="" value="" type="text" name="name_ar">
+                    <input class="form-control" placeholder="" value="" type="text" name="name">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">

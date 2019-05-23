@@ -59,6 +59,7 @@
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة طالب</router-link></li>
+              <li><router-link :to="{name: 'all-students'}"> <i class="fa fa-circle-o"></i>الطلاب</router-link></li>
               <li><router-link :to="{name: 'add-student-manual'}"> <i class="fa fa-circle-o"></i>اضافة طالب يدويا</router-link></li>
             </ul>
           </li>
@@ -168,7 +169,7 @@
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'report-data-classrooms'}"> <i class="fa fa-circle-o"></i>تقرير كل بيانات الصف</router-link></li>
-              <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li>
+              <!-- <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li> -->
             </ul>
           </li> 
           <li>
@@ -440,7 +441,7 @@
           <li><router-link :to="{name: 'bear-in-mind'}"> <i class="fa fa-circle-o"></i> لفت نظر</router-link></li>
           <li><router-link :to="{name: 'emp-absence'}"> <i class="fa fa-circle-o"></i> تسجيل غياب  الموظفين</router-link></li>
           <li><router-link :to="{name: 'cut-allowance'}"> <i class="fa fa-circle-o"></i> خصومات او بدلات</router-link></li>
-          <li><router-link :to="{name: 'emp-pool'}"> <i class="fa fa-circle-o"></i> طلب اخلاء طرف</router-link></li>
+          <li><router-link :to="{name: 'emp-pull'}"> <i class="fa fa-circle-o"></i> طلب اخلاء طرف</router-link></li>
           <!-- <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i> تعديل سلف الموظفين</router-link></li> -->
           <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاعدادت

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Employee\Entities;
+namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EmpPool extends Model
+class ReportWarning extends Model
 {
     protected $fillable = [];
 }

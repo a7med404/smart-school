@@ -87,7 +87,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id">
+                    <select class="form-control select2" name="level_id" v-model="emp_absence.empolyee_id">
                       <option value="1">محمد ابراهيم ابراهيم السيد</option>
                       <option value="1">احمد محمد احمد علي</option>
                       <option value="0">عباس الخير عبد الرحمن محمد</option>
@@ -101,13 +101,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ من </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="emp_absence.absence_from">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ الي </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="emp_absence.absence_to">
                   </div>
                 </div>  
               </div>   
@@ -115,7 +115,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظات</label>
-                    <textarea class="form-control" placeholder=""></textarea>
+                    <textarea class="form-control" placeholder="" v-model="emp_absence.absence_reason"></textarea>
                   </div>
                 </div>
               </div>  
@@ -143,6 +143,18 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+      data(){ 
+          return {
+            edit: false,
+            emp_absence: {
+              empolyee_id                    : '',
+              absence_from                   : '',  
+              absence_to                     : '',
+              absence_reason                 : ''
+            }
+
+          }
         }
     }
 </script>

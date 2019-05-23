@@ -19,12 +19,12 @@ class CreatePartsTable extends Migration
             $table->integer('sort')->unique();
             $table->integer('max_student_number');
             
-            $table->integer('level_id');
-            /* $table->foreign('level_id')
-                ->references('id')->on('levels'); */
-            $table->integer('classroom_id');
-            /* $table->foreign('classroom_id')
-                ->references('id')->on('classrooms'); */
+            $table->unsignedBigInteger('level_id');
+            $table->foreign('level_id')
+                ->references('id')->on('levels'); 
+            $table->unsignedBigInteger('classroom_id');
+            $table->foreign('classroom_id')
+                ->references('id')->on('classrooms'); 
             $table->timestamps();
         });
     }

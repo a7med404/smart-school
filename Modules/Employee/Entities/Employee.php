@@ -12,7 +12,6 @@ class Employee extends Model
         'gender',
         'religion',
         'birth_date',
-        'identification_number',
         'managament_id',
         'department_id',
         'hiring_date',
@@ -24,6 +23,7 @@ class Employee extends Model
         'picture',
         'address_id',
         'contact_id',
+        'identification_id',
         'note'
     ];
 

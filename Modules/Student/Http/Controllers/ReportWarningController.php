@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Employee\Http\Controllers;
+namespace Modules\Student\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
-class EmpPoolController extends Controller
+class ReportWarningController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EmpPoolController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return view('student::index');
     }
 
     /**
@@ -23,7 +23,7 @@ class EmpPoolController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -43,7 +43,7 @@ class EmpPoolController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return view('student::show');
     }
 
     /**
@@ -53,7 +53,7 @@ class EmpPoolController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return view('student::edit');
     }
 
     /**
