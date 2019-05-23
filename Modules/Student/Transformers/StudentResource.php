@@ -2,9 +2,9 @@
 
 namespace Modules\Student\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class StudentResource extends ResourceCollection
+class StudentResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -17,8 +17,8 @@ class StudentResource extends ResourceCollection
         //return parent::toArray($this);
       return  [
             'name'                  => $this->name,  
-            'religion'              => $this->religion, 
-            'gender'                => $this->gender, 
+            'religion'              => religion()[$this->religion], 
+            'gender'                => gender()[$this->gender], 
             'study_lang'            => $this->study_lang, 
             'is_partner_son'        => $this->is_partner_son,  
             'is_staff_son'          => $this->is_staff_son,  
@@ -31,8 +31,8 @@ class StudentResource extends ResourceCollection
             'study_language_id'     => $this->study_language_id,
             'address_id'            => $this->address_id,
             'contact_id'            => $this->contact_id,
-            'level_id'              => $this->level_id,
-            'classroom_id'          => $this->classroom_id,
+            'level_id'              => getName('levels', $this->level_id),
+            'classroom_id'          => getName('classrooms', $this->classroom_id),
             'part_id'               => $this->part_id,
             'identifcation_id'      => $this->identifcation_id
        

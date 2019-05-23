@@ -17,7 +17,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        return new LevelResource(Level::all());
+        return LevelResource::collection(Level::all());
     }
 
     /**
@@ -34,7 +34,7 @@ class LevelController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateLevelRequest $request)
+    public function store(Request $request)
     {
         $data = [
             'name'          => $request->name, 
@@ -42,8 +42,8 @@ class LevelController extends Controller
             'head_master'   => $request->head_master,  
             'school_master' => $request->school_master, 
         ];
-        Level::create($data);
-        return response()->json(['message' => 'تم الحفظ بنجاح', ], 201);
+        $level = Level::create($data);
+        return response()->json(['message' => 'تم الحفظ بنجاح', 'data' => $level], 201);
     }
 
     /**

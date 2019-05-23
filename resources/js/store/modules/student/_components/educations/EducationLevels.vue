@@ -108,7 +108,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="level in allLevels" :key="level.id">
-                            <td>1</td>
+                            <td v-text="level.id"></td>
                             <td v-text="level.name"></td>
                             <td v-text="level.sort"></td>
                             <td v-text="level.school_master"></td>
@@ -117,7 +117,7 @@
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
                                     <a class="btn btn-info" @click.prevent="editLevel(level.id)" type="button" data-toggle="modal" data-target="#popup-add-level"><i class="fa fa-pencil"></i></a>
-                                    <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(level)"> <i class="fa fa-times"></i></a>
+                                    <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(level.id)"> <i class="fa fa-times"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -147,7 +147,7 @@
             <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
-            <form @submit.prevent = "edit ? updateLevel(Level.id) : createLevel()" role="form">
+            <form @submit.prevent = "edit ? updateLevel(level.id) : createLevel()" role="form">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
@@ -197,6 +197,7 @@
 </template>
 
 <script>
+  import axios from "axios";
   import { mapGetters, mapActions } from 'vuex';
   export default {
       mounted() {
@@ -206,7 +207,7 @@
       },
       created() {
         let self = this;
-        self.fetchLevels;
+        self.fetchLevels();
       },
       data(){
         return {
@@ -223,27 +224,42 @@
         ...mapActions(['fetchLevels', 'addLevel', 'deleteLevel', 'filterLevels', 'updateLevel']),
         createLevel: function() {
           let self = this;
-          let params = Object.assign({}, self.level);
-          this.addLevel(params);
-
+          let params = Object.assign({}, this.level);
+          this.addLevel(params).then(function(){
+            self.level.name = '',
+            self.level.sort = '',
+            self.level.head_master = '',            
+            self.level.school_master = ''
+          });
         },
         
         editLevel: function(level) {
           let self = this;
           self.edit = true;
-          axios.get('/api/student/levels/'+level.id)
+          axios.get(`/api/student/levels/${level}/edit`)
           .then(function(response){
-            self.level.name = response.data.name;
-            self.level.sort = response.data.sort;
-            self.level.head_master = response.data.head_master;
-            self.level.school_master = response.data.school_master;
+            self.level.name = response.data.data.name;
+            self.level.sort = response.data.data.sort;
+            self.level.head_master = response.data.data.head_master;
+            self.level.school_master = response.data.data.school_master;
+
           })
           .catch(function(error){
             console.log(error);
           });
           
-          let params = Object.assign({}, self.level);
-          this.updateLevel(params);
+            // let params = Object.assign({}, self.level);
+            // this.updateLevel(params, level);
+        },
+        updateLevel: function(id) {
+          let self = this;
+          let params = Object.assign({}, this.level);
+          this.addLevel(params, id).then(function(){
+            self.level.name = '',
+            self.level.sort = '',
+            self.level.head_master = '',            
+            self.level.school_master = ''
+          });
         },
       }
   }

@@ -17,8 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::all();
-        // return new StudentResource(Student::all());
+        return StudentResource::collection(Student::all());
     }
 
     /**

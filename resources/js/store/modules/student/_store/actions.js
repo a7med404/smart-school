@@ -13,11 +13,10 @@ export default {
   //   console.error(error);
   // }
 
-  async fetchLevels({ commit }, state){
+  async fetchLevels({ commit }){
     try {
       const response = await axios.get('/api/student/levels');
-      console.log(response);
-      commit('ALL_LEVELS', response.data);
+      commit('ALL_LEVELS', response.data.data);
     } catch (error) {
       commit('ALL_LEVELS', []);
       console.error(error);
@@ -26,8 +25,8 @@ export default {
 
   async addLevel({ commit }, payload){
     try {
-      const response = await axios.post('/api/student/levels/add',payload);
-      commit('ADD_LEVEL', response.data);
+      const response = await axios.post('/api/student/levels',payload);
+      commit('ADD_LEVEL', response.data.data);
     } catch (error) {
       commit('ADD_LEVEL', []);
       console.error(error);
@@ -54,13 +53,13 @@ export default {
     }
   },
 
-  async updateLevel({ commit }, upLevel) {
+  async updateLevel({ commit }, upLevel, level) {
     console.log(upLevel);
-    // try {
-    //   const response = await axios.put(`/api/student/levels/${upLevel.id}`);
-    //   commit('UPDATE_LEVELS', upLevel);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    try {
+      const response = await axios.put(`/api/student/levels/${upLevel}`);
+      commit('UPDATE_LEVELS', upLevel);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
