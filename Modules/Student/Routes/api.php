@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/student', function (Request $request) {
 });
 
 Route::group(['prefix' => '/student'], function () {
-
+    
+    
   Route::resource('/levels', 'LevelController');
+  Route::resource('/classrooms', 'ClassroomController');
+  Route::resource('/parts', 'PartController');
+  Route::resource('/students', 'StudentController');
     // Route::get('levels', function () {
 
         // return factory('Modules\Student\Entities\Level', 10)->make();
@@ -40,4 +44,4 @@ Route::group(['prefix' => '/student'], function () {
         //   ]);
     // });
 });
-    Route::resource('/Classroom', 'ClassroomController');
+    //Route::resource('/Classroom', 'ClassroomController');
