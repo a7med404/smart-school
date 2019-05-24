@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/address', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => '/addres'], function () {
+
+    Route::resource('/address','AddressController');
+    Route::resource('/Contacts','ContactController');
+    Route::resource('/identifcation','IdentifcationController');
+
+});

@@ -5,19 +5,19 @@ namespace Modules\Address\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Address\Entities\Identifcation;
-use Modules\Address\Transformers\IdentifcationResource;
-use Modules\Address\Transformers\SingleIdentifcationResource;
-use Modules\Address\Http\Requests\CreateIdentifcationRequest;
-class IdentifcationController extends Controller
+use Modules\Address\Entities\Contact;
+use Modules\Address\Transformers\ContactResource;
+use Modules\Address\Transformers\SingleContactResource;
+use Modules\Address\Http\Requests\CreateContactRequest;
+class ContactController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return new IdentifcationResource(Identifcation::all());
+        return new ContactResource(Contact::all());
     }
 
     /**
@@ -34,9 +34,9 @@ class IdentifcationController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateIdentifcationRequest $request)
+    public function store(CreateContactRequest $request)
     {
-         Identifcation::create($request->all());
+         Contact::create($request->all());
             return response()->json([
                 'message' => 'تم الحفظ بنجاح',
             ], 201);
@@ -49,7 +49,7 @@ class IdentifcationController extends Controller
      */
     public function show($id)
     {
-        return new SingleIdentifcationResource(Identifcation::findOrfail($id));
+        return new SingleContactResource(Contact::findOrfail($id));
         /* return view('student::show'); */
     }
 
@@ -60,7 +60,7 @@ class IdentifcationController extends Controller
      */
     public function edit($id)
     {
-        return new SingleIdentifcationResource(Identifcation::findOrfail($id));
+        return new SingleContactResource(Contact::findOrfail($id));
         /* return view('student::edit'); */
     }
 
@@ -70,9 +70,9 @@ class IdentifcationController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(CreateIdentifcationRequest $request, $id)
+    public function update(CreateContactRequest $request, $id)
     {
-        Identifcation::findOrfail($id)->update($request->all());
+        Contact::findOrfail($id)->update($request->all());
         return response()->json([
                 'message' => 'تم التحديث بنجاح',
             ], 200);
@@ -85,7 +85,7 @@ class IdentifcationController extends Controller
      */
     public function destroy($id)
     {
-        Identifcation::findOrfail($id)->delete();
+        Contact::findOrfail($id)->delete();
         return response()->json([
                 'message' => 'تم الحذف بنجاح',
             ], 200);
