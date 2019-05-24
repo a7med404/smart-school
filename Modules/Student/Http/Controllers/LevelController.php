@@ -9,6 +9,7 @@ use Modules\Student\Entities\Level;
 use Modules\Student\Transformers\LevelResource;
 use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
+use Modules\Student\Transformers\ClassroomResource;
 class LevelController extends Controller
 { 
     /**
@@ -96,5 +97,13 @@ class LevelController extends Controller
         Level::findOrfail($id)->delete();
         return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
+
+    public function getClassrooms($level_id)
+    {
+        return new ClassroomResource(Classroom::where('level_id', $level_id)->orderBy('sort', 'asc')->get());
+        // return response()->json(['message' => 'تم الحذف بنجاح'], 200);
+    }
+
+
  
 }

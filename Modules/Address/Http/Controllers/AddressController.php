@@ -76,4 +76,16 @@ class AddressController extends Controller
     {
         //
     }
+
+    public function getLocals($id)
+    {
+
+        $locals = [
+            1 => [1 => 'الفاشر', 2 => 'الطينة', 3 => 'كرنوي'],
+            2 => [1 => 'حي الميدان', 2 => 'حي العباسية', 3 => 'المحروقة'],
+            3 => [1 => 'الطينة', 2 => 'حي العباسية', 3 => 'المحروقة'],
+        ];
+        return response()->json( $locals[$id] );
+    }
+
 }

@@ -68,7 +68,7 @@ class ClassroomController extends Controller
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
     public function update(CreateClassroomRequest $request, $id)
     {

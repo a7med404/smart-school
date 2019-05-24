@@ -175,7 +175,7 @@
                           <label class="control-label">المحلية</label>
                           <select class="form-control select2" v-model="address.local" :disabled="disableLocal">
                             <option 
-                              v-for="(value, index) in cities" 
+                              v-for="(value, index) in locals" 
                               :key="index" :value="index" 
                               v-text="value" 
                               :selected="address.local == index">
@@ -674,6 +674,7 @@
 
 <script>
 
+    import axios from "axios";
     import { mapGetters, mapActions } from 'vuex';
     import { globalStore } from '../../../helper/general.js';
     console.log(globalStore.gender);
@@ -685,11 +686,12 @@
           return {
             genders : globalStore.genders,
             cities : globalStore.cities,
-            locals : globalStore.locals,
             religions : globalStore.religions,
             blood_types : globalStore.blood_types,
             identifcation_types : globalStore.identifcation_types,
             
+            locals : [],
+
             disableLocal: true,
             city_id: '',
             student: {
@@ -745,10 +747,19 @@
         methods: {
           // ...mapActions(['addStudent'])
           getLocals: function(e){
-           this.disableLocal = false,
-           this.city_id = e.target.options[e.target.options.selectedIndex].value;
-           this.locals = 
-           console.info(this.city_id);
+            var self = this;
+            self.city_id = e.target.options[e.target.options.selectedIndex].value;
+            
+            axios.get(`/api/address/loacls/${self.city_id}`)
+            .then(function(response){
+                self.disableLocal = false,
+                self.locals = response.data;
+            })
+            .catch(function(error){
+              self.disableLocal = true,
+              console.log(error);
+            });
+                
           }
         },
         props: [],

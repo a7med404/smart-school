@@ -25,6 +25,8 @@ Route::group(['prefix' => '/student'], function () {
   Route::resource('/classrooms', 'ClassroomController');
   Route::resource('/parts', 'PartController');
   Route::resource('/students', 'StudentController');
+  Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
+  
     // Route::get('levels', function () {
 
         // return factory('Modules\Student\Entities\Level', 10)->make();

@@ -285,12 +285,26 @@
     <!-- ... end Popup  -->
   </div>
 </template>
-
+ 
 <script>
 
+  import axios from "axios";
+  import { mapGetters, mapActions } from 'vuex';
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+      mounted() {
+          console.log('Component mounted.')
+      },
+
+      computed: {
+        ...mapGetters(['allLevels'])
+      },
+      created() {
+        let self = this;
+        self.fetchLevels();
+      },
+      methods:{
+        ...mapActions(['fetchLevels']),
+        
+      }
     }
 </script>
