@@ -98,12 +98,6 @@ class LevelController extends Controller
         return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
 
-    public function getClassrooms($level_id)
-    {
-        return new ClassroomResource(Classroom::where('level_id', $level_id)->orderBy('sort', 'asc')->get());
-        // return response()->json(['message' => 'تم الحذف بنجاح'], 200);
-    }
-
 
  
 }

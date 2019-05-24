@@ -138,10 +138,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="level_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                    <select class="form-control select2" name="classroom.level_id">
+                      <option 
+                        v-for="level in allLevels" 
+                        :key="level.id" :value="level.id" 
+                        v-text="level.name" 
+                        :selected="classroom.level_id == level.id">
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -291,6 +294,16 @@
   import axios from "axios";
   import { mapGetters, mapActions } from 'vuex';
     export default {
+      data() {
+        return {
+          classroom : {
+            id:  '',
+            name:  '',
+            sort: '',
+            level_id: '',
+          }
+        }
+      },
       mounted() {
           console.log('Component mounted.')
       },

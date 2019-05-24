@@ -20,20 +20,16 @@ Route::middleware('auth:api')->get('/student', function (Request $request) {
 
 Route::group(['prefix' => '/student'], function () {
     
-    
-  Route::resource('/levels', 'LevelController');
-  Route::resource('/classrooms', 'ClassroomController');
-  Route::resource('/parts', 'PartController');
-  Route::resource('/students', 'StudentController');
-  Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
-  
-
 
     Route::resource('/levels', 'LevelController');
     Route::resource('/classrooms', 'ClassroomController');
     Route::resource('/parts', 'PartController');
     Route::resource('/students', 'StudentController');
     Route::resource('/healthes', 'HealthController');
+    
+    Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
+    Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
+    
     // Route::get('levels', function () {
 
     // return factory('Modules\Student\Entities\Level', 10)->make();

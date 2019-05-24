@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  async addStudent(context, student) {
+  async addStudent({ commit }, student) {
     // axios post request
     const response = await axios.post('url', student);
     // context.commit('ADD_STUDENT', response);
