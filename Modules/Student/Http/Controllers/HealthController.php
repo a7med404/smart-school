@@ -5,6 +5,10 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Student\Entities\Health;
+use Modules\Student\Transformers\HealthResource;
+use Modules\Student\Transformers\SingleHealthResource;
+use Modules\Student\Http\Requests\CreateHealthRequest;
 
 class HealthController extends Controller
 {
@@ -14,7 +18,7 @@ class HealthController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return HealthResource::collection(Health::all());
     }
 
     /**
@@ -33,7 +37,16 @@ class HealthController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'doctor_name'            => $request->doctor_name,
+            'doctor_number'          => $request->doctor_number,
+            'blood_type'             => $request->blood_type,
+            'insurance_number'       => $request->insurance_number,
+            'health_status'          => $request->health_status,
+            'student_id'             => $request->student_id,
+        ];
+        $Health = Health::create($data);
+        return response()->json(['message' => 'تم الحفظ بنجاح', 'data' => $Health], 201);
     }
 
     /**
@@ -43,7 +56,8 @@ class HealthController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new SingleHealthResource(Health::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +67,8 @@ class HealthController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new SingleHealthResource(Health::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +77,11 @@ class HealthController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateHealthRequest $request, $id)
     {
-        //
+
+        Health::findOrfail($id)->fill($request->all());
+        return response()->json(['message' => 'تم التحديث بنجاح'], 200);
     }
 
     /**
@@ -74,6 +91,7 @@ class HealthController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Health::findOrfail($id)->delete();
+        return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
 }

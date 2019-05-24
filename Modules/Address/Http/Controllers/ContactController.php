@@ -5,16 +5,19 @@ namespace Modules\Address\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Address\Entities\Contact;
+use Modules\Address\Transformers\ContactResource;
+use Modules\Address\Transformers\SingleContactResource;
+use Modules\Address\Http\Requests\CreateContactRequest;
 class ContactController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('address::index');
+        return new ContactResource(Contact::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('address::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +34,12 @@ class ContactController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateContactRequest $request)
     {
-        //
+         Contact::create($request->all());
+            return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        return view('address::show');
+        return new SingleContactResource(Contact::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        return view('address::edit');
+        return new SingleContactResource(Contact::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +70,12 @@ class ContactController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateContactRequest $request, $id)
     {
-        //
+        Contact::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
 
     /**
@@ -74,6 +85,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Contact::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
 }

@@ -86,7 +86,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        Level::findOrfail($id)->delete();
+        Student::findOrfail($id)->delete();
         return response()->json([
                 'message' => 'تم الحذف بنجاح',
             ], 200);

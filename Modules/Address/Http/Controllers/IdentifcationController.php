@@ -5,7 +5,10 @@ namespace Modules\Address\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Address\Entities\Identifcation;
+use Modules\Address\Transformers\IdentifcationResource;
+use Modules\Address\Transformers\SingleIdentifcationResource;
+use Modules\Address\Http\Requests\CreateIdentifcationRequest;
 class IdentifcationController extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class IdentifcationController extends Controller
      */
     public function index()
     {
-        return view('address::index');
+        return new IdentifcationResource(Identifcation::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class IdentifcationController extends Controller
      */
     public function create()
     {
-        return view('address::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +34,12 @@ class IdentifcationController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateIdentifcationRequest $request)
     {
-        //
+         Identifcation::create($request->all());
+            return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class IdentifcationController extends Controller
      */
     public function show($id)
     {
-        return view('address::show');
+        return new SingleIdentifcationResource(Identifcation::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class IdentifcationController extends Controller
      */
     public function edit($id)
     {
-        return view('address::edit');
+        return new SingleIdentifcationResource(Identifcation::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +70,12 @@ class IdentifcationController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateIdentifcationRequest $request, $id)
     {
-        //
+        Identifcation::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
 
     /**
@@ -74,6 +85,9 @@ class IdentifcationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Identifcation::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
 }
