@@ -57,8 +57,12 @@
                           <div class="form-group">
                             <label class="control-label">النوع</label>
                             <select class="form-control select2"  v-model="student.gender">
-                              <option value="1">ذكر</option>
-                              <option value="0">انثي</option>
+                              <option 
+                                v-for="(value, index) in genders" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="student.gender == index">
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -66,9 +70,12 @@
                           <div class="form-group">
                             <label class="control-label">الديانة</label>
                             <select class="form-control select2" v-model="student.religion">
-                              <option value="CA">الاسلام</option>
-                              <option value="TE">المسيحية</option>
-                              <option value="TE">اخرى</option>
+                              <option 
+                                v-for="(value, index) in religions" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="student.religion == index">
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -153,25 +160,26 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المدينة</label>
-                          <select class="form-control select2" v-model="address.city">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">بحري</option>
-                            <option value="0">امدرمان</option>
-                            <option value="0">جبل اولياء</option>
+                          <select class="form-control select2" @change="getLocals($event)">
+                            <option 
+                              v-for="(value, index) in cities" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="address.local == index">
+                            </option>
                           </select>
                         </div>
                       </div>
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المحلية</label>
-                          <select class="form-control select2" v-model="address.local">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">جبل اولياء</option>
-                            <option value="1">بحري</option>
-                            <option value="0">شرق النيل </option>
-                            <option value="1">امدرمان</option>
-                            <option value="1">امبدة</option>
-                            <option value="1">كرري</option>
+                          <select class="form-control select2" v-model="address.local" :disabled="disableLocal">
+                            <option 
+                              v-for="(value, index) in cities" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="address.local == index">
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -233,10 +241,13 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">نوع اثبات الشخصية</label>
-                          <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">O+</option>
-                            <option value="0">O-</option>
-                            <option value="1">A+</option>
+                          <select class="form-control select2" v-model="identifcation.type">
+                            <option 
+                              v-for="(value, index) in identifcation_types" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="identifcation.type == index">
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -350,14 +361,12 @@
                         <div class="form-group">
                           <label class="control-label">فصيل الدم</label>
                           <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">O+</option>
-                            <option value="0">O-</option>
-                            <option value="1">A+</option>
-                            <option value="0">A-</option>
-                            <option value="1">B+</option>
-                            <option value="0">B-</option>
-                            <option value="1">AB+</option>
-                            <option value="0">AB-</option>
+                            <option 
+                                v-for="(value, index) in blood_types" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="health.blood_type == index">
+                              </option>
                           </select>
                         </div>
                       </div>
@@ -666,16 +675,23 @@
 <script>
 
     import { mapGetters, mapActions } from 'vuex';
+    import { globalStore } from '../../../helper/general.js';
+    console.log(globalStore.gender);
     export default {
         mounted() { },
         computed: {
-          // computedvar: function () {
-          //   return globalStore.globalvar
-          // }
         },
         data(){ 
           return {
-            // localvar: globalStore.globalvar,
+            genders : globalStore.genders,
+            cities : globalStore.cities,
+            locals : globalStore.locals,
+            religions : globalStore.religions,
+            blood_types : globalStore.blood_types,
+            identifcation_types : globalStore.identifcation_types,
+            
+            disableLocal: true,
+            city_id: '',
             student: {
               name                   : '',  
               gender                 : '',  
@@ -708,6 +724,14 @@
               email: ''
             },
 
+            identifcation: {
+              type: '',
+              identifcation_number: '',
+              issue_date: '',
+              issue_place: '',
+              identable_id: '',
+            },
+
             health: {
               doctor_name: '',
               doctor_number: '',
@@ -720,11 +744,16 @@
         },
         methods: {
           // ...mapActions(['addStudent'])
+          getLocals: function(e){
+           this.disableLocal = false,
+           this.city_id = e.target.options[e.target.options.selectedIndex].value;
+           this.locals = 
+           console.info(this.city_id);
+          }
         },
         props: [],
         // computed: { ...mapGetters(['allStudent']) },
         created() {
-          // console.info(localvar);
         },
 
     }
