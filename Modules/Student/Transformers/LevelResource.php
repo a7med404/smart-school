@@ -15,11 +15,11 @@ class LevelResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'   => $this->id, 
-            'name' => $this->name, 
-            'sort' => $this->sort, 
-            'head_master' => $this->head_master, 
-            'school_master' => $this->school_master
+            'id'                 => $this->id, 
+            'name'               => $this->name, 
+            'sort'               => $this->sort, 
+            'head_master'        => $this->head_master, 
+            'school_master'      => $this->school_master
         ];
         return parent::toArray($request);
     }

@@ -14,6 +14,11 @@ class ClassroomResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            'name'              =>$this->name,
+            'sort'              =>$this->sort,
+            'level_id'          => getName('levels', $this->level_id),
+        ];
+        // return parent::toArray($request);
     }
 }

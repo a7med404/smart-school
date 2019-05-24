@@ -13,7 +13,12 @@ class DiscountSettingSiblingResource extends ResourceCollection
      * @return array
      */
     public function toArray($request)
-    {
-        return parent::toArray($request);
+    { 
+        return[
+            'ranking'          => $this->ranking,
+            'value'            => $this->value,
+            'type'             => valueOrPersentage()[$this->type]
+        ];
+        // return parent::toArray($request);
     }
 }

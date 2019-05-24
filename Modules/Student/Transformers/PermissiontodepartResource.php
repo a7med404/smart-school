@@ -14,6 +14,11 @@ class PermissiontodepartResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'date'             => $this->date,
+            'note'             => $this->note,
+            'student_id'       => getName('students', $this->student_id),
+            ];
+        // return parent::toArray($request);
     }
 }

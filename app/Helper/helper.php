@@ -6,6 +6,28 @@ function gender(){
         '1' => 'ذكر',
     ];
 }
+function valueOrPersentage(){
+    return [
+        '0' => 'القيمة',
+        '1' => 'نسبه',
+    ];
+}
+
+function offPrint(){
+    return [
+        '0' => 'شهادة قيد طالب',
+        '1' => 'شهادة حسن سير وسلوك',
+        '2' => 'مخالصة بمصروفات طالب',
+    ];
+}
+
+function is_mandatary(){
+    return [
+        '0' => 'غير إجباري',
+        '1' => 'إجباري',
+    ];
+}
+
 
 function religion(){
     return [
@@ -44,8 +66,24 @@ function getName($tableName, $id){
             $list = \DB::table('classrooms')->pluck('name', 'id');
             return $list;
             break;
+        case 'students':
+            $list = \DB::table('students')->pluck('name', 'id');
+            return $list[$id];
+            break;
+        case 'parts':
+            $list = \DB::table('students')->pluck('name', 'id');
+            return $list[$id];
+            break;
+        case 'employees':
+            $list = \DB::table('employees')->pluck('name', 'id');
+            return $list[$id];
+            break;
+        case 'pay_ruls':
+            $list = \DB::table('pay_ruls')->pluck('name', 'id');
+            return $list[$id];
+            break;
         default:
-            $list = \DB::table('levels')->pluck('name', 'id');
+            $list = \DB::table('parts')->pluck('name', 'id');
             return $list->toArray();
             break;
     }

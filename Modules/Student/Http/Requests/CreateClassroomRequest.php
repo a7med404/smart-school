@@ -14,11 +14,9 @@ class CreateClassroomRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:2',
-            'sort' => 'required|integer',
-            'is_end' => 'boolean',
-            'level_id' => 'required|integer',
-            'division_id' => 'required|integer'
+            'name'           => 'required|string|min:2',
+            'sort'           => 'required|integer',
+            'level_id'       => 'required|integer',
         ];
     }
 
