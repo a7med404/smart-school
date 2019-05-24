@@ -2,8 +2,8 @@
 
 function gender(){
     return [
-        '0' => 'انثي',
-        '1' => 'ذكر',
+        0 => 'انثي',
+        1 => 'ذكر',
     ];
 }
 function valueOrPersentage(){
@@ -31,9 +31,17 @@ function is_mandatary(){
 
 function religion(){
     return [
-        '1' => 'الاسلام',
-        '2' => 'المسيحية',
-        '3' => 'اخري',
+        1 => 'الاسلام',
+        2 => 'المسيحية',
+        3 => 'اخري',
+    ];
+}
+
+function studylang(){
+    return [
+        1 => 'العربية',
+        2 => 'الإنجليزية',
+        3 => 'اخري',
     ];
 }
 
@@ -64,7 +72,15 @@ function getName($tableName, $id){
             break;
         case 'classrooms':
             $list = \DB::table('classrooms')->pluck('name', 'id');
-            return $list;
+            return $list[$id];
+            break;
+        case 'parts':
+            $list = \DB::table('parts')->pluck('name', 'id');
+            return $list[$id];
+            break;
+        case 'identifcations':
+            $list = \DB::table('identifcations')->pluck('identable_id', 'id');
+            return $list[$id];
             break;
         case 'students':
             $list = \DB::table('students')->pluck('name', 'id');

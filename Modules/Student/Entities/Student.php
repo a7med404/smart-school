@@ -19,18 +19,19 @@ class Student extends Model
         'name', 'gender', 'religion', 'is_staff_son',
         'birthday', 'start_from', 'start_data',
         'start_year', 'student_parent_id', 'address_id', 'identifcation_id',
-        'contact_id', 'level_id', 'classroom_id', 'part_id', 'note'
+        'contact_id', 'level_id', 'classroom_id', 'part_id', 'note','study_lang','is_partner_son'
+        ,'identifcation_number','identifcation_expire','health_id'
     ];
 
     public function address()
     {
         // return $this->hasOne(Address::class, 'address_id', 'id');
-        return $this->hasOne(Address::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function contact()
     {
-        return $this->hasOne(Contact::class);
+        return $this->belongsTo(Contact::class);
     }
 
     public function identifcation()

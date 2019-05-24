@@ -68,7 +68,7 @@ class ClassroomController extends Controller
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
     public function update(CreateClassroomRequest $request, $id)
     {
@@ -90,4 +90,12 @@ class ClassroomController extends Controller
                 'message' => 'تم الحذف بنجاح',
             ], 200);
     }
+
+
+    public function getClassrooms($level_id)
+    {
+        return new ClassroomResource(Classroom::where('level_id', $level_id)->orderBy('sort', 'asc')->get());
+        // return response()->json(['message' => 'تم الحذف بنجاح'], 200);
+    }
+
 }

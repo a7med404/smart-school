@@ -16,8 +16,8 @@ class CreateHealthRequest extends FormRequest
         return  [
             'doctor_name'       => 'required|max:255|min:10',
             'doctor_number'     => 'nullable|max:14|min:6',
-            'blood_type'        => 'required|integer', 
-            'insurance_number'  => 'nullable|string', 
+            'blood_type'        => 'required|integer',
+            'insurance_number'  => 'nullable|string',
             'health_status'     => 'string|nullable'
         ];
     }

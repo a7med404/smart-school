@@ -91,4 +91,10 @@ class PartController extends Controller
             ], 200);
     }
   
+    public function getParts($classroom_id)
+    {
+        return new PartResource(Part::where('classroom_id', $classroom_id)->orderBy('sort', 'asc')->get());
+        // return response()->json(['message' => 'تم الحذف بنجاح'], 200);
+    }
+
 }

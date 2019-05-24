@@ -8,7 +8,7 @@ use Modules\Employee\Entities\Employee;
 
 class Identifcation extends Model
 {
-    protected $fillable = [];
+    protected $fillable = ['type','issue_date','issue_place','identable_id'];
 
     public function student()
     {
