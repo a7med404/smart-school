@@ -17,9 +17,9 @@ class PartController extends Controller
      */
     public function index()
     {
-        return new PartResource(Part::all());
+        return PartResource::collection(Part::orderBy('sort', 'asc')->get());
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      * @return Response

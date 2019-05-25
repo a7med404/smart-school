@@ -16,8 +16,6 @@ class CreateLevelRequest extends FormRequest
         return [
             'name'       => 'required|string|min:2',
             'sort'          => 'required|integer',
-            'level_id'      => 'required|integer',
-            'division_id'   => 'required|integer'
         ];
     }
 

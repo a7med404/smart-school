@@ -2,9 +2,9 @@
 
 namespace Modules\Address\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ContactResource extends ResourceCollection
+class ContactResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.

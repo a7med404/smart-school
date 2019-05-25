@@ -28,7 +28,7 @@
               <ul class="nav nav-pills nav-stacked">
 
 
-                <li><router-link :to="{name: 'education-levels'}"> <i class="fa fa-envelope-o"></i>المراحل التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
+                <li><router-link :to="{name: 'education-classrooms'}"> <i class="fa fa-envelope-o"></i>المراحل التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
                 <li><router-link :to="{name: 'classrooms'}"> <i class="fa fa-filter"></i> الصفوف التعلمية</router-link></li>
                 <li><router-link :to="{name: 'part-rooms'}"> <i class="fa fa-envelope-o"></i> الفصول التعلمية <span class="label label-primary pull-left">12</span></router-link></li>
                 <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب علي الفصول</router-link></li>
@@ -88,36 +88,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>الاساس</td>
-                        <td>الاول</td>
-                        <td>ابوبكر</td>
-                        <td>60</td>
-                        <td><a href="#" class="">2</a></td>
-                        <td>
-                            <div class="btn-group">
-                                <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>رياض الاطفال</td>
-                        <td>الثاني</td>
-                        <td>علي</td>
-                        <td>50</td>
-                        <td><a href="#" class="">1</a></td>
-                        <td>
-                            <div class="btn-group">
-                                <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                            </div>
-                        </td>
-                    </tr>
+                  <tr v-for="part in allParts" :key="part.id">
+                    <td v-text="part.id"></td>
+                    <td v-text="part.level_id"></td>
+                    <td v-text="part.classroom_id"></td>
+                    <td v-text="part.name"></td>
+                    <td v-text="part.max_student_number"></td>
+                    <td v-text="part.sort"></td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
+                            <a class="btn btn-info" @click.prevent="editLevel(part.id)" type="button" data-toggle="modal" data-target="#popup-add-level"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(part.id)"> <i class="fa fa-times"></i></a>
+                        </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -158,10 +143,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الصف </label>
-                    <select class="form-control select2" name="classroom_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                    <select class="form-control select2" name="part.classroom_id">
+                      <option 
+                        v-for="classroom in allClassrooms" 
+                        :key="classroom.id" :value="classroom.id" 
+                        v-text="classroom.name" 
+                        :selected="part.classroom_id == classroom.id">
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -227,15 +215,16 @@
       },
 
       computed: {
-        ...mapGetters(['allLevels'])
+        ...mapGetters(['allLevels', 'allClassrooms', 'allParts'])
       },
       created() {
         let self = this;
         self.fetchLevels();
+        self.fetchClassrooms();
+        self.fetchParts();
       },
       methods:{
-        ...mapActions(['fetchLevels']),
-        
+        ...mapActions(['fetchLevels', 'fetchClassrooms', 'fetchParts']),
       }
     }
 </script>

@@ -17,7 +17,7 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        return new ClassroomResource(Classroom::all());
+        return ClassroomResource::collection(Classroom::orderBy('sort', 'asc')->get());
     }
 
     /**
@@ -34,12 +34,13 @@ class ClassroomController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateClassroomRequest $request)
+    public function store(Request $request)
     {
+        // dd($request->all());
          Classroom::create($request->all());
-            return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-            ], 201);
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
     }
 
     /**
@@ -76,7 +77,7 @@ class ClassroomController extends Controller
         return response()->json([
                 'message' => 'تم التحديث بنجاح',
             ], 200);
-    }
+    }   
 
     /**
      * Remove the specified resource from storage.

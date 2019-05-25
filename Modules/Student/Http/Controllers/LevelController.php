@@ -18,7 +18,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        return LevelResource::collection(Level::all());
+        return LevelResource::collection(Level::orderBy('sort', 'asc')->get());
     }
 
     /**
@@ -77,13 +77,14 @@ class LevelController extends Controller
      */
     public function update(CreateLevelRequest $request, $id)
     {
+        // dd($request->all(), $id);
         $data = [
             'name' => $request->name, 
             'sort' => $request->sort,  
             'head_master' => $request->head_master,  
             'school_master' => $request->school_master, 
         ];
-        Level::findOrfail($id)->fill($data);
+        Level::findOrfail($id)->update($data);
         return response()->json(['message' => 'تم التحديث بنجاح'], 200);
     }
 

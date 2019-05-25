@@ -2,9 +2,9 @@
 
 namespace Modules\Employee\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class FormalHolidayResource extends ResourceCollection
+class FormalHolidayResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.

@@ -684,12 +684,11 @@
         },
         data(){ 
           return {
-            genders : globalStore.genders,
-            cities : globalStore.cities,
-            religions : globalStore.religions,
-            blood_types : globalStore.blood_types,
+            genders       : globalStore.genders,
+            cities        : globalStore.cities,
+            religions     : globalStore.religions,
+            blood_types   : globalStore.blood_types,
             identifcation_types : globalStore.identifcation_types,
-            
             locals : [],
 
             disableLocal: true,
@@ -714,10 +713,10 @@
             },
 
             address: {
-              street_1 : '',
-              street_2 : '',
-              city : '',
-              local : ''
+              street_1  : '',
+              street_2  : '',
+              city      : '',
+              local     : ''
             },
 
             contact: {
