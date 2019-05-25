@@ -14,7 +14,10 @@ class CreateReportSeparateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'student_id'        => 'required|integer',
+            'from'              => 'nullable|date',
+            'to'                => 'required|date',
+            'note'              => 'required|longText'
         ];
     }
 

@@ -28,6 +28,27 @@ function is_mandatary(){
     ];
 }
 
+function payment_status(){
+    return [
+        '0' => 'لم يدفع بعد',
+        '1' => 'جزئي',
+        '2' => 'كامل',
+    ];
+}
+
+function blood_type(){
+    return [
+        '0' => 'A+',
+        '1' => 'A-',
+        '2' => 'O+',
+        '3' => 'O-',
+        '4' => 'B+',
+        '5' => 'B-',
+        '4' => 'AB+',
+        '5' => 'AB-',
+    ];
+}
+
 
 function religion(){
     return [

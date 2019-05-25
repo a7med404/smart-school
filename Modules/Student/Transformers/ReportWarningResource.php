@@ -14,6 +14,10 @@ class ReportWarningResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'student_id'        => getName('students', $this->student_id),
+            'note'              => $this->note
+        ];
+        // return parent::toArray($request);
     }
 }

@@ -15,7 +15,8 @@ class CreateReportWarningsTable extends Migration
     {
         Schema::create('report_warnings', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->unsignedBigInteger('student_id')->foreign()->references('id')->on('students');
+            $table->longText('note');
             $table->timestamps();
         });
     }

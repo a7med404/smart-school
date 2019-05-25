@@ -14,7 +14,8 @@ class CreateReportWarningRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'student_id'        => 'required|integer',
+            'note'              => 'required|longText'
         ];
     }
 
