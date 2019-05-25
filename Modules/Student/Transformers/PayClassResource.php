@@ -14,6 +14,13 @@ class PayClassResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'value'                   => $this->value,
+            'pay_rul_id'              => getName('pay_ruls', $this->pay_rul_id),
+            'level_id'                => getName('levels', $this->level_id),
+            'classroom_id'            => getName('classrooms', $this->classroom_id),
+            'academic_year'           => $this->academic_year
+            ];
+        // return parent::toArray($request);
     }
 }

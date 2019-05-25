@@ -14,6 +14,11 @@ class OffPrintResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'student_id'          => getName('students', $this->student_id),
+            'employee_id'         => getName('employees', $this->employee_id),
+            'type'                =>offPrint()[$this->type],
+        ];
+        // return parent::toArray($request);
     }
 }

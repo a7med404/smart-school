@@ -17,7 +17,6 @@ class CreateClassroomsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 100)->unique();
             $table->integer('sort')->unique();
-            $table->boolean('is_end');
             $table->unsignedBigInteger('level_id');
             $table->foreign('level_id')
                 ->references('id')->on('levels'); 

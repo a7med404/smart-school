@@ -10,8 +10,12 @@ use Modules\Student\Transformers\LevelResource;
 use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 use Modules\Student\Transformers\ClassroomResource;
+<<<<<<< HEAD
+
+=======
+>>>>>>> cd8b9c72699f5aca26a4a7305ed116a4d6e05ebf
 class LevelController extends Controller
-{ 
+{
     /**
      * Display a listing of the resource.
      * @return Response
@@ -38,10 +42,10 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'name'          => $request->name, 
+            'name'          => $request->name,
             'sort'          => $request->sort,
-            'head_master'   => $request->head_master,  
-            'school_master' => $request->school_master, 
+            'head_master'   => $request->head_master,
+            'school_master' => $request->school_master,
         ];
         $level = Level::create($data);
         return response()->json(['message' => 'تم الحفظ بنجاح', 'data' => $level], 201);
@@ -55,6 +59,16 @@ class LevelController extends Controller
     public function show($id)
     {
         return new SingleLevelResource(Level::findOrfail($id));
+        /* return view('student::show'); */
+    }
+    /**
+     * Show all classrooms in one level .
+     * @param int $id
+     * @return Response
+     */
+    public function classrooms($id)
+    {
+        return new ClassroomResource(Level::findOrfail($id)->classrooms);
         /* return view('student::show'); */
     }
 
@@ -79,10 +93,10 @@ class LevelController extends Controller
     {
         // dd($request->all(), $id);
         $data = [
-            'name' => $request->name, 
-            'sort' => $request->sort,  
-            'head_master' => $request->head_master,  
-            'school_master' => $request->school_master, 
+            'name' => $request->name,
+            'sort' => $request->sort,
+            'head_master' => $request->head_master,
+            'school_master' => $request->school_master,
         ];
         Level::findOrfail($id)->update($data);
         return response()->json(['message' => 'تم التحديث بنجاح'], 200);
@@ -98,7 +112,10 @@ class LevelController extends Controller
         Level::findOrfail($id)->delete();
         return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
+<<<<<<< HEAD
+=======
 
 
  
+>>>>>>> cd8b9c72699f5aca26a4a7305ed116a4d6e05ebf
 }

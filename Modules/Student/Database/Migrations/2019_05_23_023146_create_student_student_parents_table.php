@@ -15,7 +15,7 @@ class CreateStudentStudentParentsTable extends Migration
     {
         Schema::create('student_student_parents', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+             
             $table->timestamps();
         });
     }

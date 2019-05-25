@@ -9,6 +9,8 @@ use Modules\Student\Entities\Classroom;
 use Modules\Student\Transformers\ClassroomResource;
 use Modules\Student\Transformers\singleClassroomResource;
 use Modules\Student\Http\Requests\CreateClassroomRequest;
+use Modules\Student\Transformers\PartResource;
+
 class ClassroomController extends Controller
 {
     /**
@@ -36,8 +38,7 @@ class ClassroomController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-         Classroom::create($request->all());
+        Classroom::create($request->all());
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
         ], 201);
@@ -51,6 +52,16 @@ class ClassroomController extends Controller
     public function show($id)
     {
         return new singleClassroomResource(Classroom::findOrfail($id));
+        /* return view('student::show'); */
+    }
+    /**
+     * Show parts in one classroom.
+     * @param int $id
+     * @return Response
+     */
+    public function parts($id)
+    {
+        return new PartResource(Classroom::findOrfail($id)->parts);
         /* return view('student::show'); */
     }
 
@@ -75,9 +86,9 @@ class ClassroomController extends Controller
     {
         Classroom::findOrfail($id)->update($request->all());
         return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
-    }   
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -88,8 +99,8 @@ class ClassroomController extends Controller
     {
         Classroom::findOrfail($id)->delete();
         return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 
 

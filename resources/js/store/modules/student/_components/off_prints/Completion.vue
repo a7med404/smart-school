@@ -106,7 +106,7 @@
                   </fieldset>
                 </div>
               </div>
-              <input type="hidden" name="type" value="3" v-model="off_print.type">
+              <input type="hidden" name="type" value="2" v-model="off_print.type">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <button href="#" class="btn btn-primary">اضافة</button>
