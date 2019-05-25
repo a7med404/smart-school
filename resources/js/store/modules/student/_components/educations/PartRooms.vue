@@ -145,10 +145,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="level_id">
-                      <option value="CA">رياض الاطفال</option>
-                      <option value="TE">الاساس</option>
-                      <option value="TE">الثانوي</option>
+                    <select class="form-control select2" name="part.level_id">
+                      <option 
+                        v-for="level in allLevels" 
+                        :key="level.id" :value="level.id" 
+                        v-text="level.name" 
+                        :selected="part.level_id == level.id">
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -204,9 +207,35 @@
 
 <script>
 
+      import axios from "axios";
+  import { mapGetters, mapActions } from 'vuex';
     export default {
-        mounted() {
-            console.log('Component mounted.')
+      data() {
+        return {
+          part : {
+            id:  '',
+            name:  '',
+            sort: '',
+            max_student_number: '',
+            level_id: '',
+            classroom_id: '',
+          }
         }
+      },
+      mounted() {
+          console.log('Component mounted.')
+      },
+
+      computed: {
+        ...mapGetters(['allLevels'])
+      },
+      created() {
+        let self = this;
+        self.fetchLevels();
+      },
+      methods:{
+        ...mapActions(['fetchLevels']),
+        
+      }
     }
 </script>

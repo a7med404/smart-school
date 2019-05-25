@@ -77,7 +77,6 @@
                           <th>اسم المرحلة التعليمية</th>
                           <th>اسم الصف</th>
                           <th>الترتيب</th>
-                          <th>نهاية المرحلة</th>
                           <th>options</th>
                       </tr>
                   </thead>
@@ -101,7 +100,6 @@
                           <td>المرحلة الثانوية</td>
                           <td>الصف الاول الثانوي</td>
                           <td>1</td>
-                          <td><a href="#" class=""></a></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -138,17 +136,20 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="level_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
+                    <select class="form-control select2" name="classroom.level_id">
+                      <option 
+                        v-for="level in allLevels" 
+                        :key="level.id" :value="level.id" 
+                        v-text="level.name" 
+                        :selected="classroom.level_id == level.id">
+                      </option>
                     </select>
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الترتيب </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="classroom.sort">
                   </div>
                 </div>
               </div>
@@ -156,30 +157,11 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الصف </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="classroom.name">
                   </div>
                 </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                  <div class="form-group">
-                    <label class="control-label">
-                      <input type="checkbox" class="minimal" name="is_end">
-                      نهاية مرحلة
-                    </label>
-                  </div>
-                </div> 
               </div>
-
               <div class="row m-t-30">
-                <div class="col col-xl-6 col-lg-6 col-md-6">
-                  <div class="form-group">
-                    <label class="control-label"> الشعبة </label>
-                    <select class="form-control select2" name="division_id">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
-                    </select>
-                  </div>
-                </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn btn-default">
                     <i class="fa fa-plus"></i> اضافة صف 
@@ -233,25 +215,7 @@
                     <input class="form-control" placeholder="" type="text" name="name">
                   </div>
                 </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                  <div class="form-group">
-                    <label class="control-label"> اسم الصف بالانجليزي </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
-                  </div>
-                </div>
-              </div>                    
-              <div class="row">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                  <div class="form-group">
-                    <div class="form-group">
-                      <label class="control-label">
-                        <input type="checkbox" name="is_die">
-                        نهاية مرحلة
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </div>       
               <div class="row">
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
@@ -285,12 +249,36 @@
     <!-- ... end Popup  -->
   </div>
 </template>
-
+ 
 <script>
 
+  import axios from "axios";
+  import { mapGetters, mapActions } from 'vuex';
     export default {
-        mounted() {
-            console.log('Component mounted.')
+      data() {
+        return {
+          classroom : {
+            id:  '',
+            name:  '',
+            sort: '',
+            level_id: '',
+          }
         }
+      },
+      mounted() {
+          console.log('Component mounted.')
+      },
+
+      computed: {
+        ...mapGetters(['allLevels'])
+      },
+      created() {
+        let self = this;
+        self.fetchLevels();
+      },
+      methods:{
+        ...mapActions(['fetchLevels']),
+        
+      }
     }
 </script>

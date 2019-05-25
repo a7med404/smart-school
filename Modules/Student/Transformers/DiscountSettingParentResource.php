@@ -14,6 +14,11 @@ class DiscountSettingParentResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'value'                     =>  $this_value,
+            'experience_years'          =>  $experience_years,
+            'type'                      => valueOrPersentage()[$this->type]
+        ];
+        // return parent::toArray($request);
     }
 }
