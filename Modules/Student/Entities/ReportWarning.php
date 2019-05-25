@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReportWarning extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'student_id',
+        'note',
+    ];
 }

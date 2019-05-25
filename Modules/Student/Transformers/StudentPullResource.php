@@ -14,6 +14,11 @@ class StudentPullResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'student_id'                => getName('students', $this->student_id),
+            'pull_date'                 => $this->pull_date,
+            'reason'                    => $this->reason
+        ];
+        // return parent::toArray($request);
     }
 }

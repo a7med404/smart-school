@@ -14,6 +14,13 @@ class SingleHealthResource extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return  [
+            'doctor_name'       => $this->doctor_name,
+            'doctor_number'     => $this->doctor_number,
+            'blood_type'        => blood_type()[$this->blood_type],
+            'insurance_number'  => $this->insurance_number,
+            'health_status'     => $this->health_status
+        ];
+        // return parent::toArray($request);
     }
 }
