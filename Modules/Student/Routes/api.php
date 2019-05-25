@@ -22,7 +22,9 @@ Route::group(['prefix' => '/student'], function () {
 
 
     Route::resource('/levels', 'LevelController');
+    Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
+    Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     Route::resource('/parts', 'PartController');
     Route::resource('/students', 'StudentController');
     Route::resource('/healthes', 'HealthController');
