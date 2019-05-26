@@ -15,7 +15,9 @@ class CreateAgreementsTable extends Migration
     {
         Schema::create('agreements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id')->foreign()->references('id')->on('employees');
+            $table->integer('employee_id')->foreign()
+            ->references('id')->on('employees')
+            ->onDelete('cascade');
             $table->integer('type');
             $table->timestamps();
         });

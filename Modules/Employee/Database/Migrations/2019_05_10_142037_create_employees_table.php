@@ -19,8 +19,12 @@ class CreateEmployeesTable extends Migration
             $table->boolean('gender');
             $table->integer('religion')->nullable();
             $table->date('birth_date');
-            $table->integer('managament_id')->foreign()->references('id')->on('management');
-            $table->integer('department_id')->foreign()->references('id')->on('department');
+            $table->integer('managament_id')->foreign()
+            ->references('id')->on('management')
+            ->onDelete('cascade');
+            $table->integer('department_id')->foreign()
+            ->references('id')->on('department')
+            ->onDelete('cascade');
             $table->date('hiring_date')->nullable();
             $table->string('job_title')->nullable();
             $table->integer('martial_status');
@@ -30,7 +34,9 @@ class CreateEmployeesTable extends Migration
             $table->string('picture')->nullable();
             $table->longText('note')->nullable();
             
-            $table->integer('identifcation_id')->foreign()->references('id')->on('identifcations');
+            $table->integer('identifcation_id')->foreign()
+            ->references('id')->on('identifcations')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
