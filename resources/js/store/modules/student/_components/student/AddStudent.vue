@@ -677,7 +677,6 @@
     import axios from "axios";
     import { mapGetters, mapActions } from 'vuex';
     import { globalStore } from '../../../helper/general.js';
-    console.log(globalStore.gender);
     export default {
         mounted() { },
         computed: {
