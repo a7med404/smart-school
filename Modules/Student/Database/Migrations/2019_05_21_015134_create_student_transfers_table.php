@@ -15,7 +15,9 @@ class CreateStudentTransfersTable extends Migration
     {
         Schema::create('student_transfers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('student_id')->foreign()->references('id')->on('students');
+            $table->unsignedBigInteger('student_id')->foreign()
+            ->references('id')->on('students')
+            ->onDelete('cascade');
             $table->string('transfer_to');
             $table->string('duration');
             $table->integer('payment_status');

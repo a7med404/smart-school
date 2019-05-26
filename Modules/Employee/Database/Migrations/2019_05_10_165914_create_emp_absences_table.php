@@ -15,7 +15,9 @@ class CreateEmpAbsencesTable extends Migration
     {
         Schema::create('emp_absences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('empolyee_id')->foreign()->references('id')->on('empolyees');
+            $table->integer('empolyee_id')->foreign()
+            ->references('id')->on('empolyees')
+            ->onDelete('cascade');
             $table->date('absence_from');
             $table->date('absence_to');
             $table->text('absence_reason')->nullable();

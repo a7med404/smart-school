@@ -18,15 +18,17 @@ class CreatePayClassesTable extends Migration
 
             $table->string('academic_year');
             $table->unsignedBigInteger('level_id')->foreign()
-                ->references('id')->on('levels');
+                ->references('id')->on('levels')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('classroom_id');
                 $table->foreign('classroom_id')
-                    ->references('id')->on('classrooms'); 
+                ->references('id')->on('classrooms')
+                ->onDelete('cascade'); 
             $table->unsignedBigInteger('pay_rul_id')->foreign()
-                ->references('id')->on('pay_ruls'); 
-
+                ->references('id')->on('pay_ruls')
+                ->onDelete('cascade'); 
              $table->float('value');
-            $table->timestamps();
+             $table->timestamps();
         });
     }
 

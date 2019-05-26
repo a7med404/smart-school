@@ -17,7 +17,9 @@ class CreateBearInMindsTable extends Migration
             $table->bigIncrements('id');
             $table->longText('note');
             $table->date('date');
-            $table->integer('empolyee_id')->foreign()->references('id')->on('empolyees');
+            $table->integer('empolyee_id')->foreign()
+            ->references('id')->on('empolyees')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

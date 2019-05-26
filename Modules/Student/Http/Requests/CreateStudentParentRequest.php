@@ -14,13 +14,13 @@ class CreateStudentParentRequest extends FormRequest
     public function rules()
     {
         return [
-            'mr_d'                  => 'required|integer',  
+            'mr_d'                  => 'required|integer',
             'name'                  => 'required|max:255|min:10',  
             'religion'              => 'nullable|integer',  
-            'relation'              => 'required|integer',  
+            'relation'              => 'required|integer',
             'nationality'           => 'required|integer',  
             'identifcation_number'  => 'nullable|string',  
-            'qualification'         => 'nullable|integer',  
+            'qualification'         => 'nullable|string',  
             'job'                   => 'nullable|string',  
             'work_place'            => 'nullable|string',  
             'martial'               => 'nullable|integer',  

@@ -16,9 +16,11 @@ class CreateClassroomPayClassesTable extends Migration
         Schema::create('classroom_pay_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('classroom_id')->foreign()
-                ->references('id')->on('classrooms');
+                ->references('id')->on('classrooms')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('pay_class_id')->foreign()
-                ->references('id')->on('pay_classes');
+                ->references('id')->on('pay_classes')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
