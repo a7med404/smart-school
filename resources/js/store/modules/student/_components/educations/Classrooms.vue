@@ -83,7 +83,7 @@
                   <tbody>
                       <tr v-for="classroom in allClassrooms" :key="classroom.id">
                           <td v-text="classroom.id"></td>
-                          <td v-text="classroom.level_id"></td>
+                          <td v-text="classroom.level_id.name"></td>
                           <td v-text="classroom.name"></td>
                           <td v-text="classroom.sort"></td>
                           <td>
@@ -125,9 +125,9 @@
                     <select class="form-control select2" v-model="classroom.level_id">
                       <option 
                         v-for="level in allLevels" 
-                        :key="level.id" :value="level.id"  :title="level.name + level.id"
+                        :key="level.id" :value="level.id" 
                         v-text="level.name" 
-                        :selected="classroom.level_id == level.id">
+                        :selected="classroom.level_id.id == level.id">
                       </option>
                     </select>
                   </div>
@@ -182,7 +182,6 @@
         }
       },
       mounted() {
-          console.log('Component mounted.')
       },
 
       computed: {
@@ -190,13 +189,13 @@
       },
       created() {
         let self = this;
-        console.log(self.allLevels);
         self.fetchLevels();
         self.fetchClassrooms();
       },
       methods:{
         ...mapActions(['fetchLevels', 'fetchClassrooms', 'addClassroom', 'updateClassroom', 'deleteClassroom']),
         createClassroom: function() {
+          console.info(self.classroom);
           let self = this;
           let params = Object.assign({}, self.classroom);
           this.addClassroom(params).then(function(){
@@ -212,7 +211,7 @@
           self.classroom.id = classroom.id;
           self.classroom.name = classroom.name;
           self.classroom.sort = classroom.sort;
-          self.classroom.level_id = classroom.level_id;
+          self.classroom.level_id = classroom.level_id.id;
         },
 
         toUpdateClassroom: function(classroom) {
@@ -222,7 +221,8 @@
             self.edit = false;
             self.classroom.name = '',
             self.classroom.sort = '',
-            self.classroom.level_id = ''
+            self.classroom.level_id = '',
+            self.fetchClassrooms();
           });
         },
       }

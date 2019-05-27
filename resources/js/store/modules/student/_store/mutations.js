@@ -20,6 +20,7 @@ export default {
   UPDATE_CLASSROOM: (state, upClassroom) => {
     const index = state.classrooms.findIndex(classroom => classroom.id === upClassroom.id);
     if(index !== -1) {
+      console.log(upClassroom);
       state.classrooms.splice(index, 1, upClassroom);
     }
   },

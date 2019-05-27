@@ -31,7 +31,6 @@ export default {
 
 
   async updateLevel({ commit }, upLevel) {
-    console.error(upLevel);
     try {
       const response = await axios.put(`/api/student/levels/${upLevel.id}`, upLevel);
       commit('UPDATE_LEVEL', upLevel);
@@ -75,7 +74,7 @@ export default {
 
 
 
-  
+
   // Classrooms *******************************************************************************/
 
   async fetchClassrooms({ commit }){
@@ -99,7 +98,6 @@ export default {
   },
 
   async updateClassroom({ commit }, upClassroom) {
-    console.error(upClassroom);
     try {
       const response = await axios.put(`/api/student/classrooms/${upClassroom.id}`, upClassroom);
       commit('UPDATE_CLASSROOM', upClassroom);

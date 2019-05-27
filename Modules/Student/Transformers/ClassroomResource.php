@@ -16,7 +16,7 @@ class ClassroomResource extends JsonResource
     { 
         return [
             'id'   => $this->id, 
-            'level_id' => getName('levels',$this->level_id), 
+            'level_id' => $this->level, 
             'name' => $this->name, 
             'sort' => $this->sort, 
         ];
