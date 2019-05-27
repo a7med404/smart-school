@@ -109,6 +109,49 @@ function is_die(){
     ];
 }
 
+function agreementType(){
+    return [
+        1 => 'مؤقت',
+        2 => ' دائم',
+        2 => ' تعاقد',
+    ];
+}
+
+function job_title(){
+    return [
+        1 => 'موظف',
+        2 => ' معلم',
+        2 => ' عامل',
+    ];
+}
+
+function education_level(){
+    return [
+        1 => 'دبلوم',
+        2 => ' بكلاريوس',
+        3 => ' دبلوم عالي',
+        4 => ' ماجستير',
+        5 => ' دكتوراة ',
+    ];
+}
+
+function safes(){
+    return [
+        1 => 'بنك الخرطوم',
+        2 => ' بنك فيصل الاسلامي ',
+        3 => 'بنك الخليج',
+        4 => ' بنك الثروة الحيوانية',
+        5 => ' بنك العمال ',
+    ];
+}
+
+function RewardsPunition(){
+    return [
+        0 => 'مكافأة ',
+        1 => 'خصم',
+    ];
+}
+
 function getSelect($tableName){
 
     switch ($tableName) {
@@ -168,6 +211,30 @@ function getName($tableName, $id){
             break;
         case 'addresses':
                 $list = \DB::table('addresses')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'managaments':
+                $list = \DB::table('managaments')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'departments':
+                $list = \DB::table('departments')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'employees':
+                $list = \DB::table('employees')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'add_holidays':
+                $list = \DB::table('add_holidays')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'emp_perissions':
+                $list = \DB::table('emp_perissions')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'evaluation_items':
+                $list = \DB::table('evaluation_items')->pluck('name', 'id');
                 return $list[$id];
                 break;
         default:

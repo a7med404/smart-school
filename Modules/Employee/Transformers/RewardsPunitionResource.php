@@ -14,6 +14,16 @@ class RewardsPunitionResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'finance_year'                 => $this->finance_year,
+            'date'                         => $this->date,
+            'managament_id'                => getName('managaments', $this->managament_id),
+            'department_id'                => getName('departments', $this->department_id),
+            'type'                         => RewardsPunition()[$this->type],
+            'employee_id'                  => getName('employees', $this->employee_id),
+            'value'                        => $this->value,
+            'reason'                       => $this->reason
+        ];
+        // return parent::toArray($request);
     }
 }

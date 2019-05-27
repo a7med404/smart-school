@@ -27,8 +27,8 @@ class CreateEmpPerissionsTable extends Migration
             $table->integer('perission_id')->foreign()
             ->references('id')->on('emp_perission_names')
             ->onDelete('cascade');
-            $table->time('from_houre');
-            $table->time('to_houre');
+            $table->time('from_hour');
+            $table->time('to_hour');
             $table->date('date');
             $table->longText('note')->nullable();
             $table->timestamps();

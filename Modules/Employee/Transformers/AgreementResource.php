@@ -14,6 +14,10 @@ class AgreementResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'employee_id'                 => getName('employees', $this->employee_id),
+            'type'                        => agreementType()[$this->type]
+        ];
+        // return parent::toArray($request);
     }
 }

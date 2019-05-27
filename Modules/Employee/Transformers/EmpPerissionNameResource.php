@@ -14,6 +14,10 @@ class EmpPerissionNameResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                 => $this->name,
+            'discount'             => $this->discount
+        ];
+        // return parent::toArray($request);
     }
 }

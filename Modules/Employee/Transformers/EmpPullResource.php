@@ -14,6 +14,9 @@ class EmpPullResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'employee_id'      => getName('employees', $this->employee_id)
+        ];
+        // return parent::toArray($request);
     }
 }

@@ -192,14 +192,14 @@
           return {
             edit: false,
            emp_perission:{
-              managament_id                    : '',
+              managament_id                      : '',
               department_id                      : '',
-              employee_id                       : '',
-              perission_id                 : '',
-              from_houre                   : '',
-              to_houre                     : '',
-              date                         : '',
-              note                         : ''
+              employee_id                        : '',
+              perission_id                       : '',
+              from_hour                          : '',
+              to_hour                            : '',
+              date                               : '',
+              note                               : ''
             }    
 
           }

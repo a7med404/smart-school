@@ -14,6 +14,13 @@ class EmpAbsenceResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+
+        return [
+            'empolyee_id'                         => getName('employees', $this->employee_id),
+            'absence_from'                        => $this->absence_from,
+            'absence_to'                          => $this->absence_to,
+            'absence_reason'                      => $this->absence_reason
+        ];
+        // return parent::toArray($request);
     }
 }

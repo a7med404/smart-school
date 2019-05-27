@@ -14,6 +14,9 @@ class SpecialtyResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                 => $this->name
+        ];
+        // return parent::toArray($request);
     }
 }

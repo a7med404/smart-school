@@ -14,6 +14,10 @@ class EvaluationItemResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                     => $this->name,
+            'degree'                   => $this->degree
+        ];
+        // return parent::toArray($request);
     }
 }

@@ -14,7 +14,7 @@ class CreateEmpHolidayRequest extends FormRequest
     public function rules()
     {
         return [
-            'employee_id'                       => 'integer|required',
+            'employee_id'                  => 'integer|required',
             'holiday_id'                   => 'integer|required',
             'balance'                      => 'integer|required',
             'from'                         => 'date|required',

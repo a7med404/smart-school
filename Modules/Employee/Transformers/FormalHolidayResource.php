@@ -14,6 +14,11 @@ class FormalHolidayResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                 => $this->name,
+            'start'                => $this->start,
+            'finish'               => $this->finish   
+        ];
+        // return parent::toArray($request);
     }
 }

@@ -11,8 +11,8 @@ class EmpPerissions extends Model
         'department_id',
         'employee_id',
         'perission_id',
-        'from_houre',
-        'to_houre',
+        'from_hour',
+        'to_hour',
         'date',
         'note'
     ];
