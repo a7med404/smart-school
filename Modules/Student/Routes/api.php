@@ -31,4 +31,6 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
 
+    Route::get('/level-print', 'LevelController@printLevel');
+    
 });

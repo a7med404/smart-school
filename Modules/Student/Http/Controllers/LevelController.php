@@ -10,6 +10,7 @@ use Modules\Student\Transformers\LevelResource;
 use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 use Modules\Student\Transformers\ClassroomResource;
+use PDF;
 class LevelController extends Controller
 {
     /**
@@ -109,6 +110,13 @@ class LevelController extends Controller
         return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
 
-
+    public function printLevel()
+    {
+        $levels = Level::all();
+        $pdf  = PDF::loadView('student::print.levels', ['levels' => $levels])->setPaper('a4', 'portrail');
+        // $pdf  = PDF::loadHTML('<h1>'.$level.'</h1>')->setPaper('a4', 'portrail');
+        $fileName = 'levels';//$level->name;
+        return $pdf->stream($fileName, '.pdf');
+    }
  
 }
