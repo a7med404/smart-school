@@ -17,7 +17,7 @@ class RewardsPunitionResource extends JsonResource
         return [
             'finance_year'                 => $this->finance_year,
             'date'                         => $this->date,
-            'managament_id'                => getName('managaments', $this->managament_id),
+            'management_id'                => getName('managaments', $this->managament_id),
             'department_id'                => getName('departments', $this->department_id),
             'type'                         => RewardsPunition()[$this->type],
             'employee_id'                  => getName('employees', $this->employee_id),

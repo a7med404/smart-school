@@ -81,7 +81,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id" v-model="progenitor.employee_id">
+                    <select class="form-control select2" name="employee_id" v-model="progenitor.employee_id">
                       <option value="1">احمد محمد احمد علي</option>
                       <option value="0">عباس الخير عبد الرحمن محمد</option>
                       <option value="1">الفاضل محمد عثمان بلال</option>
@@ -92,7 +92,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> المبلغ </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="progenitor.amount">
+                    <input class="form-control" placeholder="" type="text" name="amount" v-model="progenitor.amount">
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> السنة المالية </label>
-                    <select class="form-control select2" name="level_id" v-model="progenitor.financial_year">
+                    <select class="form-control select2" name="financial_year" v-model="progenitor.financial_year">
                       <option value="CA">2010</option>
                       <option value="TE">2011</option>
                       <option value="TE">2012</option>
@@ -113,7 +113,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الخزنة </label>
-                    <select class="form-control select2" name="level_id" v-model="progenitor.safe_id">
+                    <select class="form-control select2" name="safe_id" v-model="progenitor.safe_id">
                       <option value="CA">بنك الخرطوم</option>
                       <option value="TE">بنك فيصل الاسلامي</option>
                       <option value="TE">بنك العمال الوطني</option>
@@ -128,13 +128,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="sort" v-model="progenitor.date">
+                    <input class="form-control" placeholder="" type="text" name="date" v-model="progenitor.date">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> عدد الشهور </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="progenitor.months_number">
+                    <input class="form-control" placeholder="" type="text" name="months_number" v-model="progenitor.months_number">
                   </div>
                 </div>  
               </div>   
@@ -142,7 +142,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظات</label>
-                    <textarea class="form-control" placeholder="" v-model="progenitor.note"></textarea>
+                    <textarea class="form-control" name="note" placeholder="" v-model="progenitor.note"></textarea>
                   </div>
                 </div>
               </div>  
@@ -175,7 +175,8 @@
           return {
             edit: false,
            progenitor:{
-              employee_id                    : '',
+              id                        : '',
+              employee_id               : '',
               amount                    : '',
               financial_year            : '',
               safe_id                   : '',

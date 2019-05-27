@@ -190,16 +190,6 @@
                       </div>
 
                       <div class="row">
-                        <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                          <div class="form-group">
-                            <label class="control-label">المرحلة الذي الحق به الموظف</label>
-                            <select class="form-control select2" v-model="employee.emploee_level">
-                              <option value="CA">حضانة</option>
-                              <option value="TE">اساس</option>
-                              <option value="TE">ثانوي</option>
-                            </select>
-                          </div>
-                        </div>
                           <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">سنة </label>
@@ -292,7 +282,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم المنزل </label>
-                          <input class="form-control" placeholder="" type="text" name="home_number">
+                          <input class="form-control" placeholder="" type="text"  name="home_number" v-model="address.home_number">
                         </div>
                       </div>
                     </div>
@@ -346,13 +336,13 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> اسم المؤهل </label>
-                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_name">
+                          <input class="form-control" placeholder="" type="text">
                         </div>
                       </div>
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> جهة الحصول علي المؤهل  </label>
-                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_number">
+                          <input class="form-control" placeholder="" type="text">
                         </div>
                       </div>
                     </div>
@@ -360,7 +350,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> النوع </label>
-                          <select class="form-control select2" v-model="health.blood_type">
+                          <select class="form-control select2" >
                             <option value="1">بكالوريوس</option>
                             <option value="0">دبلوم</option>
                             <option value="1">بكالوريوس شرف</option>
@@ -381,7 +371,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> التقدير </label>
-                          <select class="form-control select2" v-model="health.blood_type">
+                          <select class="form-control select2" >
                             <option value="1">امتياز</option>
                             <option value="0">جيد جدا</option>
                             <option value="1">جيد</option>
@@ -392,7 +382,7 @@
                         <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                             <div class="form-group">
                             <label class="control-label">تاريخ الحصول المؤهل</label>
-                            <input type="text" class="form-control" id="birthday" v-model="student.birthday"/>
+                            <input type="text" class="form-control" id="birthday"/>
                             </div>
                         </div>
                     </div>
@@ -401,7 +391,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> عدد سنوات الخبرة </label>
-                          <select class="form-control select2" v-model="health.blood_type">
+                          <select class="form-control select2">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="1">3</option>
@@ -427,7 +417,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">  الراتب الاساسي  </label>
-                            <input class="form-control" placeholder="" type="text" v-model="student.name">
+                            <input class="form-control" placeholder="" type="text">
                           </div>
                         </div>
                       </div>
@@ -496,6 +486,7 @@
         data(){ 
           return {
             employee: {
+              id                          : '',
               full_name                   : '',  
               gender                      : '',  
               religion                    : '',  
@@ -506,7 +497,6 @@
               job_title                   : '',  
               martial_status              : '', 
               start_date                  : '',
-              emploee_level               : '', 
               join_year                   : '',
               picture                     : '',
               note                        : ''
@@ -516,7 +506,8 @@
               street_1     : '',
               street_2     : '',
               city         : '',
-              local        : ''
+              local        : '',
+              home_number  : ''
             },
 
             contact: {

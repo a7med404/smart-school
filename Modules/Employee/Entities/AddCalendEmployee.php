@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AddCalendEmployee extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'employee_id',
+        'calend_id'
+    ];
 }

@@ -64,6 +64,7 @@
           return {
             edit: false,
             emp_pull: {
+              id                             : '',
               empolyee_id                    : ''
             }
 

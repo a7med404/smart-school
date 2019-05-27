@@ -113,7 +113,10 @@ function agreementType(){
     return [
         1 => 'مؤقت',
         2 => ' دائم',
-        2 => ' تعاقد',
+        3 => ' تعاقد',
+        4 => 'مؤقت',
+        5 => ' دائم',
+        6 => ' تعاقد',
     ];
 }
 
@@ -121,19 +124,10 @@ function job_title(){
     return [
         1 => 'موظف',
         2 => ' معلم',
-        2 => ' عامل',
+        3 => ' عامل',
     ];
 }
 
-function education_level(){
-    return [
-        1 => 'دبلوم',
-        2 => ' بكلاريوس',
-        3 => ' دبلوم عالي',
-        4 => ' ماجستير',
-        5 => ' دكتوراة ',
-    ];
-}
 
 function safes(){
     return [
@@ -149,6 +143,14 @@ function RewardsPunition(){
     return [
         0 => 'مكافأة ',
         1 => 'خصم',
+    ];
+}
+
+function calendType(){
+    return [
+        1 => 'مخالفات متعلقة بنظام العمل ',
+        2 => 'مخالفات متعلقة بسلوك العمل',
+        3 => 'مخالفات متعلقة بمواعيد العمل',
     ];
 }
 
@@ -235,6 +237,14 @@ function getName($tableName, $id){
                 break;
         case 'evaluation_items':
                 $list = \DB::table('evaluation_items')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'contacts':
+                $list = \DB::table('contacts')->pluck('name', 'id');
+                return $list[$id];
+                break;
+        case 'calends':
+                $list = \DB::table('calends')->pluck('name', 'id');
                 return $list[$id];
                 break;
         default:

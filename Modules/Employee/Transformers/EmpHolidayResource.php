@@ -16,7 +16,7 @@ class EmpHolidayResource extends JsonResource
     {
         return [
             'employee_id'                  => getName('employees', $this->employee_id),
-            'holiday_id'                   => getName('add_holidays', $this->holiday_id),
+            'add_holiday_id'                   => getName('add_holidays', $this->holiday_id),
             'balance'                      => $this->balance,
             'from'                         => $this->from,
             'to'                           => $this->to,

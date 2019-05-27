@@ -9,7 +9,7 @@ class RewardsPunition extends Model
     protected $fillable = [
         'finance_year',
         'date',
-        'managament_id',
+        'management_id',
         'department_id',
         'type',
         'employee_id',

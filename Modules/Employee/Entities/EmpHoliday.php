@@ -8,7 +8,7 @@ class EmpHoliday extends Model
 {
     protected $fillable = [
         'employee_id',
-        'holiday_id',
+        'add_holiday_id',
         'balance',
         'from',
         'to',

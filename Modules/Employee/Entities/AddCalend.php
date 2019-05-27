@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class AddCalend extends Model
 {
     protected $fillable = [
-        'managament_id',
+        'management_id',
         'department_id',
-        'celand_name',
-        'date'
+        'employee_id',
+        'calend_id',
+        'date',
+        'type'
     ];
-}
+}  

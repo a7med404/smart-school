@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Employee\Entities\EmpAbsence;
 
 class Employee extends Model
-{
+{    
     protected $fillable = [
         'full_name',
         'gender',
@@ -18,7 +18,6 @@ class Employee extends Model
         'job_title',
         'martial_status',
         'start_date',
-        'emploee_level',
         'join_year',
         'picture',
         'address_id',
