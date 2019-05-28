@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/employee', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => '/employee'], function () {
+    Route::resource('employees', 'EmployeeController');
+});

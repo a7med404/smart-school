@@ -5,6 +5,10 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Employee\Entities\Employee;
+use Modules\Employee\Transformers\EmployeeResource;
+use Modules\Employee\Transformers\SingleEmployeeResource;
+use Modules\Employee\Http\Requests\CreateEmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +18,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return new EmployeeResource(Employee::all());
     }
 
     /**
@@ -23,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +35,12 @@ class EmployeeController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateEmployeeRequest $request)
     {
-        //
+        Employee::create($request->all());
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
     }
 
     /**
@@ -43,8 +50,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new EmployeeResource(Employee::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +62,22 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new EmployeeResource(Employee::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateEmployeeRequest $request, $id)
     {
-        //
+        Employee::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +87,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Employee::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }
