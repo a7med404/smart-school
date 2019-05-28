@@ -10,7 +10,11 @@ use Modules\Student\Transformers\LevelResource;
 use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 use Modules\Student\Transformers\ClassroomResource;
+<<<<<<< HEAD
+
+=======
 use PDF;
+>>>>>>> 073c56261bb7ab66e7ff1674fd57f4c30dfeef78
 class LevelController extends Controller
 {
     /**
@@ -109,6 +113,12 @@ class LevelController extends Controller
         Level::findOrfail($id)->delete();
         return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
+<<<<<<< HEAD
+    /*     << << <<< HEAD
+=======
+
+=======
+>>>>>>> 073c56261bb7ab66e7ff1674fd57f4c30dfeef78
 
     public function printLevel()
     {
@@ -119,4 +129,8 @@ class LevelController extends Controller
         return $pdf->stream($fileName, '.pdf');
     }
  
+<<<<<<< HEAD
+>>>>>>> cd8b9c72699f5aca26a4a7305ed116a4d6e05ebf */
+=======
+>>>>>>> 073c56261bb7ab66e7ff1674fd57f4c30dfeef78
 }
