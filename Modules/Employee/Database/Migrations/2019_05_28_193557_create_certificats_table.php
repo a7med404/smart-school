@@ -15,7 +15,16 @@ class CreateCertificatsTable extends Migration
     {
         Schema::create('certificats', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->string('name');
+            $table->string('Applicant');
+            $table->integer('type');
+            $table->string('major');
+            $table->integer('degree');
+            $table->date('qualification_date');
+            $table->integer('experience_years');
+            $table->integer('employee_id')->foreign()
+            ->references('id')->on('employees')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

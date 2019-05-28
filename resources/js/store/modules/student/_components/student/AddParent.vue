@@ -81,7 +81,7 @@
                 <div class="col col-xl-12 col-lg-12 col-md-12">
                   <div class="form-group">
                     <label class="control-label">الرقم الوطني ل ولي الامر</label>
-                    <input class="form-control" placeholder="" type="text" name="identifcation_number">
+                    <input class="form-control" placeholder="" type="text" name="identifcation_id" v-model="studentparent.identifcation_id">
                   </div>
                 </div>
               </div>
@@ -89,13 +89,13 @@
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
                     <label class="control-label">موهل الوالد </label>
-                    <input class="form-control" placeholder="" type="text" name="qualification">
+                    <input class="form-control" placeholder="" type="text" name="qualification" v-model="studentparent.qualification">
                   </div>
                 </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
                     <label class="control-label">الوظيفة</label>
-                    <input class="form-control" placeholder="" type="text" name="job">
+                    <input class="form-control" placeholder="" type="text" name="job" v-model="studentparent.job">
                   </div>
                 </div>
               </div>
@@ -104,13 +104,13 @@
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
                     <label class="control-label">مكان العمل </label>
-                    <input class="form-control" placeholder="" type="text" name="work_place">
+                    <input class="form-control" placeholder="" type="text" name="work_place" v-model="studentparent.work_place">
                   </div>
                 </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
                     <label class="control-label"> الحالة الاجنماعية </label>
-                    <select class="form-control select2" name="martial">
+                    <select class="form-control select2" name="martial" v-model="studentparent.martial">
                       <option value="CA">عازب</option>
                       <option value="TE">متزوج</option>
                       <option value="TE">مطلق</option>
@@ -123,13 +123,13 @@
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
                     <label class="control-label">رقم الهاتف</label>
-                    <input class="form-control" placeholder="" type="text" name="phone_number">
+                    <input class="form-control" placeholder="" type="text" name="phone_number" v-model="studentparent.phone_number">
                   </div>
                 </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6">
                   <div class="form-group">
                     <label class="control-label">العنوان</label>
-                    <input class="form-control" placeholder="" type="text" name="address_id">
+                    <input class="form-control" placeholder="" type="text" name="address_id" v-model="studentparent.address_id">
                   </div>
                 </div>
               </div>
@@ -138,7 +138,7 @@
                 <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="form-group">
                     <label class="control-label">البريد الالكتروني</label>
-                    <input class="form-control" placeholder="" type="email" name="email">
+                    <input class="form-control" placeholder="" type="email" name="email" v-model="studentparent.email">
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">
-                      <input type="checkbox" class="minimal" name="is_die">
+                      <input type="checkbox" class="minimal" name="is_die" v-model="studentparent.is_die">
                       متوفي 
                     </label>
                   </div>
@@ -158,7 +158,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">ملاحظة</label>
-                    <textarea class="form-control" placeholder="" name="note"></textarea>
+                    <textarea class="form-control" placeholder="" name="note" v-model="studentparent.note"></textarea>
                   </div>
                 </div>
               </div>
@@ -204,7 +204,7 @@
               email                   : '',
               is_die                  : '',
               note                    : ''
-            },
+            }
             
           }
         }

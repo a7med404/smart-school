@@ -14,6 +14,16 @@ class CertificatResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                  => $this->name,
+            'Applicant'             => $this->Applicant,
+            'type'                  =>'required|integer',
+            'major'                 => $this->major,
+            'degree'                =>'required|integer',    
+            'qualification_date'    =>'required|date',
+            'experience_years'      =>'required|integer',   
+            'employee_id'           =>'required|integer'
+            ];
+        // return parent::toArray($request);
     }
 }
