@@ -81,33 +81,19 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>مرحلة رياض الاطفال</td>
-                          <td>KG2</td>
-                          <td>2</td>
-                          <td><a href="#" class=""></a></td>
+                      <tr v-for="classroom in allClassrooms" :key="classroom.id">
+                          <td v-text="classroom.id"></td>
+                          <td v-text="classroom.level_id.name"></td>
+                          <td v-text="classroom.name"></td>
+                          <td v-text="classroom.sort"></td>
                           <td>
                               <div class="btn-group">
                                   <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                  <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                  <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
+                                  <a class="btn btn-info" @click.prevent="editClassroom(classroom)" type="button" data-toggle="modal" data-target="#popup-add-classroom"><i class="fa fa-pencil"></i></a>
+                                  <a class="btn btn-danger confirm" href="#" @click.prevent="deleteClassroom(classroom.id)"> <i class="fa fa-times"></i></a>
                               </div>
                           </td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>المرحلة الثانوية</td>
-                          <td>الصف الاول الثانوي</td>
-                          <td>1</td>
-                          <td>
-                              <div class="btn-group">
-                                  <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                  <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                  <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                              </div>
-                          </td>
-                      </tr>
+                        </tr>
                   </tbody>
               </table>
             </div>
@@ -131,17 +117,17 @@
             <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form @submit.prevent = "edit ? toUpdateClassroom(classroom) : createClassroom()" role="form"> 
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="classroom.level_id">
+                    <select class="form-control select2" v-model="classroom.level_id">
                       <option 
                         v-for="level in allLevels" 
                         :key="level.id" :value="level.id" 
                         v-text="level.name" 
-                        :selected="classroom.level_id == level.id">
+                        :selected="classroom.level_id.id == level.id">
                       </option>
                     </select>
                   </div>
@@ -149,7 +135,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الترتيب </label>
-                    <input class="form-control" placeholder="" type="text" name="sort" v-model="classroom.sort">
+                    <input class="form-control" placeholder="" type="text" v-model="classroom.sort">
                   </div>
                 </div>
               </div>
@@ -157,21 +143,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الصف </label>
-                    <input class="form-control" placeholder="" type="text" name="name" v-model="classroom.name">
+                    <input class="form-control" placeholder="" type="text" v-model="classroom.name">
                   </div>
-                </div>
-              </div>
-              <div class="row m-t-30">
-                <div class="col col-xl-6 col-lg-6 col-md-6">
-                  <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn btn-default">
-                    <i class="fa fa-plus"></i> اضافة صف 
-                  </a>
-
                 </div>
               </div>
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">اضافة</button>
+                  <button href="#"  class="btn btn-primary">اضافة</button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
@@ -184,69 +162,6 @@
     </div>
     <!-- ... end Popup  -->
 
-    <!-- Popup  -->
-    <div class="modal fade" id="popup-add-division">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content modal-content-box">
-          <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="title">بيانات </h4>
-          </div>
-          <div class="modal-body">
-            <form role="form">
-              <div class="row">
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                  <div class="form-group">
-                    <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
-                  </div>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                  <div class="form-group">
-                    <label class="control-label"> الترتيب </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                  <div class="form-group">
-                    <label class="control-label"> اسم الصف </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
-                  </div>
-                </div>
-              </div>       
-              <div class="row">
-                <div class="col col-xl-6 col-lg-6 col-md-6">
-                  <div class="form-group">
-                    <label class="control-label"> الشعبة </label>
-                    <select class="form-control select2" name="martial">
-                      <option value="CA">اختيار</option>
-                      <option value="TE">المسيحية</option>
-                      <option value="TE">اخرى</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col col-xl-6 col-lg-6 col-md-6 m-t-30">
-                  <a type="button" data-toggle="modal" data-target="#popup-add-division" href="#" class="btn  btn-info">
-                    <i class="fa fa-plus"></i> اضافة صف 
-                  </a>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">اضافة</button>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ... end Popup  -->
   </div>
 </template>
  
@@ -262,23 +177,54 @@
             name:  '',
             sort: '',
             level_id: '',
-          }
+          },
+          edit: false,
         }
       },
       mounted() {
-          console.log('Component mounted.')
       },
 
       computed: {
-        ...mapGetters(['allLevels'])
+        ...mapGetters(['allLevels', 'allClassrooms'])
       },
       created() {
         let self = this;
         self.fetchLevels();
+        self.fetchClassrooms();
       },
       methods:{
-        ...mapActions(['fetchLevels']),
-        
+        ...mapActions(['fetchLevels', 'fetchClassrooms', 'addClassroom', 'updateClassroom', 'deleteClassroom']),
+        createClassroom: function() {
+          console.info(self.classroom);
+          let self = this;
+          let params = Object.assign({}, self.classroom);
+          this.addClassroom(params).then(function(){
+            self.classroom.name = '',
+            self.classroom.sort = '',
+            self.classroom.level_id = ''
+          });
+        },
+
+        editClassroom: function(classroom) {
+          let self = this;
+          self.edit = true;
+          self.classroom.id = classroom.id;
+          self.classroom.name = classroom.name;
+          self.classroom.sort = classroom.sort;
+          self.classroom.level_id = classroom.level_id.id;
+        },
+
+        toUpdateClassroom: function(classroom) {
+          let self = this;
+          let params = Object.assign({}, self.classroom);
+          self.updateClassroom(params, classroom).then(function(){
+            self.edit = false;
+            self.classroom.name = '',
+            self.classroom.sort = '',
+            self.classroom.level_id = '',
+            self.fetchClassrooms();
+          });
+        },
       }
     }
 </script>

@@ -147,6 +147,7 @@
           return {
             edit: false,
             bear_in_mind: {
+              id                     : '',
               empolyee_id            : '',
               date                   : '',  
               note                   : '' 

@@ -7,7 +7,12 @@ use Modules\Student\Entities\Classroom;
 
 class Level extends Model
 {
-    protected $fillable = ['name', 'sort', 'head_master', 'school_master'];
+    protected $fillable = [
+        'name', 
+        'sort', 
+        'head_master',
+        'school_master'
+        ];
 
     public function classrooms()
     {

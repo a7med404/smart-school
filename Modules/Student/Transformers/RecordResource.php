@@ -2,9 +2,9 @@
 
 namespace Modules\Student\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class RecordResource extends ResourceCollection
+class RecordResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,11 @@ class RecordResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'student_id'          => getName('students', $this->student_id),
+            'employee_id'         => getName('employees', $this->employee_id),
+            'type'                =>offPrint()[$this->type],
+        ];
+        // return parent::toArray($request);
     }
 }

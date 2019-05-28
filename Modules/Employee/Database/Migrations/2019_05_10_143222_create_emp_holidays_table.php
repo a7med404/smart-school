@@ -11,12 +11,17 @@ class CreateEmpHolidaysTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('emp_holidays', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id')->foreign()->references('id')->on('employees');
-            $table->integer('add_holiday_id')->foreign()->references('id')->on('add_holidays');
+            $table->integer('employee_id')->foreign()
+            ->references('id')->on('employees')
+            ->onDelete('cascade');
+            $table->integer('add_holiday_id')->foreign()
+            ->references('id')->on('add_holidays')
+            ->onDelete('cascade');
             $table->integer('balance')->unsigned();
             $table->date('from');
             $table->date('to');

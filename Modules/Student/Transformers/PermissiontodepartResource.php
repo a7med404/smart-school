@@ -2,9 +2,9 @@
 
 namespace Modules\Student\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class PermissiontodepartResource extends ResourceCollection
+class PermissiontodepartResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.

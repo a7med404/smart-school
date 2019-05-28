@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/student', function (Request $request) {
 });
 
 Route::group(['prefix' => '/student'], function () {
-    
 
     Route::resource('/levels', 'LevelController');
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
@@ -31,24 +30,7 @@ Route::group(['prefix' => '/student'], function () {
     
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
-    
-    // Route::get('levels', function () {
 
-    // return factory('Modules\Student\Entities\Level', 10)->make();
-    // return response()->json([
-    //     [
-    //       'name' => 'مرحلة رياض الاطفال',
-    //       'sort' =>2,
-    //       'head_master' =>'سمية ادم جبريل',
-    //       'school_master' =>'محمد عثمان عب الله',
-    //     ],
-    //     [ 
-    //       'name' => 'المرحلة الثانوية',
-    //       'sort' =>1,
-    //       'head_master' =>'محمد عثمان عب الله',
-    //       'school_master' =>'سمية ادم جبريل',
-    //     ],
-    //   ]);
-    // });
+    Route::get('/level-print', 'LevelController@printLevel');
+    
 });
-    //Route::resource('/Classroom', 'ClassroomController');

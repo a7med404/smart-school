@@ -2,9 +2,9 @@
 
 namespace Modules\Student\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class AttendanceResource extends ResourceCollection
+class AttendanceResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -16,10 +16,10 @@ class AttendanceResource extends ResourceCollection
     {
 
         return [
-            'student_id'    => getName('students', $this->student_id),
-            'absence_from'  => $this->absence_from,
-            'absence_to'    => $this->absence_to,
-            'absence_reason'=> $this->absence_reason
+             'date'           => $this->date,
+             'status'         => attendanceStatus()[$this->status], 
+             'student_id'     => getName('students', $this->student_id),
+             'note'           => $this->note
         ];
         // return parent::toArray($request);
     }

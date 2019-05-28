@@ -2,9 +2,8 @@
 
 namespace Modules\Student\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
-
-class CompletionResource extends ResourceCollection
+use Illuminate\Http\Resources\Json\JsonResource;
+class CompletionResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.

@@ -14,14 +14,14 @@ class CreateEmpPerissionsRequest extends FormRequest
     public function rules()
     {
         return [
-            'managament_id'         => 'integer|required',
+            'managament_id'           => 'integer|required',
             'department_id'           => 'integer|required',
-            'employee_id'            => 'integer|required',
-            'perission_id'      => 'integer|required',
-            'from_houre'        => 'time|required',
-            'to_houre'          => 'time|required',
-            'date'              => 'date|required',
-            'note'              => 'longText|nullable'
+            'employee_id'             => 'integer|required',
+            'perission_id'            => 'integer|required',
+            'from_hour'               => 'time|required',
+            'to_hour'                 => 'time|required',
+            'date'                    => 'date|required',
+            'note'                    => 'longText|nullable'
         ];
     }
 

@@ -2,9 +2,9 @@
 
 namespace Modules\Employee\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class CalendResource extends ResourceCollection
+class CalendResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,12 @@ class CalendResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                 => $this->name,
+            'discount_percentage'  => $this->discount_percentage,
+            'type'                 => calendType()[$this->type]
+
+        ];
+        // return parent::toArray($request);
     }
 }

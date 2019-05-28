@@ -139,13 +139,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> من الساعة </label>
-                    <input class="form-control" placeholder="" value="10" type="text" name="name" v-model="emp_perission.from_houre">
+                    <input class="form-control" placeholder="" value="10" type="text" name="name" v-model="emp_perission.from_hour">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الي الساعة </label>
-                    <input class="form-control" placeholder="" type="text" name="sort" v-model="emp_perission.to_houre">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="emp_perission.to_hour">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
@@ -192,14 +192,15 @@
           return {
             edit: false,
            emp_perission:{
-              managament_id                    : '',
+              id                                 : '',
+              managament_id                      : '',
               department_id                      : '',
-              employee_id                       : '',
-              perission_id                 : '',
-              from_houre                   : '',
-              to_houre                     : '',
-              date                         : '',
-              note                         : ''
+              employee_id                        : '',
+              perission_id                       : '',
+              from_hour                          : '',
+              to_hour                            : '',
+              date                               : '',
+              note                               : ''
             }    
 
           }

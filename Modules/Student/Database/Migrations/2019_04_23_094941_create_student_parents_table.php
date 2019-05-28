@@ -20,6 +20,7 @@ class CreateStudentParentsTable extends Migration
             $table->integer('religion')->nullable();
             $table->integer('relation');
             $table->integer('nationality')->nullable();
+            $table->string('qualification')->nullable();
             $table->string('job', 255)->nullable();
             $table->string('work_place', 255)->nullable();
             $table->integer('martial')->nullable();

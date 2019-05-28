@@ -15,7 +15,12 @@ class CreateReportSeparatesTable extends Migration
     {
         Schema::create('report_separates', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->unsignedBigInteger('student_id')->foreign()
+            ->references('id')->on('students')
+            ->onDelete('cascade');
+            $table->date('from');
+            $table->date('to');
+            $table->longText('note');
             $table->timestamps();
         });
     }

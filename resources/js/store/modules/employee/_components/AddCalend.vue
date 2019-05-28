@@ -107,7 +107,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الموظف</label>
-                  <select class="form-control select2" v-model="add_calend.celand_name">
+                  <select class="form-control select2" v-model="add_calend.employee_id">
                     	<option value="0">--اختر--</option>
                       <option value="1">احمد محمد احمد علي</option>
                       <option value="0">عباس الخير عبد الرحمن محمد</option>
@@ -128,11 +128,21 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">نوع المخالفة </label>
-                  <select class="form-control select2" v-model="add_calend.celand_name">
+                  <select class="form-control select2" v-model="add_calend.type">
                     	<option value="0">--اختر--</option>
                       <option value="1">مخالفات متعلقة بنظام العمل</option>
                       <option value="2">مخالفات متعلقة بسلوك العمل </option>
                       <option value="3">مخالفات متعلقة بمواعيد العمل</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group">
+                  <label class="control-label">اسم المخالفة</label>
+                  <select class="form-control select2" v-model="add_calend.calend_id">
+                    	<option value="0">--اختر--</option>
+                      <option value="1"> عدم الالتزام بمواعيد العمل  </option>
+                      <option value="0">عدم الالتزام بالزي الرسمي</option>
                   </select>
                 </div>
               </div>
@@ -185,6 +195,7 @@
           return {
             edit: false,
             calends: {
+              id                     : '',
               name                   : '',  
               route_id               : '',  
               cost                   : '',  
@@ -193,12 +204,15 @@
 
             },
             add_calend:{
-              managament_id              : '',
-              department_id                : '',
-              celand_name            : '',
-              date                   : ''
+              id                          : '',
+              management_id               : '',
+              department_id               : '',
+              employee_id                 : '', 
+              calend_id                   : '',
+              date                        : '',
+              type                        : ''
             }    
-
+         
           }
         },
     }

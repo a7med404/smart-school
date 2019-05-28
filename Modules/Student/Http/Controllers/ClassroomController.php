@@ -19,7 +19,7 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        return new ClassroomResource(Classroom::all());
+        return ClassroomResource::collection(Classroom::orderBy('sort', 'asc')->get());
     }
 
     /**
@@ -36,7 +36,7 @@ class ClassroomController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateClassroomRequest $request)
+    public function store(Request $request)
     {
         Classroom::create($request->all());
         return response()->json([

@@ -27,7 +27,7 @@
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">الطالب</label>
-                  <select class="form-control select2">
+                  <select class="form-control select2" v-model="report_separate.student_id">
                         <option value="1">احمد عبد الله احمد علي</option>
                         <option value="0">محمد سيد علي السيد</option>
                         <option value="1">الفاضل محمد عثمان بلال</option>
@@ -41,13 +41,13 @@
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> التاريخ من </label>
-                  <input class="form-control" placeholder="" type="text" name="">
+                  <input class="form-control" placeholder="" type="text" name="" v-model="report_separate.from">
                 </div>
               </div>
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label"> التاريخ الي </label>
-                  <input class="form-control" placeholder="" type="text" name="">
+                  <input class="form-control" placeholder="" type="text" name="" v-model="report_separate.to">
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">ملاحظة</label>
-                  <textarea class="form-control" placeholder="" ></textarea>
+                  <textarea class="form-control" placeholder="" v-model="report_separate.note"></textarea>
                 </div>
               </div>
             </div>
@@ -133,6 +133,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+      data(){ 
+          return {
+            report_separate: {
+              id                       : '',  
+              student_id               : '',  
+              form                     : '',  
+              to                       : '',  
+              date                     : ''
+            }
+          }
         }
     }
 </script>

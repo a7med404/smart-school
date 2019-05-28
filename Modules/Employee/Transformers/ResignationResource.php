@@ -2,9 +2,9 @@
 
 namespace Modules\Employee\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class ResignationResource extends ResourceCollection
+class ResignationResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,11 @@ class ResignationResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'employee_id'                         => getName('employees', $this->employee_id),
+            'applicant_to'                        => $this->applicant_to,
+            'reason'                              => $this->reason
+        ];
+        // return parent::toArray($request);
     }
 }

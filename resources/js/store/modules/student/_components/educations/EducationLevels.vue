@@ -116,7 +116,7 @@
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                    <a class="btn btn-info" @click.prevent="editLevel(level.id)" type="button" data-toggle="modal" data-target="#popup-add-level"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-info" @click.prevent="editLevel(level)" type="button" data-toggle="modal" data-target="#popup-add-level"><i class="fa fa-pencil"></i></a>
                                     <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(level.id)"> <i class="fa fa-times"></i></a>
                                 </div>
                             </td>
@@ -147,7 +147,7 @@
             <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
-            <form @submit.prevent = "edit ? updateLevel(level.id) : createLevel()" role="form">
+            <form @submit.prevent = "edit ? toUpdateLevel(level) : createLevel()" role="form">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
@@ -212,10 +212,11 @@
       data(){
         return {
           level: {
+            id:  '',
             name:  '',
             sort: '',
             head_master: '',
-            school_master: '',
+            school_master: ''
           },
           edit: false,
         }
@@ -232,29 +233,21 @@
             self.level.school_master = ''
           });
         },
-        
         editLevel: function(level) {
           let self = this;
           self.edit = true;
-          axios.get(`/api/student/levels/${level}/edit`)
-          .then(function(response){
-            self.level.name = response.data.data.name;
-            self.level.sort = response.data.data.sort;
-            self.level.head_master = response.data.data.head_master;
-            self.level.school_master = response.data.data.school_master;
-
-          })
-          .catch(function(error){
-            console.log(error);
-          });
-          
-            // let params = Object.assign({}, self.level);
-            // this.updateLevel(params, level);
+          self.level.id = level.id;
+          self.level.name = level.name;
+          self.level.sort = level.sort;
+          self.level.head_master = level.head_master;
+          self.level.school_master = level.school_master;
         },
-        updateLevel: function(id) {
+
+        toUpdateLevel: function(level) {
           let self = this;
-          let params = Object.assign({}, this.level);
-          this.addLevel(params, id).then(function(){
+          let params = Object.assign({}, self.level);
+          self.updateLevel(params, level).then(function(){
+          self.edit = false;
             self.level.name = '',
             self.level.sort = '',
             self.level.head_master = '',            

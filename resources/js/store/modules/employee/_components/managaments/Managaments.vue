@@ -347,13 +347,16 @@
         data(){ 
           return {
             managament:{
+              id                     : '',
               name                   : ''
             },
             department:{
-              managament_id              : '',
+              id                     : '',
+              managament_id          : '',
               name                   : ''
             },
             specialty:{
+              id                     : '',
               name                   : ''
             },
             

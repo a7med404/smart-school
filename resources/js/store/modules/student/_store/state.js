@@ -30,4 +30,6 @@ export default {
     school_master: '',
   },
   levels: [],
+  classrooms: [],
+  parts: [],
 }

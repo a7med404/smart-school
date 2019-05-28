@@ -9,7 +9,11 @@ use Modules\Student\Entities\PayClass;
 
 class Classroom extends Model
 {
-    protected $fillable = ['name', 'sort', 'level_id'];
+    protected $fillable = [
+        'name',
+        'sort',
+        'level_id'
+        ];
 
     public function parts()
     {

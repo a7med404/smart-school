@@ -39,7 +39,7 @@ class StudentController extends Controller
         $id= Student::create($request->all())->id;    
         return response()->json([
                 'message' => 'تم الحفظ بنجاح',
-                'Student_id' => $id
+                'student_id' => $id
             ], 201);
     }
 

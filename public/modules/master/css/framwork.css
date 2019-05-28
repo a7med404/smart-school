@@ -15,7 +15,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .close {
   line-height: 2;
 }
-
+.form-control {
+  background-color: #f5f5f7;
+}
 textarea.form-control {
   height: 120px;
 }
@@ -482,8 +484,19 @@ textarea.form-control {
     height: 8px; }
 
 
+  .main-header .logo {
+    width: 250px;
+  }
+  .main-header .navbar {
+    margin-right: 250px;
+  }
+  .main-sidebar, .left-side {
+    width: 250px;
+  }
 
-
+  .content-wrapper, .right-side, .main-footer {
+    margin-right: 250px;
+  }
 
 
 
@@ -563,6 +576,7 @@ table {
     box-shadow: 0 7px 6px -6px #CFCFCF;
     -webkit-box-shadow: 0 7px 6px -6px #CFCFCF;
     -moz-box-shadow:0 7px 6px -6px #CFCFCF;
+    border: 2px solid #e6e6e6 !important;
     border-bottom: 2px solid #0cc !important;
     margin: auto;
     width: calc(100% - 5px);

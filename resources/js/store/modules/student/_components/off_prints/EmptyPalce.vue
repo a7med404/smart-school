@@ -177,6 +177,7 @@
          data(){ 
           return {
             empty_palce: {
+              id                               : '',
               level_id                         : '',  
               classroom_id                     : '',  
               part_id                          : '',

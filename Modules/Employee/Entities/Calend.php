@@ -8,6 +8,7 @@ class Calend extends Model
 {
     protected $fillable = [
         'name',
-        'discount_percentage'
+        'discount_percentage',
+        'type'
     ];
 }

@@ -21,10 +21,12 @@ class CreatePartsTable extends Migration
             
             $table->unsignedBigInteger('level_id');
             $table->foreign('level_id')
-                ->references('id')->on('levels'); 
+                ->references('id')->on('levels')
+                ->onDelete('cascade'); 
             $table->unsignedBigInteger('classroom_id');
             $table->foreign('classroom_id')
-                ->references('id')->on('classrooms'); 
+                ->references('id')->on('classrooms')
+                ->onDelete('cascade'); 
             $table->timestamps();
         });
     }

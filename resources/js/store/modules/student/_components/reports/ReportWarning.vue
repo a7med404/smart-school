@@ -27,7 +27,7 @@
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">الطالب</label>
-                  <select class="form-control select2">
+                  <select class="form-control select2" v-model="report_warning.student_id">
                         <option value="1">الكل</option>
                         <option value="1">احمد عبد الله احمد علي</option>
                         <option value="0">محمد سيد علي السيد</option>
@@ -42,7 +42,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">ملاحظة</label>
-                  <textarea class="form-control" placeholder="" ></textarea>
+                  <textarea class="form-control" placeholder="" v-model="report_warning.note"></textarea>
                 </div>
               </div>
             </div>
@@ -112,6 +112,15 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+      data(){ 
+          return {
+            report_warning: {
+              id                       : '',  
+              student_id               : '',    
+              date                     : ''
+            }
+          }
         }
     }
 </script>

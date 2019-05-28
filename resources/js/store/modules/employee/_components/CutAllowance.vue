@@ -120,7 +120,8 @@
           return {
             edit: false,
             cut_allowance: {
-              name      : '',  
+              id        : '',
+              name      : ''  
             },
 
           }

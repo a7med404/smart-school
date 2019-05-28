@@ -19,18 +19,32 @@ class CreateEmployeesTable extends Migration
             $table->boolean('gender');
             $table->integer('religion')->nullable();
             $table->date('birth_date');
-            $table->integer('managament_id')->foreign()->references('id')->on('management');
-            $table->integer('department_id')->foreign()->references('id')->on('department');
+            $table->integer('managament_id')->foreign()
+            ->references('id')->on('management')
+            ->onDelete('cascade');
+            $table->integer('department_id')->foreign()
+            ->references('id')->on('department')
+            ->onDelete('cascade');
             $table->date('hiring_date')->nullable();
             $table->string('job_title')->nullable();
             $table->integer('martial_status');
             $table->date('start_date')->nullable();
-            $table->integer('emploee_level');
             $table->integer('join_year');
             $table->string('picture')->nullable();
             $table->longText('note')->nullable();
             
-            $table->integer('identifcation_id')->foreign()->references('id')->on('identifcations');
+            $table->integer('identification_id')->foreign()
+            ->references('id')->on('identifcations')
+            ->onDelete('cascade');
+            $table->integer('address_id')->foreign()
+            ->references('id')->on('addresses')
+            ->onDelete('cascade');
+            $table->integer('address_id')->foreign()
+            ->references('id')->on('addresses')
+            ->onDelete('cascade');
+            $table->integer('contact_id')->foreign()
+            ->references('id')->on('contacts')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

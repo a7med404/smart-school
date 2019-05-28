@@ -2,9 +2,9 @@
 
 namespace Modules\Employee\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class FormalHolidayResource extends ResourceCollection
+class FormalHolidayResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,11 @@ class FormalHolidayResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                 => $this->name,
+            'start'                => $this->start,
+            'finish'               => $this->finish   
+        ];
+        // return parent::toArray($request);
     }
 }

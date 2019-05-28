@@ -15,7 +15,9 @@ class CreateOffPrintsTable extends Migration
     {
         Schema::create('off_prints', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('student_id')->foreign()->references('id')->on('students');
+            $table->unsignedBigInteger('student_id')->foreign()
+            ->references('id')->on('students')
+            ->onDelete('cascade');
             $table->integer('type');
             // $table->unsignedBigInteger('employee_id')->foreign()->references('id')->on('employees');
             $table->timestamps();

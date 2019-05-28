@@ -2,9 +2,9 @@
 
 namespace Modules\Student\Transformers;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class PartResource extends ResourceCollection
+class PartResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -15,12 +15,13 @@ class PartResource extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'name'                    => $this->name,
-            'sort'                    => $this->sort,
-            'level_id'                => getName('levels', $this->level_id),
-            'max_student_number'      => $this->max_student_number,
-            'classroom_id'            => getName('classrooms', $this->classroom_id)
+            'id'   => $this->id, 
+            'level_id'               => getName('levels',$this->level_id), 
+            'name'                   => $this->name, 
+            'sort'                   => $this->sort, 
+            'max_student_number'     => $this->max_student_number, 
+            'classroom_id'           => getName('classrooms',$this->classroom_id)
         ];
-        // return parent::toArray($request);
+        return parent::toArray($request);
     }
 }

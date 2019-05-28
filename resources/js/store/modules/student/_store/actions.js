@@ -7,12 +7,7 @@ export default {
     // context.commit('ADD_STUDENT', response);
   },
 
-  // try {
-  // } catch (error) {
-  //   commit('setRecipes', []);
-  //   console.error(error);
-  // }
-
+  // Levels *******************************************************************************/
   async fetchLevels({ commit }){
     try {
       const response = await axios.get('/api/student/levels');
@@ -33,13 +28,27 @@ export default {
     }
   },
 
-  async deleteLevel({ commit }, id){
+
+
+  async updateLevel({ commit }, upLevel) {
     try {
-      await axios.delete(`/api/student/levels/${id}`);
-      commit('DELETE_LEVEL', id);
+      const response = await axios.put(`/api/student/levels/${upLevel.id}`, upLevel);
+      commit('UPDATE_LEVEL', upLevel);
     } catch (error) {
-      commit('DELETE_LEVEL', null);
       console.error(error);
+    }
+  },
+
+  async deleteLevel({ commit }, id){
+    let check = confirm('Are You Sure Do You Want Delete This ?');
+    if(check){
+      try {
+        await axios.delete(`/api/student/levels/${id}`);
+        commit('DELETE_LEVEL', id);
+      } catch (error) {
+        commit('DELETE_LEVEL', null);
+        console.error(error);
+      }
     }
   },
 
@@ -53,13 +62,72 @@ export default {
     }
   },
 
-  async updateLevel({ commit }, upLevel, level) {
-    console.log(upLevel);
+  async fetchClassroomsByLevelID({ commit }){
     try {
-      const response = await axios.put(`/api/student/levels/${upLevel}`);
-      commit('UPDATE_LEVELS', upLevel);
+      const response = await axios.get('/api/student/classrooms');
+      commit('ALL_CLASSROOMS', response.data.data);
+    } catch (error) {
+      commit('ALL_CLASSROOMS', []);
+      console.error(error);
+    }
+  },
+
+
+
+
+  // Classrooms *******************************************************************************/
+
+  async fetchClassrooms({ commit }){
+    try {
+      const response = await axios.get('/api/student/classrooms');
+      commit('ALL_CLASSROOMS', response.data.data);
+    } catch (error) {
+      commit('ALL_CLASSROOMS', []);
+      console.error(error);
+    }
+  },
+
+  async addClassroom({ commit }, payload){
+    try {
+      const response = await axios.post('/api/student/classrooms',payload);
+      commit('ADD_CLASSROOM', response.data.data);
+    } catch (error) {
+      commit('ADD_CLASSROOM', []);
+      console.error(error);
+    }
+  },
+
+  async updateClassroom({ commit }, upClassroom) {
+    try {
+      const response = await axios.put(`/api/student/classrooms/${upClassroom.id}`, upClassroom);
+      commit('UPDATE_CLASSROOM', upClassroom);
     } catch (error) {
       console.error(error);
     }
-  }
+  },
+
+  async deleteClassroom({ commit }, id){
+    let check = confirm('Are You Sure Do You Want Delete This ?');
+    if(check){
+      try {
+        await axios.delete(`/api/student/classrooms/${id}`);
+        commit('DELETE_CLASSROOM', id);
+      } catch (error) {
+        commit('DELETE_CLASSROOM', null);
+        console.error(error);
+      }
+    }
+  },
+
+  // Parts *******************************************************************************/
+  async fetchParts({ commit }){
+    try {
+      const response = await axios.get('/api/student/parts/');
+      commit('ALL_PARTS', response.data.data);
+    } catch (error) {
+      commit('ALL_PARTS', []);
+      console.error(error);
+    }
+  },
+
 }

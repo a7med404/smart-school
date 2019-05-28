@@ -121,7 +121,8 @@
           return {
             edit: false,
           add_holiday:{
-              name              : '',
+              id                : '',
+              name              : ''
             }    
 
           }

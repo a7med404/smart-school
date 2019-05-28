@@ -10,7 +10,11 @@ use Modules\Student\Transformers\LevelResource;
 use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 use Modules\Student\Transformers\ClassroomResource;
+<<<<<<< HEAD
 
+=======
+use PDF;
+>>>>>>> 073c56261bb7ab66e7ff1674fd57f4c30dfeef78
 class LevelController extends Controller
 {
     /**
@@ -19,7 +23,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        return LevelResource::collection(Level::all());
+        return LevelResource::collection(Level::orderBy('sort', 'asc')->get());
     }
 
     /**
@@ -88,13 +92,14 @@ class LevelController extends Controller
      */
     public function update(CreateLevelRequest $request, $id)
     {
+        // dd($request->all(), $id);
         $data = [
             'name' => $request->name,
             'sort' => $request->sort,
             'head_master' => $request->head_master,
             'school_master' => $request->school_master,
         ];
-        Level::findOrfail($id)->fill($data);
+        Level::findOrfail($id)->update($data);
         return response()->json(['message' => 'تم التحديث بنجاح'], 200);
     }
 
@@ -108,10 +113,24 @@ class LevelController extends Controller
         Level::findOrfail($id)->delete();
         return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
+<<<<<<< HEAD
     /*     << << <<< HEAD
 =======
 
+=======
+>>>>>>> 073c56261bb7ab66e7ff1674fd57f4c30dfeef78
 
+    public function printLevel()
+    {
+        $levels = Level::all();
+        $pdf  = PDF::loadView('student::print.levels', ['levels' => $levels])->setPaper('a4', 'portrail');
+        // $pdf  = PDF::loadHTML('<h1>'.$level.'</h1>')->setPaper('a4', 'portrail');
+        $fileName = 'levels';//$level->name;
+        return $pdf->stream($fileName, '.pdf');
+    }
  
+<<<<<<< HEAD
 >>>>>>> cd8b9c72699f5aca26a4a7305ed116a4d6e05ebf */
+=======
+>>>>>>> 073c56261bb7ab66e7ff1674fd57f4c30dfeef78
 }

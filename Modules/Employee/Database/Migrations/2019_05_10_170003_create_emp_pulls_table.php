@@ -15,7 +15,9 @@ class CreateEmpPullsTable extends Migration
     {
         Schema::create('emp_pulls', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id')->foreign()->references('id')->on('employees');
+            $table->integer('employee_id')->foreign()
+            ->references('id')->on('employees')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

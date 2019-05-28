@@ -25,6 +25,7 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- jQuery Knob Chart -->
 <script src="{{ asset('modules/master/plugins/knob/jquery.knob.js') }}"></script>
 <!-- daterangepicker -->
+<script src="{{ asset('modules/master/js/script.js') }}"></script>
 <script src="{{ asset('modules/master/js/moment.js') }}"></script>
 <script src="{{ asset('modules/master/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <!-- datepicker -->

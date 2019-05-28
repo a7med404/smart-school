@@ -734,7 +734,7 @@
               applicant_to       : '',
               reason             : ''
             },
-            greement: {
+            agreement: {
               employee_id        : '',
               type               : ''
             }

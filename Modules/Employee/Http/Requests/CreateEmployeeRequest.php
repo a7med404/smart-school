@@ -18,17 +18,18 @@ class CreateEmployeeRequest extends FormRequest
         'gender'                => 'required|integer',
         'religion'              => 'nullable|integer',
         'birth_date'            => 'required|date',
-        'identification_number' => 'required|integer',
+        'identification_id'     => 'required|integer',
         'managament_id'         => 'required|integer',
         'department_id'         => 'required|integer',
         'hiring_date'           => 'nullable|date',
         'job_title'             => 'nullable|integer',
         'martial_status'        => 'required|integer',    
         'start_date'            => 'nullable|date',
-        'emploee_level'         => 'required|integer',
         'join_year'             => 'required|integer',
         'picture'               => 'nullable|stirng',
-        'note'                  => 'nullable|longText'
+        'note'                  => 'nullable|longText',
+        'address_id'            =>'required|integer',
+        'contact_id'            =>'required|integer'
         ];
     }
 
