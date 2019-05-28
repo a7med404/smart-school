@@ -19,7 +19,7 @@ class CreateStudentParentRequest extends FormRequest
             'religion'              => 'nullable|integer',  
             'relation'              => 'required|integer',
             'nationality'           => 'required|integer',  
-            'identifcation_number'  => 'nullable|string',  
+            'identifcation_id'      => 'require|integer',  
             'qualification'         => 'nullable|string',  
             'job'                   => 'nullable|string',  
             'work_place'            => 'nullable|string',  

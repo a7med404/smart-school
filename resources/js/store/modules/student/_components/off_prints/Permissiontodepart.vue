@@ -153,6 +153,7 @@
         data(){ 
           return {
             permissiontodepart: {
+              id                       : '',
               student_id               : '',  
               date                     : '',  
               note                     : ''

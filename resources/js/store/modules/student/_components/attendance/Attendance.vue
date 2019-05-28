@@ -125,8 +125,14 @@
                 absence_from     : '',
                 absence_to       : '',
                 absence_reason   : ''
-              }
-            }
+              },
+              newattendance : {
+               date             : '',  
+               status           : '',
+               student_id       : '',
+               note             : ''
+              }        
+                 }
         }
 
         }

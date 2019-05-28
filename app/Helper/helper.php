@@ -154,6 +154,14 @@ function calendType(){
     ];
 }
 
+function attendanceStatus(){
+    return [
+        1 => 'حاضر',
+        2 => 'غائب',
+        3 => 'اخرى',
+    ];
+}
+
 function getSelect($tableName){
 
     switch ($tableName) {

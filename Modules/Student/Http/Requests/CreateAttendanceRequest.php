@@ -14,10 +14,10 @@ class CreateAttendanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'student_id'    => 'integer|required',
-            'absence_from'  => 'required|date',
-            'absence_to'    => 'required|date',
-            'absence_reason'=> 'nullable|string'
+            'date'        => 'required|date',
+            'status'      => 'required|integer',
+            'student_id'  => 'required|integer',
+            'note'        =>'nullable|string'
         ];
     }
 

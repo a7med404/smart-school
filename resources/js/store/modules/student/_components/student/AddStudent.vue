@@ -188,7 +188,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم المنزل </label>
-                          <input class="form-control" placeholder="" type="text" name="home_number">
+                          <input class="form-control" placeholder="" type="text" name="home_number" v-model="address.home_number">
                         </div>
                       </div>
                     </div>
@@ -254,7 +254,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم اثبات الشخصية </label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                          <input class="form-control" placeholder="" type="text" name="insurance_number" v-model="identifcation.identifcation_number">
                         </div>
                       </div>
                     </div>
@@ -262,13 +262,13 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> تاريخ الانتهاء </label>
-                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_name">
+                          <input class="form-control" placeholder="" type="text" v-model="identifcation.issue_date">
                         </div>
                       </div>
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> مكان الاستخراج </label>
-                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_number">
+                          <input class="form-control" placeholder="" type="text" v-model="identifcation.issue_place">
                         </div>
                       </div>
                     </div>
@@ -287,7 +287,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المرحلة التعليمية</label>
-                          <select class="form-control select2" name="level_id">
+                          <select class="form-control select2" name="level_id" v-model="student.level_id">
                             <option value="1">حضانة </option>
                             <option value="0">اساس</option>
                             <option value="0">ثانوي</option>
@@ -299,7 +299,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">اسم الصف</label>
-                          <select class="form-control select2" name="classroom_id">
+                          <select class="form-control select2" name="classroom_id" v-model="student.classroom_id">
                             <option value="1">حضانة</option>
                             <option value="0">الاول</option>
                             <option value="1">الثاني</option>
@@ -320,7 +320,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> اسم الفصل</label>
-                          <select class="form-control select2" name="part_id">
+                          <select class="form-control select2" name="part_id" v-model="student.part_id">
                             <option value="1">ابوبكر</option>
                             <option value="0">عمر</option>
                             <option value="1">علي</option>
@@ -373,7 +373,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم التامين </label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                          <input class="form-control" placeholder="" type="text" name="insurance_number" v-model="health.insurance_number">
                         </div>
                       </div>
                     </div>
@@ -382,7 +382,7 @@
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">الحالة الصحية</label>
-                          <textarea class="form-control" placeholder="" name="health_status"></textarea>
+                          <textarea class="form-control" placeholder="" name="health_status" v-model="health.health_status"></textarea>
                         </div>
                       </div>
                     </div>
@@ -527,7 +527,7 @@
               <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
                 <div class="form-group">
                   <label class="control-label">التمييز</label>
-                  <select class="form-control select2" name="mr_d">
+                  <select class="form-control select2" name="mr_d" v-model="studentparent.mr_d">
                     <option value="1">السيد /</option>
                     <option value="0">د /</option>
                   </select>
@@ -536,7 +536,7 @@
               <div class="col col-lg-9 col-md-9 col-sm-9 col-9">
                 <div class="form-group">
                   <label class="control-label"> الاسم </label>
-                  <input class="form-control" placeholder="" type="text" name="name">
+                  <input class="form-control" placeholder="" type="text" name="name" v-model="studentparent.name">
                 </div>
               </div>
             </div>
@@ -545,7 +545,7 @@
               <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">الديانة</label>
-                  <select class="form-control select2" name="religion">
+                  <select class="form-control select2" name="religion" v-model="studentparent.religion">
                     <option value="CA">الاسلام</option>
                     <option value="TE">المسيحية</option>
                     <option value="TE">اخرى</option>
@@ -555,7 +555,7 @@
               <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">الجنسية</label>
-                  <select class="form-control select2" name="nationality">
+                  <select class="form-control select2" name="nationality" v-model="studentparent.nationality">
                     <option value="CA">السودان</option>
                     <option value="TE">الولايات المتحدة</option>
                     <option value="TE">المملكة المتحدة</option>
@@ -571,7 +571,7 @@
               <div class="col col-xl-12 col-lg-12 col-md-12">
                 <div class="form-group">
                   <label class="control-label">الرقم الوطني ل ولي الامر</label>
-                  <input class="form-control" placeholder="" type="text" name="identifcation_number">
+                  <input class="form-control" placeholder="" type="text" name="identifcation_number" v-model="studentparent.identifcation_id">
                 </div>
               </div>
             </div>
@@ -579,13 +579,13 @@
               <div class="col col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
                   <label class="control-label">موهل الوالد </label>
-                  <input class="form-control" placeholder="" type="text" name="qualification">
+                  <input class="form-control" placeholder="" type="text" name="qualification" v-model="studentparent.qualification">
                 </div>
               </div>
               <div class="col col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
                   <label class="control-label">الوظيفة</label>
-                  <input class="form-control" placeholder="" type="text" name="job">
+                  <input class="form-control" placeholder="" type="text" name="job" v-model="studentparent.job">
                 </div>
               </div>
             </div>
@@ -594,13 +594,13 @@
               <div class="col col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
                   <label class="control-label">مكان العمل </label>
-                  <input class="form-control" placeholder="" type="text" name="work_place">
+                  <input class="form-control" placeholder="" type="text" name="work_place" v-model="studentparent.work_place">
                 </div>
               </div>
               <div class="col col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
                   <label class="control-label"> الحالة الاجنماعية </label>
-                  <select class="form-control select2" name="martial">
+                  <select class="form-control select2" name="martial" v-model="studentparent.martial">
                     <option value="CA">اعزب</option>
                     <option value="TE">متزوج</option>
                     <option value="TE">مطلق</option>
@@ -613,13 +613,13 @@
               <div class="col col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
                   <label class="control-label">رقم الهاتف</label>
-                  <input class="form-control" placeholder="" type="text" name="phone_number">
+                  <input class="form-control" placeholder="" type="text" name="phone_number" v-model="studentparent.phone_number">
                 </div>
               </div>
               <div class="col col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
                   <label class="control-label">العنوان</label>
-                  <input class="form-control" placeholder="" type="text" name="address_id">
+                  <input class="form-control" placeholder="" type="text" name="address_id" v-model="studentparent.address_id">
                 </div>
               </div>
             </div>
@@ -628,7 +628,7 @@
               <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div class="form-group">
                   <label class="control-label">البريد الالكتروني</label>
-                  <input class="form-control" placeholder="" type="email" name="email">
+                  <input class="form-control" placeholder="" type="email" name="email" v-model="studentparent.email">
                 </div>
               </div>
             </div>
@@ -637,7 +637,7 @@
               <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">
-                    <input type="checkbox" class="minimal" name="is_die">
+                    <input type="checkbox" class="minimal" name="is_die" v-model="studentparent.is_die">
                     متوفي 
                   </label>
                 </div>
@@ -648,7 +648,7 @@
               <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">ملاحظة</label>
-                  <textarea class="form-control" placeholder="" name="note"></textarea>
+                  <textarea class="form-control" placeholder="" name="note" v-model="studentparent.note"></textarea>
                 </div>
               </div>
             </div>
@@ -693,6 +693,7 @@
             disableLocal: true,
             city_id: '',
             student: {
+              id                     : '',
               name                   : '',  
               gender                 : '',  
               religion               : '',  
@@ -708,20 +709,22 @@
               contact_id             : '',
               level_id               : '',
               classroom_id           : '',
-              part_id                : ''
+              part_id                : '',
+              health_id              : ''
             },
 
             address: {
-              street_1  : '',
-              street_2  : '',
-              city      : '',
-              local     : ''
+              street_1      : '',
+              street_2      : '',
+              city          : '',
+              local         : '',
+              home_number   :''
             },
 
             contact: {
               number_1: '',
               number_2: '',
-              email: ''
+              email:    ''
             },
 
             identifcation: {
@@ -738,6 +741,24 @@
               blood_type: '',
               insurance_number: '',
               health_status: ''
+            },
+
+            studentparent : {
+              mr_d                    : '',
+              name                    : '',
+              religion                : '',     
+              relation                : '',     
+              nationality             : '',
+              identifcation_id        : '',
+              qualification           : '', 
+              job                     : '',    
+              work_place              : '',  
+              martial                 : '',
+              phone_number            : '',
+              address_id              : '',
+              email                   : '',
+              is_die                  : '',
+              note                    : ''
             },
             
           }

@@ -216,7 +216,7 @@
             name:  '',
             sort: '',
             head_master: '',
-            school_master: '',
+            school_master: ''
           },
           edit: false,
         }

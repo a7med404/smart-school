@@ -7,7 +7,13 @@ use Modules\Student\Entities\Classroom;
 use Modules\Student\Entities\Student;
 class Part extends Model
 {
-    protected $fillable = ['name', 'max_student_number', 'sort', 'level_id', 'classroom_id'];
+    protected $fillable = [
+        'name',
+        'max_student_number', 
+        'sort',
+        'level_id', 
+        'classroom_id'
+    ];
 
     public function classroom()
     {

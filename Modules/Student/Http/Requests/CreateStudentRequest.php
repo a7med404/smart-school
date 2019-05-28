@@ -30,7 +30,8 @@ class CreateStudentRequest extends FormRequest
             'level_id'              => 'nullable|integer',
             'classroom_id'          => 'nullable|integer',
             'part_id'               => 'nullable|integer',
-            'identifcation_id'      => 'nullable|integer'
+            'identifcation_id'      => 'nullable|integer',
+            'health_id'             => 'nullable|integer'
         ];
     }
 

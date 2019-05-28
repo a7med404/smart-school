@@ -16,10 +16,10 @@ class AttendanceResource extends JsonResource
     {
 
         return [
-            'student_id'    => getName('students', $this->student_id),
-            'absence_from'  => $this->absence_from,
-            'absence_to'    => $this->absence_to,
-            'absence_reason'=> $this->absence_reason
+             'date'           => $this->date,
+             'status'         => attendanceStatus()[$this->status], 
+             'student_id'     => getName('students', $this->student_id),
+             'note'           => $this->note
         ];
         // return parent::toArray($request);
     }
