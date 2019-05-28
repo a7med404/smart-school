@@ -161,7 +161,7 @@
               <li><router-link :to="{name: 'report-student-absece'}"> <i class="fa fa-circle-o"></i>تقرير غياب الطلاب</router-link></li>
             </ul>
           </li>
-          <li>
+          <!-- <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i>   الصفوف
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -169,7 +169,6 @@
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'report-data-classrooms'}"> <i class="fa fa-circle-o"></i>تقرير كل بيانات الصف</router-link></li>
-              <!-- <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li> -->
             </ul>
           </li> 
           <li>
@@ -183,7 +182,7 @@
               <li><router-link :to="{name: 'report-without-part'}"> <i class="fa fa-circle-o"></i>تقرير الطلاب بدون فصول</router-link></li>
               <li><router-link :to="{name: 'report-count-parts'}"> <i class="fa fa-circle-o"></i> عدد الفصول بكل المراحل</router-link></li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </li>
 
@@ -281,7 +280,6 @@
             </a>
             <ul class="treeview-menu">
               <li><router-link :to="{name: 'report-data-classrooms'}"> <i class="fa fa-circle-o"></i>تقرير كل بيانات الصف</router-link></li>
-              <li><router-link :to="{name: 'report-pay'}"> <i class="fa fa-circle-o"></i>تقرير الصفوف بنوع الدراسة</router-link></li>
             </ul>
           </li> 
           <li>

@@ -1,11 +1,34 @@
 import axios from "axios";
+import state from "./state";
+
+
 
 export default {
-  async addStudent({ commit }, student) {
-    // axios post request
-    const response = await axios.post('url', student);
-    // context.commit('ADD_STUDENT', response);
+  async addStudent({ commit }, payload){
+    await axios.post('/api/student/students',payload)
+    .then((response) => {
+      commit('STUDENT_ID', response.data.student_id);
+      commit('ADD_STUDENT', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      commit('ADD_STUDENT', []);
+    })
   },
+
+  async updateDistStudent({ commit }, payload, id){
+    console.log(payload);
+    await axios.patch(`/api/student/students/dist`,payload)
+    .then((response) => {
+      // commit('DIST_STUDENT', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      // commit('DIST_STUDENT', []);
+    })
+  },
+
+  
 
   // Levels *******************************************************************************/
   async fetchLevels({ commit }){
@@ -19,13 +42,24 @@ export default {
   },
 
   async addLevel({ commit }, payload){
-    try {
-      const response = await axios.post('/api/student/levels',payload);
+    await axios.post('/api/student/levels',payload)
+    .then((response) => {
       commit('ADD_LEVEL', response.data.data);
-    } catch (error) {
+    })
+    .catch((error) => {
+      console.log(error)
       commit('ADD_LEVEL', []);
-      console.error(error);
-    }
+      // commit('SET_ERRORS', error);
+    })
+
+    // try {
+    //   const response = await axios.post('/api/student/levels',payload);
+    //   console.error(response);
+    //   commit('ADD_LEVEL', response.data.data);
+    // } catch (error) {
+    //   commit('ADD_LEVEL', []);
+    //   console.error(error);
+    // }
   },
 
 

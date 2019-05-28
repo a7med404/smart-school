@@ -2,6 +2,7 @@
       <link href="{{ asset('modules/master/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
       {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
       <link href="{{ asset('modules/master/css/fontawesome.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('modules/master/css/line-scale.css') }}" rel="stylesheet">
       
       {{-- <link href="{{ asset('modules/master/css/bootstrap.ar.min.css') }}" rel="stylesheet"> --}}
       <link href="{{ asset('modules/master/css/font-awesome.min.css') }}" rel="stylesheet">

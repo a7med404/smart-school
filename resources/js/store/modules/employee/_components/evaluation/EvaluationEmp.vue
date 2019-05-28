@@ -147,13 +147,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> درجة التقييم </label>
-                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name" v-model="real_degree.degree">
+                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name" v-model="evaluation_emp.degree">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="sort" v-model="real_degree.date">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="evaluation_emp.date">
                   </div>
                 </div> 
               </div>     
@@ -186,13 +186,13 @@
           return {
             edit: false,
             evaluation_emp:{
-              education_level           : '',
-              department_id                   : '',
-              employee_id                    : '',
-              item_id                   : '',
-              real_degree               : '',
-              degree                    : '',
-              date                      : ''
+              education_level    : '',
+              department_id      : '',
+              employee_id        : '',
+              item_id            : '',
+              real_degree        : '',
+              degree             : '',
+              date               : ''
             }    
 
           }

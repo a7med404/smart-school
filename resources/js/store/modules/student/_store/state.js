@@ -29,6 +29,11 @@ export default {
     head_master: '',
     school_master: '',
   },
+
+  student_id: '',
+  
+  // errors: [],
+  errors: [],
   levels: [],
   classrooms: [],
   parts: [],

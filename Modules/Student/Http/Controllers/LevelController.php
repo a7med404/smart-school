@@ -36,7 +36,7 @@ class LevelController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateLevelRequest $request)
     {
         $data = [
             'name'          => $request->name,
@@ -113,10 +113,15 @@ class LevelController extends Controller
     public function printLevel()
     {
         $levels = Level::all();
-        $pdf  = PDF::loadView('student::print.levels', ['levels' => $levels])->setPaper('a4', 'portrail');
+        $pdf  = PDF::loadView('student::print.levels-page', ['levels' => $levels])->setPaper('a4', 'portrail');
         // $pdf  = PDF::loadHTML('<h1>'.$level.'</h1>')->setPaper('a4', 'portrail');
         $fileName = 'levels';//$level->name;
         return $pdf->stream($fileName, '.pdf');
+    }
+    public function printLevelPage()
+    {
+        $levels = Level::all();
+        return view('student::print.levels.levels-page', ['levels' => $levels]);
     }
  
 }

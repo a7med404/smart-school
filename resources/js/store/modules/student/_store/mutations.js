@@ -1,6 +1,9 @@
 
 export default {
-  ADD_STUDENT:   (state, student) => state.students.push(student),
+  ADD_STUDENT:   (state, student) => state.students.unshift(student),
+  STUDENT_ID:   (state, id) => (state.student_id = id),
+
+  // SET_ERRORS:   (state, errors) => (state.errors = errors),
   
   ALL_LEVELS:    (state, levels) => (state.levels = levels),
   ADD_LEVEL:     (state, level) => state.levels.unshift(level),

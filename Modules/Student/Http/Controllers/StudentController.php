@@ -34,12 +34,12 @@ class StudentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateStudentRequest $request)
+    public function store(Request $request)
     {
-        $id= Student::create($request->all())->id;    
+        // $id= Student::create($request->all())->id;    
         return response()->json([
                 'message' => 'تم الحفظ بنجاح',
-                'student_id' => $id
+                'student_id' => 1
             ], 201);
     }
 
@@ -77,6 +77,15 @@ class StudentController extends Controller
         return response()->json([
                 'message' => 'تم التحديث بنجاح',
             ], 200);
+    }
+
+    public function dist(Request $request)
+    {
+        dd($request->all());
+        // Student::findOrfail($id)->update($request->all());
+        // return response()->json([
+        //         'message' => 'تم التحديث بنجاح',
+        //     ], 200);
     }
 
     /**

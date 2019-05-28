@@ -14,6 +14,10 @@ export const globalStore = {
       0 : 'انثي',
       1 : 'ذكر',
   },
+//   genders: [
+//     { value: 'انثي', index: '0' },
+//     { value: 'ذكر', index: '1' },
+//   ],
 
   valueOrPersentage : {
       0 : 'القيمة',

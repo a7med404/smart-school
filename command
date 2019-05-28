@@ -4,15 +4,15 @@ php artisan module:use
 php artisan module:unuse
 
 
-php artisan module:make-factory StudentStudentParentFactory
-php artisan module:make-seed StudentStudentParentTableSeeder
+php artisan module:make-factory SalaryFactory
+php artisan module:make-seed SalaryTableSeeder
 
-php artisan module:make-request CreateStudentStudentParentRequest
+php artisan module:make-request CreateSalaryRequest
 
-php artisan module:make-resource StudentStudentParentResource --collection
+php artisan module:make-resource SalaryResource --collection
 
-php artisan module:make-model StudentStudentParent --migration
-php artisan module:make-controller StudentStudentParentController
+php artisan module:make-model Salary --migration
+php artisan module:make-controller SalaryController
 
 
 php artisan module:migrate

@@ -695,52 +695,12 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   data: function data() {
     return {
-      student: {
-        name: '',
-        religion: '',
-        gender: '',
-        study_lang: '',
-        is_partner_son: '',
-        is_staff_son: '',
-        identifcation_number: '',
-        identifcation_expire: '',
-        birthday: '',
-        start_data: '',
-        start_from: '',
-        start_year: '',
-        note: '',
-        student_parent_id: '',
-        study_language_id: '',
-        address_id: '',
-        contact_id: '',
-        level_id: '',
-        classroom_id: '',
-        part_id: ''
-      },
-      address: {
-        street_1: '',
-        street_2: '',
-        city: '',
-        local: ''
-      },
-      contact: {
-        number_1: '',
-        number_2: '',
-        email: ''
-      },
-      health: {
-        doctor_name: '',
-        doctor_number: '',
-        blood_type: '',
-        insurance_number: '',
-        health_status: ''
-      },
       resignation: {
         employee_id: '',
         applicant_to: '',
         reason: ''
       },
-      greement: {
+      agreement: {
         employee_id: '',
         type: ''
       }

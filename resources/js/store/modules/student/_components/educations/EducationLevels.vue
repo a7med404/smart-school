@@ -123,6 +123,9 @@
                         </tr>
                     </tbody>
                 </table>
+                  <div v-if="loading" style="color: #64d6e2" class="la-line-scale">
+                    <div></div><div></div><div></div><div></div><div></div>
+                  </div>
               </div>
             </div>
 
@@ -153,6 +156,7 @@
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
                     <input class="form-control" placeholder="" type="text" v-model="level.name">
+                    <!-- <div class="invalide-feedback"> {{ allErrors.get('name') }} </div> -->
                   </div>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
@@ -199,6 +203,19 @@
 <script>
   import axios from "axios";
   import { mapGetters, mapActions } from 'vuex';
+
+  // class Errors{
+  //   constructor(state){
+  //     state.errors = {};
+  //   }
+  //   get(field){
+  //     return state.errors[field][0];
+  //   }
+  //   recoed(state, errors){
+  //     state.errors = errors.errors;
+  //   }
+  // }
+
   export default {
       mounted() {
       },
@@ -207,7 +224,8 @@
       },
       created() {
         let self = this;
-        self.fetchLevels();
+        // self.allErrors();
+        self.fetchLevels().then(function(){self.loading = false;});
       },
       data(){
         return {
@@ -219,6 +237,7 @@
             school_master: '',
           },
           edit: false,
+          loading: true,
         }
       },
       methods:{
@@ -247,7 +266,8 @@
           let self = this;
           let params = Object.assign({}, self.level);
           self.updateLevel(params, level).then(function(){
-          self.edit = false;
+          
+          edit: false,
             self.level.name = '',
             self.level.sort = '',
             self.level.head_master = '',            

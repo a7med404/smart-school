@@ -792,8 +792,8 @@ const routes = [
     redirect: '/dashbord',
   },
   // {
-  //   path: '*',
-  //   redirect: '/Dashboard',
+  //   path: '/view/*',
+  //   redirect: '/view/Dashboard',
   // },
 ]
 

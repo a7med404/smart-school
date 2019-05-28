@@ -42,7 +42,7 @@
                 <div class="tab-pane active" id="info">
                   <p>بيانات عامة:</p>
                     <!-- Personal Information Form  -->
-                    <form role="form">
+                    <form @submit.prevent = "edit ? toUpdateStudent(student) : createStudent()" role="form">
                       <div class="row">
                         <div class="col col-lg-9 col-md-9 col-sm-12 col-12">
                           <div class="form-group">
@@ -138,6 +138,7 @@
                 <div class="tab-pane" id="address">
                   <form role="form">
                     <p class="title"> عنوان الطالب</p>
+                    <input type="hidden" class="" v-model="address.student_id">
                     <div class="row">
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
@@ -282,12 +283,13 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="dist">
-                  <form role="form">
+                  <form @submit.prevent = "edit ? toUpdateStudent(student) : studentDist()" role="form">
                     <div class="row">
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <input type="hidden" class="" v-model="dist.student_id"> 
                         <div class="form-group">
                           <label class="control-label">المرحلة التعليمية</label>
-                          <select class="form-control select2" name="level_id">
+                          <select class="form-control select2" v-model="dist.level_id">
                             <option value="1">حضانة </option>
                             <option value="0">اساس</option>
                             <option value="0">ثانوي</option>
@@ -299,7 +301,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">اسم الصف</label>
-                          <select class="form-control select2" name="classroom_id">
+                          <select class="form-control select2" v-model="dist.classroom_id">
                             <option value="1">حضانة</option>
                             <option value="0">الاول</option>
                             <option value="1">الثاني</option>
@@ -320,7 +322,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> اسم الفصل</label>
-                          <select class="form-control select2" name="part_id">
+                          <select class="form-control select2" v-model="dist.part_id">
                             <option value="1">ابوبكر</option>
                             <option value="0">عمر</option>
                             <option value="1">علي</option>
@@ -680,6 +682,7 @@
     export default {
         mounted() { },
         computed: {
+          ...mapGetters(['studentId'])
         },
         data(){ 
           return {
@@ -689,26 +692,30 @@
             blood_types   : globalStore.blood_types,
             identifcation_types : globalStore.identifcation_types,
             locals : [],
+            edit: false,
 
             disableLocal: true,
             city_id: '',
+
             student: {
               name                   : '',  
               gender                 : '',  
               religion               : '',  
-              is_partner_son         : '',  
               is_staff_son           : '',  
               birthday               : '',  
               start_data             : '', 
-              start_from             : '',
               start_year             : '', 
               note                   : '',
-              student_parent_id      : '',
-              address_id             : '',
-              contact_id             : '',
-              level_id               : '',
-              classroom_id           : '',
-              part_id                : ''
+              // student_parent_id      : '',
+              // address_id             : '',
+              // contact_id             : '',
+            },
+
+            dist: {
+              student_id: '',
+              level_id: '',
+              classroom_id: '',
+              part_id: ''
             },
 
             address: {
@@ -743,7 +750,41 @@
           }
         },
         methods: {
-          // ...mapActions(['addStudent'])
+          ...mapActions(['addStudent', 'updateDistStudent']),
+          createStudent: function() {
+            let self = this;
+            let params = Object.assign({}, this.student);
+            this.addStudent(params).then(function(){
+              self.student.name              = '',  
+              self.student.gender            = '',  
+              self.student.religion          = '',  
+              self.student.is_partner_son    = '',  
+              self.student.is_staff_son      = '',  
+              self.student.birthday          = '',  
+              self.student.start_data        = '', 
+              self.student.start_from        = '',
+              self.student.start_year        = '', 
+              self.student.note              = '',
+              self.student.student_parent_id = '',
+              self.student.address_id        = '',
+              self.student.contact_id        = '',
+              self.student.level_id          = '',
+              self.student.classroom_id      = '',
+              self.student.part_id           = ''
+            });
+          },
+
+
+          studentDist: function() {
+            let self = this;
+            let params = Object.assign({}, this.dist);
+            this.updateDistStudent(params).then(function(){
+              self.dist.level_id          = '',
+              self.dist.classroom_id      = '',
+              self.dist.part_id           = ''
+            });
+          },
+
           getLocals: function(e){
             var self = this;
             self.city_id = e.target.options[e.target.options.selectedIndex].value;
