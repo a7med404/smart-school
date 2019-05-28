@@ -37,9 +37,10 @@ class EmployeeController extends Controller
      */
     public function store(CreateEmployeeRequest $request)
     {
-        Employee::create($request->all());
+        $id =  Employee::create($request->all())->id;
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
+            'employee_id' => $id
         ], 201);
     }
 
