@@ -30,7 +30,7 @@
                 <div class="col col-lg-3 col-md-3 col-sm-3 col-3">
                   <div class="form-group">
                     <label class="control-label">التمييز</label>
-                    <select class="form-control select2" name="mr_d">
+                    <select class="form-control select2" name="mr_d" v-model="studentparent.mr_d">
                       <option value="1">السيد /</option>
                       <option value="0">د /</option>
                     </select>
@@ -39,7 +39,7 @@
                 <div class="col col-lg-9 col-md-9 col-sm-9 col-9">
                   <div class="form-group">
                     <label class="control-label"> الاسم </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="studentparent.name">
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">الديانة</label>
-                    <select class="form-control select2" name="religion">
+                    <select class="form-control select2" name="religion" v-model="studentparent.religion">
                       <option value="CA">الاسلام</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -58,7 +58,7 @@
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">صلة القرابة</label>
-                    <select class="form-control select2" name="relation">
+                    <select class="form-control select2" name="relation" v-model="studentparent.relation">
                       <option value="1">اب</option>
                       <option value="0">عم</option>
                       <option value="0">خال</option>
@@ -68,7 +68,7 @@
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">الجنسية</label>
-                    <select class="form-control select2" name="nationality">
+                    <select class="form-control select2" name="nationality" v-model="studentparent.nationality">
                       <option value="CA">السودان</option>
                       <option value="TE">مصر</option>
                       <option value="TE">جنوب السودان</option>
@@ -185,6 +185,28 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){
+          return {
+            studentparent : {
+              mr_d                    : '',
+              name                    : '',
+              religion                : '',     
+              relation                : '',     
+              nationality             : '',
+              identifcation_id        : '',
+              qualification           : '', 
+              job                     : '',    
+              work_place              : '',  
+              martial                 : '',
+              phone_number            : '',
+              address_id              : '',
+              email                   : '',
+              is_die                  : '',
+              note                    : ''
+            },
+            
+          }
         }
-    }
+          }
 </script>

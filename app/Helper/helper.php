@@ -1,7 +1,7 @@
 <?php
 
 function gender(){
-    return [
+    return [ 
         0 => 'انثي',
         1 => 'ذكر',
     ];
@@ -159,6 +159,21 @@ function attendanceStatus(){
         1 => 'حاضر',
         2 => 'غائب',
         3 => 'اخرى',
+    ];
+}
+
+function is_partner_son(){
+    return [
+        0 => 'لا',
+        1 => 'نعم',
+
+    ];
+}
+
+function is_staff_son(){
+    return [
+        0 => 'لا',
+        1 => 'نعم',
     ];
 }
 

@@ -74,7 +74,7 @@
                                 v-for="(value, index) in religions" 
                                 :key="index" :value="index" 
                                 v-text="value" 
-                                :selected="student.religion == index">
+                                :selected="student.religion == index"> 
                               </option>
                             </select>
                           </div>
@@ -528,8 +528,12 @@
                 <div class="form-group">
                   <label class="control-label">التمييز</label>
                   <select class="form-control select2" name="mr_d" v-model="studentparent.mr_d">
-                    <option value="1">السيد /</option>
-                    <option value="0">د /</option>
+                   <option 
+                      v-for="(value, index) in mr_ds" 
+                      :key="index" :value="index" 
+                      v-text="value" 
+                      :selected="studentparent.mr_d == index"> 
+                   </option>
                   </select>
                 </div>
               </div>
@@ -546,9 +550,12 @@
                 <div class="form-group">
                   <label class="control-label">الديانة</label>
                   <select class="form-control select2" name="religion" v-model="studentparent.religion">
-                    <option value="CA">الاسلام</option>
-                    <option value="TE">المسيحية</option>
-                    <option value="TE">اخرى</option>
+                    <option 
+                      v-for="(value, index) in religions" 
+                      :key="index" :value="index" 
+                      v-text="value" 
+                      :selected="studentparent.religion == index"> 
+                   </option>
                   </select>
                 </div>
               </div>
@@ -556,12 +563,12 @@
                 <div class="form-group">
                   <label class="control-label">الجنسية</label>
                   <select class="form-control select2" name="nationality" v-model="studentparent.nationality">
-                    <option value="CA">السودان</option>
-                    <option value="TE">الولايات المتحدة</option>
-                    <option value="TE">المملكة المتحدة</option>
-                    <option value="CA">اثيوبيا</option>
-                    <option value="TE">سوريا</option>
-                    <option value="TE">جنوب السودان</option>
+                    <option 
+                      v-for="(value, index) in nationalities" 
+                      :key="index" :value="index" 
+                      v-text="value" 
+                      :selected="studentparent.nationality == index"> 
+                   </option>
                   </select>
                 </div>
               </div>
@@ -601,9 +608,12 @@
                 <div class="form-group">
                   <label class="control-label"> الحالة الاجنماعية </label>
                   <select class="form-control select2" name="martial" v-model="studentparent.martial">
-                    <option value="CA">اعزب</option>
-                    <option value="TE">متزوج</option>
-                    <option value="TE">مطلق</option>
+                    <option 
+                      v-for="(value, index) in martials" 
+                      :key="index" :value="index" 
+                      v-text="value" 
+                      :selected="studentparent.martial == index"> 
+                   </option>
                   </select>
                 </div>
               </div>
@@ -688,6 +698,7 @@
             religions     : globalStore.religions,
             blood_types   : globalStore.blood_types,
             identifcation_types : globalStore.identifcation_types,
+            martials            : globalStore.martials,
             locals : [],
 
             disableLocal: true,
