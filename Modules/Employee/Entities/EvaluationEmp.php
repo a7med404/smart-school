@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class EvaluationEmp extends Model
 {
     protected $fillable = [
-    'education_level',
+    'level_id',
     'department_id',
     'employee_id',
     'item_id',

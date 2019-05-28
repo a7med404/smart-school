@@ -11,6 +11,7 @@ class CreateEmpHolidaysTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('emp_holidays', function (Blueprint $table) {

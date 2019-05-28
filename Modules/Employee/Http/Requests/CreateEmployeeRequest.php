@@ -25,10 +25,11 @@ class CreateEmployeeRequest extends FormRequest
         'job_title'             => 'nullable|integer',
         'martial_status'        => 'required|integer',    
         'start_date'            => 'nullable|date',
-        'emploee_level'         => 'required|integer',
         'join_year'             => 'required|integer',
         'picture'               => 'nullable|stirng',
-        'note'                  => 'nullable|longText'
+        'note'                  => 'nullable|longText',
+        'address_id'            =>'required|integer',
+        'contact_id'            =>'required|integer'
         ];
     }
 

@@ -29,13 +29,21 @@ class CreateEmployeesTable extends Migration
             $table->string('job_title')->nullable();
             $table->integer('martial_status');
             $table->date('start_date')->nullable();
-            $table->integer('emploee_level');
             $table->integer('join_year');
             $table->string('picture')->nullable();
             $table->longText('note')->nullable();
             
-            $table->integer('identifcation_id')->foreign()
+            $table->integer('identification_id')->foreign()
             ->references('id')->on('identifcations')
+            ->onDelete('cascade');
+            $table->integer('address_id')->foreign()
+            ->references('id')->on('addresses')
+            ->onDelete('cascade');
+            $table->integer('address_id')->foreign()
+            ->references('id')->on('addresses')
+            ->onDelete('cascade');
+            $table->integer('contact_id')->foreign()
+            ->references('id')->on('contacts')
             ->onDelete('cascade');
             $table->timestamps();
         });

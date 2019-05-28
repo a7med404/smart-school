@@ -14,6 +14,12 @@ class CalendResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name'                 => $this->name,
+            'discount_percentage'  => $this->discount_percentage,
+            'type'                 => calendType()[$this->type]
+
+        ];
+        // return parent::toArray($request);
     }
 }

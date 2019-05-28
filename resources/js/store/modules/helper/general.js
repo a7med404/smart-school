@@ -19,18 +19,18 @@ export const globalStore = {
 //     { value: 'ذكر', index: '1' },
 //   ],
 
-  valueOrPersentage : {
+  valueOrPersentages : {
       0 : 'القيمة',
       1 : 'نسبه',
   },
 
-  offPrint : {
+  offPrints : {
       1 : 'شهادة قيد طالب',
       2 : 'شهادة حسن سير وسلوك',
       3 : 'مخالصة بمصروفات طالب',
   },
 
-  is_mandatary : {
+  is_mandataries : {
       0 : 'غير إجباري',
       1 : 'إجباري',
   },
@@ -41,7 +41,7 @@ export const globalStore = {
       3 : 'اخري',
   },
 
-  payment_status : {
+  payment_statuses : {
       1 : 'لم يدفع بعد',
       2 : 'جزئي',
       3 : 'كامل',
@@ -64,13 +64,8 @@ export const globalStore = {
       8 : 'AB-',
   },
 
-  religion : {
-      1 : 'الاسلام',
-      2 : 'المسيحية',
-      3 : 'اخري',
-  },
   
-  mr_d : {
+  mr_ds : {
       1 : 'السيد',
       2 : 'السيدة',
       3 : '\د',
@@ -78,7 +73,7 @@ export const globalStore = {
       5 : '\بروف',
    },
 
-  relation : {
+  relations : {
       1 : 'أب',
       2 : 'ام',
       3 : 'خال',
@@ -88,7 +83,7 @@ export const globalStore = {
       7 : 'احرى',
    },
 
-  nationality : {
+  nationalities : {
       1 : 'السودان',
       2 : 'جنوب السودان',
       3 : 'مصر',
@@ -98,37 +93,30 @@ export const globalStore = {
       7 : 'احرى',
    },
 
-  martial : {
+  martials : {
       1 : 'متزوج',
       2 : ' عازب',
       3 : 'مطلق',
       4 : 'ارمل',
    },
 
-  is_die : {
+  is_dies : {
       0 : 'حي',
       1 : 'ميت',
    },
 
-  agreementType : {
+  agreementTypes : {
       1 : 'مؤقت',
       2 : ' دائم',
-      2 : ' تعاقد',
+      3 : ' تعاقد',
   },
 
-  job_title : {
+  job_titles : {
       1 : 'موظف',
       2 : ' معلم',
-      2 : ' عامل',
+      3 : ' عامل',
   },
 
-  education_level : {
-      1 : 'دبلوم',
-      2 : ' بكلاريوس',
-      3 : ' دبلوم عالي',
-      4 : ' ماجستير',
-      5 : ' دكتوراة ',
-  },
 
   safes : {
       1 : 'بنك الخرطوم',
@@ -138,9 +126,31 @@ export const globalStore = {
       5 : ' بنك العمال ',
   },
 
-  RewardsPunition : {
+  RewardsPunitions : {
       0 : 'مكافأة ',
       1 : 'خصم',
+  },
+
+  calendTypes : {
+      1 : 'مخالفات متعلقة بنظام العمل ',
+      2 : 'مخالفات متعلقة بسلوك العمل',
+      3 : 'مخالفات متعلقة بمواعيد العمل',
+  },
+  attendanceStatuses : {
+      1 : 'حاضر',
+      2 : 'غائب',
+      3 : 'اخرى',
+  },
+
+  is_partner_sons : {
+      0 : 'لا',
+      1 : 'نعم',
+
+  },
+
+  is_staff_sons : {
+      0 : 'لا',
+      1 : 'نعم',
   },
 
   cities: {

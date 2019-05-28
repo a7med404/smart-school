@@ -20,7 +20,7 @@ class StudentParentResource extends JsonResource
             'religion'              => religion()[$this->religion],   
             'relation'              => relation ()[$this->relation ], 
             'nationality'           => nationality ()[$this->nationality ],  
-            'identifcation_number'  => getName('identifcations', $this->identifcation_number),  
+            'identifcation_id'      => getName('identifcations', $this->identifcation_number),  
             'qualification'         => $this->qualification,  
             'job'                   => $this->job,  
             'work_place'            => $this->work_place,  

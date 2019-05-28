@@ -26,10 +26,11 @@ class EmployeeResource extends JsonResource
              'job_title'             => job_title()[$this->job_title],
              'martial_status'        => martial()[$this->martial_status],    
              'start_date'            => $this->start_date,
-            //  'emploee_level'         => 'required|integer',have to ask about it
              'join_year'             => $this->join_year,
              'picture'               => $this->picture,
-             'note'                  => $this->note
+             'note'                  => $this->note,
+             'address_id'            => getName('addresses', $this->address_id),
+             'contact_id'            => getName('contacts', $this->contact_id)
              ];
         // return parent::toArray($request);
     }

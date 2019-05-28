@@ -130,6 +130,7 @@
           return {
             edit: false,
            emp_perission_name:{
+              id                          : '',
               name                        : '',
               discount                    : ''
             }    

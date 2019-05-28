@@ -141,6 +141,7 @@
           return {
             edit: false,
            formal_holiday:{
+              id                      : '',
               name                    : '',
               start                   : '',
               finish                  : ''

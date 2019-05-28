@@ -125,7 +125,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الادارة </label>
-                    <select class="form-control select2" name="level_id" v-model="rewards_punition.managament_id">
+                    <select class="form-control select2" name="level_id" v-model="rewards_punition.management_id">
                       <option value="CA">التعلبم</option>
                       <option value="TE">الحسابات</option>
                       <option value="TE">شؤون الموظفين</option>
@@ -216,12 +216,13 @@
           return {
             edit: false,
            rewards_punition:{
+              id                        : '',
               finance_year              : '',
               date                      : '',
-              managament_id                 : '',
-              department_id                   : '',
+              management_id             : '',
+              department_id             : '',
               type                      : '',
-              employee_id                    : '',
+              employee_id               : '',
               value                     : '',
               reason                    : ''
             }    

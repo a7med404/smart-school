@@ -17,8 +17,8 @@ class CreateStudentRequest extends FormRequest
             'name'                  => 'required|max:255|min:10',  
             'religion'              => 'nullable|integer',  
             'gender'                => 'required|integer',    
-            'is_partner_son'        => 'required|integer',  
-            'is_staff_son'          => 'required|integer',  
+            'is_partner_son'        => 'required|boolean',  
+            'is_staff_son'          => 'required|boolean',  
             'birthday'              => 'required|date',  
             'start_data'            => 'required|date', 
             'start_from'            => 'string|required',
@@ -30,7 +30,8 @@ class CreateStudentRequest extends FormRequest
             'level_id'              => 'nullable|integer',
             'classroom_id'          => 'nullable|integer',
             'part_id'               => 'nullable|integer',
-            'identifcation_id'      => 'nullable|integer'
+            'identifcation_id'      => 'nullable|integer',
+            'health_id'             => 'nullable|integer'
         ];
     }
 

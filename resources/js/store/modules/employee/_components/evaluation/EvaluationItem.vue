@@ -130,6 +130,7 @@
           return {
             edit: false,
             evaluation_item:{
+              id                : '',
               name              : '',
               degree            : ''
             }    

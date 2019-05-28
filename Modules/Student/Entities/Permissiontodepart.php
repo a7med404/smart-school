@@ -7,7 +7,11 @@ use Modules\Student\Entities\Student;
 
 class Permissiontodepart extends Model
 {
-    protected $fillable = ['date', 'note', 'student_id'];
+    protected $fillable = [
+        'date', 
+        'note', 
+        'student_id'
+    ];
 
     public function students()
     {

@@ -130,7 +130,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="part.level_id">
+                    <select class="form-control select2" name="part.level_id" v-model="part.level_id">
                       <option 
                         v-for="level in allLevels" 
                         :key="level.id" :value="level.id" 
@@ -143,7 +143,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الصف </label>
-                    <select class="form-control select2" name="part.classroom_id">
+                    <select class="form-control select2" name="part.classroom_id" v-model="part.classroom_id">
                       <option 
                         v-for="classroom in allClassrooms" 
                         :key="classroom.id" :value="classroom.id" 
@@ -158,19 +158,19 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الفصل </label>
-                    <input class="form-control" placeholder="" type="text" name="name">
+                    <input class="form-control" placeholder="" type="text" name="name" v-model="part.name">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> عدد الطلاب </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number">
+                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="part.max_student_number">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الترتيب </label>
-                    <input class="form-control" placeholder="" type="text" name="sort">
+                    <input class="form-control" placeholder="" type="text" name="sort" v-model="part.sort">
                   </div>
                 </div> 
               </div>     

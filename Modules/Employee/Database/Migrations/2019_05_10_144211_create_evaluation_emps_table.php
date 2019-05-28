@@ -15,7 +15,9 @@ class CreateEvaluationEmpsTable extends Migration
     {
         Schema::create('evaluation_emps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('education_level')->unsigned();
+            $table->integer('level_id')->foreign()
+            ->references('id')->on('levels')
+            ->onDelete('cascade');
             $table->integer('department_id')->foreign()
             ->references('id')->on('departments')
             ->onDelete('cascade');

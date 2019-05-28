@@ -15,7 +15,7 @@ class CreateDepartmentRequest extends FormRequest
     {
         return [
             'managament_id'            => 'integer|required',
-            'name'                 => 'string|required'
+            'name'                     => 'string|required'
         ];
     }
 

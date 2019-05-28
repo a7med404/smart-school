@@ -15,7 +15,7 @@ class EvaluationEmpResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'education_level'           => education_level()[$this->education_level],
+            'level_id'                  => getName('levels', $this->level_id),
             'department_id'             => getName('departments', $this->department_id),
             'employee_id'               => getName('employees', $this->employee_id),
             'item_id'                   => getName('evaluation_items', $this->item_id),

@@ -179,7 +179,7 @@
               <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">نوع المخالفة </label>
-                  <select class="form-control select2" v-model="calend.calend_type">
+                  <select class="form-control select2" v-model="calend.type">
                     	<option value="0">--اختر--</option>
                       <option value="1">مخالفات متعلقة بنظام العمل</option>
                       <option value="2">مخالفات متعلقة بسلوك العمل </option>
@@ -232,6 +232,7 @@
           return {
             edit: false,
             calend: {
+              id                     : '',
               type                   : '',
               name                   : '',  
               discount_percentage    : '' 

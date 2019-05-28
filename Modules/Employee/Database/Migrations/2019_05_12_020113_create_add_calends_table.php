@@ -15,7 +15,7 @@ class CreateAddCalendsTable extends Migration
     {
         Schema::create('add_calends', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('managament_id')->foreign()
+            $table->integer('management_id')->foreign()
             ->references('id')->on('managements')
             ->onDelete('cascade');
             $table->integer('department_id')->foreign()
@@ -24,6 +24,11 @@ class CreateAddCalendsTable extends Migration
             $table->integer('employee_id')->foreign()
             ->references('id')->on('employees')
             ->onDelete('cascade');
+            $table->integer('calend_id')->foreign()
+            ->references('id')->on('calends')
+            ->onDelete('cascade');
+            $table->date('date');
+            $table->integer('type');
             $table->timestamps();
         });
     }

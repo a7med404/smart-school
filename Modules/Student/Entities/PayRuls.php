@@ -8,7 +8,6 @@ class PayRuls extends Model
 {
     protected $fillable = [
         'name',
-        'name',
         'is_mandatary',
         'note',
     ];

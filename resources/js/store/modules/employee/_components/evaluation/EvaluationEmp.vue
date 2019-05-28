@@ -97,7 +97,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم المرحلة التعليمية </label>
-                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.education_level">
+                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.level_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -107,7 +107,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم القسم </label>
-                    <select class="form-control select2" name="evaluation_id" v-model="evaluation_emp.department_id">
+                    <select class="form-control select2" name="department_id" v-model="evaluation_emp.department_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -119,7 +119,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الموظف </label>
-                    <select class="form-control select2" name="level_id" v-model="evaluation_emp.employee_id">
+                    <select class="form-control select2" name="employee_id" v-model="evaluation_emp.employee_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -129,7 +129,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> عنصر التقييم </label>
-                    <select class="form-control select2" name="evaluation_id" v-model="evaluation_emp.item_id">
+                    <select class="form-control select2" name="item_id" v-model="evaluation_emp.item_id">
                       <option value="CA">اختيار</option>
                       <option value="TE">المسيحية</option>
                       <option value="TE">اخرى</option>
@@ -141,19 +141,19 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> الدرجة الفعلية </label>
-                    <input class="form-control" placeholder="" type="text" name="max_student_number" v-model="evaluation_emp.real_degree">
+                    <input class="form-control" placeholder="" type="text" name="real_degree" v-model="evaluation_emp.real_degree">
                   </div>
                 </div> 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> درجة التقييم </label>
-                    <input class="form-control" disabled placeholder="" value="10" type="text" name="name" v-model="evaluation_emp.degree">
+                    <input class="form-control" disabled placeholder="" value="10" type="text" v-model="evaluation_emp.degree">
                   </div>
                 </div>   
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="text" name="sort" v-model="evaluation_emp.date">
+                    <input class="form-control" placeholder="" type="text" v-model="evaluation_emp.date">
                   </div>
                 </div> 
               </div>     
@@ -186,13 +186,14 @@
           return {
             edit: false,
             evaluation_emp:{
-              education_level    : '',
-              department_id      : '',
-              employee_id        : '',
-              item_id            : '',
-              real_degree        : '',
-              degree             : '',
-              date               : ''
+              id                        : '',
+              level_id                  : '',
+              department_id             : '',
+              employee_id               : '',
+              item_id                   : '',
+              real_degree               : '',
+              degree                    : '',
+              date                      : ''
             }    
 
           }

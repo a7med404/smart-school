@@ -148,6 +148,7 @@
           return {
             edit: false,
             emp_absence: {
+              id                             : '',
               empolyee_id                    : '',
               absence_from                   : '',  
               absence_to                     : '',
