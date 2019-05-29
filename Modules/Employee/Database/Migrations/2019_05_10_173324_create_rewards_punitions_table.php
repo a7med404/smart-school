@@ -17,14 +17,14 @@ class CreateRewardsPunitionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('finance_year')->unsigned();
             $table->date('date');
-            $table->integer('management_id')->foreign()
+            $table->unsignedBigInteger('management_id')->foreign()
             ->references('id')->on('managements')
             ->onDelete('cascade');
-            $table->integer('department_id')->foreign()
+            $table->unsignedBigInteger('department_id')->foreign()
             ->references('id')->on('departments')
             ->onDelete('cascade');
             $table->boolean('type');
-            $table->integer('employee_id')->foreign()
+            $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employees')
             ->onDelete('cascade');
             $table->float('value')->unsigned();

@@ -57,7 +57,7 @@
                           <div class="form-group">
                             <label class="control-label">النوع</label>
                             <select class="form-control select2"  v-model="student.gender">
-                              <option 
+                              <option
                                 v-for="(value, index) in genders" 
                                 :key="index" :value="index" 
                                 v-text="value" 
@@ -70,7 +70,7 @@
                           <div class="form-group">
                             <label class="control-label">الديانة</label>
                             <select class="form-control select2" v-model="student.religion">
-                              <option 
+                              <option
                                 v-for="(value, index) in religions" 
                                 :key="index" :value="index" 
                                 v-text="value" 
@@ -387,7 +387,7 @@
                           <textarea class="form-control" placeholder="" name="health_status" v-model="health.health_status"></textarea>
                         </div>
                       </div>
-                    </div>
+                    </div> 
 
                     <div class="row">
                       <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
@@ -696,13 +696,16 @@
         },
         data(){ 
           return {
-            genders       : globalStore.genders,
-            cities        : globalStore.cities,
-            religions     : globalStore.religions,
-            blood_types   : globalStore.blood_types,
-            identifcation_types : globalStore.identifcation_types,
-            martials            : globalStore.martials,
-            locals : [],
+            genders                : globalStore.genders,
+            cities                 : globalStore.cities,
+            locals                 : globalStore.locals,
+            identifcation_types    : globalStore.identifcation_types,
+            blood_types            : globalStore.blood_types,
+            mr_ds                  : globalStore.mr_ds,
+            religions              : globalStore.religions,
+            nationalities          : globalStore.nationalities,
+            martials               : globalStore.martials,
+            locals : [],         
             edit: false,
 
             disableLocal: true,

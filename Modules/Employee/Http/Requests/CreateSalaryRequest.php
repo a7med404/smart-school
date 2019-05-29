@@ -14,7 +14,7 @@ class CreateSalaryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'basic_salary'      =>'required|float'
         ];
     }
 

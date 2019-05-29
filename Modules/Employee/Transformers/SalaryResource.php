@@ -14,6 +14,9 @@ class SalaryResource extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+        'basic_salary'      => $this->basic_salary
+        ];
+        // return parent::toArray($request);
     }
 }

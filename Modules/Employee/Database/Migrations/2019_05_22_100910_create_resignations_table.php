@@ -15,7 +15,7 @@ class CreateResignationsTable extends Migration
     {
         Schema::create('resignations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id')->foreign()
+            $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employees')
             ->onDelete('cascade');
             $table->string('applicant_to');

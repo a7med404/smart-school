@@ -132,12 +132,26 @@
 </template>
 
 <script>
+    import axios from "axios";
+    import { mapGetters, mapActions } from 'vuex';
+    import { globalStore } from '../../../helper/general.js';
     export default {
         mounted() {
             console.log('Component mounted.')
         },
         data(){ 
           return {
+                genders                : globalStore.genders,
+                cities                 : globalStore.cities,
+                locals                 : globalStore.locals,
+                identifcation_types    : globalStore.identifcation_types,
+                blood_types            : globalStore.blood_types,
+                mr_ds                  : globalStore.mr_ds,
+                religions              : globalStore.religions,
+                nationalities          : globalStore.nationalities,
+                martials               : globalStore.martials,
+
+
             addToClass: {
               name                   : '',  
               religion               : '',  

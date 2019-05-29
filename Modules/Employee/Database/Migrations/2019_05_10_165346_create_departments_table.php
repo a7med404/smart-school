@@ -15,7 +15,7 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('managament_id')->foreign()
+            $table->unsignedBigInteger('managament_id')->foreign()
             ->references('id')->on('managaments')
             ->onDelete('cascade');
             $table->string('name');

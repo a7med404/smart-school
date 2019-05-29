@@ -22,7 +22,7 @@ class CreateCertificatsTable extends Migration
             $table->integer('degree');
             $table->date('qualification_date');
             $table->integer('experience_years');
-            $table->integer('employee_id')->foreign()
+            $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employees')
             ->onDelete('cascade');
             $table->timestamps();

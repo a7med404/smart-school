@@ -15,16 +15,16 @@ class CreateAddCalendsTable extends Migration
     {
         Schema::create('add_calends', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('management_id')->foreign()
+            $table->unsignedBigInteger('management_id')->foreign()
             ->references('id')->on('managements')
             ->onDelete('cascade');
-            $table->integer('department_id')->foreign()
+            $table->unsignedBigInteger('department_id')->foreign()
             ->references('id')->on('departments')
             ->onDelete('cascade');
-            $table->integer('employee_id')->foreign()
+            $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employees')
             ->onDelete('cascade');
-            $table->integer('calend_id')->foreign()
+            $table->unsignedBigInteger('calend_id')->foreign()
             ->references('id')->on('calends')
             ->onDelete('cascade');
             $table->date('date');
