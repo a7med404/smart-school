@@ -7,7 +7,6 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Employee;
 use Modules\Employee\Transformers\EmployeeResource;
-use Modules\Employee\Transformers\SingleEmployeeResource;
 use Modules\Employee\Http\Requests\CreateEmployeeRequest;
 
 class EmployeeController extends Controller
@@ -18,7 +17,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return new EmployeeResource(Employee::all());
+        return  EmployeeResource::collection(Employee::all());
     }
 
     /**

@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/employee', function (Request $request) {
 
 Route::group(['prefix' => '/employee'], function () {
     Route::resource('employees', 'EmployeeController');
+    Route::resource('Certificates', 'CertificatController');
 });
