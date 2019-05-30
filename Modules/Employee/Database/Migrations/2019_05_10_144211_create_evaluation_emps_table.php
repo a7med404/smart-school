@@ -15,16 +15,16 @@ class CreateEvaluationEmpsTable extends Migration
     {
         Schema::create('evaluation_emps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('level_id')->foreign()
+            $table->unsignedBigInteger('level_id')->foreign()
             ->references('id')->on('levels')
             ->onDelete('cascade');
-            $table->integer('department_id')->foreign()
+            $table->unsignedBigInteger('department_id')->foreign()
             ->references('id')->on('departments')
             ->onDelete('cascade');
-            $table->integer('employee_id')->foreign()
+            $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employees')
             ->onDelete('cascade');
-            $table->integer('item_id')->foreign()
+            $table->unsignedBigInteger('item_id')->foreign()
             ->references('id')->on('evaluation_items')
             ->onDelete('cascade');
             $table->integer('real_degree')->unsigned();

@@ -336,13 +336,13 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> اسم المؤهل </label>
-                          <input class="form-control" placeholder="" type="text">
+                          <input class="form-control" placeholder="" type="text" v-model="certificate.name">
                         </div>
                       </div>
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> جهة الحصول علي المؤهل  </label>
-                          <input class="form-control" placeholder="" type="text">
+                          <input class="form-control" placeholder="" type="text" v-model="certificate.Applicant">
                         </div>
                       </div>
                     </div>
@@ -350,7 +350,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> النوع </label>
-                          <select class="form-control select2" >
+                          <select class="form-control select2" v-model="certificate.type" >
                             <option value="1">بكالوريوس</option>
                             <option value="0">دبلوم</option>
                             <option value="1">بكالوريوس شرف</option>
@@ -363,7 +363,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">التحصص</label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                          <input class="form-control" placeholder="" type="text" name="insurance_number" v-model="certificate.major">
                         </div>
                       </div>
                     </div>
@@ -371,7 +371,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> التقدير </label>
-                          <select class="form-control select2" >
+                          <select class="form-control select2" v-model="certificate.degree">
                             <option value="1">امتياز</option>
                             <option value="0">جيد جدا</option>
                             <option value="1">جيد</option>
@@ -382,7 +382,7 @@
                         <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                             <div class="form-group">
                             <label class="control-label">تاريخ الحصول المؤهل</label>
-                            <input type="text" class="form-control" id="birthday"/>
+                            <input type="text" class="form-control" id="birthday" v-model="certificate.qualification_date"/>
                             </div>
                         </div>
                     </div>
@@ -391,7 +391,7 @@
                       <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> عدد سنوات الخبرة </label>
-                          <select class="form-control select2">
+                          <select class="form-control select2" v-model="certificate.experience_years">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="1">3</option>
@@ -523,6 +523,20 @@
               insurance_number: '',
               health_status: ''
             },
+           certificate : {
+              id                     : '',
+              name                   : '',
+              Applicant              : '',
+              type                   : '',
+              major                  : '',
+              degree                 : '',
+              qualification_date     : '',
+              experience_years       : '',
+              employee_id            : ''
+            },
+            salary : {
+              basic_salary           : ''
+            }
             
           }
         },

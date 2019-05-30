@@ -16,7 +16,7 @@ class CreateAttendanceStudentTable extends Migration
         Schema::create('attendance_student', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->integer('attendance_id');
+            $table->unsignedBigInteger('attendance_id');
            /*  $table->foreign('attendance_id')
                 ->references('id')->on('attendances')
                 ->onDelete('cascade'); */

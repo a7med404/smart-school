@@ -177,6 +177,39 @@ function is_staff_son(){
     ];
 }
 
+function certificateDegree(){
+    return [
+        1 => 'إمتياز',
+        2 => 'جيد جدا',
+        3 => 'جيد',
+        4 => 'مقبول',
+        5 => 'ضعيف',
+    ];
+}
+
+function certificateType(){
+    return [
+        1 => 'دبلوم',
+        2 => 'بكلاريوس ',
+        3 => 'دبلوم عالي',
+        4 => 'ماجستير',
+        5 => 'دكتوراة',
+        5 => 'الاستاذية',
+        5 => 'اخرى',
+    ];
+}
+
+function experience_years(){
+    return [
+        1 => '1',
+        2 => '2 ',
+        3 => '3',
+        4 => '4',
+        5 => '5',
+        5 => '6',
+        5 => 'اخرى',
+    ];
+}
 
 
 function getSelect($tableName){

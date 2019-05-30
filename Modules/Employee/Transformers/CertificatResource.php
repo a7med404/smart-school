@@ -17,12 +17,12 @@ class CertificatResource extends ResourceCollection
         return [
             'name'                  => $this->name,
             'Applicant'             => $this->Applicant,
-            'type'                  =>'required|integer',
+            'type'                  => certificateType()[$this->type],
             'major'                 => $this->major,
-            'degree'                =>'required|integer',    
-            'qualification_date'    =>'required|date',
-            'experience_years'      =>'required|integer',   
-            'employee_id'           =>'required|integer'
+            'degree'                => certificateDegree()[$this->degree],    
+            'qualification_date'    => $this->name,
+            'experience_years'      => experience_years() [$this->experience_years],  
+            'employee_id'           => getName('employees', $this->employee_id),
             ];
         // return parent::toArray($request);
     }

@@ -57,8 +57,12 @@
                           <div class="form-group">
                             <label class="control-label">النوع</label>
                             <select class="form-control select2"  v-model="employee.gender">
-                              <option value="1">ذكر</option>
-                              <option value="0">انثي</option>
+                              <option 
+                                v-for="(value, index) in genders" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="employee.gender == index"> 
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -66,9 +70,12 @@
                           <div class="form-group">
                             <label class="control-label">الديانة</label>
                             <select class="form-control select2" v-model="employee.religion">
-                              <option value="CA">الاسلام</option>
-                              <option value="TE">المسيحية</option>
-                              <option value="TE">اخرى</option>
+                              <option 
+                                v-for="(value, index) in religions" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="employee.religion == index"> 
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -122,9 +129,12 @@
                           <div class="form-group">
                             <label class="control-label"> الحالة الاجنماعية </label>
                             <select class="form-control select2" name="martial" v-name="employee.martial_status">
-                                <option value="CA">عازب</option>
-                                <option value="TE">متزوج</option>
-                                <option value="TE">مطلق</option>
+                                <option 
+                                v-for="(value, index) in martials" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="employee.martial_status == index"> 
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -214,23 +224,25 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المدينة</label>
-                          <select class="form-control select2" v-model="address.city">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">بحري</option>
-                            <option value="0">امدرمان</option>
-                          </select>
+                          <select class="form-control select2" @change="getLocals($event)">
+                            <option 
+                              v-for="(value, index) in cities" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="address.local == index">
+                            </option>
                         </div>
                       </div>
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div class="form-group">
+                         <div class="form-group">
                           <label class="control-label">المحلية</label>
-                          <select class="form-control select2" v-model="address.local">
-                            <option value="1">الخرطوم</option>
-                            <option value="0">جبل اولياء</option>
-                            <option value="1">شرق النيل</option>
-                            <option value="0">امدرمان</option>
-                            <option value="0">كرري</option>
-                            <option value="0">الثورة</option>
+                          <select class="form-control select2" v-model="address.local" :disabled="disableLocal">
+                            <option 
+                              v-for="(value, index) in locals" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="address.local == index">
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -292,10 +304,13 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">نوع اثبات الشخصية</label>
-                          <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">O+</option>
-                            <option value="0">O-</option>
-                            <option value="1">A+</option>
+                          <select class="form-control select2" v-model="identifcation.type">
+                            <option 
+                              v-for="(value, index) in identifcation_types" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="identifcation.type == index">
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -333,69 +348,73 @@
                   <form role="form">
                     <p class="title"> الشهادات التعليميه</p>
                     <div class="row">
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> اسم المؤهل </label>
-                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_name">
+                          <input class="form-control" placeholder="" type="text" v-model="certificate.name">
                         </div>
                       </div>
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> جهة الحصول علي المؤهل  </label>
-                          <input class="form-control" placeholder="" type="text" v-model="health.doctor_number">
+                          <input class="form-control" placeholder="" type="text" v-model="certificate.Applicant">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> النوع </label>
-                          <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">بكالوريوس</option>
-                            <option value="0">دبلوم</option>
-                            <option value="1">بكالوريوس شرف</option>
-                            <option value="0"> دبلوم عالي</option>
-                            <option value="1"> ماجستير</option>
-                            <option value="0"> دكتوراة </option>
+                          <select class="form-control select2" v-model="certificate.type" >
+                            <option 
+                              v-for="(value, index) in certificateTypes" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="certificate.type == index">
+                            </option>
                           </select>
                         </div>
                       </div>
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">التحصص</label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                          <input class="form-control" placeholder="" type="text" name="insurance_number" v-model="certificate.major">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> التقدير </label>
-                          <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">امتياز</option>
-                            <option value="0">جيد جدا</option>
-                            <option value="1">جيد</option>
-                            <option value="0">مقبول </option>
+                          <select class="form-control select2" v-model="certificate.degree">
+                           <option 
+                              v-for="(value, index) in certificateDegrees" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="certificate.degree == index">
+                            </option>
                           </select>
                         </div>
                       </div>
-                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                             <div class="form-group">
                             <label class="control-label">تاريخ الحصول المؤهل</label>
-                            <input type="text" class="form-control" id="birthday" v-model="student.birthday"/>
+                            <input type="text" class="form-control" id="birthday" v-model="certificate.qualification_date"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label"> عدد سنوات الخبرة </label>
-                          <select class="form-control select2" v-model="health.blood_type">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="1">3</option>
-                            <option value="2">اكثر</option>
+                          <select class="form-control select2" v-model="certificate.experience_years">
+                           <option 
+                              v-for="(value, index) in experience_years" 
+                              :key="index" :value="index" 
+                              v-text="value" 
+                              :selected="certificate.experience_years == index">
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -417,7 +436,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">  الراتب الاساسي  </label>
-                            <input class="form-control" placeholder="" type="text" v-model="student.name">
+                            <input class="form-control" placeholder="" type="text" v-model="salary.basic_salary">
                           </div>
                         </div>
                       </div>
@@ -510,10 +529,26 @@
 <script>
 
     import { mapGetters, mapActions } from 'vuex';
+    import { globalStore } from '../../../helper/general.js';
     export default {
         mounted() { },
         data(){ 
           return {
+            genders                : globalStore.genders,
+            cities                 : globalStore.cities,
+            locals                 : globalStore.locals,
+            identifcation_types    : globalStore.identifcation_types,
+            blood_types            : globalStore.blood_types,
+            mr_ds                  : globalStore.mr_ds,
+            religions              : globalStore.religions,
+            nationalities          : globalStore.nationalities,
+            martials               : globalStore.martials,
+           identifcation_types     : globalStore.identifcation_types,
+           certificateTypes        : globalStore.certificateTypes,
+           certificateDegrees      : globalStore.certificateDegrees,    
+           experience_years        : globalStore.experience_years,
+
+            
             student: {
               name                   : '',  
               religion               : '',  
@@ -575,6 +610,20 @@
               picture:                   '',
               note:                      ''
             },
+            certificate : {
+              id                     : '',
+              name                   : '',
+              Applicant              : '',
+              type                   : '',
+              major                  : '',
+              degree                 : '',
+              qualification_date     : '',
+              experience_years       : '',
+              employee_id            : ''
+            },
+            salary : {
+              basic_salary           : ''
+            }
             
           }
         },

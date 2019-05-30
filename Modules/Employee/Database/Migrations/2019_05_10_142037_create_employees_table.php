@@ -19,10 +19,10 @@ class CreateEmployeesTable extends Migration
             $table->boolean('gender');
             $table->integer('religion')->nullable();
             $table->date('birth_date');
-            $table->integer('managament_id')->foreign()
+            $table->unsignedBigInteger('managament_id')->foreign()
             ->references('id')->on('management')
             ->onDelete('cascade');
-            $table->integer('department_id')->foreign()
+            $table->unsignedBigInteger('department_id')->foreign()
             ->references('id')->on('department')
             ->onDelete('cascade');
             $table->date('hiring_date')->nullable();
@@ -33,16 +33,16 @@ class CreateEmployeesTable extends Migration
             $table->string('picture')->nullable();
             $table->longText('note')->nullable();
             
-            $table->integer('identification_id')->foreign()
+            $table->unsignedBigInteger('identification_id')->foreign()
             ->references('id')->on('identifcations')
             ->onDelete('cascade');
-            $table->integer('address_id')->foreign()
+            $table->unsignedBigInteger('address_id')->foreign()
             ->references('id')->on('addresses')
             ->onDelete('cascade');
-            $table->integer('address_id')->foreign()
+            $table->unsignedBigInteger('address_id')->foreign()
             ->references('id')->on('addresses')
             ->onDelete('cascade');
-            $table->integer('contact_id')->foreign()
+            $table->unsignedBigInteger('contact_id')->foreign()
             ->references('id')->on('contacts')
             ->onDelete('cascade');
             $table->timestamps();

@@ -15,16 +15,16 @@ class CreateEmpPerissionsTable extends Migration
     {
         Schema::create('emp_perissions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('managament_id')->foreign()
+            $table->unsignedBigInteger('managament_id')->foreign()
             ->references('id')->on('management')
             ->onDelete('cascade');
-            $table->integer('department_id')->foreign()
+            $table->unsignedBigInteger('department_id')->foreign()
             ->references('id')->on('department')
             ->onDelete('cascade');
-            $table->integer('employee_id')->foreign()
+            $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employee')
             ->onDelete('cascade');
-            $table->integer('perission_id')->foreign()
+            $table->unsignedBigInteger('perission_id')->foreign()
             ->references('id')->on('emp_perission_names')
             ->onDelete('cascade');
             $table->time('from_hour');

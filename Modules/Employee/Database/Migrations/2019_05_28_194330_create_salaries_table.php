@@ -16,7 +16,6 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->float('basic_salary');
-
             $table->timestamps();
         });
     }

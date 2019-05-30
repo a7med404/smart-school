@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Salary extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'basic_salary'
+    ];
 }
