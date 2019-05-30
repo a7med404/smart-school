@@ -5,6 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Student\Entities\StudentTransfer;
+use Modules\Student\Transformers\StudentTransferResource;
+use Modules\Student\Http\Requests\CreateStudentTransferRequest;
 
 class StudentTransferController extends Controller
 {
@@ -12,9 +15,9 @@ class StudentTransferController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('student::index');
+        return StudentTransferResource::collection(StudentTransfer::all());
     }
 
     /**
@@ -31,9 +34,12 @@ class StudentTransferController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateStudentTransferRequest $request)
     {
-        //
+        StudentTransfer::create($request->all());
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class StudentTransferController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new StudentTransferResource(StudentTransfer::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class StudentTransferController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new StudentTransferResource(StudentTransfer::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +70,12 @@ class StudentTransferController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateStudentTransferRequest $request, $id)
     {
-        //
+        StudentTransfer::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +85,9 @@ class StudentTransferController extends Controller
      */
     public function destroy($id)
     {
-        //
+        StudentTransfer::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

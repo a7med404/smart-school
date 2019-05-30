@@ -27,10 +27,9 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('/parts', 'PartController');
     Route::resource('/students', 'StudentController');
     Route::patch('/students/dist', 'StudentController@dist');
-
     Route::resource('/healthes', 'HealthController');
-    
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
-
+    Route::resource('offPrints', 'OffPrintController');
+    Route::resource('studentTransfers', 'StudentTransferController');
 });
