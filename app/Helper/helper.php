@@ -177,12 +177,6 @@ function is_staff_son(){
     ];
 }
 
-function is_staff_son(){
-    return [
-        0 => 'لا',
-        1 => 'نعم',
-    ];
-}
 
 
 function getSelect($tableName){

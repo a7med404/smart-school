@@ -67,7 +67,7 @@ $.widget.bridge('uibutton', $.ui.button);
 
 
 <!-- Page script -->
-<script>
+{{-- <script>
   $(function () {
     //Initialize Select2 Elements
     $(".select2").select2();
@@ -154,7 +154,7 @@ $.widget.bridge('uibutton', $.ui.button);
       }
     })
   })
-</script>
+</script> --}}
 
 
 

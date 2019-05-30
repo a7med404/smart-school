@@ -94,6 +94,7 @@
               </div>
             </form>
             <div class="row">
+              <a href="/student/print-page/levels" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
               <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
                     <thead>
@@ -120,6 +121,13 @@
                                     <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(level.id)"> <i class="fa fa-times"></i></a>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                          <td v-if="allLevels.length < 1" colspan="6">
+                            <div  class="text-center">
+                              <p>لا توجد بيانات في هذا الجدول</p>
+                            </div>
+                          </td>
                         </tr>
                     </tbody>
                 </table>

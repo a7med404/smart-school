@@ -14,3 +14,11 @@
 Route::prefix('student')->group(function() {
     Route::get('/', 'StudentController@index');    
 });
+
+Route::group(['prefix' => '/student'], function () {
+    Route::get('/print-page/{page}', 'PrintController@printPage');
+    Route::get('/print', 'PrintController@print')->name('print');
+    Route::get('/download-PDF', 'PrintController@downloadPDF')->name('download-PDF');
+    Route::get('/print-PDF', 'PrintController@printPDF')->name('print-PDF');
+    
+});
