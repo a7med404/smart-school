@@ -129,10 +129,12 @@
                 <div class="form-group">
                   <label class="control-label">نوع المخالفة </label>
                   <select class="form-control select2" v-model="add_calend.type">
-                    	<option value="0">--اختر--</option>
-                      <option value="1">مخالفات متعلقة بنظام العمل</option>
-                      <option value="2">مخالفات متعلقة بسلوك العمل </option>
-                      <option value="3">مخالفات متعلقة بمواعيد العمل</option>
+                    	<option 
+                      v-for="(value, index) in calendTypes" 
+                      :key="index" :value="index" 
+                      v-text="value" 
+                      :selected="add_calend.type == index"> 
+                   </option>
                   </select>
                 </div>
               </div>
@@ -187,12 +189,17 @@
 </template>
 
 <script>
+    import axios from "axios";
+    import { mapGetters, mapActions } from 'vuex';
+    import { globalStore } from '../../../helper/general.js';
     export default {
         // mounted() {
         //     console.log('Component mounted.')
         // }
         data(){ 
           return {
+            calendTypes                : globalStore.calendTypes,
+            
             edit: false,
             calends: {
               id                     : '',

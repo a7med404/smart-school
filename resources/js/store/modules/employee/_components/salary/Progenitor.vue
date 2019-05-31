@@ -114,12 +114,12 @@
                   <div class="form-group">
                     <label class="control-label"> اسم الخزنة </label>
                     <select class="form-control select2" name="safe_id" v-model="progenitor.safe_id">
-                      <option value="CA">بنك الخرطوم</option>
-                      <option value="TE">بنك فيصل الاسلامي</option>
-                      <option value="TE">بنك العمال الوطني</option>
-                      <option value="CA"> بنك تنمية الصادرات</option>
-                      <option value="TE">بنك  الثروة الحيوانية</option>
-                      <option value="TE"> البنك السوداني الفرنسي </option>
+                      <option 
+                      v-for="(value, index) in safes" 
+                      :key="index" :value="index" 
+                      v-text="value" 
+                      :selected="progenitor.safe_id == index"> 
+                   </option>
                     </select>
                   </div>
                 </div>
@@ -167,12 +167,17 @@
 
 <script>
 
+    import axios from "axios";
+    import { mapGetters, mapActions } from 'vuex';
+    import { globalStore } from '../../../helper/general.js';
     export default {
         mounted() {
             console.log('Component mounted.')
         },
          data(){ 
           return {
+            safes                : globalStore.safes,
+
             edit: false,
            progenitor:{
               id                        : '',

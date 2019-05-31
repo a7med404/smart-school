@@ -7,7 +7,14 @@ use Modules\Student\Entities\Student;
 
 class Health extends Model
 {
-    protected $fillable =  ['doctor_name', 'doctor_number', 'blood_type', 'insurance_number', 'health_status', 'student_id'];
+    protected $fillable =  [
+        'doctor_name', 
+        'doctor_number', 
+        'blood_type', 
+        'insurance_number', 
+        'health_status', 
+        'student_id'
+    ];
 
     public function student()
     {
