@@ -20,6 +20,9 @@ class PrintController extends Controller
             case 'tests':
                 $data = \DB::table('levels')->get();
                 break;
+            case 'report_separates':
+                $data = \DB::table('report_separates')->all();
+                break;
             default:
             return abort(404);
                 break;
