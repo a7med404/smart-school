@@ -124,7 +124,13 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">موقفه من سداد الرسوم </label>
-                    <input name="date" type="text" class="form-control" v-model="student_transfer.payment_status" />
+                    <select class="form-control select2" v-model="student_transfer.payment_status">
+                      <option 
+                         v-for="(value, index) in payment_statuses" 
+                         :key="index" :value="index" 
+                         v-text="value" 
+                         :selected="student_transfer.payment_status == index">
+                       </option>
                   </div>
                 </div>
               </div>
@@ -149,12 +155,16 @@
 
 <script>
 
+    import { mapGetters, mapActions } from 'vuex';
+    import { globalStore } from '../../../helper/general.js';
     export default {
         mounted() {
             console.log('Component mounted.')
         },
         data(){ 
           return {
+            payment_statuses   : globalStore.payment_statuses,
+
             student_transfer: {
               student_id                      : '',  
               transfer_to                     : '',  

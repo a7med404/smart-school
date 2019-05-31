@@ -544,10 +544,10 @@
             religions              : globalStore.religions,
             nationalities          : globalStore.nationalities,
             martials               : globalStore.martials,
-           identifcation_types     : globalStore.identifcation_types,
-           certificateTypes        : globalStore.certificateTypes,
-           certificateDegrees      : globalStore.certificateDegrees,    
-           experience_years        : globalStore.experience_years,
+            identifcation_types    : globalStore.identifcation_types,
+            certificateTypes       : globalStore.certificateTypes,
+            certificateDegrees     : globalStore.certificateDegrees,    
+            experience_years       : globalStore.experience_years,
 
             
             student: {
