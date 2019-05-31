@@ -5,6 +5,9 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Employee\Entities\Certificat;
+use Modules\Employee\Transformers\CertificatResource;
+use Modules\Employee\Http\Requests\CreateCertificatRequest;
 
 class CertificatController extends Controller
 {
@@ -14,7 +17,7 @@ class CertificatController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return CertificatResource::collection(Certificat::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class CertificatController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +34,12 @@ class CertificatController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateCertificatRequest $request)
     {
-        //
+        $id =  Certificat::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
     }
 
     /**
@@ -43,8 +49,10 @@ class CertificatController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new CertificatResource(Certificat::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +61,22 @@ class CertificatController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new CertificatResource(Certificat::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateCertificatRequest $request, $id)
     {
-        //
+        Certificat::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +86,9 @@ class CertificatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Certificat::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

@@ -137,8 +137,6 @@
         </a>
         <ul class="treeview-menu">
           <li><router-link :to="{name: 'report-quality'}"> <i class="fa fa-circle-o"></i> تقرير الجودة </router-link></li>
-          <li><router-link :to="{name: 'report-levels'}"> <i class="fa fa-circle-o"></i> تقرير المراحل  </router-link></li>
-          <li><router-link :to="{name: 'report-classrooms'}"> <i class="fa fa-circle-o"></i> تقرير قائمة الفصول </router-link></li>
           <li><router-link :to="{name: 'report-emp-student'}"> <i class="fa fa-circle-o"></i> عرض ابناء العاملين </router-link></li>
           <!-- <li><router-link :to="{name: 'report-evaluation'}"> <i class="fa fa-circle-o"></i> بيانات طالب </router-link></li> -->
           <li><router-link :to="{name: 'report-separate'}"> <i class="fa fa-circle-o"></i> قرار فصل  </router-link></li>
@@ -272,6 +270,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><router-link :to="{name: 'report-levels'}"> <i class="fa fa-circle-o"></i> تقرير المراحل  </router-link></li>
+          <li><router-link :to="{name: 'report-classrooms'}"> <i class="fa fa-circle-o"></i> تقرير قائمة الفصول </router-link></li>
           <li>
             <a href="#"><i class="fa fa-circle-o text-aqua"></i>   الصفوف
               <span class="pull-right-container">

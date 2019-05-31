@@ -1,19 +1,22 @@
 <?php
 
-function gender(){
-    return [ 
+function gender()
+{
+    return [
         0 => 'انثي',
         1 => 'ذكر',
     ];
 }
-function valueOrPersentage(){
+function valueOrPersentage()
+{
     return [
         0 => 'القيمة',
         1 => 'نسبه',
     ];
 }
 
-function offPrint(){
+function offPrint()
+{
     return [
         1 => 'شهادة قيد طالب',
         2 => 'شهادة حسن سير وسلوك',
@@ -21,14 +24,16 @@ function offPrint(){
     ];
 }
 
-function is_mandatary(){
+function is_mandatary()
+{
     return [
         0 => 'غير إجباري',
         1 => 'إجباري',
     ];
 }
 
-function payment_status(){
+function payment_status()
+{
     return [
         1 => 'لم يدفع بعد',
         2 => 'جزئي',
@@ -36,7 +41,8 @@ function payment_status(){
     ];
 }
 
-function blood_type(){
+function blood_type()
+{
     return [
         1 => 'O+',
         2 => 'O-',
@@ -50,7 +56,8 @@ function blood_type(){
 }
 
 
-function religion(){
+function religion()
+{
     return [
         1 => 'الاسلام',
         2 => 'المسيحية',
@@ -58,7 +65,8 @@ function religion(){
     ];
 }
 
-function mr_d(){
+function mr_d()
+{
     return [
         1 => 'السيد',
         2 => 'السيدة',
@@ -68,7 +76,8 @@ function mr_d(){
     ];
 }
 
-function relation(){
+function relation()
+{
     return [
         1 => 'أب',
         2 => 'ام',
@@ -80,7 +89,8 @@ function relation(){
     ];
 }
 
-function nationality(){
+function nationality()
+{
     return [
         1 => 'السودان',
         2 => 'جنوب السودان',
@@ -92,7 +102,8 @@ function nationality(){
     ];
 }
 
-function martial(){
+function martial()
+{
     return [
         1 => 'متزوج',
         2 => ' عازب',
@@ -102,14 +113,16 @@ function martial(){
     ];
 }
 
-function is_die(){
+function is_die()
+{
     return [
         0 => 'حي',
         1 => ' ميت',
     ];
 }
 
-function agreementType(){
+function agreementType()
+{
     return [
         1 => 'استقالة',
         2 => ' استلام مرتبات',
@@ -120,7 +133,8 @@ function agreementType(){
     ];
 }
 
-function job_title(){
+function job_title()
+{
     return [
         1 => 'موظف',
         2 => ' معلم',
@@ -129,7 +143,8 @@ function job_title(){
 }
 
 
-function safes(){
+function safes()
+{
     return [
         1 => 'بنك الخرطوم',
         2 => ' بنك فيصل الاسلامي ',
@@ -139,14 +154,16 @@ function safes(){
     ];
 }
 
-function RewardsPunition(){
+function RewardsPunition()
+{
     return [
         0 => 'مكافأة ',
         1 => 'خصم',
     ];
 }
 
-function calendType(){
+function calendType()
+{
     return [
         1 => 'مخالفات متعلقة بنظام العمل ',
         2 => 'مخالفات متعلقة بسلوك العمل',
@@ -154,7 +171,8 @@ function calendType(){
     ];
 }
 
-function attendanceStatus(){
+function attendanceStatus()
+{
     return [
         1 => 'حاضر',
         2 => 'غائب',
@@ -162,7 +180,8 @@ function attendanceStatus(){
     ];
 }
 
-function is_partner_son(){
+function is_partner_son()
+{
     return [
         0 => 'لا',
         1 => 'نعم',
@@ -170,14 +189,16 @@ function is_partner_son(){
     ];
 }
 
-function is_staff_son(){
+function is_staff_son()
+{
     return [
         0 => 'لا',
         1 => 'نعم',
     ];
 }
 
-function certificateDegree(){
+function certificateDegree()
+{
     return [
         1 => 'إمتياز',
         2 => 'جيد جدا',
@@ -187,7 +208,8 @@ function certificateDegree(){
     ];
 }
 
-function certificateType(){
+function certificateType()
+{
     return [
         1 => 'دبلوم',
         2 => 'بكلاريوس ',
@@ -199,7 +221,8 @@ function certificateType(){
     ];
 }
 
-function experience_years(){
+function experience_years()
+{
     return [
         1 => '1',
         2 => '2 ',
@@ -212,14 +235,15 @@ function experience_years(){
 }
 
 
-function getSelect($tableName){
+function getSelect($tableName)
+{
 
     switch ($tableName) {
         case 'levels':
             $list = \DB::table('levels')->pluck('name', 'id');
             return $list->toArray();
             break;
-        
+
         case 'job':
             $list = \DB::table('jobs')->where('status', 1)->pluck('name', 'id');
             return $list->toArray();
@@ -230,8 +254,11 @@ function getSelect($tableName){
     }
 }
 
-function getName($tableName, $id){
-    if($id === null){ return "لا توجد بيانات"; }
+function getName($tableName, $id)
+{
+    if ($id === null) {
+        return "لا توجد بيانات";
+    }
     switch ($tableName) {
         case 'levels':
             $list = \DB::table('levels')->pluck('name', 'id');
@@ -258,7 +285,7 @@ function getName($tableName, $id){
             return $list[$id];
             break;
         case 'employees':
-            $list = \DB::table('employees')->pluck('name', 'id');
+            $list = \DB::table('employees')->pluck('full_name', 'id');
             return $list[$id];
             break;
         case 'pay_ruls':
@@ -270,41 +297,41 @@ function getName($tableName, $id){
             return $list[$id];
             break;
         case 'addresses':
-                $list = \DB::table('addresses')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('addresses')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'managaments':
-                $list = \DB::table('managaments')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('managaments')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'departments':
-                $list = \DB::table('departments')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('departments')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'employees':
-                $list = \DB::table('employees')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('employees')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'add_holidays':
-                $list = \DB::table('add_holidays')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('add_holidays')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'emp_perissions':
-                $list = \DB::table('emp_perissions')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('emp_perissions')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'evaluation_items':
-                $list = \DB::table('evaluation_items')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('evaluation_items')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'contacts':
-                $list = \DB::table('contacts')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('contacts')->pluck('name', 'id');
+            return $list[$id];
+            break;
         case 'calends':
-                $list = \DB::table('calends')->pluck('name', 'id');
-                return $list[$id];
-                break;
+            $list = \DB::table('calends')->pluck('name', 'id');
+            return $list[$id];
+            break;
         default:
             $list = \DB::table('parts')->pluck('name', 'id');
             return $list->toArray();
@@ -312,15 +339,17 @@ function getName($tableName, $id){
     }
 }
 
-function getDefaultImage($imageName){
-    
+function getDefaultImage($imageName)
+{
+
     return $imageName == null ? "default_customer_image.png" : "$imageName";
 }
-function getCustomerImageOrDefaultImage($imageName = null){
-    if($imageName != null){
-        if(\File::exists(public_path('storage/uploads/images/customers/'.$imageName))){
-            return asset('storage/uploads/images/customers/'.$imageName);
+function getCustomerImageOrDefaultImage($imageName = null)
+{
+    if ($imageName != null) {
+        if (\File::exists(public_path('storage/uploads/images/customers/' . $imageName))) {
+            return asset('storage/uploads/images/customers/' . $imageName);
         }
-    return asset('storage/uploads/images/customers/default_customer_image.png');
+        return asset('storage/uploads/images/customers/default_customer_image.png');
     }
 }

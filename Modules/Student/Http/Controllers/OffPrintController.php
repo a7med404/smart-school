@@ -5,6 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Student\Entities\OffPrint;
+use Modules\Student\Transformers\OffPrintResource;
+use Modules\Student\Http\Requests\CreateOffPrintRequest;
 
 class OffPrintController extends Controller
 {
@@ -12,9 +15,13 @@ class OffPrintController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('student::index');
+        if ($request->type) {
+            return OffPrintResource::collection(OffPrint::where('type', $request->type)->get());
+        } else {
+            return OffPrintResource::collection(OffPrint::all());
+        }
     }
 
     /**
@@ -31,9 +38,12 @@ class OffPrintController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateOffPrintRequest $request)
     {
-        //
+        OffPrint::create($request->all());
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
     }
 
     /**
@@ -43,7 +53,8 @@ class OffPrintController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new OffPrintResource(OffPrint::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +64,8 @@ class OffPrintController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new OffPrintResource(OffPrint::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,9 +74,12 @@ class OffPrintController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateOffPrintRequest $request, $id)
     {
-        //
+        OffPrint::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +89,9 @@ class OffPrintController extends Controller
      */
     public function destroy($id)
     {
-        //
+        OffPrint::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

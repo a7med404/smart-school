@@ -5,6 +5,9 @@ namespace Modules\File\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\File\Entities\File;
+use Modules\File\Transformers\FileResource;
+use Modules\File\Http\Requests\CreateFileRequest;
 
 class FileController extends Controller
 {
@@ -14,7 +17,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        return view('file::index');
+        return  FileResource::collection(File::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        return view('file::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +34,15 @@ class FileController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateFileRequest $request)
     {
-        //
+        if ($request->hasFile('file')) {
+            /* upload here */ }
+        $id = File::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'file_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,8 +52,10 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        return view('file::show');
+        return new FileResource(File::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +64,22 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        return view('file::edit');
+        return new FileResource(File::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateFileRequest $request, $id)
     {
-        //
+        File::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +89,9 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        File::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }
