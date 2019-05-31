@@ -15,6 +15,54 @@ export default {
       commit('ADD_STUDENT', []);
     })
   },
+  
+  async addStudentAddress({ commit }, payload){
+    await axios.post('/api/student/students',payload)
+    .then((response) => {
+      commit('STUDENT_ID', response.data.student_id);
+      // commit('ADD_STUDENT_ADDRESS', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      // commit('ADD_STUDENT_ADDRESS', []);
+    })
+  },
+
+  async addStudentContact({ commit }, payload){
+    await axios.post('/api/student/students',payload)
+    .then((response) => {
+      commit('STUDENT_ID', response.data.student_id);
+      // commit('ADD_STUDENT_ADDRESS', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      // commit('ADD_STUDENT_ADDRESS', []);
+    })
+  },
+  
+  async addStudentIdentifcation({ commit }, payload){
+    await axios.post('/api/student/students',payload)
+    .then((response) => {
+      commit('STUDENT_ID', response.data.student_id);
+      // commit('ADD_STUDENT_ADDRESS', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      // commit('ADD_STUDENT_ADDRESS', []);
+    })
+  },
+
+  async addStudentHealth({ commit }, payload){
+    await axios.post('/api/student/students',payload)
+    .then((response) => {
+      commit('STUDENT_ID', response.data.student_id);
+      // commit('ADD_STUDENT_ADDRESS', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      // commit('ADD_STUDENT_ADDRESS', []);
+    })
+  },
 
   async updateDistStudent({ commit }, payload, id){
     console.log(payload);
@@ -61,8 +109,6 @@ export default {
     //   console.error(error);
     // }
   },
-
-
 
   async updateLevel({ commit }, upLevel) {
     try {
@@ -164,4 +210,28 @@ export default {
     }
   },
 
+    // Records *******************************************************************************/
+    async fetchRecords({ commit }){
+      try {
+        const response = await axios.get('/api/student/records');
+        commit('ALL_RECORDS', response.data.data);
+      } catch (error) {
+        commit('ALL_RECORDS', []);
+        console.error(error);
+      }
+    },
+  
+    async addRecord({ commit }, payload){
+      await axios.post('/api/student/records',payload)
+      .then((response) => {
+        commit('ADD_RECORD', response.data.data);
+      })
+      .catch((error) => {
+        console.log(error)
+        commit('ADD_RECORD', []);
+        // commit('SET_ERRORS', error);
+      })
+  
+    },
+  
 }

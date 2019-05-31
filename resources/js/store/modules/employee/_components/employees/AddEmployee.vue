@@ -231,6 +231,7 @@
                               v-text="value" 
                               :selected="address.local == index">
                             </option>
+                          </select>
                         </div>
                       </div>
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">

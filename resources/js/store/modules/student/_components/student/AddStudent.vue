@@ -136,9 +136,9 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="address">
-                  <form role="form">
+                  <form @submit.prevent = "edit ? updateStudentAddress(student) : createStudentAddress()" role="form">
                     <p class="title"> عنوان الطالب</p>
-                    <input type="hidden" class="" v-model="address.student_id">
+                    <input type="hidden" v-model="address.studentIdToSend">
                     <div class="row">
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
@@ -283,7 +283,7 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="dist">
-                  <form @submit.prevent = "edit ? toUpdateStudent(student) : studentDist()" role="form">
+                  <form @submit.prevent = "edit ? toUpdateDist(student) : studentDist()" role="form">
                     <div class="row">
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                       <input type="hidden" class="" v-model="dist.student_id"> 
@@ -696,6 +696,8 @@
         },
         data(){ 
           return {
+            studentid : '', 
+
             genders                : globalStore.genders,
             cities                 : globalStore.cities,
             locals                 : globalStore.locals,
@@ -792,15 +794,17 @@
           }
         },
         methods: {
-          ...mapActions(['addStudent', 'updateDistStudent']),
+          ...mapActions(['addStudent', 'addStudentAddress', 'addStudentContact', 'addStudentIdentifcation', 'addStudentHealth', 'updateDistStudent']),
+          
           createStudent: function() {
             let self = this;
             let params = Object.assign({}, this.student);
             this.addStudent(params).then(function(){
+          // console.log(self.studentId, "lkl");
+              self.studentid = self.studentId,
               self.student.name              = '',  
               self.student.gender            = '',  
               self.student.religion          = '',  
-              self.student.is_partner_son    = '',  
               self.student.is_staff_son      = '',  
               self.student.birthday          = '',  
               self.student.start_data        = '', 
@@ -808,7 +812,7 @@
               self.student.start_year        = '', 
               self.student.note              = '',
               self.student.student_parent_id = '',
-              self.student.address_id        = '',
+              // self.student.address_id        = '',
               self.student.contact_id        = '',
               self.student.level_id          = '',
               self.student.classroom_id      = '',
@@ -816,6 +820,28 @@
             });
           },
 
+          createStudentAddress: function() {
+            let self = this;
+            let params = Object.assign({}, this.address);
+            this.addStudentAddress(params).then(function(){
+              self.studentIdToSend = self.studentId,
+              self.address.street_1     = '',  
+              self.address.street_2     = '',  
+              self.address.city         = '',  
+              self.address.local        = '',  
+              self.address.home_number  = ''
+            });
+          },
+           
+          createStudentContact: function() {
+            let self = this;
+            let params = Object.assign({}, this.contact);
+            this.addStudentContact(params).then(function(){
+              self.contact.number_1     = '',  
+              self.contact.number_2     = '',  
+              self.contact.email         = ''
+            });
+          },
 
           studentDist: function() {
             let self = this;
@@ -824,6 +850,29 @@
               self.dist.level_id          = '',
               self.dist.classroom_id      = '',
               self.dist.part_id           = ''
+            });
+          },
+          
+          createStudentIdentifcation: function() {
+            let self = this;
+            let params = Object.assign({}, this.identifcation);
+            this.addStudentIdentifcation(params).then(function(){
+              self.identifcation.type     = '',  
+              self.identifcation.identifcation_number     = '',  
+              self.identifcation.issue_date         = '',
+              self.identifcation.issue_place         = ''
+            });
+          },
+
+          createStudentHealth: function() {
+            let self = this;
+            let params = Object.assign({}, this.health);
+            this.addStudentHealth(params).then(function(){
+              self.health.doctor_name     = '',  
+              self.health.doctor_number     = '',  
+              self.health.blood_type         = '',
+              self.health.insurance_number         = '',
+              self.health.health_status         = ''
             });
           },
 
@@ -847,6 +896,9 @@
         // computed: { ...mapGetters(['allStudent']) },
         created() {
         },
+        watched() {
+          console.log(this.studentid);
+        }
 
     }
 </script>

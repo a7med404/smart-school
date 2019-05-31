@@ -714,6 +714,18 @@ tbody td:last-child{
   border: 1px solid #cfcfcf;
   border-radius: 8px;
 }
+@media print {
+  .report-title{
+    padding: 12px 20px;
+    background: #eee;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+  }
+  @page {
+    size: auto;
+    margin: 0;
+         }
+}
 /**
  *  Start My Color Section ========================================================================================================>
  **/

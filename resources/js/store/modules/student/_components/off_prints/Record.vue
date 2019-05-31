@@ -125,9 +125,10 @@
 
 <script>
 
+  import axios from "axios";
+  import { mapGetters, mapActions } from 'vuex';
     export default {
         mounted() {
-            console.log('Component mounted.')
         },
         data(){ 
           return {
@@ -135,8 +136,30 @@
               student_id               : '',  
               employee_id              : '',  
               type                     : ''
-            }
+            },
+
+            edit: false,
+            loading: true,
           }
+        },
+        computed: {
+          ...mapGetters(['allRecords'])
+        },
+        created() {
+          let self = this;
+          self.fetchRecords().then(function(){self.loading = false;});
+        },
+        methods: {
+          ...mapActions(['fetchRecords', 'addRecord']),
+          createRecord: function() {
+          let self = this;
+          let params = Object.assign({}, this.record);
+          this.addRecord(params).then(function(){
+            self.record.student_id = '',
+            self.record.employee_id = '',
+            self.record.type = ''
+          });
+        },
         }
     }
 </script>
