@@ -191,7 +191,7 @@
 <script>
     import axios from "axios";
     import { mapGetters, mapActions } from 'vuex';
-    import { globalStore } from '../../../helper/general.js';
+    import { globalStore } from '../../helper/general.js';
     export default {
         // mounted() {
         //     console.log('Component mounted.')
