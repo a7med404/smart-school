@@ -131,6 +131,7 @@
                          v-text="value" 
                          :selected="student_transfer.payment_status == index">
                        </option>
+                      </select>
                   </div>
                 </div>
               </div>
