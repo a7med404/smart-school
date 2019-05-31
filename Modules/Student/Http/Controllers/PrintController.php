@@ -10,12 +10,12 @@ use PDF;
 
 class PrintController extends Controller
 {
-    public function printPage($page)
+    public function printPage($page) 
     {
         $data = [];
         switch($page){
             case 'levels':
-                $data = \DB::table('levels')->get();
+                $data = Level::where('id', '<', 7)->get();
                 break;
             case 'tests':
                 $data = \DB::table('levels')->get();
@@ -24,7 +24,7 @@ class PrintController extends Controller
             return abort(404);
                 break;
         }
-        return view("student::print.$page.page", ['data' => $data]);
+        return view("student::print.$page.print-page", ['data' => $data]);
     }    
 
     public function print()

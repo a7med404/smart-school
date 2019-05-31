@@ -27,9 +27,14 @@ export default {
       state.classrooms.splice(index, 1, upClassroom);
     }
   },
-
+  
 
   // For Parts State
   ALL_PARTS:    (state, parts) => (state.parts = parts),
+
+
+  // For RECORDS State
+  ALL_RECORDS:    (state, records) => (state.records = records),
+  ADD_RECORDS:     (state, record) => state.records.unshift(record),
 }
   

@@ -37,4 +37,6 @@ export default {
   levels: [],
   classrooms: [],
   parts: [],
+
+  records: [],
 }
