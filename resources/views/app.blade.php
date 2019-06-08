@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="icon" href="layout/images/visa.png" type="image/ico" />
-    <title>School !| </title>
+    <meta name="url" content="{{url('/')}}">
+    <title>School !|  </title>
     @include('partials.styles')
 
   </head>

@@ -33,9 +33,9 @@
                 <li><a href="#address" data-toggle="tab">عنوان الطالب</a></li>
                 <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
                 <li><a href="#identifcation" data-toggle="tab">اثبات الشخصية</a></li>
-                <li><a href="#dist" data-toggle="tab">توزيع الطالب</a></li>
+                <!-- <li><a href="#instalment" data-toggle="tab">الرسوم الدراسية</a></li> -->
                 <li><a href="#health" data-toggle="tab">الحالة الصحية</a></li>
-                <li><a href="#master" data-toggle="tab">بيانات ولي امر الطالب</a></li>
+                <li><a href="#master" data-toggle="tab"> ولي امر الطالب</a></li>
                 <li><a href="#attachments" data-toggle="tab">مرفقات الطالب</a></li>
               </ul>
               <div class="tab-content">
@@ -93,19 +93,50 @@
                             <label class="control-label">تاريخ الالتحاق</label>
                             <input type="text" class="form-control" id="start_data" v-model="student.start_data"/>
                           </div>
-                          </div>
-                          <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        </div>
+                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label">العام الدراسي </label>
-                            <select class="form-control select2"  v-model="student.start_year">
-                              <option value="CA">2013/2014</option>
-                              <option value="TE">2014/2015</option>
-                              <option value="TE">2015/2016</option>
+                            <select class="form-control select2" v-model="student.education_year">
+                              <option 
+                                v-for="(value, index) in education_years" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="student.education_year == index"> 
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                          <div class="form-group">
+                            <label class="control-label">الحالة الدراسية</label>
+                            <select class="form-control select2" v-model="student.study_status">
+                              <option 
+                                v-for="(value, index) in study_status" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="student.study_status == index"> 
+                              </option>
                             </select>
                           </div>
                         </div>
                       </div>
                       
+                      <div class="row">
+                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                          <div class="form-group">
+                            <label class="control-label">الجنسية</label>
+                            <select class="form-control select2" name="nationality" v-model="student.nationality">
+                              <option 
+                                v-for="(value, index) in nationalities" 
+                                :key="index" :value="index" 
+                                v-text="value" 
+                                :selected="student.nationality == index"> 
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                       <div class="row">
                         <div class="col col-lg-3 col-md-6 col-sm-6 col-12">
                           <div class="form-group">
@@ -113,6 +144,48 @@
                               <input type="checkbox" class="minimal" v-model="student.is_staff_son">
                               من ابناء العاملين 
                             </label>
+                          </div>
+                        </div>
+                      </div>
+                        
+                      <div class="row">
+                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
+                          <div class="form-group">
+                            <label class="control-label">المرحلة التعليمية</label>
+                            <select class="form-control select2" v-model="student.level_id">
+                              <option 
+                                v-for="level in allLevels" 
+                                :key="level.id" :value="level.id" 
+                                v-text="level.name" 
+                                :selected="student.level_id == level.id">
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                          <div class="form-group">
+                            <label class="control-label">اسم الصف</label>
+                            <select class="form-control select2" v-model="student.classroom_id">
+                              <option 
+                                v-for="classroom in allClassrooms" 
+                                :key="classroom.id" :value="classroom.id" 
+                                v-text="classroom.name" 
+                                :selected="student.classroom_id == classroom.id">
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                          <div class="form-group">
+                            <label class="control-label"> اسم الفصل</label>
+                            <select class="form-control select2" v-model="student.part_id">
+                              <option 
+                                v-for="part in allParts" 
+                                :key="part.id" :value="part.id" 
+                                v-text="part.name" 
+                                :selected="student.part_id == part.id">
+                              </option>
+                            </select>
                           </div>
                         </div>
                       </div>
@@ -161,7 +234,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">المدينة</label>
-                          <select class="form-control select2" @change="getLocals($event)">
+                          <select class="form-control select2" v-model="address.city" @change="getLocals($event)">
                             <option 
                               v-for="(value, index) in cities" 
                               :key="index" :value="index" 
@@ -202,7 +275,7 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="contact">
-                  <form role="form">
+                  <form @submit.prevent = "edit ? createStudentContact(student) : createStudentContact()" role="form">
                     <p class="title"> بيانات الاتصال</p>
                     <div class="row">
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
@@ -237,7 +310,7 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="identifcation">
-                  <form role="form">
+                  <form @submit.prevent = "edit ? updateStudentIdentifcation(student) : createStudentIdentifcation()" role="form">
                     <div class="row">
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
@@ -255,7 +328,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم اثبات الشخصية </label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number" v-model="identifcation.identifcation_number">
+                          <input class="form-control" placeholder="" type="text" v-model="identifcation.identifcation_number">
                         </div>
                       </div>
                     </div>
@@ -282,56 +355,32 @@
                   </form>
                 </div>
                 <!-- /.tab-pane -->
-                <div class="tab-pane" id="dist">
-                  <form @submit.prevent = "edit ? toUpdateDist(student) : studentDist()" role="form">
+                <div class="tab-pane" id="instalment">
+                  <form @submit.prevent = "edit ? updateStudentAddress(student) : createStudentAddress()" role="form">
+                    <p class="title"> الرسوم الدراسية</p>
+                    
                     <div class="row">
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                      <input type="hidden" class="" v-model="dist.student_id"> 
                         <div class="form-group">
-                          <label class="control-label">المرحلة التعليمية</label>
-                          <select class="form-control select2" v-model="dist.level_id">
-                            <option value="1">حضانة </option>
-                            <option value="0">اساس</option>
-                            <option value="0">ثانوي</option>
-                          </select>
+                          <label class="control-label"> المبلغ </label>
+                          <input class="form-control" placeholder="" type="text" v-model="instalment.payment">
+                        </div>
+                      </div>
+                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="form-group">
+                          <label class="control-label"> تاريخ الدفع </label>
+                          <input class="form-control" placeholder="" type="text" v-model="instalment.date">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                      <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
-                          <label class="control-label">اسم الصف</label>
-                          <select class="form-control select2" v-model="dist.classroom_id">
-                            <option value="1">حضانة</option>
-                            <option value="0">الاول</option>
-                            <option value="1">الثاني</option>
-                            <option value="0">الاول</option>
-                            <option value="1">الثاني</option>
-                            <option value="0">الثالث</option>
-                            <option value="1">الرابع</option>
-                            <option value="0">الخامس</option>
-                            <option value="0">السادس</option>
-                            <option value="1">السابع</option>
-                            <option value="0">الثامن</option>
-                            <option value="0">الاول</option>
-                            <option value="1">الثاني</option>
-                            <option value="0">الثالث</option>
-                          </select>
+                          <label class="control-label">ملاحظة</label>
+                          <textarea class="form-control" placeholder="" v-model="instalment.note"></textarea>
                         </div>
                       </div>
-                      <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div class="form-group">
-                          <label class="control-label"> اسم الفصل</label>
-                          <select class="form-control select2" v-model="dist.part_id">
-                            <option value="1">ابوبكر</option>
-                            <option value="0">عمر</option>
-                            <option value="1">علي</option>
-                            <option value="0">عثمان</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
+                    </div> 
                     <div class="row">
                       <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                         <button class="btn btn-primary btn-md">حفــظ</button>
@@ -341,7 +390,7 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="health">
-                  <form role="form">
+                  <form @submit.prevent = "edit ? updateStudentHealth(student) : createStudentHealth()" role="form">
                     <div class="row">
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="form-group">
@@ -421,7 +470,7 @@
                               </div>
                             </div>
                             <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                              <button type="button" data-toggle="modal" data-target="#popup-add-father" class="btn btn-default">اضافة ولي امر جديد</button>
+                              <button type="button" data-toggle="modal" data-target="#popup-add-father" class="btn btn-default m-t-25">اضافة ولي امر جديد</button>
                             </div>
                           </div>
                         </div>
@@ -441,7 +490,7 @@
                               </div>
                             </div>
                             <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                              <button type="button" data-toggle="modal" data-target="#popup-add-mather" class="btn btn-default">اضافة ولي امر جديد</button>
+                              <button type="button" data-toggle="modal" data-target="#popup-add-mather" class="btn btn-default m-t-25">اضافة ولي امر جديد</button>
                             </div>
                           </div>
                         </div>
@@ -450,7 +499,6 @@
                   </div>
                 </div>
                 <!-- /.tab-pane -->
-
                 <div class="tab-pane" id="attachments">
                   <form role="form">
                     <p class="title"> مرفقات الطالب</p>
@@ -667,7 +715,7 @@
             
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                <button href="#" class="btn btn-primary">اضافة</button>
+                <button href="#" class="btn btn-primary">حـــفظ</button>
               </div>
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
@@ -692,7 +740,7 @@
     export default {
         mounted() { },
         computed: {
-          ...mapGetters(['studentId'])
+          ...mapGetters(['studentId', 'allLevels', 'allClassrooms', 'allParts'])
         },
         data(){ 
           return {
@@ -707,6 +755,9 @@
             religions              : globalStore.religions,
             nationalities          : globalStore.nationalities,
             martials               : globalStore.martials,
+            study_status           : globalStore.study_status,
+            education_years        : globalStore.education_years,
+            
             locals : [],         
             edit: false,
 
@@ -721,40 +772,39 @@
               is_staff_son           : '',  
               birthday               : '',  
               start_data             : '', 
-              start_year             : '', 
+              education_year             : '', 
+              study_status           : '', 
               note                   : '',
+              level_id               : '',
+              classroom_id           : '',
+              part_id                : ''
               // student_parent_id      : '',
               // address_id             : '',
               // contact_id             : '',
             },
 
-            dist: {
-              student_id: '',
-              level_id: '',
-              classroom_id: '',
-              part_id: ''
+            instalment: {
+              payment: '',
+              date: '',
+              note: '',
             },
-            //   student_parent_id      : '',
-            //   address_id             : '',
-            //   contact_id             : '',
-            //   level_id               : '',
-            //   classroom_id           : '',
-            //   part_id                : '',
-            //   health_id              : ''
-            // },
 
             address: {
               street_1      : '',
               street_2      : '',
               city          : '',
               local         : '',
-              home_number   :''
+              home_number   :'',
+              addressable_id: '',
+              addressable_type: 'Modules\\Student\\Entities\\Student'
             },
 
             contact: {
               number_1: '',
               number_2: '',
-              email:    ''
+              email:    '',
+              contactable_id: '',
+              contactable_type: 'Modules\\Student\\Entities\\Student',
             },
 
             identifcation: {
@@ -762,7 +812,8 @@
               identifcation_number: '',
               issue_date: '',
               issue_place: '',
-              identable_id: '',
+              identifcationable_id: '',
+              identifcationable_type: 'Modules\\Student\\Entities\\Student',
             },
 
             health: {
@@ -770,6 +821,7 @@
               doctor_number: '',
               blood_type: '',
               insurance_number: '',
+              student_id: '',
               health_status: ''
             },
 
@@ -794,7 +846,7 @@
           }
         },
         methods: {
-          ...mapActions(['addStudent', 'addStudentAddress', 'addStudentContact', 'addStudentIdentifcation', 'addStudentHealth', 'updateDistStudent']),
+          ...mapActions(['addStudent', 'addStudentAddress', 'addStudentContact', 'addStudentIdentifcation', 'addStudentHealth', 'updateDistStudent', 'fetchLevels', 'fetchClassrooms', 'fetchParts']),
           
           createStudent: function() {
             let self = this;
@@ -808,12 +860,12 @@
               self.student.is_staff_son      = '',  
               self.student.birthday          = '',  
               self.student.start_data        = '', 
-              self.student.start_from        = '',
-              self.student.start_year        = '', 
+              self.student.education_year    = '', 
               self.student.note              = '',
               self.student.student_parent_id = '',
               // self.student.address_id        = '',
               self.student.contact_id        = '',
+              self.student.study_status      = '',
               self.student.level_id          = '',
               self.student.classroom_id      = '',
               self.student.part_id           = ''
@@ -839,20 +891,10 @@
             this.addStudentContact(params).then(function(){
               self.contact.number_1     = '',  
               self.contact.number_2     = '',  
-              self.contact.email         = ''
+              self.contact.email        = ''
             });
           },
 
-          studentDist: function() {
-            let self = this;
-            let params = Object.assign({}, this.dist);
-            this.updateDistStudent(params).then(function(){
-              self.dist.level_id          = '',
-              self.dist.classroom_id      = '',
-              self.dist.part_id           = ''
-            });
-          },
-          
           createStudentIdentifcation: function() {
             let self = this;
             let params = Object.assign({}, this.identifcation);
@@ -868,11 +910,11 @@
             let self = this;
             let params = Object.assign({}, this.health);
             this.addStudentHealth(params).then(function(){
-              self.health.doctor_name     = '',  
-              self.health.doctor_number     = '',  
+              self.health.doctor_name        = '',  
+              self.health.doctor_number      = '',  
               self.health.blood_type         = '',
-              self.health.insurance_number         = '',
-              self.health.health_status         = ''
+              self.health.insurance_number   = '',
+              self.health.health_status      = ''
             });
           },
 
@@ -893,8 +935,11 @@
           }
         },
         props: [],
-        // computed: { ...mapGetters(['allStudent']) },
         created() {
+          let self = this;
+          self.fetchLevels();
+          self.fetchClassrooms();
+          self.fetchParts();
         },
         watched() {
           console.log(this.studentid);

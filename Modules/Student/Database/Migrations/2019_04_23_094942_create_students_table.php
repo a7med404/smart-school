@@ -18,12 +18,12 @@ class CreateStudentsTable extends Migration
             $table->string('name', 200);
             $table->enum('gender', [0, 1]);
             $table->tinyInteger('religion');
-            $table->boolean('is_partner_son');
-            $table->boolean('is_staff_son');
+            $table->boolean('is_staff_son')->default(false);
             $table->date('birthday');
             $table->date('start_data');
-            $table->string('start_from', 200); //start_year
-            $table->date('start_year');
+            // $table->string('start_from', 200); //education_year
+            $table->string('education_year');
+            $table->tinyInteger('study_status');
             $table->text('note');
             
             $table->unsignedBigInteger('identifcation_id')->nullable();

@@ -36,10 +36,20 @@ class IdentifcationController extends Controller
      */
     public function store(CreateIdentifcationRequest $request)
     {
-         Identifcation::create($request->all());
-            return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-            ], 201);
+        $data = [
+            'type'                      => $request->type,
+            'issue_date'                => $request->issue_date,
+            'identifcation_number'      => $request->identifcation_number,
+            'issue_place'               => $request->issue_place,
+            'identifcationable_id'      => $request->identifcationable_id,
+            'identifcationable_type'    => $request->identifcationable_type,
+        ];
+         Identifcation::create($data);
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
+        
+            
     }
 
     /**

@@ -2,10 +2,14 @@
 
 namespace Modules\Student\Http\Controllers;
 
+use \DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Student;
+use Modules\Address\Entities\Address;
+use Modules\Address\Entities\Contact;
+use Modules\Address\Entities\Identifcation;
 use Modules\Student\Transformers\StudentResource;
 use Modules\Student\Transformers\SingleStudentResource;
 use Modules\Student\Http\Requests\CreateStudentRequest;
@@ -18,6 +22,23 @@ class StudentController extends Controller
     public function index()
     {
         return StudentResource::collection(Student::all());
+
+    }
+
+    public function allStudents(Request $request)
+    {
+        if($request->has('gender')){
+            $requestAll = $request->toArray();
+            $query = DB::table('students')->select('*');
+            foreach ($requestAll as $key => $req) {
+                if (!($req == "" || null)) {
+                    $query->where($key, $req);
+                }
+            }
+            $students = $query->orderBy('id','desc')->get();
+            return StudentResource::collection($students);
+        }
+            return StudentResource::collection(Student::all());
     }
 
     /**
@@ -36,7 +57,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        $request->education_year = "2019-05-07";
+        
         $data = [
             "name" => $request->name,
             "gender" => $request->gender,
@@ -44,42 +66,15 @@ class StudentController extends Controller
             "is_staff_son" => $request->is_staff_son,
             "birthday" => $request->birthday,
             "start_data" => $request->start_data,
-            "start_year" => "2019-05-07",//$request->start_year,
+            "education_year" => "2019-05-07",//$request->education_year,
             "note" => $request->note
         ];
-        // $id = Student::create($data)->id;    
+        
+        $id = Student::create(array_except($request->all(), "study_status"))->id;    
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
-            'student_id' => 2//$id
+            'student_id' => $id
         ], 201);
-        // if($request->has('studentIdToSend')){
-        //     dd($request->all());
-
-        // }
-    }
-
-    public function addAddress(Request $request, $id)
-    {
-        dd($request->all());
-        $data = [
-            "name" => $request->name,
-            "gender" => $request->gender,
-            "religion" => $request->religion,
-            "is_staff_son" => $request->is_staff_son,
-            "birthday" => $request->birthday,
-            "start_data" => $request->start_data,
-            "start_year" => "2019-05-07",//$request->start_year,
-            "note" => $request->note
-        ];
-        // $id = Student::create($data)->id;    
-        // return response()->json([
-        //     'message' => 'تم الحفظ بنجاح',
-        //     'student_id' => 2//$id
-        // ], 201);
-        if($request->has('studentIdToSend')){
-            dd($request->all());
-
-        }
     }
     
     /**
@@ -100,7 +95,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        return new SingleStudentResource(Student::findOrfail($id));
+        return Student::with('addresses')->with('contacts')->with('identifcations')->with('health')->findOrfail($id);
         /* return view('student::edit'); */
     }
 
@@ -116,15 +111,6 @@ class StudentController extends Controller
         return response()->json([
                 'message' => 'تم التحديث بنجاح',
             ], 200);
-    }
-
-    public function dist(Request $request)
-    {
-        dd($request->all());
-        // Student::findOrfail($id)->update($request->all());
-        // return response()->json([
-        //         'message' => 'تم التحديث بنجاح',
-        //     ], 200);
     }
 
     /**

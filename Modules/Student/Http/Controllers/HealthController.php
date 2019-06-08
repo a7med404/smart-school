@@ -43,7 +43,7 @@ class HealthController extends Controller
             'blood_type'             => $request->blood_type,
             'insurance_number'       => $request->insurance_number,
             'health_status'          => $request->health_status,
-            'student_id'             => $request->student_id,
+            'student_id'             => 3,//$request->student_id,
         ];
         $Health = Health::create($data);
         return response()->json(['message' => 'تم الحفظ بنجاح', 'data' => $Health], 201);

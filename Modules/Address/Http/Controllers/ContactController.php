@@ -36,10 +36,16 @@ class ContactController extends Controller
      */
     public function store(CreateContactRequest $request)
     {
-         Contact::create($request->all());
-            return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-            ], 201);
+        $data = [
+            'number_1'          =>  $request->number_1,
+            'number_2'          =>  $request->number_2,
+            'email'             =>  $request->email,
+            'note'              =>  $request->note,
+            'contactable_id'    =>  3,//$request->contactable_id,
+            'contactable_type'  =>  $request->contactable_type
+        ];
+        Contact::create($data);
+        return response()->json(['message' => 'تم الحفظ بنجاح' ], 201);
     }
 
     /**

@@ -76,7 +76,7 @@
               
               <div class="row">
                 <div class="col col-lg-3 col-md-4 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">اضافة</button>
+                  <button href="#" class="btn btn-primary">حـــفظ</button>
                 </div>
               </div>
             </form>

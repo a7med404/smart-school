@@ -52,6 +52,9 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- date-range-picker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="{{ asset('modules/master/plugins/daterangepicker/daterangepicker.js') }}"></script>
+<!-- DataTable -->
+<script src="{{ asset('modules/master/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 <!-- bootstrap color picker -->
 <script src="{{ asset('modules/master/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 <!-- bootstrap time picker -->
@@ -65,6 +68,20 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('modules/master/js/demo.js') }}"></script>
 
+
+<script>
+    $(function () {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false
+      });
+    });
+  </script>
 
 <!-- Page script -->
 {{-- <script>

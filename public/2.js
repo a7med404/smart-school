@@ -445,7 +445,7 @@ var staticRenderFns = [
                                     href: "#"
                                   }
                                 },
-                                [_vm._v("اضافة")]
+                                [_vm._v("حـــفظ")]
                               )
                             ]
                           )
@@ -676,7 +676,7 @@ var staticRenderFns = [
                                     href: "#"
                                   }
                                 },
-                                [_vm._v("اضافة")]
+                                [_vm._v("حـــفظ")]
                               )
                             ]
                           )

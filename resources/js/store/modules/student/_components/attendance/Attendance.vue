@@ -68,7 +68,7 @@
                   </div>
                   <div class="row">
                     <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                      <button class="btn btn-primary btn-md">اضافة</button>
+                      <button class="btn btn-primary btn-md">حـــفظ</button>
                     </div>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
                   </div>
                   <div class="row">
                     <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                      <button class="btn btn-primary btn-md">اضافة</button>
+                      <button class="btn btn-primary btn-md">حـــفظ</button>
                     </div>
                   </div>
                 </div>
@@ -114,26 +114,27 @@
 
 <script>
 
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        },
-        data(){ 
-            return {
-              attendance: {
-                student_id       : '',
-                absence_from     : '',
-                absence_to       : '',
-                absence_reason   : ''
-              },
-              newattendance : {
-               date             : '',  
-               status           : '',
-               student_id       : '',
-               note             : ''
-              }        
-                 }
-        }
+export default {
+  mounted() {
+    console.log('Component mounted.')
+  },
 
-        }
+  data(){ 
+    return {
+      student_id          : '',
+      attendance: {
+        absence_from     : '',
+        absence_to       : '',
+        absence_reason   : ''
+      },
+
+      newattendance: {
+        date             : '',  
+        status           : '',
+        student_id       : '',
+        note             : ''
+      }        
+    }
+  }
+}
 </script>

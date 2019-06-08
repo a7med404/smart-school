@@ -2,7 +2,7 @@
 
 export default {
   // allErrors: (state) => state.errors,
-  allStudent: (state) => state.students,
+  allStudents: (state) => state.students,
   allLevels: (state) => state.levels,
   allClassrooms: (state) => state.classrooms,
   allParts: (state) => state.parts,

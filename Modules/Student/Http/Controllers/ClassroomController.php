@@ -37,10 +37,11 @@ class ClassroomController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        Classroom::create($request->all());
+    { 
+        $classroom = Classroom::create($request->all());
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
+            'data' => $classroom
         ], 201);
     }
 

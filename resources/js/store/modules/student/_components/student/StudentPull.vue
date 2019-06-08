@@ -30,7 +30,7 @@
           </a>
           <div class="row">
             <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
+              <table class="table table-striped table-bordered table-hover full-width m-t-20" id="example1">
                   <thead>
                       <tr>
                           <th>#ID</th>
@@ -125,7 +125,7 @@
               </div>
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">اضافة</button>
+                  <button href="#" class="btn btn-primary">حـــفظ</button>
                   <button href="#" class="btn btn-primary"> حفظ و طباعة </button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

@@ -36,10 +36,22 @@ class AddressController extends Controller
      */
     public function store(CreateAddressRequest $request)
     {
-         Address::create($request->all());
-            return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-            ], 201);
+        $data = [
+            'street_1'          =>  $request->street_1,
+            'street_2'          =>  $request->street_2,
+            'local'             =>  $request->local,
+            'home_number'       =>  $request->home_number,
+            'city'              =>  $request->city,
+            'addressable_id'    =>  $request->addressable_id,
+            'addressable_type'  =>  $request->addressable_type
+        ];
+        Address::create($data);
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+        ], 201);
+
+
+
     }
 
     /**

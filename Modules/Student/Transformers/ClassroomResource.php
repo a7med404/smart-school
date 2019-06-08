@@ -15,9 +15,9 @@ class ClassroomResource extends JsonResource
     public function toArray($request)
     { 
         return [
-            'id'            => getName('students', $this->student_id), 
-            'level_id'      => getName('levels', $this->level_id), 
-            'name'          => $this->name, 
+            'id'            => $this->id, //getName('students', $this->student_id), 
+            'level_id'      => \DB::table('levels')->where('id', $this->level_id)->first(), //getName('levels', $this->level_id), 
+            'name'          => $this->name,  
             'sort'          => $this->sort, 
         ];
         // return parent::toArray($request);

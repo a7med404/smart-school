@@ -64,9 +64,9 @@
           <!-- Default box -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">الفصول التعليمية (1)</h3>
+              <h3 class="box-title">الفصول التعليمية ({{allParts.length}})</h3>
               <div class="box-tools pull-right">
-                <a type="button" data-toggle="modal" data-target="#popup-add-classroom" href="#" class="btn btn-sm btn-info pull-left">
+                <a type="button" data-toggle="modal" data-target="#popup-add-part" href="#" class="btn btn-sm btn-info pull-left">
                   <i class="fa fa-plus"></i>  اضافة فصل 
                 </a>
               </div>
@@ -90,16 +90,16 @@
                 <tbody>
                   <tr v-for="part in allParts" :key="part.id">
                     <td v-text="part.id"></td>
-                    <td v-text="part.level_id"></td>
-                    <td v-text="part.classroom_id"></td>
+                    <td v-text="part.level_id.name"></td>
+                    <td v-text="part.classroom_id.name"></td>
                     <td v-text="part.name"></td>
                     <td v-text="part.max_student_number"></td>
                     <td v-text="part.sort"></td>
                     <td>
                         <div class="btn-group">
                             <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                            <a class="btn btn-info" @click.prevent="editLevel(part.id)" type="button" data-toggle="modal" data-target="#popup-add-level"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-danger confirm" href="#" @click.prevent="deleteLevel(part.id)"> <i class="fa fa-times"></i></a>
+                            <a class="btn btn-info" @click.prevent="editPart(part)" type="button" data-toggle="modal" data-target="#popup-add-part"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-danger confirm" href="#" @click.prevent="deletePart(part.id)"> <i class="fa fa-times"></i></a>
                         </div>
                     </td>
                   </tr>
@@ -116,7 +116,7 @@
     
 
     <!-- Popup  -->
-    <div class="modal fade" id="popup-add-classroom">
+    <div class="modal fade" id="popup-add-part">
       <div class="modal-dialog modal-md" role="document">
         <div class="modal-content modal-content-box">
           <div class="modal-header">
@@ -125,7 +125,7 @@
             <h4 class="title">بيانات </h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form @submit.prevent = "edit ? toUpdatePart(part) : createPart()" role="form"> 
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
@@ -135,7 +135,7 @@
                         v-for="level in allLevels" 
                         :key="level.id" :value="level.id" 
                         v-text="level.name" 
-                        :selected="part.level_id == level.id">
+                        :selected="part.level_id.id == level.id">
                       </option>
                     </select>
                   </div>
@@ -143,12 +143,12 @@
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
                     <label class="control-label"> اسم الصف </label>
-                    <select class="form-control select2" name="part.classroom_id" v-model="part.classroom_id">
+                    <select class="form-control select2" v-model="part.classroom_id">
                       <option 
                         v-for="classroom in allClassrooms" 
                         :key="classroom.id" :value="classroom.id" 
                         v-text="classroom.name" 
-                        :selected="part.classroom_id == classroom.id">
+                        :selected="part.classroom_id.id == classroom.id">
                       </option>
                     </select>
                   </div>
@@ -176,7 +176,7 @@
               </div>     
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">اضافة</button>
+                  <button href="#" class="btn btn-primary">حـــفظ</button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
@@ -195,7 +195,7 @@
 
 <script>
 
-      import axios from "axios";
+  import axios from "axios";
   import { mapGetters, mapActions } from 'vuex';
     export default {
       data() {
@@ -206,12 +206,13 @@
             sort: '',
             max_student_number: '',
             level_id: '',
-            classroom_id: '',
-          }
+            classroom_id: ''
+          },
+          edit: false,
         }
       },
       mounted() {
-          console.log('Component mounted.')
+        console.log('Component mounted.')
       },
 
       computed: {
@@ -224,7 +225,45 @@
         self.fetchParts();
       },
       methods:{
-        ...mapActions(['fetchLevels', 'fetchClassrooms', 'fetchParts']),
+        ...mapActions(['fetchLevels', 'fetchClassrooms', 'fetchParts', 'addPart', 'updatePart', 'deletePart']),
+
+        createPart: function() {
+          let self = this;
+          console.info(self.part);
+          let params = Object.assign({}, self.part);
+          this.addPart(params).then(function(){
+            self.part.name = '',
+            self.part.sort = '',
+            self.part.max_student_number = '',
+            self.part.classroom_id = '',
+            self.part.level_id = ''
+          });
+        },
+
+        editPart: function(part) {
+          let self = this;
+          self.edit = true;
+          self.part.id = part.id;
+          self.part.name = part.name;
+          self.part.sort = part.sort;
+          self.part.max_student_number = part.max_student_number;
+          self.part.classroom_id = part.classroom_id.id;
+          self.part.level_id = part.level_id.id;
+        },
+
+        toUpdatePart: function(part) {
+          let self = this;
+          let params = Object.assign({}, self.part);
+          self.updatePart(params, part).then(function(){
+            self.edit = false;
+            self.part.name = '',
+            self.part.sort = '',
+            self.part.max_student_number = '',
+            self.part.classroom_id = '',
+            self.part.level_id = ''
+            self.fetchParts();
+          });
+        },
       }
     }
 </script>

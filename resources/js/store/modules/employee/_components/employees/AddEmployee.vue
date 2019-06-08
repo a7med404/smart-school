@@ -28,15 +28,15 @@
           <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
-              <ul class="nav nav-pills nav-justified pull-right">
+              <ul class="nav pull-right nav-tabs">
                 <li class="active"><a href="#info" data-toggle="tab">بيانات عامة</a></li>
                 <li><a href="#salary" data-toggle="tab"> اعدادات  الراتب</a></li>
                 <li><a href="#address" data-toggle="tab">عنوان الموظف</a></li>
                 <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
                 <li><a href="#identifcation" data-toggle="tab">اثبات الشخصية</a></li>
                 <li><a href="#certificats" data-toggle="tab"> الشهادات التعليميه</a></li>
+                <li><a href="#attachments" data-toggle="tab">مرفقات </a></li>
                 <li><a href="#auth" data-toggle="tab"> بيانات الدخول</a></li>
-                <li><a href="#attachments" data-toggle="tab">مرفقات الموظف</a></li>
               </ul>
               <div class="tab-content">                                                                                                                                                                      
                 <div class="tab-pane active" id="info">
@@ -128,7 +128,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> الحالة الاجنماعية </label>
-                            <select class="form-control select2" name="martial" v-name="employee.martial_status">
+                            <select class="form-control select2" name="martial" v-model="employee.martial_status">
                                 <option 
                                 v-for="(value, index) in martials" 
                                 :key="index" :value="index" 
@@ -252,7 +252,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم المنزل </label>
-                          <input class="form-control" placeholder="" type="text" name="home_number">
+                          <input class="form-control" placeholder="" type="text" v-model="address.home_number">
                         </div>
                       </div>
                     </div>
@@ -318,7 +318,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم اثبات الشخصية </label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                          <input class="form-control" placeholder="" type="text" v-model="health.insurance_number">
                         </div>
                       </div>
                     </div>
@@ -492,7 +492,7 @@
                             <div class="form-group">
                                 <div class="btn btn-default btn-file">
                                     <label class="control-label"><i class="fa fa-paperclip"></i> تحمل مرفقات </label>
-                                    <input class="form-control" placeholder="" type="file" :change="student.name">
+                                    <input class="form-control" placeholder="" type="file" :change="attachments">
                                 </div>
                                 <p class="help-block">Max. 4MB</p>
                             </div>
@@ -544,34 +544,16 @@
             religions              : globalStore.religions,
             nationalities          : globalStore.nationalities,
             martials               : globalStore.martials,
-            identifcation_types    : globalStore.identifcation_types,
             certificateTypes       : globalStore.certificateTypes,
             certificateDegrees     : globalStore.certificateDegrees,    
             experience_years       : globalStore.experience_years,
+            locals : [],         
+            edit: false,
 
+            attachments: [],
+
+            disableLocal: true,
             
-            student: {
-              name                   : '',  
-              religion               : '',  
-              gender                 : '',  
-              study_lang             : '',  
-              is_partner_son         : '',  
-              is_staff_son           : '',  
-              identifcation_number   : '',  
-              identifcation_expire   : '',  
-              birthday               : '',  
-              start_data             : '', 
-              start_from             : '',
-              start_year             : '', 
-              note                   : '',
-              student_parent_id      : '',
-              study_language_id      : '',
-              address_id             : '',
-              contact_id             : '',
-              level_id               : '',
-              classroom_id           : '',
-              part_id                : ''
-            },
 
             address: {
               street_1 : '',
@@ -624,7 +606,15 @@
             },
             salary : {
               basic_salary           : ''
-            }
+            },
+
+            identifcation: {
+              type: '',
+              identifcation_number: '',
+              issue_date: '',
+              issue_place: '',
+              identifcationable_id: '',
+            },
             
           }
         },

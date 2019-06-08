@@ -858,7 +858,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col col-lg-6 col-md-6 col-sm-6 col-12" }, [
         _c("button", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-          _vm._v("اضافة")
+          _vm._v("حـــفظ")
         ])
       ])
     ])

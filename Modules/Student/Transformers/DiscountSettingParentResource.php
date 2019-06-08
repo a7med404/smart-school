@@ -15,8 +15,8 @@ class DiscountSettingParentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'value'                     =>  $this_value,
-            'experience_years'          =>  $experience_years,
+            'value'                     =>  $this->value,
+            'experience_years'          =>  $this->experience_years,
             'type'                      => valueOrPersentage()[$this->type]
         ];
         // return parent::toArray($request);

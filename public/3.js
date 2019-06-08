@@ -837,7 +837,7 @@ var staticRenderFns = [
                             href: "#"
                           }
                         },
-                        [_vm._v("اضافة")]
+                        [_vm._v("حـــفظ")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "row" }, [
@@ -1004,7 +1004,7 @@ var staticRenderFns = [
                             href: "#"
                           }
                         },
-                        [_vm._v("اضافة")]
+                        [_vm._v("حـــفظ")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "row" }, [

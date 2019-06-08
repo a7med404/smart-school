@@ -8,7 +8,7 @@ use Modules\Employee\Entities\Employee;
 
 class Identifcation extends Model
 {
-    protected $fillable = ['type','issue_date','issue_place','identable_id'];
+    protected $fillable = ['type', 'identifcation_number', 'issue_date', 'issue_place','identifcationable_id', 'identifcationable_type'];
 
     public function student()
     {
@@ -18,5 +18,10 @@ class Identifcation extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::Class);
+    }
+    
+    public function identifcationable()
+    {
+        return $this->morphTo();
     }
 }

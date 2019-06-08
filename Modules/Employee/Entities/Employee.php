@@ -3,6 +3,7 @@
 namespace Modules\Employee\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Address\Entities\Identifcation;
 use Modules\Employee\Entities\EmpAbsence;
 
 class Employee extends Model
@@ -26,16 +27,21 @@ class Employee extends Model
         'note'
     ];
 
-    public function address()
+    public function addresses()
     {
-        return $this->hasOne(Address::class, 'address_id', 'id');
+        // return $this->hasOne(Address::class, 'address_id', 'id');
+        return $this->morphMany(Address::class, 'addressable');
     }
 
-    public function contact()
+    public function contacts()
     {
-        return $this->hasOne(Contact::class, 'contact_id', 'id');
+        return $this->morphMany(Contact::class, 'contactable');
     }
 
+    public function identifcations()
+    {
+        return $this->morphMany(Identifcation::class, 'identifcationable');
+    }
     public function absence()
     {
         return $this->hasMany(EmpAbsence::class);

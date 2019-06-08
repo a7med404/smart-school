@@ -65,7 +65,7 @@
         <!-- /.col -->
         <div class="col-md-9">
 
-          <router-view :key="$route.fullPath"></router-view>
+          <!-- <router-view :key="$route.fullPath"></router-view> -->
         </div>
         <!-- /.col -->
       </div>

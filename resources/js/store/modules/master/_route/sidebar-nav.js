@@ -74,6 +74,18 @@ const AllStudents = resolve => {
   });
 };
 
+const EditStudent = resolve => {
+  require.ensure(['../../student/_components/student/EditStudent'], () => {
+    resolve(require('../../student/_components/student/EditStudent'))
+  });
+};
+
+const ToClinic = resolve => {
+  require.ensure(['../../student/_components/off_prints/ToClinic'], () => {
+    resolve(require('../../student/_components/off_prints/ToClinic'))
+  });
+};
+
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
 import AddToClass from '../../student/_components/student/AddToClass';
@@ -627,7 +639,12 @@ const routes = [
     component:  AllStudents,
   },
   {
-    
+    path: '/view/edit-student/:id',
+    props: true,
+    name: 'edit-student',
+    component:  EditStudent,
+  },
+  {
     path: '/view/students/add-to-class',
     props: true,
     name: 'add-to-class',
@@ -688,6 +705,12 @@ const routes = [
     component:  Record
   }, 
   {
+    path: '/view/to-clinic',
+    props: true,
+    name: 'to-clinic',
+    component:  ToClinic
+  }, 
+  {
     path: '/view/completion',
     props: true,
     name: 'completion',
@@ -704,25 +727,25 @@ const routes = [
   },
   
   {
-    path: 'education-levels', 
+    path: '/view/education-levels', 
     props: true,
     name: 'education-levels',
     component:  EducationLevels
   },
   {
-    path: 'classrooms',
+    path: '/view/classrooms',
     props: true,
     name: 'classrooms',
     component:  Classrooms
   },
   {
-    path: 'part-rooms',
+    path: '/view/part-rooms',
     props: true,
     name: 'part-rooms',
     component:  PartRooms
   },
   {
-    path: 'test',
+    path: '/view/test',
     props: true,
     name: 'test',
     component:  Test

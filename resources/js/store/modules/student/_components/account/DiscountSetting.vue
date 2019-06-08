@@ -33,7 +33,7 @@
                 <div class="tab-content">
                   <div class="tab-pane active" id="siblings">
                     <p>بيانات خصم للاخوة:</p>
-                    <a type="button" data-toggle="modal" data-target="#popup-add-siblings" href="#" class="btn btn-info">اضافة</a>
+                    <a type="button" data-toggle="modal" data-target="#popup-add-siblings" href="#" class="btn btn-info">حـــفظ</a>
                     <div class="row">
                       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
@@ -82,7 +82,7 @@
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="parents">
                     <p>بيانات خصم ابناء عامليين:</p>
-                    <a type="button" data-toggle="modal" data-target="#popup-add-parents" href="#" class="btn btn-info">اضافة</a>
+                    <a type="button" data-toggle="modal" data-target="#popup-add-parents" href="#" class="btn btn-info">حـــفظ</a>
                     <div class="row">
                         <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                           <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">

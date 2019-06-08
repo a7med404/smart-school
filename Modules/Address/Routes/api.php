@@ -22,8 +22,8 @@ Route::prefix('address')->group(function() {
 });
 Route::group(['prefix' => '/addresses'], function () {
 
-    Route::resource('/address','AddressController');
-    Route::resource('/Contacts','ContactController');
-    Route::resource('/identifcation','IdentifcationController');
+    Route::resource('/addresses','AddressController');
+    Route::resource('/contacts','ContactController');
+    Route::resource('/identifcations','IdentifcationController');
 
 });

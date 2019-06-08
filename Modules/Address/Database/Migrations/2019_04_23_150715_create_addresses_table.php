@@ -19,6 +19,8 @@ class CreateAddressesTable extends Migration
             $table->string('street_2', 200)->nullable();
             $table->integer('city');
             $table->integer('local');
+            $table->unsignedBigInteger('addressable_id');
+            $table->string('addressable_type')->nullable();
             $table->string('home_number', 20)->nullable();
             $table->timestamps();
         });

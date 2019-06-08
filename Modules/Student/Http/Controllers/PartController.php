@@ -36,11 +36,11 @@ class PartController extends Controller
      */
     public function store(CreatePartRequest $request)
     {
-        Part::create($request->all());
+        $part = Part::create($request->all());
             return response()->json([
-                'message' => 'تم الحفظ بنجاح',
+                'message' => 'تم الحفظ بنجاح', 'data' => $part
             ], 201);
-    }
+    } 
 
     /**
      * Show the specified resource.

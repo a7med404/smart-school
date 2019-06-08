@@ -8,7 +8,7 @@ use Modules\Student\Entities\Student;
 
 class Address extends Model
 {
-    protected $fillable = ['street_1', 'street_2', 'city', 'local', 'home_number'];
+    protected $fillable = ['street_1', 'street_2', 'city', 'addressable_id', 'addressable_type', 'local', 'home_number'];
 
     public function student()
     {
@@ -19,5 +19,10 @@ class Address extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::Class);
+    }
+
+    public function addressable()
+    {
+        return $this->morphTo();
     }
 }

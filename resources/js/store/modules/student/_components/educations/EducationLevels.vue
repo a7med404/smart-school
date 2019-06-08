@@ -40,26 +40,6 @@
             <!-- /.box-body -->
           </div>
           <!-- /. box -->
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Labels</h3>
-
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
         <!-- /.col -->
         <div class="col-md-9">
@@ -79,11 +59,11 @@
             </div>
           </div>
           <div class="box-body">
-            <form role="form">
+            <!-- <form role="form">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                   <div class="form-group">
-                    <label class="control-label"> اسم المرحلة التعليمية </label>
+                    <label class="control-label"> select number </label>
                     <select class="form-control select2" @change="filterLevels($event)">
                       <option value="1">1</option>
                       <option value="5">5</option>
@@ -92,7 +72,7 @@
                   </div>
                 </div>
               </div>
-            </form>
+            </form> -->
             <div class="row">
               <!-- Print Buttons -->
               <div class="no-print">
@@ -123,8 +103,8 @@
                             <td v-text="level.id"></td>
                             <td v-text="level.name"></td>
                             <td v-text="level.sort"></td>
+                            <td v-text="level.head_master"></td>
                             <td v-text="level.school_master"></td>
-                            <td v-text="level.head_master"><a href="#" class=""></a></td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
@@ -202,7 +182,7 @@
 
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" class="btn btn-primary">اضافة</button>
+                  <button href="#" class="btn btn-primary">حـــفظ</button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>

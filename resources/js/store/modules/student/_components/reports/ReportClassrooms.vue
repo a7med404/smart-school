@@ -33,7 +33,7 @@
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الصف</label>
-                  <select class="form-control select2" v-model="addToClass.classroom_id">
+                  <select class="form-control select2" >
                     <option value="1">حضانة</option>
                     <option value="0">الاول</option>
                     <option value="1">الثاني</option>
@@ -79,7 +79,7 @@
             </div>
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                <button href="#" class="btn btn-primary">اضافة</button>
+                <button href="#" class="btn btn-primary">حـــفظ</button>
                 <button href="#" class="btn btn-primary"> حفظ و طباعة </button>
               </div>
             </div>

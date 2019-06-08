@@ -108,7 +108,7 @@
 
             <div class="row">
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                <button href="#" class="btn btn-primary">اضافة</button>
+                <button href="#" class="btn btn-primary">حـــفظ</button>
               </div>
               <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
@@ -142,9 +142,8 @@
               identifcation_number   : '',  
               identifcation_expire   : '',  
               birthday               : '',  
-              start_data             : '', 
-              start_from             : '',
-              start_year             : '', 
+              start_data             : '',
+              education_year             : '', 
               note                   : '',
               student_parent_id      : '',
               study_language_id      : '',

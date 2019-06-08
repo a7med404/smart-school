@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Helvetica Neue", "Droid Sans", sans-serif !important;
 }
 .main-header .logo {
-  height: 51px;
+  height: 54px;
 }
 .close {
   line-height: 2;
@@ -504,7 +504,7 @@ textarea.form-control {
   }
 
   .content-wrapper, .right-side, .main-footer {
-    margin-right: 250px;
+    margin-right: 250px !important;
   }
 
 
@@ -551,7 +551,7 @@ th{
 
 
 
-.dataTables_wrapper .dataTables_paginate .paginate_button {
+/* .dataTables_wrapper .dataTables_paginate .paginate_button {
     padding: 0;
     margin-left: 0;
     border: none;
@@ -572,11 +572,18 @@ th{
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     border: none;
     background: none;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+} */
+/* .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
     border: none;
+} */
+
+div.dataTables_filter {
+  text-align: left;
+}
+div.dataTables_paginate {
+  text-align: left;
 }
 
 

@@ -37,7 +37,7 @@
                         <p>بيانات خصم للاخوة:</p>
                       </div>
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                        <a type="button" data-toggle="modal" data-target="#popup-add-siblings" href="#" class="btn btn-info pull-left">اضافة</a>
+                        <a type="button" data-toggle="modal" data-target="#popup-add-siblings" href="#" class="btn btn-info pull-left">حـــفظ</a>
                       </div>
                     </div>
                     <p> طلاب تم تنزيل خصومات عليهم فى هذا العام:</p>
@@ -105,7 +105,7 @@
                         <p>بيانات خصم ابناء عامليين</p>
                       </div>
                       <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                          <a type="button" data-toggle="modal" data-target="#popup-add-parents" href="#" class="btn btn-info pull-left">اضافة</a>
+                          <a type="button" data-toggle="modal" data-target="#popup-add-parents" href="#" class="btn btn-info pull-left">حـــفظ</a>
                       </div>
                     </div>
                     <p> طلاب تم تنزيل خصومات عليهم فى هذا العام:</p>

@@ -7,7 +7,7 @@ use Modules\Address\Entities\Address;
 use Modules\Address\Entities\Contact;
 use Modules\Address\Entities\Identifcation;
 use Modules\Student\Entities\Part;
-use Modules\Student\Entities\health;
+use Modules\Student\Entities\Health;
 use Modules\Student\Entities\StudentParent;
 use Modules\Student\Entities\Permissiontodepart;
 use Modules\Student\Entities\Absence;
@@ -21,9 +21,9 @@ class Student extends Model
         'religion', 
         'is_staff_son',
         'birthday', 
-        'start_from', 
         'start_data',
-        'start_year', 
+        'education_year', 
+        'study_status', 
         'student_parent_id', 
         'address_id', 
         'identifcation_id',
@@ -33,30 +33,27 @@ class Student extends Model
         'part_id', 
         'note',
         'is_partner_son',
-        'identifcation_number',
-        'identifcation_expire',
         'health_id'
     ];
 
-    public function address()
+    public function addresses()
     {
         // return $this->hasOne(Address::class, 'address_id', 'id');
-        return $this->belongsTo(Address::class);
+        return $this->morphMany(Address::class, 'addressable');
+    }
+    public function contacts()
+    {
+        return $this->morphMany(Contact::class, 'contactable');
     }
 
-    public function contact()
+    public function identifcations()
     {
-        return $this->belongsTo(Contact::class);
-    }
-
-    public function identifcation()
-    {
-        return $this->hasOne(Identifcation::class);
+        return $this->morphMany(Identifcation::class, 'identifcationable');
     }
 
     public function health()
     {
-        return $this->hasOne(health::class);
+        return $this->hasMany(Health::class);
     }
 
     public function part()

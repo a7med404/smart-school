@@ -257,7 +257,7 @@ function getSelect($tableName)
 function getName($tableName, $id)
 {
     if ($id === null) {
-        return "لا توجد بيانات";
+        return "...";
     }
     switch ($tableName) {
         case 'levels':
@@ -273,7 +273,7 @@ function getName($tableName, $id)
             return $list[$id];
             break;
         case 'identifcations':
-            $list = \DB::table('identifcations')->pluck('identable_id', 'id');
+            $list = \DB::table('identifcations')->pluck('identifcationable_id', 'id');
             return $list[$id];
             break;
         case 'students':

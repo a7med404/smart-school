@@ -16,11 +16,11 @@ class PartResource extends JsonResource
     {
         return [
             'id'   => $this->id, 
-            'level_id'               => getName('levels',$this->level_id), 
+            'level_id'               => \DB::table('levels')->where('id', $this->level_id)->first(), //getName('levels',$this->level_id), 
             'name'                   => $this->name, 
             'sort'                   => $this->sort, 
             'max_student_number'     => $this->max_student_number, 
-            'classroom_id'           => getName('classrooms',$this->classroom_id)
+            'classroom_id'           => \DB::table('classrooms')->where('id', $this->classroom_id)->first() //getName('classrooms',$this->classroom_id)
         ];
         return parent::toArray($request);
     }

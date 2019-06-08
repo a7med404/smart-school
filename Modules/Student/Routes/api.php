@@ -25,8 +25,9 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('/classrooms', 'ClassroomController');
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     Route::resource('/parts', 'PartController');
+    
     Route::resource('/students', 'StudentController');
-    Route::patch('/students/dist', 'StudentController@dist');
+    Route::any('/all', 'StudentController@allStudents');
     Route::resource('/healthes', 'HealthController');
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
