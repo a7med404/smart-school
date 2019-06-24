@@ -47,9 +47,9 @@ class CreateStudentsTable extends Migration
                 ->references('id')->on('levels')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('classroom_id')->nullable();;
-            // $table->foreign('classroom_id')
-            //     ->references('id')->on('classrooms')
-            //     ->onDelete('cascade');
+            $table->foreign('classroom_id')
+                ->references('id')->on('classrooms')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('part_id')->nullable();;
             $table->foreign('part_id')
                 ->references('id')->on('parts')
