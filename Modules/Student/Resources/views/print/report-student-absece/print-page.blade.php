@@ -26,7 +26,7 @@
                             <strong>وزاة التربية و التعليم</strong><br>
                             <strong>مدرسة العميد</strong><br>
                             <div class="m-t-30">
-                            <strong class="report-title"> قرار فصل  </strong>
+                            <strong class="report-title"> تقرير غياب الطلاب  </strong>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -50,22 +50,30 @@
                     <tr>
                         <th>#ID</th>
                         <th>اسم الطالب </th>
-                        <th>اسم التقرير</th>
-                        <th>من</th>
-                        <th>الى</th>
+                        <th> التاريخ</th>
+                        <th>المرحلة</th>
+                        <th>الصف</th>
+                        <th>الفصل</th>
                         <th>ملاحظات</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($data as $object)
                     <tr>
-                        <td>{{$object->id }}</td>
-                        <td>{{ $object->student_id }}</td>
-                        <td>{{ $object->from }}</td>
-                        <td>{{ $object->to }}</td>
+                        <td>{{ $object->id }}</td>
+                        <td>{{ $object->students->name }}</td>
+                        <td>{{ $object->date }}</td>
+                        <td>{{ $object->students->level->name }}</td>
+                        <td>{{ $object->students->classroom->name }}</td>
+                        <td>{{ $object->students->part->name }}</td>
                         <td>{{ $object->note }}</td>
                     </tr>
                     @endforeach
+                    @if($data->count() == 0)
+                    <tr>
+                      <td colspan="4"> لا توجد بيانات في هذا الجدول</td>
+                    </tr>
+                    @endif
                 </tbody>
             </table>
             </div>

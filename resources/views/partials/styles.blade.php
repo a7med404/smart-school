@@ -23,6 +23,10 @@
       <!-- bootstrap wysihtml5 - text editor -->
       <link rel="stylesheet" href="{{ asset('modules/master/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
       
+
+      <!-- DataTables -->
+      <link href="{{ asset('modules/master/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet">
+
       <!-- Ionicons -->
       <link href="{{ asset('modules/master/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
       <!-- Pace style -->

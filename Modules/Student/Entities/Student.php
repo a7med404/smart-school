@@ -12,6 +12,7 @@ use Modules\Student\Entities\StudentParent;
 use Modules\Student\Entities\Permissiontodepart;
 use Modules\Student\Entities\Absence;
 use Modules\Student\Entities\Attendance;
+use Modules\Student\Entities\Level;
 
 class Student extends Model
 {
@@ -24,6 +25,7 @@ class Student extends Model
         'start_from', 
         'start_data',
         'start_year', 
+        'study_status', 
         'student_parent_id', 
         'address_id', 
         'identifcation_id',
@@ -43,6 +45,17 @@ class Student extends Model
         // return $this->hasOne(Address::class, 'address_id', 'id');
         return $this->belongsTo(Address::class);
     }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
+
+    public function classroom()
+    {
+        return $this->belongsTo(Classroom::class);
+    }
+
 
     public function contact()
     {

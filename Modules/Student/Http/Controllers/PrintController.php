@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Level;
+use Modules\Student\Entities\Student;
+use Modules\Student\Entities\Offprint;
+use Modules\Student\Entities\Permissiontodepart;
+use Modules\Student\Entities\Attendance;
+use Modules\Student\Entities\Classroom;
+use Modules\Student\Entities\Part;
 use PDF;
 
 class PrintController extends Controller
@@ -20,15 +26,73 @@ class PrintController extends Controller
             case 'tests':
                 $data = \DB::table('levels')->get();
                 break;
-            case 'report_separates':
+            case 'report-separates':
                 $data = \DB::table('report_separates')->get();
+                break;
+            case 'report-emp-student':
+                $data = Student::where('is_staff_son', 1)->get();
+                break;
+            case 'report_warnings':
+                $data = \DB::table('report_warnings')->get();
+                break;
+            case 'report-school-register':
+                $data = Student::where('level_id', 7)
+                ->orWhere('classroom_id', 1)
+                ->orWhere('part_id', 1)
+                ->orWhere('gender', 1)
+                ->get();
+                break;
+            case 'report-kindness':
+                $data = Offprint::where('type', 1)
+                ->orWhere('date','>' ,2019-06-12)
+                ->orWhere('date','<',2019-06-20)
+                ->orWhere('student_id',1)
+                ->get();
+                break;
+            case 'report-student-permission':
+                $data = Permissiontodepart::
+                whereBetween('date', [2019-06-10, 2019-06-20])
+                ->orWhere('student_id',1)
+                ->get();
+                break;
+            case 'report-student-absece':
+                $data = Attendance::
+                whereBetween('date', [2019-06-12, 2019-06-20])
+                ->get();
+                break;
+            case 'report-levels':
+                $data = Level::where('name', 'oad')->get();
+                break;
+            case 'report-data-classrooms':
+                $data = Student::where('level_id', 1)
+                ->orWhere('classroom_id' , 1)
+                ->orWhere('gender', 1)
+                ->get();
+                break;
+            case 'report-parts':
+                $data = Student::where('level_id', 1)
+                ->orWhere('classroom_id' , 1)
+                ->orWhere('part_id' , 1)
+                ->orWhere('gender', 1)
+                ->get();
+                break;
+            case 'report-without-part':
+                $data = Student::where('part_id', NULL)->get();
+                break;
+            case 'report-count-parts':
+                $data = Part::all();
                 break;
             default:
             return abort(404);
-                break;
         }
         return view("student::print.$page.print-page", ['data' => $data]);
     }    
+
+
+
+
+
+
 
     public function print()
     {

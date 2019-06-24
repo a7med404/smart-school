@@ -128,7 +128,7 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> الحالة الاجنماعية </label>
-                            <select class="form-control select2" name="martial" v-name="employee.martial_status">
+                            <select class="form-control select2" name="martial" v-model="employee.martial_status">
                                 <option 
                                 v-for="(value, index) in martials" 
                                 :key="index" :value="index" 
@@ -252,7 +252,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم المنزل </label>
-                          <input class="form-control" placeholder="" type="text" name="home_number">
+                          <input class="form-control" placeholder="" type="text" v-model="address.home_number">
                         </div>
                       </div>
                     </div>
@@ -318,7 +318,7 @@
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                         <div class="form-group">
                           <label class="control-label">رقم اثبات الشخصية </label>
-                          <input class="form-control" placeholder="" type="text" name="insurance_number">
+                          <input class="form-control" placeholder="" type="text" v-model="health.insurance_number">
                         </div>
                       </div>
                     </div>
@@ -544,11 +544,13 @@
             religions              : globalStore.religions,
             nationalities          : globalStore.nationalities,
             martials               : globalStore.martials,
-            identifcation_types    : globalStore.identifcation_types,
             certificateTypes       : globalStore.certificateTypes,
             certificateDegrees     : globalStore.certificateDegrees,    
             experience_years       : globalStore.experience_years,
+            locals : [],         
+            edit: false,
 
+            disableLocal: true,
             
             student: {
               name                   : '',  
@@ -624,7 +626,15 @@
             },
             salary : {
               basic_salary           : ''
-            }
+            },
+
+            identifcation: {
+              type: '',
+              identifcation_number: '',
+              issue_date: '',
+              issue_place: '',
+              identable_id: '',
+            },
             
           }
         },

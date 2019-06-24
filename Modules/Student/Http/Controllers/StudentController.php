@@ -37,6 +37,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $request->start_year = "2019-05-07";
+        
         $data = [
             "name" => $request->name,
             "gender" => $request->gender,
@@ -47,10 +49,11 @@ class StudentController extends Controller
             "start_year" => "2019-05-07",//$request->start_year,
             "note" => $request->note
         ];
-        // $id = Student::create($data)->id;    
+        
+        $id = Student::create(array_except($request->all(), "study_status"))->id;    
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
-            'student_id' => 2//$id
+            'student_id' => $id
         ], 201);
         // if($request->has('studentIdToSend')){
         //     dd($request->all());

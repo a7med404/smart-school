@@ -3,6 +3,8 @@
 namespace Modules\Address\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Student\Entities\Student;
+use Modules\Employee\Entities\Employee;
 
 class Contact extends Model
 {

@@ -114,26 +114,27 @@
 
 <script>
 
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        },
-        data(){ 
-            return {
-              attendance: {
-                student_id       : '',
-                absence_from     : '',
-                absence_to       : '',
-                absence_reason   : ''
-              },
-              newattendance : {
-               date             : '',  
-               status           : '',
-               student_id       : '',
-               note             : ''
-              }        
-                 }
-        }
+export default {
+  mounted() {
+    console.log('Component mounted.')
+  },
 
-        }
+  data(){ 
+    return {
+      student_id          : '',
+      attendance: {
+        absence_from     : '',
+        absence_to       : '',
+        absence_reason   : ''
+      },
+
+      newattendance: {
+        date             : '',  
+        status           : '',
+        student_id       : '',
+        note             : ''
+      }        
+    }
+  }
+}
 </script>

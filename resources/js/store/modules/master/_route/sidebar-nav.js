@@ -74,6 +74,12 @@ const AllStudents = resolve => {
   });
 };
 
+const ToClinic = resolve => {
+  require.ensure(['../../student/_components/off_prints/ToClinic'], () => {
+    resolve(require('../../student/_components/off_prints/ToClinic'))
+  });
+};
+
 import AddStudent from '../../student/_components/student/AddStudent';
 import AddParent from '../../student/_components/student/AddParent';
 import AddToClass from '../../student/_components/student/AddToClass';
@@ -686,6 +692,12 @@ const routes = [
     props: true,
     name: 'record',
     component:  Record
+  }, 
+  {
+    path: '/view/to-clinic',
+    props: true,
+    name: 'to-clinic',
+    component:  ToClinic
   }, 
   {
     path: '/view/completion',

@@ -53,6 +53,17 @@
               </div>
             </div>
           </form>
+          <!-- Print Buttons -->
+              <div class="no-print">
+                  <div class="col-xs-12">
+                  <a href="/student/print-page/report-separates" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                  <a type="button" href="/student/print-page/report-separates" class="btn btn-success" style="margin-right: 5px;">
+                      <i class="fa fa-download"></i> انشاء ملف PDF
+                  </a>
+                  <a href="/student/print-page/report-separates" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                  </div>
+              </div>
+              <!-- End Prints buttons -->
         </div>
         <!-- /.box-body -->
               <div class="row">

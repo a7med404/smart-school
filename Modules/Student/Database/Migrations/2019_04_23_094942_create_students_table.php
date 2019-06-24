@@ -24,6 +24,7 @@ class CreateStudentsTable extends Migration
             $table->date('start_data');
             $table->string('start_from', 200); //start_year
             $table->date('start_year');
+            $table->tinyInteger('study_status');
             $table->text('note');
             
             $table->unsignedBigInteger('identifcation_id')->nullable();

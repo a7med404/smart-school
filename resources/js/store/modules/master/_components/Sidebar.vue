@@ -81,6 +81,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
+              <li><router-link :to="{name: 'to-clinic'}"> <i class="fa fa-circle-o"></i>تحويل للمركز الطبي</router-link></li>
               <li><router-link :to="{name: 'record'}"> <i class="fa fa-circle-o"></i>شهادة قيد طالب</router-link></li>
               <li><router-link :to="{name: 'kindness'}"> <i class="fa fa-circle-o"></i>شهادة حسن سير و سلوك</router-link></li>
               <li><router-link :to="{name: 'permissiontodepart'}"> <i class="fa fa-circle-o"></i>اذونات الانصراف للطبة</router-link></li>
@@ -599,6 +600,15 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data() {
+          return {
+            url: '',
+          }
+        },
+        created() {
+          // this.url = $('meta[name="url"]').attr('content');
+          // console.log(this.url);
         }
     }
 </script>
