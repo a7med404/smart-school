@@ -141,7 +141,7 @@
               student_id               : '',  
               form                     : '',  
               to                       : '',  
-              date                     : ''
+              note                     : ''
             }
           }
         }

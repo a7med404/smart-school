@@ -231,6 +231,7 @@
                               v-text="value" 
                               :selected="address.local == index">
                             </option>
+                          </select>
                         </div>
                       </div>
                       <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
@@ -455,7 +456,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> اسم المستخدم  </label>
-                            <input class="form-control" placeholder="" type="text" v-model="student.name">
+                            <input class="form-control" placeholder="" type="text" >
                           </div>
                         </div>
                       </div>
@@ -463,7 +464,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> كلمة المرور</label>
-                            <input class="form-control" placeholder="" type="password" v-model="student.name">
+                            <input class="form-control" placeholder="" type="password" >
                           </div>
                         </div>
                       </div>
@@ -471,7 +472,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> تاكيد كلمة المرور</label>
-                            <input class="form-control" placeholder="" type="password" v-model="student.name">
+                            <input class="form-control" placeholder="" type="password" >
                           </div>
                         </div>
                       </div>
@@ -543,10 +544,10 @@
             religions              : globalStore.religions,
             nationalities          : globalStore.nationalities,
             martials               : globalStore.martials,
-           identifcation_types     : globalStore.identifcation_types,
-           certificateTypes        : globalStore.certificateTypes,
-           certificateDegrees      : globalStore.certificateDegrees,    
-           experience_years        : globalStore.experience_years,
+            identifcation_types    : globalStore.identifcation_types,
+            certificateTypes       : globalStore.certificateTypes,
+            certificateDegrees     : globalStore.certificateDegrees,    
+            experience_years       : globalStore.experience_years,
 
             
             student: {

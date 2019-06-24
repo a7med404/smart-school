@@ -36,13 +36,60 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $id= Student::create($request->all())->id;    
         return response()->json([
                 'message' => 'تم الحفظ بنجاح',
                 'student_id' => $id
             ], 201);
+=======
+        // dd($request->all());
+        $data = [
+            "name" => $request->name,
+            "gender" => $request->gender,
+            "religion" => $request->religion,
+            "is_staff_son" => $request->is_staff_son,
+            "birthday" => $request->birthday,
+            "start_data" => $request->start_data,
+            "start_year" => "2019-05-07",//$request->start_year,
+            "note" => $request->note
+        ];
+        // $id = Student::create($data)->id;    
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'student_id' => 2//$id
+        ], 201);
+        // if($request->has('studentIdToSend')){
+        //     dd($request->all());
+
+        // }
+>>>>>>> 6c9a9ab3185d7a1fb6b3e49bf7527cb2673d845d
     }
 
+    public function addAddress(Request $request, $id)
+    {
+        dd($request->all());
+        $data = [
+            "name" => $request->name,
+            "gender" => $request->gender,
+            "religion" => $request->religion,
+            "is_staff_son" => $request->is_staff_son,
+            "birthday" => $request->birthday,
+            "start_data" => $request->start_data,
+            "start_year" => "2019-05-07",//$request->start_year,
+            "note" => $request->note
+        ];
+        // $id = Student::create($data)->id;    
+        // return response()->json([
+        //     'message' => 'تم الحفظ بنجاح',
+        //     'student_id' => 2//$id
+        // ], 201);
+        if($request->has('studentIdToSend')){
+            dd($request->all());
+
+        }
+    }
+    
     /**
      * Show the specified resource.
      * @param int $id
