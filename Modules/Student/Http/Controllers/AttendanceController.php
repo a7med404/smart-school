@@ -5,10 +5,11 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Student\Entities\StudentParent;
-use Modules\Student\Transformers\StudentParentResource;
-use Modules\Student\Http\Requests\CreateStudentStudentParentRequest;
-class StudentParentController extends Controller
+use Modules\Student\Entities\Attendance;
+use Modules\Student\Transformers\AttendanceResource;
+use Modules\Student\Http\Requests\CreateAttendanceRequest;
+
+class AttendanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class StudentParentController extends Controller
      */
     public function index()
     {
-        return StudentParentResource::collection(StudentParent::all());
+        return AttendanceResource::collection(Attendance::all());
     }
 
     /**
@@ -33,12 +34,12 @@ class StudentParentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateStudentStudentParentRequest $request)
+    public function store(CreateAttendanceRequest $request)
     {
-         $id= StudentParent::create($request->all())->id;    
+         $id= Attendance::create($request->all())->id;    
         return response()->json([
                 'message' => 'تم الحفظ بنجاح',
-                'StudentParent_id' => $id
+                'Attendance_id' => $id
             ], 201);
     }
 
@@ -49,7 +50,7 @@ class StudentParentController extends Controller
      */
     public function show($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
+        return new AttendanceResource(Attendance::findOrfail($id));
         /* return view('student::show'); */
     }
 
@@ -60,7 +61,7 @@ class StudentParentController extends Controller
      */
     public function edit($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
+        return new AttendanceResource(Attendance::findOrfail($id));
         /* return view('student::edit'); */
     }
 
@@ -70,9 +71,9 @@ class StudentParentController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(CreateStudentStudentParentRequest $request, $id)
+    public function update(CreateAttendanceRequest $request, $id)
     {
-        StudentParent::findOrfail($id)->update($request->all());
+        Attendance::findOrfail($id)->update($request->all());
         return response()->json([
                 'message' => 'تم التحديث بنجاح',
             ], 200);
@@ -86,7 +87,7 @@ class StudentParentController extends Controller
      */
     public function destroy($id)
     {
-        StudentParent::findOrfail($id)->delete();
+        Attendance::findOrfail($id)->delete();
         return response()->json([
                 'message' => 'تم الحذف بنجاح',
             ], 200);

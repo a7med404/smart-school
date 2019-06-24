@@ -5,7 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\ReportWarning;
+use Modules\Student\Transformers\ReportWarningResource;
+use Modules\Student\Http\Requests\CreateReportWarningRequest;
 class ReportWarningController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class ReportWarningController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return ReportWarningResource::collection(ReportWarning::all());
     }
 
     /**
@@ -31,9 +33,13 @@ class ReportWarningController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateReportWarningRequest $request)
     {
-        //
+         $id= ReportWarning::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'ReportWarning_id' => $id
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class ReportWarningController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new ReportWarningResource(ReportWarning::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class ReportWarningController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new ReportWarningResource(ReportWarning::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +70,14 @@ class ReportWarningController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateReportWarningRequest $request, $id)
     {
-        //
+        ReportWarning::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +86,10 @@ class ReportWarningController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ReportWarning::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }

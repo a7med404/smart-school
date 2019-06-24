@@ -1,22 +1,22 @@
 <?php
 
-namespace Modules\Student\Http\Controllers;
+namespace Modules\Employee\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Student\Entities\StudentParent;
-use Modules\Student\Transformers\StudentParentResource;
-use Modules\Student\Http\Requests\CreateStudentStudentParentRequest;
-class StudentParentController extends Controller
+use Modules\Employee\Entities\FormalHoliday;
+use Modules\Employee\Transformers\FormalHolidayResource;
+use Modules\Employee\Http\Requests\CreateFormalHolidayRequest;
+class FormalHolidayController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return StudentParentResource::collection(StudentParent::all());
+        return  FormalHolidayResource::collection(FormalHoliday::all());
     }
 
     /**
@@ -33,13 +33,13 @@ class StudentParentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateStudentStudentParentRequest $request)
+    public function store(CreateFormalHolidayRequest $request)
     {
-         $id= StudentParent::create($request->all())->id;    
+        $id =  FormalHoliday::create($request->all())->id;
         return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'StudentParent_id' => $id
-            ], 201);
+            'message' => 'تم الحفظ بنجاح',
+            'FormalHoliday_id' => $id
+        ], 201);
     }
 
     /**
@@ -49,9 +49,10 @@ class StudentParentController extends Controller
      */
     public function show($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
+        return new FormalHolidayResource(FormalHoliday::findOrfail($id));
         /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -60,7 +61,7 @@ class StudentParentController extends Controller
      */
     public function edit($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
+        return new FormalHolidayResource(FormalHoliday::findOrfail($id));
         /* return view('student::edit'); */
     }
 
@@ -68,16 +69,15 @@ class StudentParentController extends Controller
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(CreateStudentStudentParentRequest $request, $id)
+    public function update(CreateFormalHolidayRequest $request, $id)
     {
-        StudentParent::findOrfail($id)->update($request->all());
+        FormalHoliday::findOrfail($id)->update($request->all());
         return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -86,10 +86,9 @@ class StudentParentController extends Controller
      */
     public function destroy($id)
     {
-        StudentParent::findOrfail($id)->delete();
+        FormalHoliday::findOrfail($id)->delete();
         return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
- 
 }

@@ -36,10 +36,10 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // $id= Student::create($request->all())->id;    
+        $id= Student::create($request->all())->id;    
         return response()->json([
                 'message' => 'تم الحفظ بنجاح',
-                'student_id' => 1
+                'student_id' => $id
             ], 201);
     }
 
@@ -99,6 +99,21 @@ class StudentController extends Controller
         return response()->json([
                 'message' => 'تم الحذف بنجاح',
             ], 200);
+    }
+    public function report_quality(){
+
+    }
+    public function report_emp_student(){
+
+    }
+    public function report_separate(){
+
+    }
+    public function report_warning(){
+
+    }
+    public function report_auth(){
+
     }
  
 }

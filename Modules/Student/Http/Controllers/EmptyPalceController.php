@@ -5,6 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Student\Entities\EmptyPalce;
+use Modules\Student\Transformers\EmptyPalceResource;
+use Modules\Student\Http\Requests\CreateEmptyPalceRequest;
 
 class EmptyPalceController extends Controller
 {
@@ -14,7 +17,7 @@ class EmptyPalceController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return EmptyPalceResource::collection(EmptyPalce::all());
     }
 
     /**
@@ -31,9 +34,13 @@ class EmptyPalceController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateEmptyPalceRequest $request)
     {
-        //
+        $id = EmptyPalce::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'EmptyPalce_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,7 +50,8 @@ class EmptyPalceController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new EmptyPalceResource(EmptyPalce::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +61,8 @@ class EmptyPalceController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new EmptyPalceResource(EmptyPalce::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +71,14 @@ class EmptyPalceController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateEmptyPalceRequest $request, $id)
     {
-        //
+        EmptyPalce::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +87,9 @@ class EmptyPalceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        EmptyPalce::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

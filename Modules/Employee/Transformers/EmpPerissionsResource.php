@@ -14,6 +14,8 @@ class EmpPerissionsResource extends JsonResource
      */
     public function toArray($request)
     {
+         return parent::toArray($request);
+
         return [
             'managament_id'         => getName('managaments', $this->managament_id),
             'department_id'         => getName('departments', $this->department_id),
@@ -24,6 +26,5 @@ class EmpPerissionsResource extends JsonResource
             'date'                  => $this->date,
             'note'                  => $this->note
         ];
-        // return parent::toArray($request);
     }
 }

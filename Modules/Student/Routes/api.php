@@ -26,10 +26,25 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     Route::resource('/parts', 'PartController');
     Route::resource('/students', 'StudentController');
+    Route::resource('/studentParent', 'StudentParentController');
     Route::patch('/students/dist', 'StudentController@dist');
     Route::resource('/healthes', 'HealthController');
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
     Route::resource('offPrints', 'OffPrintController');
     Route::resource('studentTransfers', 'StudentTransferController');
+    
+    /* offline */
+    Route::resource('attendance', 'AttendanceController');
+    Route::resource('studentPull', 'StudentPullController');
+    Route::resource('discountSettingParent', 'DiscountSettingParentController');
+    Route::resource('discountSettingSibling', 'DiscountSettingSiblingController');
+    Route::resource('emptyPalce', 'EmptyPalceController');
+    Route::resource('payClass', 'PayClassController');
+    Route::resource('permissiontodepart', 'PermissiontodepartController');
+    Route::resource('reportSeparate', 'ReportSeparateController');
+    Route::resource('reportWarning', 'ReportWarningController');
+    Route::resource('studentStudentParent', 'StudentStudentParentController');
+
+
 });

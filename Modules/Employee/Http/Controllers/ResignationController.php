@@ -5,6 +5,9 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Employee\Entities\Resignation;
+use Modules\Employee\Transformers\ResignationResource;
+use Modules\Employee\Http\Requests\CreateResignationRequest;
 
 class ResignationController extends Controller
 {
@@ -14,7 +17,7 @@ class ResignationController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return  ResignationResource::collection(Resignation::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class ResignationController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +34,13 @@ class ResignationController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateResignationRequest $request)
     {
-        //
+        $id =  Resignation::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'Resignation_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,8 +50,10 @@ class ResignationController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new ResignationResource(Resignation::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +62,22 @@ class ResignationController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new ResignationResource(Resignation::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateResignationRequest $request, $id)
     {
-        //
+        Resignation::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +87,9 @@ class ResignationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Resignation::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

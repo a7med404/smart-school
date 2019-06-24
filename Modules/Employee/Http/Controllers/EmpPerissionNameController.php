@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Student\Http\Controllers;
+namespace Modules\Employee\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Student\Entities\StudentParent;
-use Modules\Student\Transformers\StudentParentResource;
-use Modules\Student\Http\Requests\CreateStudentStudentParentRequest;
-class StudentParentController extends Controller
+use Modules\Employee\Entities\EmpPerissionName;
+use Modules\Employee\Transformers\EmpPerissionNameResource;
+use Modules\Employee\Http\Requests\CreateEmpPerissionNameRequest;
+class EmpPerissionNameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class StudentParentController extends Controller
      */
     public function index()
     {
-        return StudentParentResource::collection(StudentParent::all());
+        return  EmpPerissionNameResource::collection(EmpPerissionName::all());
     }
 
     /**
@@ -33,13 +33,13 @@ class StudentParentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateStudentStudentParentRequest $request)
+    public function store(CreateEmpPerissionNameRequest $request)
     {
-         $id= StudentParent::create($request->all())->id;    
+        $id =  EmpPerissionName::create($request->all())->id;
         return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'StudentParent_id' => $id
-            ], 201);
+            'message' => 'تم الحفظ بنجاح',
+            'EmpPerissionName_id' => $id
+        ], 201);
     }
 
     /**
@@ -49,9 +49,10 @@ class StudentParentController extends Controller
      */
     public function show($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
+        return new EmpPerissionNameResource(EmpPerissionName::findOrfail($id));
         /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -60,7 +61,7 @@ class StudentParentController extends Controller
      */
     public function edit($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
+        return new EmpPerissionNameResource(EmpPerissionName::findOrfail($id));
         /* return view('student::edit'); */
     }
 
@@ -68,16 +69,15 @@ class StudentParentController extends Controller
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(CreateStudentStudentParentRequest $request, $id)
+    public function update(CreateEmpPerissionNameRequest $request, $id)
     {
-        StudentParent::findOrfail($id)->update($request->all());
+        EmpPerissionName::findOrfail($id)->update($request->all());
         return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -86,10 +86,9 @@ class StudentParentController extends Controller
      */
     public function destroy($id)
     {
-        StudentParent::findOrfail($id)->delete();
+        EmpPerissionName::findOrfail($id)->delete();
         return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
- 
 }

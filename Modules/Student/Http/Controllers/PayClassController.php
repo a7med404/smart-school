@@ -5,16 +5,18 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\PayClass;
+use Modules\Student\Transformers\PayClassResource;
+use Modules\Student\Http\Requests\CreatePayClassRequest;
 class PayClassController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('student::index');
+        return PayClassResource::collection(PayClass::all());
     }
 
     /**
@@ -31,9 +33,13 @@ class PayClassController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreatePayClassRequest $request)
     {
-        //
+         $id= PayClass::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'PayClass_id' => $id
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class PayClassController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new PayClassResource(PayClass::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class PayClassController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new PayClassResource(PayClass::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +70,14 @@ class PayClassController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePayClassRequest $request, $id)
     {
-        //
+        PayClass::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +86,10 @@ class PayClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        PayClass::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }

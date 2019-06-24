@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\Employee\Transformers;
+use Modules\Employee\Transformers\EmployeeResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,7 +18,7 @@ class BearInMindResource extends JsonResource
         return [
             'note'                        => $this->note,
             'date'                        => $this->date,
-            'employee_id'                 => getName('employees', $this->employee_id)
+            'employee'                 =>  $this->Employee?new EmployeeResource($this->Employee):""
         ];
         // return parent::toArray($request);
     }

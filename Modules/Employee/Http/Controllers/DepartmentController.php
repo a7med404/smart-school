@@ -5,16 +5,18 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Employee\Entities\Department;
+use Modules\Employee\Transformers\DepartmentResource;
+use Modules\Employee\Http\Requests\CreateDepartmentRequest;
 class DepartmentController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('employee::index');
+        return  DepartmentResource::collection(Department::all());
     }
 
     /**
@@ -23,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +33,13 @@ class DepartmentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateDepartmentRequest $request)
     {
-        //
+        $id =  Department::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'Department_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,8 +49,10 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new DepartmentResource(Department::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +61,22 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new DepartmentResource(Department::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateDepartmentRequest $request, $id)
     {
-        //
+        Department::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +86,9 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Department::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

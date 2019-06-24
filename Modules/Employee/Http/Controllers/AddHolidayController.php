@@ -5,18 +5,18 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Employee\Entities\AddCalendEmployee;
-use Modules\Employee\Transformers\AddCalendEmployeeResource;
-use Modules\Employee\Http\Requests\CreateAddCalendEmployeeRequest;
-class AddCalendEmployeeController extends Controller
-{ 
-     /**
+use Modules\Employee\Entities\AddHoliday;
+use Modules\Employee\Transformers\AddHolidayResource;
+use Modules\Employee\Http\Requests\CreateAddHolidayRequest;
+class AddHolidayController extends Controller
+{
+       /**
     * Display a listing of the resource.
     * @return Response
     */
    public function index()
    {
-       return  AddCalendEmployeeResource::collection(AddCalendEmployee::all());
+       return  AddHolidayResource::collection(AddHoliday::all());
    }
 
    /**
@@ -33,12 +33,12 @@ class AddCalendEmployeeController extends Controller
     * @param Request $request
     * @return Response
     */
-   public function store(CreateAddCalendEmployeeRequest $request)
+   public function store(CreateAddHolidayRequest $request)
    {
-       $id =  AddCalendEmployee::create($request->all())->id;
+       $id =  AddHoliday::create($request->all())->id;
        return response()->json([
            'message' => 'تم الحفظ بنجاح',
-           'AddCalendEmployee_id' => $id
+           'AddHoliday_id' => $id
        ], 201);
    }
 
@@ -49,7 +49,7 @@ class AddCalendEmployeeController extends Controller
     */
    public function show($id)
    {
-       return new AddCalendEmployeeResource(AddCalendEmployee::findOrfail($id));
+       return new AddHolidayResource(AddHoliday::findOrfail($id));
        /* return view('student::show'); */
    }
 
@@ -61,7 +61,7 @@ class AddCalendEmployeeController extends Controller
     */
    public function edit($id)
    {
-       return new AddCalendEmployeeResource(AddCalendEmployee::findOrfail($id));
+       return new AddHolidayResource(AddHoliday::findOrfail($id));
        /* return view('student::edit'); */
    }
 
@@ -71,9 +71,9 @@ class AddCalendEmployeeController extends Controller
     * @param int $id
     * @return Responsedestroy
     */
-   public function update(CreateAddCalendEmployeeRequest $request, $id)
+   public function update(CreateAddHolidayRequest $request, $id)
    {
-       AddCalendEmployee::findOrfail($id)->update($request->all());
+       AddHoliday::findOrfail($id)->update($request->all());
        return response()->json([
            'message' => 'تم التحديث بنجاح',
        ], 200);
@@ -86,7 +86,7 @@ class AddCalendEmployeeController extends Controller
     */
    public function destroy($id)
    {
-       AddCalendEmployee::findOrfail($id)->delete();
+       AddHoliday::findOrfail($id)->delete();
        return response()->json([
            'message' => 'تم الحذف بنجاح',
        ], 200);

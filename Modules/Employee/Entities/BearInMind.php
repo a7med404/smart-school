@@ -11,4 +11,9 @@ class BearInMind extends Model
         'date',
         'empolyee_id'
     ];
+
+    public function Employee()
+    {
+        return $this->belongsTo('Modules\Employee\Entities\Employee','empolyee_id');
+    }
 }

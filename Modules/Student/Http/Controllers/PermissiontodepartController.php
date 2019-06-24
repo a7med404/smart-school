@@ -5,16 +5,18 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\Permissiontodepart;
+use Modules\Student\Transformers\PermissiontodepartResource;
+use Modules\Student\Http\Requests\CreatePermissiontodepartRequest;
 class PermissiontodepartController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('student::index');
+        return PermissiontodepartResource::collection(Permissiontodepart::all());
     }
 
     /**
@@ -31,9 +33,13 @@ class PermissiontodepartController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreatePermissiontodepartRequest $request)
     {
-        //
+         $id= Permissiontodepart::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'Permissiontodepart_id' => $id
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class PermissiontodepartController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new PermissiontodepartResource(Permissiontodepart::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class PermissiontodepartController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new PermissiontodepartResource(Permissiontodepart::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +70,14 @@ class PermissiontodepartController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePermissiontodepartRequest $request, $id)
     {
-        //
+        Permissiontodepart::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +86,10 @@ class PermissiontodepartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Permissiontodepart::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }
