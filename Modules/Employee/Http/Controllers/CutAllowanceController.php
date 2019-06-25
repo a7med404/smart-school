@@ -5,7 +5,9 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Employee\Entities\CutAllowance;
+use Modules\Employee\Transformers\CutAllowanceResource;
+use Modules\Employee\Http\Requests\CreateCutAllowanceRequest;
 class CutAllowanceController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class CutAllowanceController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return  CutAllowanceResource::collection(CutAllowance::all());
     }
 
     /**
@@ -23,7 +25,7 @@ class CutAllowanceController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +33,13 @@ class CutAllowanceController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateCutAllowanceRequest $request)
     {
-        //
+        $id =  CutAllowance::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'CutAllowance_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,8 +49,10 @@ class CutAllowanceController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new CutAllowanceResource(CutAllowance::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +61,22 @@ class CutAllowanceController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new CutAllowanceResource(CutAllowance::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateCutAllowanceRequest $request, $id)
     {
-        //
+        CutAllowance::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +86,14 @@ class CutAllowanceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CutAllowance::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
+    }
+
+    public function report(Request $request){
+        
+        return  CutAllowanceResource::collection(CutAllowance::where('employee_id',$request->employee_id)->where('date','>=',$request->from)->where('date','<=',$request->to)->get());
     }
 }

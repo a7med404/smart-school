@@ -5,7 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\PayRuls;
+use Modules\Student\Transformers\PayRulsResource;
+use Modules\Student\Http\Requests\CreatePayRulsRequest;
 class PayRulsController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class PayRulsController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return PayRulsResource::collection(PayRuls::all());
     }
 
     /**
@@ -31,9 +33,13 @@ class PayRulsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreatePayRulsRequest $request)
     {
-        //
+         $id= PayRuls::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'PayRuls_id' => $id
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class PayRulsController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new PayRulsResource(PayRuls::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class PayRulsController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new PayRulsResource(PayRuls::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +70,14 @@ class PayRulsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePayRulsRequest $request, $id)
     {
-        //
+        PayRuls::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +86,10 @@ class PayRulsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        PayRuls::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }

@@ -14,6 +14,7 @@ class StudentParentResource extends JsonResource
      */
     public function toArray($request)
     {
+         return parent::toArray($request);
         return [
             'mr_d'                  => mr_d()[$this->mr_d],
             'name'                  => $this->name,  
@@ -31,6 +32,5 @@ class StudentParentResource extends JsonResource
             'is_die'                => is_die()[$this->is_die], 
             'note'                  => $this->note, 
         ];
-        // return parent::toArray($request);
     }
 }

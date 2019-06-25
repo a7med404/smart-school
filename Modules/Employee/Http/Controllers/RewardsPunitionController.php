@@ -5,6 +5,9 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Employee\Entities\RewardsPunition;
+use Modules\Employee\Transformers\RewardsPunitionResource;
+use Modules\Employee\Http\Requests\CreateRewardsPunitionRequest;
 
 class RewardsPunitionController extends Controller
 {
@@ -14,7 +17,7 @@ class RewardsPunitionController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return  RewardsPunitionResource::collection(RewardsPunition::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class RewardsPunitionController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +34,13 @@ class RewardsPunitionController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateRewardsPunitionRequest $request)
     {
-        //
+        $id =  RewardsPunition::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'RewardsPunition_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,8 +50,10 @@ class RewardsPunitionController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new RewardsPunitionResource(RewardsPunition::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +62,22 @@ class RewardsPunitionController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new RewardsPunitionResource(RewardsPunition::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateRewardsPunitionRequest $request, $id)
     {
-        //
+        RewardsPunition::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +87,9 @@ class RewardsPunitionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        RewardsPunition::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

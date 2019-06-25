@@ -5,7 +5,9 @@ namespace Modules\Employee\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Employee\Entities\EvaluationEmp;
+use Modules\Employee\Transformers\EvaluationEmpResource;
+use Modules\Employee\Http\Requests\CreateEvaluationEmpRequest;
 class EvaluationEmpController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class EvaluationEmpController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return  EvaluationEmpResource::collection(EvaluationEmp::all());
     }
 
     /**
@@ -23,7 +25,7 @@ class EvaluationEmpController extends Controller
      */
     public function create()
     {
-        return view('employee::create');
+        return view('student::create');
     }
 
     /**
@@ -31,9 +33,13 @@ class EvaluationEmpController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateEvaluationEmpRequest $request)
     {
-        //
+        $id =  EvaluationEmp::create($request->all())->id;
+        return response()->json([
+            'message' => 'تم الحفظ بنجاح',
+            'EvaluationEmp_id' => $id
+        ], 201);
     }
 
     /**
@@ -43,8 +49,10 @@ class EvaluationEmpController extends Controller
      */
     public function show($id)
     {
-        return view('employee::show');
+        return new EvaluationEmpResource(EvaluationEmp::findOrfail($id));
+        /* return view('student::show'); */
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -53,18 +61,22 @@ class EvaluationEmpController extends Controller
      */
     public function edit($id)
     {
-        return view('employee::edit');
+        return new EvaluationEmpResource(EvaluationEmp::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateEvaluationEmpRequest $request, $id)
     {
-        //
+        EvaluationEmp::findOrfail($id)->update($request->all());
+        return response()->json([
+            'message' => 'تم التحديث بنجاح',
+        ], 200);
     }
 
     /**
@@ -74,6 +86,9 @@ class EvaluationEmpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        EvaluationEmp::findOrfail($id)->delete();
+        return response()->json([
+            'message' => 'تم الحذف بنجاح',
+        ], 200);
     }
 }

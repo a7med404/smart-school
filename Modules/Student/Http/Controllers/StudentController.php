@@ -36,6 +36,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
+        $id= Student::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'student_id' => $id
+            ], 201);
+=======
         // dd($request->all());
         $request->start_year = "2019-05-07";
         
@@ -59,6 +66,7 @@ class StudentController extends Controller
         //     dd($request->all());
 
         // }
+>>>>>>> 6c9a9ab3185d7a1fb6b3e49bf7527cb2673d845d
     }
 
     public function addAddress(Request $request, $id)
@@ -141,6 +149,21 @@ class StudentController extends Controller
         return response()->json([
                 'message' => 'تم الحذف بنجاح',
             ], 200);
+    }
+    public function report_quality(){
+
+    }
+    public function report_emp_student(){
+
+    }
+    public function report_separate(){
+
+    }
+    public function report_warning(){
+
+    }
+    public function report_auth(){
+
     }
  
 }

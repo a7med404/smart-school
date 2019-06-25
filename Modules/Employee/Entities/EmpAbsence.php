@@ -16,6 +16,7 @@ class EmpAbsence extends Model
 
     public function employee()
     {
-        return $this->belongsTo(Employee::Class);
+        return $this->belongsTo(Employee::Class,'empolyee_id');
     }
+
 }

@@ -17,7 +17,7 @@ class CreateEmpAbsenceRequest extends FormRequest
             'empolyee_id'                         => 'integer|required',
             'absence_from'                        => 'date|required',
             'absence_to'                          => 'date|required',
-            'absence_reason'                      => 'longText|nullable'
+            'absence_reason'                      => 'nullable'
         ];
     }
 
