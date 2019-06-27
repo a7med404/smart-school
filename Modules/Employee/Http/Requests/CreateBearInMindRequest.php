@@ -14,7 +14,7 @@ class CreateBearInMindRequest extends FormRequest
     public function rules()
     {
         return [
-            'note'                        => 'lognText|required',
+            'note'                        => 'required',
             'date'                        => 'date|required',
             'empolyee_id'                 => 'integer|required'
         ];

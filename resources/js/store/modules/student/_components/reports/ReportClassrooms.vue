@@ -33,7 +33,11 @@
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                 <div class="form-group">
                   <label class="control-label">اسم الصف</label>
+<<<<<<< HEAD
                   <select class="form-control select2" >
+=======
+                  <select class="form-control select2">
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
                     <option value="1">حضانة</option>
                     <option value="0">الاول</option>
                     <option value="1">الثاني</option>
@@ -85,6 +89,18 @@
             </div>
 
           </form>
+          <div class="row">
+              <!-- Print Buttons -->
+              <div class="no-print">
+                  <div class="col-xs-12">
+                  <a href="/student/print-page/report-classrooms" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                  <a type="button" href="/student/print-page/report-classrooms" class="btn btn-success" style="margin-right: 5px;">
+                      <i class="fa fa-download"></i> انشاء ملف PDF
+                  </a>
+                  <a href="/student/print-page/report-classrooms" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                  </div>
+              </div>
+              <!-- End Prints buttons -->
         </div>
         <!-- /.box-body -->
       </div>

@@ -18,10 +18,10 @@ class CreateEmpPerissionsRequest extends FormRequest
             'department_id'           => 'integer|required',
             'employee_id'             => 'integer|required',
             'perission_id'            => 'integer|required',
-            'from_hour'               => 'time|required',
-            'to_hour'                 => 'time|required',
+            'from_hour'               => 'required',
+            'to_hour'                 => 'required',
             'date'                    => 'date|required',
-            'note'                    => 'longText|nullable'
+            'note'                    => 'nullable'
         ];
     }
 

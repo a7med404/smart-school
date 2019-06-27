@@ -681,7 +681,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col col-lg-6 col-md-6 col-sm-6 col-12" }, [
         _c("button", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+<<<<<<< HEAD
           _vm._v("حـــفظ")
+=======
+          _vm._v("اضافة")
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
         ]),
         _vm._v(" "),
         _c("button", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [

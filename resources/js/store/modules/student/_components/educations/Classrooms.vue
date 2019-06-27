@@ -31,6 +31,7 @@
                 <li><router-link :to="{name: 'dist-students'}"> <i class="fa fa-circle-o"></i>توزيع الطلاب علي الفصول</router-link></li>
               </ul>
             </div>
+            
             <!-- /.box-body -->
           </div>
           <!-- /. box -->

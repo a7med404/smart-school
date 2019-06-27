@@ -19,7 +19,7 @@ class CreateEmpHolidayRequest extends FormRequest
             'balance'                      => 'integer|required',
             'from'                         => 'date|required',
             'to'                           => 'date|required',
-            'note'                         => 'longText|nullable'
+            'note'                         => 'nullable'
         ];
     }
 

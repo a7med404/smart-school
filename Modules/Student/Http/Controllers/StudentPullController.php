@@ -5,7 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\StudentPull;
+use Modules\Student\Transformers\StudentPullResource;
+use Modules\Student\Http\Requests\CreateStudentPullRequest;
 class StudentPullController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class StudentPullController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return StudentPullResource::collection(StudentPull::all());
     }
 
     /**
@@ -31,9 +33,13 @@ class StudentPullController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateStudentPullRequest $request)
     {
-        //
+         $id= StudentPull::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'StudentPull_id' => $id
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class StudentPullController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new StudentPullResource(StudentPull::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class StudentPullController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new StudentPullResource(StudentPull::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +70,14 @@ class StudentPullController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateStudentPullRequest $request, $id)
     {
-        //
+        StudentPull::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +86,10 @@ class StudentPullController extends Controller
      */
     public function destroy($id)
     {
-        //
+        StudentPull::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }

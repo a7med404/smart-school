@@ -148,7 +148,11 @@
               <input type="hidden" name="type" value="0" v-model="off_print.type">
               <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+<<<<<<< HEAD
                   <button href="#" class="btn btn-primary">حـــفظ</button>
+=======
+                  <button href="#" class="btn btn-primary">اضافة</button>
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
                   <button href="#" class="btn btn-primary"> حفظ و طباعة </button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

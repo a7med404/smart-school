@@ -10,5 +10,9 @@ class OffPrint extends Model
         'student_id',
         'employee_id',
         'type'
-    ];
+    ]; 
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

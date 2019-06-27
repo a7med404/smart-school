@@ -53,6 +53,7 @@
             <span>شوؤن الطلاب</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
+<<<<<<< HEAD
             </span>
           </a>
           <ul class="treeview-menu">
@@ -157,6 +158,44 @@
               </ul>
             </li>
             <li>
+=======
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>اضافة طالب</router-link></li>
+              <li><router-link :to="{name: 'all-students'}"> <i class="fa fa-circle-o"></i>الطلاب</router-link></li>
+              <li><router-link :to="{name: 'add-student-manual'}"> <i class="fa fa-circle-o"></i>اضافة طالب يدويا</router-link></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> الاجازات و الغياب
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'attendance'}"> <i class="fa fa-circle-o"></i>تسجيل الاجازات و الغياب</router-link></li>
+              <li><router-link :to="{name: 'Attendancec-for-class'}"> <i class="fa fa-circle-o"></i> تسجيل لفصل</router-link></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-circle-o text-aqua"></i> مستخرجات
+              <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><router-link :to="{name: 'to-clinic'}"> <i class="fa fa-circle-o"></i>تحويل للمركز الطبي</router-link></li>
+              <li><router-link :to="{name: 'record'}"> <i class="fa fa-circle-o"></i>شهادة قيد طالب</router-link></li>
+              <li><router-link :to="{name: 'kindness'}"> <i class="fa fa-circle-o"></i>شهادة حسن سير و سلوك</router-link></li>
+              <li><router-link :to="{name: 'permissiontodepart'}"> <i class="fa fa-circle-o"></i>اذونات الانصراف للطبة</router-link></li>
+              <li><router-link :to="{name: 'completion'}"> <i class="fa fa-circle-o"></i>مخالصة بمصروفات طالب</router-link></li>
+              <li><router-link :to="{name: 'student-transfer'}"> <i class="fa fa-circle-o"></i>طلب تحويل طالب</router-link></li>
+              <li><router-link :to="{name: 'empty-palce'}"> <i class="fa fa-circle-o"></i>اماكن خاليه لطالب جديده</router-link></li>
+            </ul>
+          </li>
+          <!-- <li>
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
             <a href="#"><i class="fa fa-circle-o text-aqua"></i> شوؤن تعليمية
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -1112,6 +1151,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 export default {
   mounted() {
     console.log("Component mounted.");
@@ -1126,6 +1166,22 @@ export default {
     // console.log(this.url);
   }
 };
+=======
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        },
+        data() {
+          return {
+            url: '',
+          }
+        },
+        created() {
+          // this.url = $('meta[name="url"]').attr('content');
+          // console.log(this.url);
+        }
+    }
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
 </script>
 <style>
 .slide-leave-active {

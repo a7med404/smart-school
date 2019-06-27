@@ -5,7 +5,9 @@ namespace Modules\Student\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Modules\Student\Entities\StudentParent;
+use Modules\Student\Transformers\StudentParentResource;
+use Modules\Student\Http\Requests\CreateStudentStudentParentRequest;
 class StudentParentController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class StudentParentController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+        return StudentParentResource::collection(StudentParent::all());
     }
 
     /**
@@ -31,9 +33,13 @@ class StudentParentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateStudentStudentParentRequest $request)
     {
-        //
+         $id= StudentParent::create($request->all())->id;    
+        return response()->json([
+                'message' => 'تم الحفظ بنجاح',
+                'StudentParent_id' => $id
+            ], 201);
     }
 
     /**
@@ -43,7 +49,8 @@ class StudentParentController extends Controller
      */
     public function show($id)
     {
-        return view('student::show');
+        return new StudentParentResource(StudentParent::findOrfail($id));
+        /* return view('student::show'); */
     }
 
     /**
@@ -53,7 +60,8 @@ class StudentParentController extends Controller
      */
     public function edit($id)
     {
-        return view('student::edit');
+        return new StudentParentResource(StudentParent::findOrfail($id));
+        /* return view('student::edit'); */
     }
 
     /**
@@ -62,10 +70,14 @@ class StudentParentController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateStudentStudentParentRequest $request, $id)
     {
-        //
+        StudentParent::findOrfail($id)->update($request->all());
+        return response()->json([
+                'message' => 'تم التحديث بنجاح',
+            ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -74,6 +86,10 @@ class StudentParentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        StudentParent::findOrfail($id)->delete();
+        return response()->json([
+                'message' => 'تم الحذف بنجاح',
+            ], 200);
     }
+ 
 }

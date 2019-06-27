@@ -12,6 +12,7 @@ use Modules\Student\Entities\StudentParent;
 use Modules\Student\Entities\Permissiontodepart;
 use Modules\Student\Entities\Absence;
 use Modules\Student\Entities\Attendance;
+use Modules\Student\Entities\Level;
 
 class Student extends Model
 {
@@ -22,7 +23,11 @@ class Student extends Model
         'is_staff_son',
         'birthday', 
         'start_data',
+<<<<<<< HEAD
         'education_year', 
+=======
+        'start_year', 
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
         'study_status', 
         'student_parent_id', 
         'address_id', 
@@ -41,7 +46,23 @@ class Student extends Model
         // return $this->hasOne(Address::class, 'address_id', 'id');
         return $this->morphMany(Address::class, 'addressable');
     }
+<<<<<<< HEAD
     public function contacts()
+=======
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
+
+    public function classroom()
+    {
+        return $this->belongsTo(Classroom::class);
+    }
+
+
+    public function contact()
+>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
     {
         return $this->morphMany(Contact::class, 'contactable');
     }
