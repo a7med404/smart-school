@@ -53,6 +53,7 @@
                   <a href="/student/print-page/report-emp-student" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
                   </div>
               </div>
+            </div>
               <!-- End Prints buttons -->
           </form>
         </div>

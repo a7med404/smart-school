@@ -102,6 +102,7 @@
                   </div>
               </div>
               <!-- End Prints buttons -->
+           </div>
           </form>
         </div>
         <!-- /.box-body -->

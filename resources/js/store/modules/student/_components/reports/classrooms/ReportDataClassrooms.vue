@@ -88,6 +88,7 @@
                   </div>
               </div>
               <!-- End Prints buttons -->
+          </div>
         </div>
         <!-- /.box-body -->
       </div>

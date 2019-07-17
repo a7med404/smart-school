@@ -549,11 +549,8 @@
             experience_years       : globalStore.experience_years,
             locals : [],         
             edit: false,
-<<<<<<< HEAD
 
             attachments: [],
-=======
->>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
 
             disableLocal: true,
             
@@ -616,11 +613,7 @@
               identifcation_number: '',
               issue_date: '',
               issue_place: '',
-<<<<<<< HEAD
               identifcationable_id: '',
-=======
-              identable_id: '',
->>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
             },
             
           }

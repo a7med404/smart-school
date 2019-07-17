@@ -72,18 +72,17 @@
       </div>
       <!-- /.box -->
       <div class="row">
-        <div class="row">
-              <!-- Print Buttons -->
-              <div class="no-print">
-                  <div class="col-xs-12">
-                  <a href="/student/print-page/report-separates" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                  <a type="button" href="/student/print-page/report-separates" class="btn btn-success" style="margin-right: 5px;">
-                      <i class="fa fa-download"></i> انشاء ملف PDF
-                  </a>
-                  <a href="/student/print-page/report-separates" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
-                  </div>
+          <!-- Print Buttons -->
+          <div class="no-print">
+              <div class="col-xs-12">
+              <a href="/student/print-page/report-separates" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+              <a type="button" href="/student/print-page/report-separates" class="btn btn-success" style="margin-right: 5px;">
+                  <i class="fa fa-download"></i> انشاء ملف PDF
+              </a>
+              <a href="/student/print-page/report-separates" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
               </div>
-              <!-- End Prints buttons -->
+          </div>
+          <!-- End Prints buttons -->
         <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
               <thead>

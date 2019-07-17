@@ -74,15 +74,12 @@ const AllStudents = resolve => {
   });
 };
 
-<<<<<<< HEAD
 const EditStudent = resolve => {
   require.ensure(['../../student/_components/student/EditStudent'], () => {
     resolve(require('../../student/_components/student/EditStudent'))
   });
 };
 
-=======
->>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
 const ToClinic = resolve => {
   require.ensure(['../../student/_components/off_prints/ToClinic'], () => {
     resolve(require('../../student/_components/off_prints/ToClinic'))

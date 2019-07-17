@@ -21,13 +21,8 @@ class CreateStudentsTable extends Migration
             $table->boolean('is_staff_son')->default(false);
             $table->date('birthday');
             $table->date('start_data');
-<<<<<<< HEAD
-            // $table->string('start_from', 200); //education_year
-            $table->string('education_year');
-=======
             $table->string('start_from', 200); //start_year
             $table->date('start_year');
->>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
             $table->tinyInteger('study_status');
             $table->text('note');
             

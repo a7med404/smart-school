@@ -183,6 +183,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -365,7 +369,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("\n      تحويل للمركز الطبي\n    ")]),
+      _c("h1", [_vm._v("\n        تحويل للمركز الطبي\n      ")]),
       _vm._v(" "),
       _c("ol", { staticClass: "breadcrumb" }, [
         _c("li", [
@@ -435,7 +439,7 @@ var staticRenderFns = [
             },
             [
               _c("i", { staticClass: "fa fa-check" }),
-              _vm._v("\n          تحويل للمركز الطبي\n        ")
+              _vm._v("\n            تحويل للمركز الطبي\n          ")
             ]
           ),
           _vm._v(" "),
@@ -680,14 +684,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col col-lg-6 col-md-6 col-sm-6 col-12" }, [
+        _vm._v("\n<<<<<<< HEAD\n                  "),
         _c("button", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-<<<<<<< HEAD
           _vm._v("حـــفظ")
-=======
-          _vm._v("اضافة")
->>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a
         ]),
-        _vm._v(" "),
+        _vm._v("\n=======\n                  "),
+        _c("button", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+          _vm._v("اضافة")
+        ]),
+        _vm._v(
+          "\n>>>>>>> 67e2e63170d1c2fc91e8ffd6b8ee5b9d8744f07a\n                  "
+        ),
         _c("button", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
           _vm._v(" حفظ و طباعة ")
         ])
