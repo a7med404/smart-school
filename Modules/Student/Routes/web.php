@@ -35,6 +35,10 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
+<<<<<<< HEAD
+=======
+    Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
+>>>>>>> 4fabb7fa75aa0e099a8ba4fd896cee5a0608cce7
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     Route::resource('/part-rooms', 'PartController');
     
