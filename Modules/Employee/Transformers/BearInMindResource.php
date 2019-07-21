@@ -16,6 +16,7 @@ class BearInMindResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'note'                        => $this->note,
             'date'                        => $this->date,
             'employee'                 =>  $this->Employee?new EmployeeResource($this->Employee):""

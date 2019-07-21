@@ -54,10 +54,6 @@ class CreateStudentsTable extends Migration
             $table->foreign('part_id')
                 ->references('id')->on('parts')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('health_id')->nullable();;
-            $table->foreign('health_id')
-                ->references('id')->on('healths')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

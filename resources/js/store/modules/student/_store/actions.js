@@ -281,5 +281,141 @@ export default {
       })
   
     },
+
+
+    // pay_rule *******************************************************************************/
+    async fetchPayRules({ commit }){
+      try {
+        const response = await axios.get('/api/student/pay_rules');
+        commit('ALL_PAY_RULES', response.data.data);
+      } catch (error) {
+        commit('ALL_PAY_RULES', []);
+        console.error(error);
+      }
+    },
+  
+    async addPayRule({ commit }, payload){
+      await axios.post('/api/student/pay_rules',payload)
+      .then((response) => {
+        commit('ADD_PAY_RULE', response.data.data);
+      })
+      .catch((error) => {
+        console.log(error)
+        commit('ADD_PAY_RULE', []);
+      })
+    },
+  
+    async updatePayRule({ commit }, upPayRule) {
+      try {
+        const response = await axios.put(`/api/student/pay_rules/${upPayRule.id}`, upPayRule);
+        commit('UPDATE_PAY_RULE', upPayRule);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  
+    async deletePayRule({ commit }, id){
+      let check = confirm('Are You Sure Do You Want Delete This ?');
+      if(check){
+        try {
+          await axios.delete(`/api/student/pay_rules/${id}`);
+          commit('DELETE_PAY_RULE', id);
+        } catch (error) {
+          commit('DELETE_PAY_RULE', null);
+          console.error(error);
+        }
+      }
+    },
+
+    
+
+  // calend *******************************************************************************/
+  async fetchCalends({ commit }){
+    try {
+      const response = await axios.get('/api/employee/calends');
+      commit('ALL_CALENDS', response.data.data);
+    } catch (error) {
+      commit('ALL_CALENDS', []);
+      console.error(error);
+    }
+  },
+
+  async addCalend({ commit }, payload){
+    await axios.post('/api/employee/calends',payload)
+    .then((response) => {
+      commit('ADD_CALEND', response.data.data);
+    })
+    .catch((error) => {
+      console.log(error)
+      commit('ADD_CALEND', []);
+    })
+  },
+
+  async updateCalend({ commit }, upCalend) {
+    try {
+      const response = await axios.put(`/api/employee/calends/${upCalend.id}`, upCalend);
+      commit('UPDATE_CALEND', upCalend);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  async deleteCalend({ commit }, id){
+    let check = confirm('Are You Sure Do You Want Delete This ?');
+    if(check){
+      try {
+        await axios.delete(`/api/employee/calends/${id}`);
+        commit('DELETE_CALEND', id);
+      } catch (error) {
+        commit('DELETE_CALEND', null);
+        console.error(error);
+      }all
+    }
+  },
+
+
+  // offprints *******************************************************************************/
+  async fetchOffPrints({ commit }, type){
+    try {
+      const response = await axios.get(`/api/student/offprints/${type}`);
+      commit('ALL_OFF_PRINTS', response.data.data);
+    } catch (error) {
+      commit('ALL_OFF_PRINTS', []);
+      console.error(error);
+    }
+  },
+
+  async addOffPrint({ commit }, payload){
+    await axios.post('/api/student/offprints',payload)
+    .then((response) => {
+      commit('ADD_OFF_PRINT', response.data.data);
+    })
+    .catch((error) => {
+      commit('ADD_OFF_PRINT', []);
+    })
+  },
+
+  async updateOffPrint({ commit }, upOffPrint) {
+    try {
+      const response = await axios.put(`/api/student/offprints/${upOffPrint.id}`, upOffPrint);
+      commit('UPDATE_OFF_PRINT', upOffPrint);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  async deleteOffPrint({ commit }, id){
+    let check = confirm('Are You Sure Do You Want Delete This ?');
+    if(check){
+      try {
+        await axios.delete(`/api/student/offprints/${id}`);
+        commit('DELETE_OFF_PRINT', id);
+      } catch (error) {
+        commit('DELETE_OFF_PRINT', null);
+        console.error(error);
+      }
+    }
+  },
+  
   
 }

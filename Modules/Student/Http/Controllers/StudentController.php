@@ -19,11 +19,26 @@ class StudentController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return StudentResource::collection(Student::all());
+        
+        if($request->has('gender')){
+            $requestAll = $request->toArray();
+            $query = DB::table('students')->select('*');
+            foreach ($requestAll as $key => $req) {
+                if (!($req == "" || null)) {
+                    $query->where($key, $req);
+                }
+            }
+            $students = $query->orderBy('id','desc')->get();
+            
+            return view('user::roles.index', ['students' => $students]);
+        }
 
+        $students = Student::all();
+        return view('student::students.student.index', ['students' => $students]);
     }
+
 
     public function allStudents(Request $request)
     {
@@ -36,6 +51,8 @@ class StudentController extends Controller
                 }
             }
             $students = $query->orderBy('id','desc')->get();
+            
+            return view($students)->withErrors;
             return StudentResource::collection($students);
         }
             return StudentResource::collection(Student::all());
@@ -49,7 +66,26 @@ class StudentController extends Controller
     {
         return view('student::create');
     }
+    /**
+     * Show the form for creating a new resource.
+     * @return Response
+     */
+    public function addStudentManual()
+    {
+        return view('student::create');
+    }
 
+    public function pay()
+    {
+        return view('student::create');
+    }
+
+    public function payRegistration()
+    {
+        return view('student::create');
+    }
+
+    
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -67,7 +103,7 @@ class StudentController extends Controller
             "is_staff_son" => $request->is_staff_son,
             "birthday" => $request->birthday,
             "start_data" => $request->start_data,
-            "education_year" => "2019-05-07",//$request->education_year,
+            "education_year" => $request->education_year,
             "note" => $request->note
         ];
         

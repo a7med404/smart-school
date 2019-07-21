@@ -28,7 +28,16 @@ class DiscountSettingParentController extends Controller
     {
         return view('student::create');
     }
-
+    
+    public function discounts()
+    {
+        return view('student::create');
+    }
+    public function discountSetting()
+    {
+        return view('student::create');
+    }
+    
     /**
      * Store a newly created resource in storage.
      * @param Request $request

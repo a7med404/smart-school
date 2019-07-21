@@ -46,5 +46,41 @@ export default {
   // For RECORDS State
   ALL_RECORDS:    (state, records) => (state.records = records),
   ADD_RECORDS:     (state, record) => state.records.unshift(record),
+
+
+
+  ALL_PAY_RULES:    (state, pay_rules) => (state.pay_rules = pay_rules),
+  ADD_PAY_RULE:     (state, pay_rule) => state.pay_rules.unshift(pay_rule),
+  DELETE_PAY_RULE:  (state, id) => state.pay_rules = state.pay_rules.filter(pay_rule => pay_rule.id !== id),
+  UPDATE_PAY_RULE: (state, upPayRule) => {
+    const index = state.pay_rules.findIndex(pay_rule => pay_rule.id === upPayRule.id);
+    if(index !== -1) {
+      state.pay_rules.splice(index, 1, upPayRule);
+    }
+  },
+
+  ALL_CALENDS:    (state, calends) => (state.calends = calends),
+  ADD_CALEND:     (state, calend) => state.calends.unshift(calend),
+  DELETE_CALEND:  (state, id) => state.calends = state.calends.filter(calend => calend.id !== id),
+  UPDATE_CALEND: (state, upCalend) => {
+    const index = state.calends.findIndex(calend => calend.id === upCalend.id);
+    if(index !== -1) {
+      state.calends.splice(index, 1, upCalend);
+    }
+  },
+
+
+
+
+  ALL_OFF_PRINTS:    (state, offprints) => (state.offprints = offprints),
+  ADD_OFF_PRINT:     (state, offprint) => state.offprints.unshift(offprint),
+  DELETE_OFF_PRINT:  (state, id) => state.offprints = state.offprints.filter(offprint => offprint.id !== id),
+  UPDATE_OFF_PRINT: (state, upOffPrint) => {
+    const index = state.offprints.findIndex(offprint => offprint.id === upOffPrint.id);
+    if(index !== -1) {
+      state.offprints.splice(index, 1, upOffPrint);
+    }
+  },
+
+
 }
-  

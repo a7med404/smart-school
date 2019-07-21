@@ -34,12 +34,12 @@ class AddCalendController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateCalendRequest $request)
+    public function store(Request $request)
     {
-        $id =  Calend::create($request->all())->id;
+        $calend =  Calend::create($request->all());
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
-            'Calend_id' => $id
+            'data' => $calend 
         ], 201);
     }
 
@@ -72,7 +72,7 @@ class AddCalendController extends Controller
      * @param int $id
      * @return Responsedestroy
      */
-    public function update(CreateCalendRequest $request, $id)
+    public function update(Request $request, $id)
     {
         Calend::findOrfail($id)->update($request->all());
         return response()->json([
