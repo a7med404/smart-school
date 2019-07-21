@@ -31,7 +31,7 @@
               <ul class="nav nav-tabs pull-right">
                 <li class="active"><a href="#info" data-toggle="tab">بيانات عامة</a></li>
                 <li><a href="#address" data-toggle="tab">عنوان الطالب</a></li>
-                <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
+                <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li> 
                 <li><a href="#identifcation" data-toggle="tab">اثبات الشخصية</a></li>
                 <!-- <li><a href="#instalment" data-toggle="tab">الرسوم الدراسية</a></li> -->
                 <li><a href="#health" data-toggle="tab">الحالة الصحية</a></li>

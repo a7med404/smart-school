@@ -18,7 +18,7 @@ class CreateAddressRequest extends FormRequest
             'street_2'      => 'string|min:2|max:200|nullable',
             'city'          => 'integer|required',
             'local'         => 'integer|required',            
-            'home_number'   => 'string|min:1|max:10|nullable',
+            'number'   => 'string|min:1|max:10|nullable',
         ];
     }
 

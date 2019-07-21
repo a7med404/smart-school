@@ -23,12 +23,9 @@ class Student extends Model
         'is_staff_son',
         'birthday', 
         'start_data',
-        'start_year', 
+        'education_year', 
         'study_status', 
         'student_parent_id', 
-        'address_id', 
-        'identifcation_id',
-        'contact_id', 
         'level_id', 
         'classroom_id', 
         'part_id', 
@@ -39,10 +36,14 @@ class Student extends Model
 
     public function addresses()
     {
-        // return $this->hasOne(Address::class, 'address_id', 'id');
         return $this->morphMany(Address::class, 'addressable');
     }
 
+    public function contacts()
+    {
+        return $this->morphMany(Contact::class, 'contactable');
+    }
+    
     public function level()
     {
         return $this->belongsTo(Level::class);
@@ -51,12 +52,6 @@ class Student extends Model
     public function classroom()
     {
         return $this->belongsTo(Classroom::class);
-    }
-
-
-    public function contact()
-    {
-        return $this->morphMany(Contact::class, 'contactable');
     }
 
     public function identifcations()
@@ -74,7 +69,7 @@ class Student extends Model
         return $this->belongsTo(Part::class);
     }
 
-    public function studentParent()
+    public function studentParents()
     {
         return $this->belongsTo(StudentParent::class);
     }

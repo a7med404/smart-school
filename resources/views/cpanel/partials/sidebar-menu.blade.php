@@ -199,7 +199,7 @@
               <ul class="treeview-menu">
                   <li><a href="{{ route('levels.index') }}"><i class="fa fa-circle-o text-aqua"></i> المراحل التعلمية</a></li>
                   <li><a href="{{ route('classrooms.index') }}"><i class="fa fa-circle-o text-aqua"></i> الصفوف التعلمية</a></li>
-                  <li><a href="{{ route('part-rooms.index') }}"><i class="fa fa-circle-o text-aqua"></i> الفصول التعلمية</a></li>
+                  <li><a href="{{ route('parts.index') }}"><i class="fa fa-circle-o text-aqua"></i> الفصول التعلمية</a></li>
                   {{-- <li><a href="{{ route('dist-students.index') }}"><i class="fa fa-circle-o text-aqua"></i> توزيع الطلاب علي الفصول</a></li> --}}
               </ul>
             </li>

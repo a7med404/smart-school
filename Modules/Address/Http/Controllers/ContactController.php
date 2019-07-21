@@ -9,6 +9,8 @@ use Modules\Address\Entities\Contact;
 use Modules\Address\Transformers\ContactResource;
 use Modules\Address\Transformers\SingleContactResource;
 use Modules\Address\Http\Requests\CreateContactRequest;
+use Illuminate\Support\Facades\Session;
+
 class ContactController extends Controller
 {
    /**
@@ -41,11 +43,12 @@ class ContactController extends Controller
             'number_2'          =>  $request->number_2,
             'email'             =>  $request->email,
             'note'              =>  $request->note,
-            'contactable_id'    =>  3,//$request->contactable_id,
+            'contactable_id'    =>  $request->contactable_id,
             'contactable_type'  =>  $request->contactable_type
         ];
         Contact::create($data);
-        return response()->json(['message' => 'تم الحفظ بنجاح' ], 201);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Contact Added Susscefully');
     }
 
     /**
@@ -66,8 +69,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        return new SingleContactResource(Contact::findOrfail($id));
-        /* return view('student::edit'); */
+        $contactInfo = Contact::findOrfail($id);
+        return view('address::contacts.edit',['contactInfo' => $contactInfo]);
     }
 
     /**
@@ -78,10 +81,17 @@ class ContactController extends Controller
      */
     public function update(CreateContactRequest $request, $id)
     {
-        Contact::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $data = [
+            'number_1'          =>  $request->number_1,
+            'number_2'          =>  $request->number_2,
+            'email'             =>  $request->email,
+            'note'              =>  $request->note,
+            'contactable_id'    =>  $request->contactable_id,
+            'contactable_type'  =>  $request->contactable_type
+        ];
+        Contact::findOrfail($id)->update($data);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Contact Updeted Susscefully');
     }
 
     /**
@@ -89,11 +99,11 @@ class ContactController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Contact $oneContact)
     {
-        Contact::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+      $addressForDelete = $oneContact->findOrfail($id);
+      $addressForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Contact Deleted Susscefully');
     }
 }

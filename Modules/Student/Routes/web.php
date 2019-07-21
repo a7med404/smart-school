@@ -37,11 +37,15 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('/classrooms', 'ClassroomController');
     Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
-    Route::resource('/part-rooms', 'PartController');
+    Route::resource('/parts', 'PartController');
+    Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
     
     Route::resource('/students', 'StudentController');
+    Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
     Route::any('/all', 'StudentController@allStudents')->name('all-students');
     Route::resource('/studentParent', 'StudentParentController');
+    Route::get('studentParent/delete/{id}', 'StudentParentController@destroy')->name('studentParent.delete');
+
     Route::get('/add-student-manual', 'StudentController@addStudentManual')->name('add-student-manual');
     Route::patch('/students/dist', 'StudentController@dist');
     Route::resource('/healthes', 'HealthController');

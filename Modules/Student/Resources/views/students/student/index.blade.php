@@ -30,60 +30,55 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
+
         <div class="box-body">
             <form  role="form">
               <div class="row">
-                {{-- <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
                   <div class="form-group">
-                    <label class="control-label">اختيار المرحلة التعليمية</label>
-                    <select class="form-control select2" v-model="search.level_id">
-                      <option value="" selected="selected">الكل</option>
-                      <option 
-                        v-for="level in allLevels" 
-                        :key="level.id" :value="level.id" 
-                        v-text="level.name">
-                      </option>
-                    </select>
-                  </div>
-                </div> --}}
-                {{-- <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                  <div class="form-group">
-                    <label class="control-label">اختيار الصف</label>
-                    <select class="form-control select2" v-model="search.classroom_id">
-                      <option value="" selected="selected">الكل</option>
-                      <option 
-                        v-for="classroom in allClassrooms" 
-                        :key="classroom.id" :value="classroom.id" 
-                        v-text="classroom.name">
-                      </option>
-                    </select>
+                      {!! Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']) !!}
+                      {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}", 'required']) !!}
                   </div>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                   <div class="form-group">
-                    <label class="control-label"> اختيار الفصل</label>
-                    <select class="form-control select2" v-model="search.part_id">
-                      <option value="" selected="selected">الكل</option>
-                      <option 
-                        v-for="part in allParts" 
-                        :key="part.id" :value="part.id" 
-                        v-text="part.name">
-                      </option>
-                    </select>
+                    {!! Form::label('classroom_id', 'اختيار الصف', ['class' => 'control-label']) !!}
+                    {!! Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  {{ $errors->has('classroom_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('classroom_id') }}", 'required']) !!}
                   </div>
-                </div> --}}
-                <div class="col col-lg-3 col-md-3 col-sm-6 col-12">
+                </div>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                    {!! Form::label('part_id', 'اختيار الفصل', ['class' => 'control-label']) !!}
+                    {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}", 'required']) !!}
+                  </div>
+                </div>
+                <div class="col col-lg-2 col-md-2 col-sm-6 col-12">
                   <div class="form-group">
                     {!! Form::label('gender', 'النوع', ['class' => 'control-label']) !!}
                     {!! Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 {{ $errors->has('gender') ? ' is-invalid' : '' }}", 'value' => "{{ old('gender') }}", 'required']) !!}
                   </div>
                 </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="col col-lg-1 col-md-1 col-sm-12 col-12 m-t-25">
                   <button type="submit" class="btn btn-info">بحــــث</button>
                 </div>
               </div>
             </form>
                 
+            <div class="row">
+              <!-- Print Buttons -->
+              <div class="no-print">
+                  <div class="col-xs-12 m-b-20">
+                    <a href="/student/print-page/students" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a type="button" href="/student/print-page/students" class="btn btn-success" style="margin-right: 5px;">
+                        <i class="fa fa-download"></i> انشاء ملف PDF
+                    </a>
+                    <a href="/student/print-page/students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                    <a href="/student/print-page/students" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
+                  </div>
+              </div>
+              <!-- End Prints buttons -->
+            </div>
+
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
@@ -102,17 +97,17 @@
                         <tr>
                           <td>{{ $student->id }}</td>
                           <td>{{ $student->name }}</td>
-                          <td>{{ $student->level_id }}</td>
-                          <td>{{ $student->classroom_id }}</td>
-                          <td>{{ $student->part_id }}</td>
-                          <td>{{ $student->gender }}</td>
+                          <td>{{ $student->level->name }}</td>
+                          <td>{{ $student->classroom->name }}</td>
+                          <td>{{ $student->part->name }}</td>
+                          <td>{{ gender()[$student->gender] }}</td>
                           <td>
                             <div class="dropdown">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <span class="fa fa-ellipsis-h"></span>
                               </a>
                               <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $student->id]) }}">استعراض</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $student->id]) }}">تعديل</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                 <li role="presentation" class="divider"></li>

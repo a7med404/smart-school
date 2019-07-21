@@ -203,3 +203,35 @@ ul, menu, dir {
   right: auto;
   left: 0;
 }
+
+
+
+.profile-user-img {
+  height: 90px;
+  width: 90px;
+}
+
+
+/* .dataTables_wrapper .dataTables_length {
+  float: right !important;
+} */
+div.dataTables_filter {
+  text-align: left !important;
+}
+.dataTables_wrapper .dataTables_info {
+  clear: both;
+  /* float: right !important; */
+}
+.dataTables_wrapper .dataTables_paginate {
+  /* float: left !important; */
+  text-align: right;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}

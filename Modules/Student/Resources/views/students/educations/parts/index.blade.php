@@ -1,6 +1,6 @@
 @extends('cpanel.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_levels') }}
+{{ __('home/sidebar.all_parts') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -28,15 +28,15 @@
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
+                <a type="button" data-toggle="modal" data-target="#popup-add-part" href="#" class="btn btn-sm btn-info pull-left">
                 <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
                 </a>
             </div>
         </div>
         <div class="box-body">
 
-              <!-- Print Buttons -->
-              {{-- <div class="no-print">
+                <!-- Print Buttons -->
+                {{-- <div class="no-print">
                     <div class="col-xs-12">
                     <a href="/student/print-page/levels" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
                     <a type="button" href="/student/print-page/levels" class="btn btn-success" style="margin-right: 5px;">
@@ -52,20 +52,22 @@
                         <tr>
                             <th>#ID</th>
                             <th>اسم المرحلة التعليمية</th>
+                            <th>اسم الصف</th>
+                            <th>اسم الفصل</th>
+                            <th>عدد الطلاب</th>
                             <th>الترتيب</th>
-                            <th>مدير المدرسة</th>
-                            <th>ناظر المدرسة</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($levels as $level)
+                        @forelse($parts as $part)
                         <tr>
-                            <td>{{ $level->id }}</td>
-                            <td>{{ $level->name }}</td>
-                            <td>{{ $level->sort }}</td>
-                            <td>{{ $level->head_master }}</td>
-                            <td>{{ $level->school_master }}</td>
+                            <td>{{ $part->id }}</td>
+                            <td>{{ $part->level->name }}</td>
+                            <td>{{ $part->classroom->name }}</td>
+                            <td>{{ $part->name }}</td>
+                            <td>{{ $part->max_student_number }}</td>
+                            <td>{{ $part->sort }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -73,10 +75,10 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $level->id]) }}">تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('parts.edit',  ['id' => $part->id]) }}">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $level->id]) }}">حذف</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('parts.delete',['id' => $part->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -96,7 +98,7 @@
         </div>
     </div>
     <!-- /.box -->
-    @include('student::students.educations.levels.add')
+    @include('student::students.educations.parts.add')
 </section>
 <!-- /.content -->
 

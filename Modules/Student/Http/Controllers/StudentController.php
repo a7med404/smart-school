@@ -13,6 +13,7 @@ use Modules\Address\Entities\Identifcation;
 use Modules\Student\Transformers\StudentResource;
 use Modules\Student\Transformers\SingleStudentResource;
 use Modules\Student\Http\Requests\CreateStudentRequest;
+use Session;
 class StudentController extends Controller
 {
    /**
@@ -64,7 +65,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('student::create');
+        return view('student::students.student.create');
     }
     /**
      * Show the form for creating a new resource.
@@ -72,7 +73,7 @@ class StudentController extends Controller
      */
     public function addStudentManual()
     {
-        return view('student::create');
+        return view('student::students.student.add-student-manual');
     }
 
     public function pay()
@@ -93,34 +94,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $request->start_year = "2019-05-07";
-        
-        $data = [
-            "name" => $request->name,
-            "gender" => $request->gender,
-            "religion" => $request->religion,
-            "is_staff_son" => $request->is_staff_son,
-            "birthday" => $request->birthday,
-            "start_data" => $request->start_data,
-            "education_year" => $request->education_year,
-            "note" => $request->note
-        ];
-        
-        $id = Student::create(array_except($request->all(), "study_status"))->id;    
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'student_id' => $id
-        ], 201);
-        // if($request->has('studentIdToSend')){
-        //     dd($request->all());
-
-        // }
+        $student = Student::create($request->all());
+        if($student){
+            Session::flash('flash_massage_type');
+            return redirect()->route('students.index')->withFlashMassage('student Created Susscefully');
+        }
     }
 
     public function addAddress(Request $request, $id)
     {
-        dd($request->all());
         $data = [
             "name" => $request->name,
             "gender" => $request->gender,
@@ -128,7 +110,7 @@ class StudentController extends Controller
             "is_staff_son" => $request->is_staff_son,
             "birthday" => $request->birthday,
             "start_data" => $request->start_data,
-            "start_year" => "2019-05-07",//$request->start_year,
+            "education_year" => "2019-05-07",//$request->education_year,
             "note" => $request->note
         ];
         // $id = Student::create($data)->id;    
@@ -149,6 +131,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
+        $studentInfo = Student::findOrFail($id);
+        return view('student::students.student.show', ['studentInfo' => $studentInfo]);
         return new SingleStudentResource(Student::findOrfail($id));
         /* return view('student::show'); */
     }
@@ -160,6 +144,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
+        $studentInfo = Student::findOrFail($id);
+        return view('student::students.student.edit', ['studentInfo' => $studentInfo]);
+        
         return Student::with('addresses')->with('contacts')->with('identifcations')->with('health')->findOrfail($id);
         /* return view('student::edit'); */
     }
@@ -172,11 +159,20 @@ class StudentController extends Controller
      */
     public function update(CreateStudentRequest $request, $id)
     {
-        Student::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $updateStudent = Student::findOrfail($id)->update($request->all());
+        if($updateStudent){
+            Session::flash('flash_massage_type');
+            return redirect()->back()->withFlashMassage('Student Updated Susscefully');
+        }
     }
+    
+    // public function update(CreateStudentRequest $request, $id)
+    // {
+    //     Student::findOrfail($id)->update($request->all());
+    //     return response()->json([
+    //             'message' => 'تم التحديث بنجاح',
+    //         ], 200);
+    // }
 
     /**
      * Remove the specified resource from storage.
