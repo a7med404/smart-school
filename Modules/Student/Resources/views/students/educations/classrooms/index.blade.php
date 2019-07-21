@@ -1,6 +1,6 @@
 @extends('cpanel.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_levels') }}
+{{ __('home/sidebar.all_classrooms') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -28,7 +28,7 @@
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
+                <a type="button" data-toggle="modal" data-target="#popup-add-classroom" href="#" class="btn btn-sm btn-info pull-left">
                 <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
                 </a>
             </div>
@@ -40,20 +40,18 @@
                         <tr>
                             <th>#ID</th>
                             <th>اسم المرحلة التعليمية</th>
+                            <th>اسم الصف</th>
                             <th>الترتيب</th>
-                            <th>مدير المدرسة</th>
-                            <th>ناظر المدرسة</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($levels as $level)
+                        @forelse($classrooms as $classroom)
                         <tr>
-                            <td>{{ $level->id }}</td>
-                            <td>{{ $level->name }}</td>
-                            <td>{{ $level->sort }}</td>
-                            <td>{{ $level->head_master }}</td>
-                            <td>{{ $level->school_master }}</td>
+                            <td>{{ $classroom->id }}</td>
+                            <td>{{ getName('levels', $classroom->level_id) }}</td>
+                            <td>{{ $classroom->name }}</td>
+                            <td>{{ $classroom->sort }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -61,22 +59,14 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $level->id]) }}">تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('classrooms.edit',  ['id' => $classroom->id]) }}">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $level->id]) }}">حذف</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('classrooms.delete',['id' => $classroom->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>
                         </tr>
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 4fabb7fa75aa0e099a8ba4fd896cee5a0608cce7
->>>>>>> d8cc370afb30d27054bfbbb454fc22a5bb18a097
                         @empty
                         <tr>
                             <td colspan="7">
@@ -92,7 +82,7 @@
         </div>
     </div>
     <!-- /.box -->
-    @include('student::students.educations.levels.add')
+    @include('student::students.educations.classrooms.add')
 </section>
 <!-- /.content -->
 
