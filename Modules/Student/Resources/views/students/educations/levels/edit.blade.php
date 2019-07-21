@@ -38,6 +38,14 @@
                     {!! Form::close() !!}
                 </div>
             </div>
+<<<<<<< HEAD
+    
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 4fabb7fa75aa0e099a8ba4fd896cee5a0608cce7
+>>>>>>> d8cc370afb30d27054bfbbb454fc22a5bb18a097
         </div>
         <!-- /.box-body -->
     </div>

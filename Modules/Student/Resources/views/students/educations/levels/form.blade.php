@@ -8,7 +8,11 @@
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('sort', 'الترتيب', ['class' => 'control-label']) !!}
+<<<<<<< HEAD
+            {!! Form::text('sort', null, ['id' => 'sort', 'class' => "forp-control  {{ $errors->has('sort') ? ' is-invalid' : '' }}", 'value' => "{{ old('sort') }}", 'required', 'autofocus']) !!}
+=======
             {!! Form::text('sort', null, ['id' => 'sort', 'class' => "form-control  {{ $errors->has('sort') ? ' is-invalid' : '' }}", 'value' => "{{ old('sort') }}", 'required', 'autofocus']) !!}
+>>>>>>> d8cc370afb30d27054bfbbb454fc22a5bb18a097
         </div>
     </div>
 </div>
@@ -34,7 +38,10 @@
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>
 </div>
+<<<<<<< HEAD
+=======
     
+>>>>>>> d8cc370afb30d27054bfbbb454fc22a5bb18a097
 @else
 <div class="row m-t-40">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
