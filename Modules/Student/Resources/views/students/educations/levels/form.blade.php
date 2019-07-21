@@ -8,7 +8,7 @@
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('sort', 'الترتيب', ['class' => 'control-label']) !!}
-            {!! Form::text('sort', null, ['id' => 'sort', 'class' => "form-control  {{ $errors->has('sort') ? ' is-invalid' : '' }}", 'value' => "{{ old('sort') }}", 'required', 'autofocus']) !!}
+            {!! Form::text('sort', null, ['id' => 'sort', 'class' => "forp-control  {{ $errors->has('sort') ? ' is-invalid' : '' }}", 'value' => "{{ old('sort') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
 </div>
