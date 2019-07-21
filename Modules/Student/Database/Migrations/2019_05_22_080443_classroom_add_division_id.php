@@ -11,22 +11,22 @@ class ClassroomAddDivisionId extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('classrooms', function ($table) {
-            $table->integer('division_id');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::table('classrooms', function ($table) {
+    //         $table->integer('division_id');
+    //     });
+    // }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-          Schema::table('classrooms', function ($table) {
-            $table->dropColumn('division_id');
-        });
-    }
+    // /**
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
+    // public function down()
+    // {
+    //       Schema::table('classrooms', function ($table) {
+    //         $table->dropColumn('division_id');
+    //     });
+    // }
 }

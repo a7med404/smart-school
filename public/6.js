@@ -9,6 +9,13 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -186,11 +193,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -203,8 +207,19 @@ __webpack_require__.r(__webpack_exports__);
         level_id: '',
         classroom_id: '',
         academic_year: ''
-      }
+      },
+      loading: true
     };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['allPayRules', 'allLevels', 'allClassrooms', 'allStudents'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['fetchPayRules', 'fetchStudents', 'deleteStudent', 'fetchLevels', 'fetchClassrooms'])),
+  props: [],
+  created: function created() {
+    var self = this; // self.fetchStudents(params).then(function(){self.loading = false;});
+
+    self.fetchLevels();
+    self.fetchClassrooms();
+    self.fetchPayRules();
   }
 });
 
@@ -359,22 +374,23 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الكل")
-                              ]),
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "selected" } },
+                                [_vm._v("الكل")]
+                              ),
                               _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("رياض اطفال")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("أساس")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("ثانوي")
-                              ])
-                            ]
+                              _vm._l(_vm.allLevels, function(level) {
+                                return _c("option", {
+                                  key: level.id,
+                                  domProps: {
+                                    value: level.id,
+                                    textContent: _vm._s(level.name)
+                                  }
+                                })
+                              })
+                            ],
+                            2
                           )
                         ])
                       ]
@@ -386,7 +402,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { staticClass: "control-label" }, [
-                            _vm._v("اسم الصف")
+                            _vm._v("اختيار الصف")
                           ]),
                           _vm._v(" "),
                           _c(
@@ -423,66 +439,23 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الكل")
-                              ]),
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "selected" } },
+                                [_vm._v("الكل")]
+                              ),
                               _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("حضانة")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الاول")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الثاني")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الاول")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الثاني")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الثالث")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الرابع")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الخامس")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("السادس")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("السابع")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الثامن")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الاول")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الثاني")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("الثالث")
-                              ])
-                            ]
+                              _vm._l(_vm.allClassrooms, function(classroom) {
+                                return _c("option", {
+                                  key: classroom.id,
+                                  domProps: {
+                                    value: classroom.id,
+                                    textContent: _vm._s(classroom.name)
+                                  }
+                                })
+                              })
+                            ],
+                            2
                           )
                         ])
                       ]
@@ -531,26 +504,23 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("الكل")
-                              ]),
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "selected" } },
+                                [_vm._v("الكل")]
+                              ),
                               _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("زي مدرسي")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("كتب")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("تسجيل ")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("دراسة")
-                              ])
-                            ]
+                              _vm._l(_vm.allPayRules, function(pay_rule) {
+                                return _c("option", {
+                                  key: pay_rule.id,
+                                  domProps: {
+                                    value: pay_rule.id,
+                                    textContent: _vm._s(pay_rule.name)
+                                  }
+                                })
+                              })
+                            ],
+                            2
                           )
                         ])
                       ]

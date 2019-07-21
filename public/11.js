@@ -159,7 +159,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -194,9 +193,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     var self = this;
     var params = Object.assign({}, self.search);
-    self.fetchStudents(params).then(function () {
-      self.loading = false;
-    });
+    self.fetchStudents(params);
     self.fetchLevels();
     self.fetchClassrooms();
     self.fetchParts();

@@ -8,7 +8,6 @@ class OffPrint extends Model
 {
     protected $fillable = [
         'student_id',
-        'employee_id',
         'type'
     ]; 
     public function student()

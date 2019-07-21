@@ -56,11 +56,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
+            <!-- <li>
               <router-link :to="{name: 'add-to-class'}">
                 <i class="fa fa-circle-o"></i>ربط المستخدمين بالفصول
               </router-link>
-            </li>
+            </li> -->
             <li>
               <router-link :to="{name: 'student-pull'}">
                 <i class="fa fa-circle-o"></i>طلب سحب ملف الطالب
@@ -149,11 +149,11 @@
                     <i class="fa fa-circle-o"></i>طلب تحويل طالب
                   </router-link>
                 </li>
-                <li>
+                <!-- <li>
                   <router-link :to="{name: 'empty-palce'}">
                     <i class="fa fa-circle-o"></i>اماكن خاليه لطالب جديده
                   </router-link>
-                </li>
+                </li> -->
               </ul>
             </li>
             <li>
@@ -188,11 +188,11 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li>
+                <!-- <li>
                   <router-link :to="{name: 'add-student'}">
                     <i class="fa fa-circle-o"></i>تقرير الجودة
                   </router-link>
-                </li>
+                </li> -->
                 <!-- <li><router-link :to="{name: 'add-student'}"> <i class="fa fa-circle-o"></i>تقرير اماكن خالية</router-link></li> -->
                 <li>
                   <router-link :to="{name: 'add-student'}">
@@ -212,11 +212,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
+            <!-- <li>
               <router-link :to="{name: 'report-quality'}">
                 <i class="fa fa-circle-o"></i> تقرير الجودة
               </router-link>
-            </li>
+            </li> -->
             <li>
               <router-link :to="{name: 'report-emp-student'}">
                 <i class="fa fa-circle-o"></i> عرض ابناء العاملين

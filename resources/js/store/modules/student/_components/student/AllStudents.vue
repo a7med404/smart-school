@@ -10,7 +10,6 @@
 
     <!-- Main content -->
     <section class="content">
-    
       <!-- Default box -->
       <div class="box box-info">
         <div class="box-header with-border">
@@ -23,7 +22,7 @@
           </div>
         </div>
         <div class="box-body">
-          <form @submit.prevent = "searchStudents()" role="form">
+          <form @submit.prevent="searchStudents()" role="form">
             <div class="row">
               <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
                 <div class="form-group">
@@ -163,9 +162,11 @@
             loading: true,
           }
         },
+
         computed: {
           ...mapGetters(['allLevels', 'allClassrooms', 'allParts', 'allStudents'])
         },
+
         methods: {
           ...mapActions(['fetchStudents', 'deleteStudent', 'fetchLevels', 'fetchClassrooms', 'fetchParts']),
           searchStudents: function() {
@@ -179,7 +180,7 @@
         created() {
           let self = this;
           let params = Object.assign({}, self.search)
-          self.fetchStudents(params).then(function(){self.loading = false;});
+          self.fetchStudents(params);
           self.fetchLevels();
           self.fetchClassrooms();
           self.fetchParts();

@@ -15,8 +15,14 @@
 //     return view('app');
 // });
 Route::get('/view/{any}', 'SpaController@index')->where('any', '.*');
+Route::get('/home', 'HomeController@index')->name('home');
 
   // #this for vue-router
   // Route::get('/{any?}', function(){
   //   return view('welcome');
   // })->where('any', '([A-z\d-\/_.]+)?');
+Auth::routes();
+Route::group(['middleware' => ['web', 'auth']], function(){
+  Route::get('/cpanel', function () { return view('cpanel.app'); })->name('cpanel');       
+});
+Route::get('/home', 'HomeController@index')->name('home');

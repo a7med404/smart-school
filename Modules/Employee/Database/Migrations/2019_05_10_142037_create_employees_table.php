@@ -39,9 +39,6 @@ class CreateEmployeesTable extends Migration
             $table->unsignedBigInteger('address_id')->foreign()
             ->references('id')->on('addresses')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('address_id')->foreign()
-            ->references('id')->on('addresses')
-            ->onDelete('cascade');
             $table->unsignedBigInteger('contact_id')->foreign()
             ->references('id')->on('contacts')
             ->onDelete('cascade');

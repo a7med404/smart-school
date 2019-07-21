@@ -20,9 +20,10 @@ class CreateHealthsTable extends Migration
             $table->integer('blood_type');
             $table->string('insurance_number')->unique()->nullable();
             $table->text('health_status');
-            $table->unsignedBigInteger('student_id')->nullable()->foreign()
-            ->references('id')->on('students')
-            ->onDelete('cascade');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->foreign('student_id')
+                ->references('id')->on('students')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

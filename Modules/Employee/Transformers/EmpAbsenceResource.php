@@ -17,6 +17,7 @@ class EmpAbsenceResource extends JsonResource
     {
 
         return [
+            'id'                 => $this->id,
             'empolyee'                            => $this->Employee?new EmployeeResource($this->Employee):"",
             'absence_from'                        => $this->absence_from,
             'absence_to'                          => $this->absence_to,

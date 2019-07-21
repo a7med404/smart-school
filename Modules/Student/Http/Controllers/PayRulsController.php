@@ -33,9 +33,9 @@ class PayRulsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreatePayRulsRequest $request)
+    public function store(Request $request)
     {
-         $id= PayRuls::create($request->all())->id;    
+         $id = PayRuls::create($request->all())->id;    
         return response()->json([
                 'message' => 'تم الحفظ بنجاح',
                 'PayRuls_id' => $id
@@ -70,7 +70,7 @@ class PayRulsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(CreatePayRulsRequest $request, $id)
+    public function update(Request $request, $id)
     {
         PayRuls::findOrfail($id)->update($request->all());
         return response()->json([

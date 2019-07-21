@@ -15,6 +15,7 @@ class AddCalendResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'managament_id'            => getName('managaments', $this->managament_id),
             'department_id'            => getName('departments', $this->department_id),
             'celand_name'              => $this->celand_name,

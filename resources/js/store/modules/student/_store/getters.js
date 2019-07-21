@@ -9,4 +9,10 @@ export default {
 
   studentId: (state) => state.student_id,
   // student: (state) => state.student
+
+
+  allPayRules: (state) => state.pay_rules,
+  allCalends: (state) => state.calends,
+
+  allOffPrints: (state) => state.offprints,
 }

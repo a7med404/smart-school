@@ -9,7 +9,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="{{ asset('modules/master/images/user.png') }}" alt=""> a7med404
+            <img src="{{ asset('modules/master/images/user.png')}}" alt=""> a7med404
             <i class=" fa fa-angle-down"></i>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">

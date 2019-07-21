@@ -33,7 +33,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('/healthes', 'HealthController');
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
-    Route::resource('offPrints', 'OffPrintController');
+    Route::get('/offprints/{type}', 'OffPrintController@getOffPrints');
+    Route::resource('offprints', 'OffPrintController');
     Route::resource('studentTransfers', 'StudentTransferController');
     
     /* offline */
@@ -43,6 +44,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('discountSettingSibling', 'DiscountSettingSiblingController');
     Route::resource('emptyPalce', 'EmptyPalceController');
     Route::resource('payClass', 'PayClassController');
+    Route::resource('pay_rules', 'PayRulsController');
     Route::resource('permissiontodepart', 'PermissiontodepartController');
     Route::resource('reportSeparate', 'ReportSeparateController');
     Route::resource('reportWarning', 'ReportWarningController');

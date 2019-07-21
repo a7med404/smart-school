@@ -96,4 +96,10 @@ class EmpPerissionsController extends Controller
         
         return  EmpPerissionsResource::collection(EmpPerissions::where('employee_id',$request->employee_id)->where('date','>=',$request->from)->where('date','<=',$request->to)->get());
     }
+
+    public function empSettingPerissions()
+    {
+        return view('student::create');
+    }
+    
 }

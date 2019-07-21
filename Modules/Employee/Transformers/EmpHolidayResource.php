@@ -15,6 +15,7 @@ class EmpHolidayResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'employee_id'                  => getName('employees', $this->employee_id),
             'add_holiday_id'                   => getName('add_holidays', $this->holiday_id),
             'balance'                      => $this->balance,

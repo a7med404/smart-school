@@ -91,4 +91,26 @@ class SalaryController extends Controller
             'message' => 'تم الحذف بنجاح',
         ], 200);
     }
+
+        
+    public function salaryDetails()
+    {
+        return view('student::create');
+    }
+    
+
+    public function reallianceSalary()
+    {
+        return view('student::create');
+    }
+
+    public function overpayment()
+    {
+        return view('student::create');
+    }
+
+    public function overpaymentPivision()
+    {
+        return view('student::create');
+    }
 }

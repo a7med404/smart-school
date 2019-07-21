@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Classroom;
+use Modules\Student\Entities\Level;
 use Modules\Student\Transformers\ClassroomResource;
 use Modules\Student\Transformers\singleClassroomResource;
 use Modules\Student\Http\Requests\CreateClassroomRequest;
 use Modules\Student\Transformers\PartResource;
+use \Session;
 
 class ClassroomController extends Controller
 {
@@ -19,7 +21,9 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        return ClassroomResource::collection(Classroom::orderBy('sort', 'asc')->get());
+        $levels = Level::orderBy('sort', 'asc')->get();
+        $classrooms = Classroom::orderBy('sort', 'asc')->get();
+        return view('student::students.educations.classrooms.index', ['classrooms' => $classrooms, 'levels' => $levels]);
     }
 
     /**
@@ -39,10 +43,10 @@ class ClassroomController extends Controller
     public function store(Request $request)
     { 
         $classroom = Classroom::create($request->all());
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'data' => $classroom
-        ], 201);
+        if($classroom){
+            Session::flash('flash_massage_type');
+            return redirect()->route('classrooms.index')->withFlashMassage('Classroom Created Susscefully');
+        }
     }
 
     /**
@@ -52,8 +56,8 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        return new singleClassroomResource(Classroom::findOrfail($id));
-        /* return view('student::show'); */
+        $classroomInfo = classroom::findOrFail($id);
+        return view('student::students.educations.classrooms.show', ['classroomInfo' => $classroomInfo]);
     }
     /**
      * Show parts in one classroom.
@@ -73,8 +77,8 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        return new singleClassroomResource(Classroom::findOrfail($id));
-        /* return view('student::edit'); */
+        $classroomInfo = classroom::findOrFail($id);
+        return view('student::students.educations.classrooms.edit', ['classroomInfo' => $classroomInfo]);
     }
 
     /**
@@ -85,10 +89,9 @@ class ClassroomController extends Controller
      */
     public function update(CreateClassroomRequest $request, $id)
     {
-        Classroom::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        $classroomUpdate = Classroom::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Classroom Updated Susscefully');
     }
 
     /**
@@ -96,18 +99,18 @@ class ClassroomController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Classroom $Oneclassroom)
     {
-        Classroom::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
-    }
+      $classroomForDelete = $Oneclassroom->findOrfail($id);
+      $classroomForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Classroom Deleted Susscefully');
+    }     
 
 
-    public function getClassrooms($level_id)
+    public function getClassrooms($classroom_id)
     {
-        return new ClassroomResource(Classroom::where('level_id', $level_id)->orderBy('sort', 'asc')->get());
+        return new ClassroomResource(Classroom::where('classroom_id', $classroom_id)->orderBy('sort', 'asc')->get());
         // return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
 

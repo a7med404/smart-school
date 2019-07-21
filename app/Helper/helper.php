@@ -7,6 +7,14 @@ function gender()
         1 => 'ذكر',
     ];
 }
+function getGender()
+{
+    return [
+        '' => 'الكل',
+        1 => 'ذكر',
+        0 => 'انثي',
+    ];
+}
 function valueOrPersentage()
 {
     return [
@@ -24,6 +32,13 @@ function offPrint()
     ];
 }
 
+function toggleOneZeroClass(){
+    return [
+        '0' => 'label label-default',
+        '1' => 'label label-success',
+    ];
+}
+
 function is_mandatary()
 {
     return [
@@ -31,7 +46,12 @@ function is_mandatary()
         1 => 'إجباري',
     ];
 }
-
+function status(){
+    return [
+        '0' => 'Disable',
+        '1' => 'Enable',
+    ];
+}
 function payment_status()
 {
     return [

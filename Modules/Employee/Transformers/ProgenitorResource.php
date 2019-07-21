@@ -15,6 +15,7 @@ class ProgenitorResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'employee_id'                  => getName('employees', $this->employee_id),
             'amount'                       => $this->amount,
             'financial_year'               => $this->financial_year,
