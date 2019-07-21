@@ -15,6 +15,7 @@ class RewardsPunitionResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'finance_year'                 => $this->finance_year,
             'date'                         => $this->date,
             'management_id'                => getName('managaments', $this->managament_id),

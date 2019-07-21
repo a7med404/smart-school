@@ -54,6 +54,7 @@ class AttendanceController extends Controller
         /* return view('student::show'); */
     }
 
+
     /**
      * Show the form for editing the specified resource.
      * @param int $id
@@ -64,7 +65,7 @@ class AttendanceController extends Controller
         return new AttendanceResource(Attendance::findOrfail($id));
         /* return view('student::edit'); */
     }
-
+    
     /**
      * Update the specified resource in storage.
      * @param Request $request
@@ -93,4 +94,10 @@ class AttendanceController extends Controller
             ], 200);
     }
  
+
+    public function attendanceForClass($id)
+    {
+        return new AttendanceResource(Attendance::findOrfail($id));
+        /* return view('student::show'); */
+    }
 }

@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['namespace' => 'API', 'prefix' => 'cpanel'], function () {
+    Route::resource('users','ApiUserController');
+
+    Route::get('users/city/{city_id}/local/{local_id}','ApiUserController@getDelegate');
+    
+});

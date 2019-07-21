@@ -15,6 +15,7 @@ class ResignationResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'                 => $this->id,
             'employee_id'                         => getName('employees', $this->employee_id),
             'applicant_to'                        => $this->applicant_to,
             'reason'                              => $this->reason

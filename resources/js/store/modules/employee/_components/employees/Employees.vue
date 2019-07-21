@@ -436,7 +436,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> اسم المستخدم  </label>
-                            <input class="form-control" placeholder="" type="text" v-model="student.name">
+                            <input class="form-control" placeholder="" type="text" v-model="employee.name">
                           </div>
                         </div>
                       </div>
@@ -444,7 +444,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> كلمة المرور</label>
-                            <input class="form-control" placeholder="" type="password" v-model="student.name">
+                            <input class="form-control" placeholder="" type="password" v-model="employee.name">
                           </div>
                         </div>
                       </div>
@@ -452,7 +452,7 @@
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                           <div class="form-group">
                             <label class="control-label"> تاكيد كلمة المرور</label>
-                            <input class="form-control" placeholder="" type="password" v-model="student.name">
+                            <input class="form-control" placeholder="" type="password" v-model="employee.name">
                           </div>
                         </div>
                       </div>

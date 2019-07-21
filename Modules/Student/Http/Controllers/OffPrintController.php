@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller;
 use Modules\Student\Entities\OffPrint;
 use Modules\Student\Transformers\OffPrintResource;
 use Modules\Student\Http\Requests\CreateOffPrintRequest;
+use Modules\Student\Entities\Student;
+use PDF;
 
 class OffPrintController extends Controller
 {
@@ -24,6 +26,16 @@ class OffPrintController extends Controller
         }
     }
 
+    public function getOffPrints(Request $request, $type)
+    {
+        if ($type) {
+            return OffPrintResource::collection(OffPrint::where('type', $request->type)->get());
+        } else {
+            return OffPrintResource::collection(OffPrint::all());
+        }
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -40,12 +52,22 @@ class OffPrintController extends Controller
      */
     public function store(CreateOffPrintRequest $request)
     {
+        // dd($request->all());
         OffPrint::create($request->all());
+        $this->print($request->student_id, $request->type);
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
         ], 201);
     }
-
+    public function print($student, $type)
+    {
+        $data = Student::where('id', $student)->get();
+        // return view('student::print.offprint', ['data' => $data]);
+        $pdf  = PDF::loadView('student::print.tests.print-page', ['data' => $data])->setPaper('a4', 'portrail');
+        // $pdf  = PDF::loadHTML('<h1>'.$level.'</h1>')->setPaper('a4', 'portrail');
+        $fileName = 'data';//$data->name;
+        return $pdf->stream($fileName, '.pdf');
+    }
     /**
      * Show the specified resource.
      * @param int $id

@@ -11,6 +11,8 @@ use Modules\Student\Transformers\SingleLevelResource;
 use Modules\Student\Http\Requests\CreateLevelRequest;
 use Modules\Student\Transformers\ClassroomResource;
 use PDF;
+use \Session;
+
 class LevelController extends Controller
 {
     /**
@@ -19,7 +21,8 @@ class LevelController extends Controller
      */
     public function index()
     {
-        return LevelResource::collection(Level::orderBy('sort', 'asc')->get());
+        $levels = Level::orderBy('sort', 'asc')->get();
+        return view('student::students.educations.levels.index', ['levels' => $levels]);
     }
 
     /**
@@ -45,9 +48,11 @@ class LevelController extends Controller
             'school_master' => $request->school_master,
         ];
         $level = Level::create($data);
-        return response()->json(['message' => 'تم الحفظ بنجاح', 'data' => $level], 201);
+        if($level){
+            Session::flash('flash_massage_type');
+            return redirect()->route('levels.index')->withFlashMassage('Level Created Susscefully');
+        }
     }
-
     /**
      * Show the specified resource.
      * @param int $id
@@ -55,8 +60,8 @@ class LevelController extends Controller
      */
     public function show($id)
     {
-        return new SingleLevelResource(Level::findOrfail($id));
-        /* return view('student::show'); */
+        $levelInfo = level::findOrFail($id);
+        return view('student::students.educations.levels.show', ['levelInfo' => $levelInfo]);
     }
     /**
      * Show all classrooms in one level .
@@ -76,40 +81,42 @@ class LevelController extends Controller
      */
     public function edit($id)
     {
-        return new SingleLevelResource(Level::findOrfail($id));
-        /* return view('student::edit'); */
+        $levelInfo = level::findOrFail($id);
+        return view('student::students.educations.levels.edit', ['levelInfo' => $levelInfo]);
     }
-
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
      * @return Response
      */
-    public function update(CreateLevelRequest $request, $id)
+    public function update(CreateLevelRequest $request, $id, Level $Onelevel)
     {
-        // dd($request->all(), $id);
-        $data = [
-            'name' => $request->name,
-            'sort' => $request->sort,
-            'head_master' => $request->head_master,
+      $levelUpdate = $Onelevel->findOrFail($id);
+      $data = [
+            'name'          => $request->name,
+            'sort'          => $request->sort,
+            'head_master'   => $request->head_master,
             'school_master' => $request->school_master,
         ];
-        Level::findOrfail($id)->update($data);
-        return response()->json(['message' => 'تم التحديث بنجاح'], 200);
+      $updateLevel = $levelUpdate->fill($data)->save();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Level Updated Susscefully');
     }
+
 
     /**
      * Remove the specified resource from storage.
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Level $Onelevel)
     {
-        Level::findOrfail($id)->delete();
-        return response()->json(['message' => 'تم الحذف بنجاح'], 200);
-    }
-              
+      $levelForDelete = $Onelevel->findOrfail($id);
+      $levelForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Level Deleted Susscefully');
+    }      
 
 
 }

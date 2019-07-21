@@ -15,8 +15,9 @@ class PayRulsResource extends JsonResource
     public function toArray($request)
     {
         return [ 
+            'id'                  => $this->id,
             'name'                => $this->name,
-            'is_mandatary'        => is_mandatary()[$this->is_mandatary],
+            'is_mandatary'        => $this->is_mandatary,
             'note'                => $this->note
             ];
         // return parent::toArray($request);

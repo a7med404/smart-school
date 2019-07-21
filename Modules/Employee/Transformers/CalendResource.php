@@ -15,6 +15,8 @@ class CalendResource extends JsonResource
     public function toArray($request)
     {
         return [
+
+            'id'                 => $this->id,
             'name'                 => $this->name,
             'discount_percentage'  => $this->discount_percentage,
             'type'                 => calendType()[$this->type]

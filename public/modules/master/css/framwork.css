@@ -514,47 +514,41 @@ textarea.form-control {
 
 
 
-
-
-
-
 /************* DataTabel Content ********************/
 .customer_profile_img {
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    margin-left: 2%;
-    z-index: 1000;
-    position: inherit;
-    border: 1px solid rgba(52, 73, 94, 0.44);
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  margin-left: 2%;
+  z-index: 1000;
+  position: inherit;
+  border: 1px solid rgba(52, 73, 94, 0.44);
 }
 /************* DataTabel ********************/
 table.dataTable {
-    box-shadow: 4px 4px 10px #CFCFCF;
-    margin: auto;
-    width: calc(100% - 5px);
+  /* box-shadow: 4px 4px 10px #CFCFCF; */
+  margin: auto;
+  width: calc(100% - 5px);
 }
 
-table.dataTable thead {
-  background-color: #2a3f54;
-  color: #FFF;
-  margin: auto -2px;
-}
-th{
-    text-align: center;
-}
+/* table.dataTable thead {
+background-color: #2a3f54;
+color: #FFF;
+margin: auto -2px;
+} */
 
+th {
+  text-align: center;
+}
 
 .dataTables_wrapper .dataTable tbody td:last-child{
-    text-align: center
+  text-align: center
 }
 
-
-
-/* .dataTables_wrapper .dataTables_paginate .paginate_button {
-    padding: 0;
-    margin-left: 0;
-    border: none;
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0;
+  margin-left: 0;
+  border: none;
 }
 .pagination>.active>a,
 .pagination>.active>a:focus,
@@ -562,31 +556,59 @@ th{
 .pagination>.active>span,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover {
-    background-color: #fc3;
-    border-color: #fc3;
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee; 
+  border-color: #ddd;
 }
 .pagination>li>a,
 .pagination>li>span {
-    color: #fc3;
+  color: #23527c;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    border: none;
-    background: none;
-} */
-/* .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+  border: none;
+  background: none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
-    border: none;
+  border: none;
+}
+
+/* div.dataTables_filter {
+text-align: left;
+float: left !important;
 } */
-
-div.dataTables_filter {
-  text-align: left;
-}
 div.dataTables_paginate {
-  text-align: left;
+text-align: left;
+}
+
+.dataTables_wrapper .col-sm-1, .dataTables_wrapper .col-sm-10, .dataTables_wrapper .col-sm-11, .dataTables_wrapper .col-sm-12, .dataTables_wrapper .col-sm-2, .dataTables_wrapper .col-sm-3, .dataTables_wrapper .col-sm-4, .dataTables_wrapper .col-sm-5, .dataTables_wrapper .col-sm-6, .dataTables_wrapper .col-sm-7, .dataTables_wrapper .col-sm-8, .dataTables_wrapper .col-sm-9 {
+  float: none;
+  float: left !important;
 }
 
 
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+  background: #fafafa;
+  color: #666;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+  border: none;
+}
+.pagination > li > a, .pagination > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  display: inline !important;
+  padding: 0 !important;
+  margin-left: auto !important;
+}
+.pagination {
+  margin: 3px 0 10px;
+}
 /************* Tabel ********************/
 table {
     box-shadow: 0 7px 6px -6px #CFCFCF;

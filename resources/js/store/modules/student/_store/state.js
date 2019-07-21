@@ -5,10 +5,13 @@ export default {
   student_id: '',
   
   // errors: [],
-  errors: [],
-  levels: [],
-  classrooms: [],
-  parts: [],
+  errors:       [],
+  levels:       [],
+  classrooms:   [],
+  parts:        [],
 
-  records: [],
+  records:      [],
+  pay_rules:    [],
+  calends:      [],
+  offprints:    [],
 }

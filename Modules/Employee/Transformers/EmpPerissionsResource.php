@@ -17,6 +17,7 @@ class EmpPerissionsResource extends JsonResource
          return parent::toArray($request);
 
         return [
+            'id'                 => $this->id,
             'managament_id'         => getName('managaments', $this->managament_id),
             'department_id'         => getName('departments', $this->department_id),
             'employee_id'           => getName('employees', $this->employee_id),

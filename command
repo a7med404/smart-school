@@ -1,7 +1,11 @@
 php artisan module:make 
 
-php artisan module:use
-php artisan module:unuse
+php artisan module:unuse User
+php artisan module:use File
+
+php artisan module:migrate File
+
+php artisan module:make-controller View\AddCalendController
 
 
 php artisan module:make-factory InstalmentFactory
@@ -12,10 +16,10 @@ php artisan module:make-request CreateInstalmentRequest
 php artisan module:make-resource InstalmentResource --collection
 
 php artisan module:make-model Instalment --migration
-php artisan module:make-controller InstalmentController
+php artisan module:make-controller EmployeeReportController
 
 
-php artisan module:migrate
+php artisan module:migrate User
 php artisan module:seed
 
 php artisan module:publish-migration
