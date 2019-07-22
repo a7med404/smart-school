@@ -28,13 +28,12 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="{{ asset('modules/master/images/user.png')}}" alt="User profile picture">
-              {{-- 'name', 
+              {{--  
               'is_staff_son',
               'start_data',
               'education_year', 
               'study_status', 
-              'student_parent_id', 
-              'is_partner_son',
+              'student_parent_id',
               'health_id' --}}
 
               <h3 class="text-center">{{ $studentInfo->name }}</h3>
@@ -61,13 +60,18 @@
                 <li class="list-group-item">
                   <b>تاريخ الميلاد</b> <a class="pull-left">{{ $studentInfo->birthday}}</a>
                 </li>
+                <strong><i class="fa fa-file-text-o margin-r-5"></i> ملاحظة </strong>
+                <p>{{$studentInfo->note}}</p>
               </ul>
-              <a href="{{ route('students.edit',  ['id' => $studentInfo->id]) }}" class="btn btn-primary btn-block"><b>تعديل بيانات الشركة</b></a>
+              <a href="{{ route('students.edit',  ['id' => $studentInfo->id]) }}" class="btn btn-primary btn-block"><b>تعديل بيانات الطالب</b></a>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
 
+          
+          @empty($studentInfo->health)
+              
           <!-- About Me Box -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -76,12 +80,24 @@
             <!-- /.box-header -->
             <div class="box-body">
               <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
-
               <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
+                {{$studentInfo->health->doctor_name}}
+              </p>
+              <strong><i class="fa fa-book margin-r-5"></i> doctor_number</strong>
+              <p class="text-muted">
+                {{$studentInfo->health->doctor_number}}
+              </p>
+              <strong><i class="fa fa-book margin-r-5"></i> blood_type</strong>
+              <p class="text-muted">
+                {{$studentInfo->health->blood_type}}
               </p>
 
-              <hr>
+              <strong><i class="fa fa-book margin-r-5"></i> insurance_number</strong>
+              <p class="text-muted">
+                {{$studentInfo->health->insurance_number}}
+              </p>
+
+              {{-- <hr>
 
               <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
 
@@ -97,17 +113,18 @@
                 <span class="label label-info">Javascript</span>
                 <span class="label label-warning">PHP</span>
                 <span class="label label-primary">Node.js</span>
-              </p>
+              </p> --}}
 
               <hr>
 
               <strong><i class="fa fa-file-text-o margin-r-5"></i> ملاحظة </strong>
-
-              <p>{{$studentInfo->note}}</p>
+              <p>{{$studentInfo->health->health_status}}</p>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+
+          @endempty
         </div>
         <!-- /.col -->
         <div class="col-md-9">
