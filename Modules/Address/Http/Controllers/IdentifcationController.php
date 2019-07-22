@@ -9,14 +9,18 @@ use Modules\Address\Entities\Identifcation;
 use Modules\Address\Transformers\IdentifcationResource;
 use Modules\Address\Transformers\SingleIdentifcationResource;
 use Modules\Address\Http\Requests\CreateIdentifcationRequest;
+use Illuminate\Support\Facades\Session;
+
 class IdentifcationController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
-    {
+    public function index(Identifcation $identifcation){
+        $allUsers = $identifcation->all();
+        return view('address::identifcations.index', ['identifcations' => $allUsers]);
         return new IdentifcationResource(Identifcation::all());
     }
 
@@ -44,12 +48,11 @@ class IdentifcationController extends Controller
             'identifcationable_id'      => $request->identifcationable_id,
             'identifcationable_type'    => $request->identifcationable_type,
         ];
-         Identifcation::create($data);
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-        ], 201);
-        
-            
+        $student = Identifcation::create($request->all());
+        // Identifcation::create($data);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Identifcation Added Susscefully');
+
     }
 
     /**
@@ -70,8 +73,9 @@ class IdentifcationController extends Controller
      */
     public function edit($id)
     {
-        return new SingleIdentifcationResource(Identifcation::findOrfail($id));
-        /* return view('student::edit'); */
+        $identifcationInfo = Identifcation::findOrfail($id);
+        return view('address::identifcations.edit',['identifcationInfo' => $identifcationInfo]);
+        // return redirect()->route("companies.show", ['id' => $identifcationInfo->identifcationable_id])->with(['identifcationInfo' => $identifcationInfo]);
     }
 
     /**
@@ -82,10 +86,17 @@ class IdentifcationController extends Controller
      */
     public function update(CreateIdentifcationRequest $request, $id)
     {
-        Identifcation::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $data = [
+            'type'                      => $request->type,
+            'issue_date'                => $request->issue_date,
+            'identifcation_number'      => $request->identifcation_number,
+            'issue_place'               => $request->issue_place,
+            'identifcationable_id'      => $request->identifcationable_id,
+            'identifcationable_type'    => $request->identifcationable_type,
+        ];
+        Identifcation::findOrfail($id)->update($data);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Identifcation Updated Susscefully');
     }
 
     /**
@@ -93,11 +104,14 @@ class IdentifcationController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Identifcation $oneIdentifcation)
     {
-        Identifcation::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+      $identifcationForDelete = $oneIdentifcation->findOrfail($id);
+      $identifcationForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Identifcation Deleted Susscefully');
     }
+
+
+
 }

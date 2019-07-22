@@ -21,26 +21,13 @@ class CreateStudentsTable extends Migration
             $table->boolean('is_staff_son')->default(false);
             $table->date('birthday');
             $table->date('start_data');
-            $table->string('start_from', 200); //start_year
-            $table->date('start_year');
+            $table->string('education_year', 200); //education_year
             $table->tinyInteger('study_status');
             $table->text('note');
             
-            $table->unsignedBigInteger('identifcation_id')->nullable();
-            $table->foreign('identifcation_id')
-                ->references('id')->on('identifcations')
-                ->onDelete('cascade');
             $table->unsignedBigInteger('student_parent_id')->nullable();;
             $table->foreign('student_parent_id')
                 ->references('id')->on('student_parents')
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('address_id')->nullable();
-            $table->foreign('address_id')
-                ->references('id')->on('addresses')
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('contact_id')->nullable();;
-            $table->foreign('contact_id')
-                ->references('id')->on('contacts')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('level_id')->nullable();;
             $table->foreign('level_id')

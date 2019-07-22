@@ -4,6 +4,7 @@ namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Student\Entities\Classroom;
+use Modules\Student\Entities\Level;
 use Modules\Student\Entities\Student;
 class Part extends Model
 {
@@ -18,6 +19,10 @@ class Part extends Model
     public function classroom()
     {
         return $this->belongsTo(Classroom::class);
+    }
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
     }
 
     public function students()

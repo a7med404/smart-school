@@ -7,8 +7,9 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Part;
 use Modules\Student\Transformers\PartResource;
-use Modules\Student\Transformers\SinglepartResource;
 use Modules\Student\Http\Requests\CreatePartRequest;
+use Session;
+
 class PartController extends Controller
 {
     /**
@@ -17,9 +18,10 @@ class PartController extends Controller
      */
     public function index()
     {
-        return PartResource::collection(Part::orderBy('sort', 'asc')->get());
+        $parts = Part::orderBy('sort', 'asc')->get();
+        return view('student::students.educations.parts.index', ['parts' => $parts]);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -34,13 +36,14 @@ class PartController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreatePartRequest $request)
-    {
+    public function store(Request $request)
+    { 
         $part = Part::create($request->all());
-            return response()->json([
-                'message' => 'تم الحفظ بنجاح', 'data' => $part
-            ], 201);
-    } 
+        if($part){
+            Session::flash('flash_massage_type');
+            return redirect()->route('parts.index')->withFlashMassage('Part Created Susscefully');
+        }
+    }
 
     /**
      * Show the specified resource.
@@ -49,7 +52,17 @@ class PartController extends Controller
      */
     public function show($id)
     {
-        return new SinglepartResource(Part::findOrfail($id));
+        $partInfo = part::findOrFail($id);
+        return view('student::students.educations.parts.show', ['partInfo' => $partInfo]);
+    }
+    /**
+     * Show parts in one part.
+     * @param int $id
+     * @return Response
+     */
+    public function parts($id)
+    {
+        return new PartResource(Part::findOrfail($id)->parts);
         /* return view('student::show'); */
     }
 
@@ -60,22 +73,21 @@ class PartController extends Controller
      */
     public function edit($id)
     {
-        return new SinglepartResource(Part::findOrfail($id));
-        /* return view('student::edit'); */
+        $partInfo = part::findOrFail($id);
+        return view('student::students.educations.parts.edit', ['partInfo' => $partInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
     public function update(CreatePartRequest $request, $id)
     {
-       Part::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $partUpdate = Part::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Part Updated Susscefully');
     }
 
     /**
@@ -83,17 +95,18 @@ class PartController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Part $Onepart)
     {
-       Part::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
-    }
-  
-    public function getParts($classroom_id)
+      $partForDelete = $Onepart->findOrfail($id);
+      $partForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Part Deleted Susscefully');
+    }     
+
+
+    public function getParts($part_id)
     {
-        return new PartResource(Part::where('classroom_id', $classroom_id)->orderBy('sort', 'asc')->get());
+        return new PartResource(Part::where('part_id', $part_id)->orderBy('sort', 'asc')->get());
         // return response()->json(['message' => 'تم الحذف بنجاح'], 200);
     }
 

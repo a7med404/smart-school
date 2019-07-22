@@ -159,3 +159,70 @@ Validator::make($data, [
         Rule::unique('users')->ignore($user->id),
     ],
 ]);
+
+
+/**************************** Form *********************************/
+<div class="row">
+    <div class="ccol col-xl-12 col-lg-12 col-md-12">
+        <div class="form-group">
+            {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+            {!! Form::text('name', null, ['id' => 'name', 'class' => "form-control {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('name') }}", 'required', 'autofocus']) !!}
+        </div>
+    </div>
+</div>
+
+<div class="col col-xl-6 col-lg-6 col-md-6">
+    <div class="form-group">
+        {!! Form::label('logo', 'Logo', ['class' => 'control-label']) !!}
+        {!! Form::file('logo', null, ['id' => 'logo', 'class' => "form-control  {{ $errors->has('logo') ? ' is-invalid' : '' }}", 'value' => "{{ old('logo') }}", 'required', 'autofocus']) !!}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 custom-label-checkbox-radio">
+        <div class="form-group">
+            {!! Form::label('status', 'Status', ['class' => 'control-label']) !!} <br />
+            {!! Form::radio('status', 1, null, ['id' => 'status', 'placeholder' => 'status', 'class' => "{{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!}  <span>Active</span> <br>
+            {!! Form::radio('status', 0, null, ['id' => 'status', 'placeholder' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!} <span>Disable</span> 
+        </div>
+    </div>
+</div>
+
+<div class="col col-xl-4 col-lg-4 col-md-4">
+    <div class="bootstrap-timepicker">
+        <div class="form-group">
+            {!! Form::label('date', 'تاريخ الرحلة', ['class' => 'control-label']) !!}
+            <div class="input-group">
+                {!! Form::text('date', null, ['id' => 'date', 'class' => "form-control  {{ $errors->has('date') ? ' is-invalid' : '' }}", 'value' => "{{ old('date') }}", 'required', 'autofocus']) !!}
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-xl-12 col-lg-12 col-md-12">
+        <div class="form-group">
+            {!! Form::label('company_id', 'الشركة', ['class' => 'control-label']) !!}
+            {!! Form::select('company_id', getSelect('company'), null, ['id' => 'company_id', 'class' => "select2 form-control  {{ $errors->has('company_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('company_id') }}", 'required']) !!}
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3 custom-label-checkbox-radio">
+    <div class="form-group">
+        {!! Form::label($role->name, $role->display_name, ['class' => 'control-label']) !!} <br />
+        {!! Form::checkbox('role', $role->id, null, ['id' => $role->name, 'class' => " {{ $errors->has('role') ? ' is-invalid' : '' }}", 'value' => "{{ old('role') }}"]) !!}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="form-group">
+            {!! Form::label('note', 'Note', ['class' => 'control-label']) !!}
+            {!! Form::textarea('note', null, ['id' => 'note', 'class' => "form-control  {{ $errors->has('note') ? ' is-invalid' : '' }}", 'value' => "{{ old('note') }}", 'autofocus']) !!}
+        </div>
+    </div>
+</div>

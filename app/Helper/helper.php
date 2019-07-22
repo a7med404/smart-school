@@ -122,6 +122,33 @@ function nationality()
     ];
 }
 
+function educationYear()
+{
+    return [
+        '2013/2014' => '2013/2014',
+        '2014/2015' => '2014/2015',
+        '2015/2016' => '2015/2016',
+        '2016/2017' => '2016/2017',
+        '2017/2018' => '2017/2018',
+        '2018/2019' => '2018/2019',
+        '2019/2020' => '2019/2020',
+        '2020/2021' => '2020/2021',
+        '2021/2022' => '2021/2022',
+        '2022/2023' => '2022/2023',
+        '2023/2024' => '2023/2024',
+        '2024/2025' => '2024/2025',
+    ];
+}
+
+function studyStatus()
+{
+    return [
+        1 => 'مرفع',
+        2 => 'جديد',
+        3 => 'عائد',
+
+    ];
+}
 function martial()
 {
     return [
@@ -162,6 +189,35 @@ function job_title()
     ];
 }
 
+
+
+
+function getCity(){
+    return [
+        '1' => 'Sedan',
+        '2' => 'SUV / Crossover',
+        '3' => 'Hatchback',
+        '4' => 'Convertible',
+        '5' => 'Minivan',
+        '6' => 'Pickup Truck',
+        '7' => 'Coupe',
+        '8' => 'Wagon',
+    ];
+}
+
+
+function getLocal(){
+    return [
+        '1' => 'Sedan',
+        '2' => 'SUV / Crossover',
+        '3' => 'Hatchback',
+        '4' => 'Convertible',
+        '5' => 'Minivan',
+        '6' => 'Pickup Truck',
+        '7' => 'Coupe',
+        '8' => 'Wagon',
+    ];
+}
 
 function safes()
 {
@@ -206,6 +262,15 @@ function is_partner_son()
         0 => 'لا',
         1 => 'نعم',
 
+    ];
+}
+
+function identifcationTypes()
+{
+    return [
+        1 => 'جواز سفر',
+        2 => 'رقم وطني',
+        3 => 'بطاقة قومية',
     ];
 }
 
@@ -255,21 +320,86 @@ function experience_years()
 }
 
 
-function getSelect($tableName)
+function getSelect($tableName, $all = null)
 {
-
+    // $list = [];
+    // $list[0] = ($all) ? '' : $list ;
     switch ($tableName) {
         case 'levels':
             $list = \DB::table('levels')->pluck('name', 'id');
             return $list->toArray();
             break;
-
-        case 'job':
-            $list = \DB::table('jobs')->where('status', 1)->pluck('name', 'id');
+        case 'classrooms':
+            $list = \DB::table('classrooms')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'parts':
+            $list = \DB::table('parts')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'identifcations':
+            $list = \DB::table('identifcations')->pluck('identifcationable_id', 'id');
+            return $list->toArray();
+            break;
+        case 'students':
+            $list = \DB::table('students')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'parts':
+            $list = \DB::table('students')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'employees':
+            $list = \DB::table('employees')->pluck('full_name', 'id');
+            return $list->toArray();
+            break;
+        case 'pay_ruls':
+            $list = \DB::table('pay_ruls')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'identifcations':
+            $list = \DB::table('identifcations')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'addresses':
+            $list = \DB::table('addresses')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'managaments':
+            $list = \DB::table('managaments')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'departments':
+            $list = \DB::table('departments')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'employees':
+            $list = \DB::table('employees')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'add_holidays':
+            $list = \DB::table('add_holidays')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'emp_perissions':
+            $list = \DB::table('emp_perissions')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'evaluation_items':
+            $list = \DB::table('evaluation_items')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'contacts':
+            $list = \DB::table('contacts')->pluck('name', 'id');
+            return $list->toArray();
+            break;
+        case 'calends':
+            $list = \DB::table('calends')->pluck('name', 'id');
             return $list->toArray();
             break;
         default:
-            $list = \App\Models\department::where('status', 1)->get();
+            $list = \DB::table('parts')->pluck('name', 'id');
+            return $list->toArray();
             break;
     }
 }
@@ -278,7 +408,7 @@ function getName($tableName, $id)
 {
     if ($id === null) {
         return "...";
-    }
+    } 
     switch ($tableName) {
         case 'levels':
             $list = \DB::table('levels')->pluck('name', 'id');

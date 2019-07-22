@@ -14,6 +14,9 @@ body {
 .la-line-scale {
   margin: 5px auto;
 }
+.input-group-addon:last-child {
+  border-left: 1px solid #ccc;
+}
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Helvetica Neue", "Droid Sans", sans-serif !important;
@@ -493,19 +496,19 @@ textarea.form-control {
     height: 8px; }
 
 
-  .main-header .logo {
+  /* .main-header .logo {
     width: 250px;
-  }
-  .main-header .navbar {
+  } */
+  /* .main-header .navbar {
     margin-right: 250px;
-  }
-  .main-sidebar, .left-side {
+  } */
+  /* .main-sidebar, .left-side {
     width: 250px;
   }
 
   .content-wrapper, .right-side, .main-footer {
     margin-right: 250px !important;
-  }
+  } */
 
 
 

@@ -1,6 +1,6 @@
 @extends('cpanel.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_levels') }}
+{{ __('home/sidebar.all_companies') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -11,11 +11,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>المراحل التعلمية <small>  </small></h1>
+    <h1>{{ __('home/sidebar.all_companies') }} <small>it all starts here</small></h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
-        <li><a href="#">شوؤن تعليمية</a></li>
-        <li class="active">المراحل التعلمية</li>
+        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li class="active"> {{ __('home/sidebar.all_companies') }} </li>
     </ol>
 </section>
 
@@ -24,59 +23,46 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">المراحل التعلمية</h3>
+            {{-- <h3 class="box-title">Title</h3> --}}
+            <button type="button" data-toggle="modal" data-target="#popup-form" href="#" class="btn btn-info"> <i
+                    class="fa fa-user-plus"></i> اضافة دور جديد </button>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
-                </a>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                    title="Collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                    title="Remove"><i class="fa fa-times"></i></button>
             </div>
         </div>
         <div class="box-body">
-
-              <!-- Print Buttons -->
-              {{-- <div class="no-print">
-                    <div class="col-xs-12">
-                    <a href="/student/print-page/levels" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                    <a type="button" href="/student/print-page/levels" class="btn btn-success" style="margin-right: 5px;">
-                        <i class="fa fa-download"></i> انشاء ملف PDF
-                    </a>
-                    <a href="/student/print-page/levels" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
-                    </div>
-                </div> --}}
-                <!-- End Prints buttons -->
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>اسم المرحلة التعليمية</th>
-                            <th>الترتيب</th>
-                            <th>مدير المدرسة</th>
-                            <th>ناظر المدرسة</th>
+                            <th>Name</th>
+                            <th>Logo</th>
+                            <th>Note</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($levels as $level)
+                        @forelse($companies as $company)
                         <tr>
-                            <td>{{ $level->id }}</td>
-                            <td>{{ $level->name }}</td>
-                            <td>{{ $level->sort }}</td>
-                            <td>{{ $level->head_master }}</td>
-                            <td>{{ $level->school_master }}</td>
+                            <td>{{ $company->id }}</td>
+                            <td>{{ $company->name }}</td>
+                            <td>{{ $company->logo }}</td>
+                            <td>{{ $company->note }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $level->id]) }}">تعديل</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('companies.show',  ['id' => $company->id]) }}">استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('companies.edit',  ['id' => $company->id]) }}">تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{ __('home/sidebar.contacts') }}</a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $level->id]) }}">حذف</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('companies.delete',['id' => $company->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -94,9 +80,14 @@
                 </table>
             </div>
         </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            Footer
+        </div>
+        <!-- /.box-footer-->
     </div>
     <!-- /.box -->
-    @include('student::students.educations.levels.add')
+    @include('company::companies.add')
 </section>
 <!-- /.content -->
 

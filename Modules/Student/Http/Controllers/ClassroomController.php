@@ -21,9 +21,8 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        $levels = Level::orderBy('sort', 'asc')->get();
         $classrooms = Classroom::orderBy('sort', 'asc')->get();
-        return view('student::students.educations.classrooms.index', ['classrooms' => $classrooms, 'levels' => $levels]);
+        return view('student::students.educations.classrooms.index', ['classrooms' => $classrooms]);
     }
 
     /**

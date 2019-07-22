@@ -16,8 +16,7 @@ class CreateStudentRequest extends FormRequest
         return [ 
             'name'                  => 'required|max:255|min:10',  
             'religion'              => 'nullable|integer',  
-            'gender'                => 'required|integer',    
-            'is_partner_son'        => 'required|boolean',  
+            'gender'                => 'required|integer',  
             'is_staff_son'          => 'required|boolean',  
             'birthday'              => 'required|date',  
             'start_data'            => 'required|date', 
