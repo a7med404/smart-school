@@ -16,7 +16,7 @@ class CreatePayClassesTable extends Migration
         Schema::create('pay_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('academic_year');
+            $table->string('education_year');
             $table->unsignedBigInteger('level_id')->foreign()
                 ->references('id')->on('levels')
                 ->onDelete('cascade');

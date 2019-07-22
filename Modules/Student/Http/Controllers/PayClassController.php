@@ -11,12 +11,14 @@ use Modules\Student\Http\Requests\CreatePayClassRequest;
 class PayClassController extends Controller
 {
      /**
+    /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return PayClassResource::collection(PayClass::all());
+        $PayClases = PayClass::all();
+        return view('student::students.account.pay-class.index', ['PayClases' => $PayClases]);
     }
 
     /**
@@ -35,13 +37,21 @@ class PayClassController extends Controller
      */
     public function store(CreatePayClassRequest $request)
     {
-         $id= PayClass::create($request->all())->id;    
-        return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'PayClass_id' => $id
-            ], 201);
-    }
+        $PayClases = PayClass::create($request->all());
 
+               $PayClases->education_year = $request->education_year;
+               $PayClases->level_id       = $request->level_id;
+               $PayClases->classroom_id   = $request->classroom_id;
+               $PayClases->pay_rul_id     = $request->pay_rul_id;
+               $PayClases->cascade        = $request->cascade;
+               $PayClases->value          = $request->value;
+
+        if($PayClases){
+
+            Session::flash('flash_massage_type');
+            return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Created Susscefully');
+        }
+    }
     /**
      * Show the specified resource.
      * @param int $id
@@ -49,7 +59,17 @@ class PayClassController extends Controller
      */
     public function show($id)
     {
-        return new PayClassResource(PayClass::findOrfail($id));
+        $PayClassInfo = PayClass::findOrFail($id);
+        return view('student::students.educations.PayClasss.show', ['PayClassInfo' => $PayClassInfo]);
+    }
+    /**
+     * Show all classrooms in one PayClass .
+     * @param int $id
+     * @return Response
+     */
+    public function classrooms($id)
+    {
+        return new ClassroomResource(PayClass::findOrfail($id)->classrooms);
         /* return view('student::show'); */
     }
 
@@ -60,22 +80,27 @@ class PayClassController extends Controller
      */
     public function edit($id)
     {
-        return new PayClassResource(PayClass::findOrfail($id));
-        /* return view('student::edit'); */
+        $PayClassInfo = PayClass::findOrFail($id);
+        return view('student::students.account.pay-classs.edit', ['PayClassInfo' => $PayClassInfo]);
     }
-
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
      * @return Response
      */
-    public function update(CreatePayClassRequest $request, $id)
+    public function update(CreatePayClassRequest $request, $id, PayClass $OnePayClass)
     {
-        PayClass::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+      $PayClassUpdate = $OnePayClass->findOrFail($id);
+      $data = [
+            'name'          => $request->name,
+            'sort'          => $request->sort,
+            'head_master'   => $request->head_master,
+            'school_master' => $request->school_master,
+        ];
+      $updatePayClass = $PayClassUpdate->fill($data)->save();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('PayClass Updated Susscefully');
     }
 
 
@@ -84,12 +109,12 @@ class PayClassController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, PayClass $OnePayClass)
     {
-        PayClass::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
-    }
+      $PayClassForDelete = $OnePayClass->findOrfail($id);
+      $PayClassForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('PayClass Deleted Susscefully');
+    }      
  
 }
