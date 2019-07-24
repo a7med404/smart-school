@@ -19,7 +19,6 @@ class AttendanceController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request->all());
         if($request->has('level_id')){
             $requestAll = $request->toArray();
             $query = DB::table('students')->select('*');
@@ -29,15 +28,16 @@ class AttendanceController extends Controller
                 }
             }
             $students = $query->orderBy('id','desc')->get();
-            
             return view('student::students.attendances.index', ['students' => $students]);
         }
 
+
+        // if($request->has('level_id')){
+        //     $students = Student::where('level_id', $request->level_id)->orderBy('id','desc')->get();
+        //     return view('student::students.attendances.index', ['students' => $students]);
+        // }
         $students = Student::all();
         return view('student::students.attendances.index', ['students' => $students]);
-
-        // $attendances = Attendance::orderBy('id', 'asc')->get();
-        // return view('student::students.attendances.index', ['attendances' => $attendances]);
     }
 
     public function attendancesSelect()
