@@ -39,12 +39,11 @@
                     <thead>
                         <tr>
                             <th>#ID</th>
+                            <th>العام الدراسي</th>
                             <th> المرحلة التعليمية</th>
                             <th>اسم الصف</th>
                             <th>انواع الرسوم</th>
-                            <th>اجباري</th>
                             <th>القيمة</th>
-                            <th>العام الدراسي</th>
                             <th>option</th>
                         </tr>
                     </thead>
@@ -52,34 +51,29 @@
                         @forelse($PayClases as $PayClass)
                         <tr>
                             <td>{{ $PayClass->id }}</td>
-                            <td>{{ $PayClass->academic_year }}</td>
-                            <td>{{ $PayClass->level_id }}</td>
-                            <td>{{ $PayClass->classroom_id }}</td>
+                            <td>{{ $PayClass->education_year }}</td>
+                            <td>{{ $PayClass->level->name }}</td>
+                            <td>{{ $PayClass->classroom->name }}</td>
                             <td>{{ $PayClass->pay_rul_id }}</td>
-                            <td>{{ $payClass->value }}</td>
+                            <td>{{ $PayClass->value }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('PayClasss.edit',  ['id' => $PayClass->id]) }}">تعديل</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.show',  ['id' => $PayClass->id]) }}">استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.edit',  ['id' => $PayClass->id]) }}">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-classes.delete',['id' => $PayClass->id]) }}">حذف</a></li>
+                                        <form action="{{ route('pay-classes.destroy',['id' => $PayClass->id]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                          <button class="btn btn-dsnger btn-xs">حـــذف</button>
+                                    </form>
                                     </ul>
                                 </div>
                             </td>
                         </tr>
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 4fabb7fa75aa0e099a8ba4fd896cee5a0608cce7
->>>>>>> d8cc370afb30d27054bfbbb454fc22a5bb18a097
                         @empty
                         <tr>
                             <td colspan="7">

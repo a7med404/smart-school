@@ -3,6 +3,7 @@
 namespace Modules\Employee\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Employee\Entities\AddCalendEmployee;
 
 class AddCalend extends Model
 {
@@ -14,4 +15,10 @@ class AddCalend extends Model
         'date',
         'type'
     ];
+
+    public function Addcaltoemp()
+    {
+        return $this->belongsTo(AddCalendEmployee::Class);
+    }
+
 }  

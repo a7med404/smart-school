@@ -149,6 +149,8 @@ function studyStatus()
 
     ];
 }
+
+
 function martial()
 {
     return [
@@ -486,6 +488,7 @@ function getName($tableName, $id)
             $list = \DB::table('parts')->pluck('name', 'id');
             return $list->toArray();
             break;
+            
     }
 }
 

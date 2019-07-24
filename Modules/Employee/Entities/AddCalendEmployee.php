@@ -3,6 +3,8 @@
 namespace Modules\Employee\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Employee\Entities\AddCalend;
+
 
 class AddCalendEmployee extends Model
 {
@@ -13,4 +15,15 @@ class AddCalendEmployee extends Model
         'department_id',
         'calend_id'
     ];
+
+    public function calends(){
+
+        return $this->hasMany(AddCalend::class);
+    }
+
+
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::Class);
+    }
 }

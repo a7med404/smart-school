@@ -35,13 +35,8 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
-<<<<<<< HEAD
-    Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
-
-=======
 
     Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
->>>>>>> 4d902d97017f4e970acb9f0256b25a2d762322a6
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     Route::resource('/parts', 'PartController');
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
@@ -73,6 +68,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('pay-classes', 'PayClassController');
     Route::resource('pay_rules', 'PayRulsController');
 
+
     Route::any('/pay', 'StudentController@pay')->name('pay');
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
     
@@ -80,6 +76,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('report-separate', 'ReportSeparateController');
     Route::resource('report-warning', 'ReportWarningController');
     Route::resource('student-parents', 'StudentParentController');
+
+// employee routes //
 
 
 });

@@ -4,6 +4,7 @@ namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Student\Entities\Classroom;
+use Modules\Student\Entities\PayClass;
 
 class Level extends Model
 {
@@ -17,6 +18,11 @@ class Level extends Model
     public function classrooms()
     {
         return $this->hasMany(Classroom::class);
+    }
+    
+    public function payclasses()
+    {
+        return $this->hasMany('App\PayClass');
     }
 
 }

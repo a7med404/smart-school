@@ -24,9 +24,10 @@ class Classroom extends Model
     {
         return $this->belongsTo(Level::class);
     }
-    
-    public function payClasses()
+
+    public function payclasses()
     {
-        return $this->belongsTo(PayClass::Class);
+        return $this->hasMany('App\PayClass');
     }
+
 }

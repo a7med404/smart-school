@@ -4,6 +4,7 @@ namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Student\Entities\Classroom;
+use Modules\Student\Entities\Level;
 
 class PayClass extends Model
 {
@@ -12,12 +13,16 @@ class PayClass extends Model
         'pay_rul_id',
         'level_id',
         'classroom_id',
-        'academic_year'
+        'education_year'
     ];
         
-    public function Classrooms()
+    public function classroom()
     {
-
         return $this->belongsTo(Classroom::Class);
     }
+    public function level()
+    {
+        return $this->belongsTo(Level::Class);
+    }
+    
 }
