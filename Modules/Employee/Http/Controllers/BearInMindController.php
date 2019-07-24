@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\BearInMind;
 use Modules\Employee\Transformers\BearInMindResource;
 use Modules\Employee\Http\Requests\CreateBearInMindRequest;
+use Session;
 class BearInMindController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class BearInMindController extends Controller
      */
     public function index()
     {
-        return  BearInMindResource::collection(BearInMind::all());
+        $bearinminds = BearInMind::all();
+        return view('employee::employees.BearinMind.index',compact('bearinminds'));
     }
 
     /**
@@ -35,11 +37,15 @@ class BearInMindController extends Controller
      */
     public function store(CreateBearInMindRequest $request)
     {
-        $id =  BearInMind::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'BearInMind_id' => $id
-        ], 201);
+        $bearinmind=BearInMind::create([
+        'note' => $request->note,
+        'date' => $request->date,
+        'empolyee_id' => $request->empolyee_id
+        ]);
+        if($bearinmind){
+            Session::flash('flash_massage_type');
+            return redirect()->route('bearinminds.index')->withFlashMassage('Bear in minds Created Susscefully');
+        }
     }
 
     /**
@@ -61,7 +67,8 @@ class BearInMindController extends Controller
      */
     public function edit($id)
     {
-        return new BearInMindResource(BearInMind::findOrfail($id));
+        $bearinminds=BearInMind::findOrfail($id);
+        return view('employee::employees.BearinMind.edit',compact('bearinminds'));
         /* return view('student::edit'); */
     }
 
@@ -74,9 +81,10 @@ class BearInMindController extends Controller
     public function update(CreateBearInMindRequest $request, $id)
     {
         BearInMind::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        Session::flash('flash_massage_type');
+
+        return redirect()->route('bearinminds.index')->withFlashMassage('Bear in minds updated Susscefully');
+
     }
 
     /**
@@ -86,11 +94,11 @@ class BearInMindController extends Controller
      */
     public function destroy($id)
     {
-        BearInMind::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
-    }
+    $bearinmind=BearInMind::findOrfail($id);
+    $bearinmind->delete();
+    Session::flash('flash_massage_type');
+    return redirect()->route('bearinminds.index')->withFlashMassage('Bear in minds deleted Susscefully');
 
+    }
 
 }

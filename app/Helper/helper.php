@@ -61,7 +61,7 @@ function payment_status()
     ];
 }
 
-function blood_type()
+function bloodType()
 {
     return [
         1 => 'O+',

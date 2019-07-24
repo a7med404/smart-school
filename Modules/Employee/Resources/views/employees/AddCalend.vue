@@ -6,7 +6,7 @@
       <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
       <li class="active">اضافة مخالفةالى موظف</li>
     </ol>
-  </section>
+  </section> 
 
   <!-- Main content -->
   <section class="content">
@@ -129,11 +129,11 @@
                 <div class="form-group">
                   <label class="control-label">نوع المخالفة </label>
                   <select class="form-control select2" v-model="add_calend.type">
-                    	<option 
-                      v-for="(value, index) in calendTypes" 
-                      :key="index" :value="index" 
-                      v-text="value" 
-                      :selected="add_calend.type == index"> 
+                    	<option
+                      v-for="(value, index) in calendTypes"
+                      :key="index" :value="index"
+                      v-text="value"
+                      :selected="add_calend.type == index">
                    </option>
                   </select>
                 </div>
@@ -196,30 +196,30 @@
         // mounted() {
         //     console.log('Component mounted.')
         // }
-        data(){ 
+        data(){
           return {
             calendTypes                : globalStore.calendTypes,
-            
+
             edit: false,
             calends: {
               id                     : '',
-              name                   : '',  
-              route_id               : '',  
-              cost                   : '',  
-              study_lang             : '',  
-              is_partner_son         : '',  
+              name                   : '',
+              route_id               : '',
+              cost                   : '',
+              study_lang             : '',
+              is_partner_son         : '',
 
             },
             add_calend:{
               id                          : '',
               management_id               : '',
               department_id               : '',
-              employee_id                 : '', 
+              employee_id                 : '',
               calend_id                   : '',
               date                        : '',
               type                        : ''
-            }    
-         
+            }
+
           }
         },
     }

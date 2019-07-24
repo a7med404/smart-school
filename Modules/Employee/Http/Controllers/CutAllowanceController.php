@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\CutAllowance;
 use Modules\Employee\Transformers\CutAllowanceResource;
 use Modules\Employee\Http\Requests\CreateCutAllowanceRequest;
+use Session;
 class CutAllowanceController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class CutAllowanceController extends Controller
      */
     public function index()
     {
-        return  CutAllowanceResource::collection(CutAllowance::all());
+        $cuts=CutAllowance::all();
+        return view('employee::employees.cut-allowance.index',compact('cuts'));
     }
 
     /**
@@ -35,11 +37,12 @@ class CutAllowanceController extends Controller
      */
     public function store(CreateCutAllowanceRequest $request)
     {
-        $id =  CutAllowance::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'CutAllowance_id' => $id
-        ], 201);
+        $cut =  CutAllowance::create([
+
+        'name' => $request->name
+        ]);
+        return redirect()->route('cut-allowances.index')->withFlashMassage('Empoloyee Absence Added Susscefully');
+
     }
 
     /**
@@ -61,8 +64,10 @@ class CutAllowanceController extends Controller
      */
     public function edit($id)
     {
-        return new CutAllowanceResource(CutAllowance::findOrfail($id));
+        $cuts=CutAllowance::findOrfail($id);
         /* return view('student::edit'); */
+return view('employee::employees.cut-allowance.edit',compact('cuts'));
+
     }
 
     /**
@@ -74,9 +79,10 @@ class CutAllowanceController extends Controller
     public function update(CreateCutAllowanceRequest $request, $id)
     {
         CutAllowance::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        Session::flash('flash_massage_type');
+
+        return redirect()->route('cut-allowances.index')->withFlashMassage('updated Susscefully');
+
     }
 
     /**
@@ -86,14 +92,16 @@ class CutAllowanceController extends Controller
      */
     public function destroy($id)
     {
-        CutAllowance::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+        $emp=CutAllowance::findOrfail($id);
+        $emp->delete();
+        if($emp){
+            Session::flash('flash_massage_type');
+            return redirect()->back()->withFlashMassage('Deleted Susscefully');
+        }
     }
 
     public function report(Request $request){
-        
+
         return  CutAllowanceResource::collection(CutAllowance::where('employee_id',$request->employee_id)->where('date','>=',$request->from)->where('date','<=',$request->to)->get());
     }
 }

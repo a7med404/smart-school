@@ -13,10 +13,9 @@ class CreatePayRulsRequest extends FormRequest
      */
     public function rules()
     {
-        return [ 
-        'name'                => 'required|string',
-        'is_mandatary'        => 'required|boolean',
-        'note'                => 'nullable|text'
+        return [
+        'name'                => 'required',
+        'note'                => 'nullable|string'
         ];
     }
 

@@ -4,19 +4,19 @@ namespace Modules\Student\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\PayRuls;
 use Modules\Student\Transformers\PayRulsResource;
 use Modules\Student\Http\Requests\CreatePayRulsRequest;
+use Session;
+
 class PayRulsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
     public function index()
     {
-        return PayRulsResource::collection(PayRuls::all());
+        $payruls = PayRuls::all();
+        return view('student::students.account.pay-ruls.index ', ['payruls' => $payruls]);
     }
 
     /**
@@ -33,15 +33,21 @@ class PayRulsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreatePayRulsRequest $request)
     {
-         $id = PayRuls::create($request->all())->id;    
-        return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'PayRuls_id' => $id
-            ], 201);
-    }
+        $ismandatary = $request->has('is_mandatary') ? true : false;
 
+
+        $payrul = PayRuls::create([
+             'name' => $request->name,
+             'is_mandatary' => $ismandatary,
+            'note' => $request->note
+     ]);
+         if($payrul){
+            Session::flash('flash_massage_type');
+             return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Created Susscefully');
+        }
+    }
     /**
      * Show the specified resource.
      * @param int $id
@@ -49,9 +55,15 @@ class PayRulsController extends Controller
      */
     public function show($id)
     {
-        return new PayRulsResource(PayRuls::findOrfail($id));
-        /* return view('student::show'); */
+        $Infos= PayRuls::findOrFail($id);
+        return view('student::students.account.pay-ruls.show', ['Infos' => $Infos]);
     }
+    /**
+     * Show all classrooms in one payrul .
+     * @param int $id
+     * @return Response
+     */
+
 
     /**
      * Show the form for editing the specified resource.
@@ -60,22 +72,27 @@ class PayRulsController extends Controller
      */
     public function edit($id)
     {
-        return new PayRulsResource(PayRuls::findOrfail($id));
-        /* return view('student::edit'); */
+        $payrulInfo = PayRuls::findOrFail($id);
+        return view('student::students.account.pay-ruls.edit', ['payrulInfo' => $payrulInfo]);
     }
-
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePayRulsRequest $request, $id)
     {
-        PayRuls::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $ismandatary = $request->has('is_mandatary') ? true : false;
+        $payruls=PayRuls::findorFail($id);
+
+        $payruls->name = $request->name;
+            $payruls->is_mandatary = $ismandatary;
+           $payruls->note = $request->note;
+$payruls->save();
+
+      Session::flash('flash_massage_type');
+      return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Updated Susscefully');
     }
 
 
@@ -86,10 +103,11 @@ class PayRulsController extends Controller
      */
     public function destroy($id)
     {
-        PayRuls::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+        $payrul = PayRuls::findOrFail($id);
+      $payrul->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Deleted Susscefully');
     }
- 
+
+
 }

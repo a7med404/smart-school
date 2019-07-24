@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\EmpAbsence;
 use Modules\Employee\Transformers\EmpAbsenceResource;
 use Modules\Employee\Http\Requests\CreateEmpAbsenceRequest;
+use Session;
 class EmpAbsenceController extends Controller
 {
      /**
@@ -16,7 +17,8 @@ class EmpAbsenceController extends Controller
      */
     public function index()
     {
-        return  EmpAbsenceResource::collection(EmpAbsence::all());
+        $empabsences=EmpAbsence::all();
+        return view('employee::employees.EmpAbsence.index',compact('empabsences'));
     }
 
     /**
@@ -35,12 +37,17 @@ class EmpAbsenceController extends Controller
      */
     public function store(CreateEmpAbsenceRequest $request)
     {
-        $id =  EmpAbsence::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'EmpAbsence_id' => $id
-        ], 201);
+        $emp=EmpAbsence::create([
+            'empolyee_id' => '2',
+            'absence_from' => $request->absence_from,
+            'absence_to'   => $request->absence_to,
+            'absence_reason'=> $request->absence_reason
+        ]);
+        if($emp){
+            Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Empoloyee Absence Created Susscefully');
     }
+}
 
     /**
      * Show the specified resource.
@@ -61,8 +68,9 @@ class EmpAbsenceController extends Controller
      */
     public function edit($id)
     {
-        return new EmpAbsenceResource(EmpAbsence::findOrfail($id));
-        /* return view('student::edit'); */
+        $empabsence=EmpAbsence::find($id);
+        return view('employee::employees.EmpAbsence.edit',compact('empabsence'));
+
     }
 
     /**
@@ -73,10 +81,12 @@ class EmpAbsenceController extends Controller
      */
     public function update(CreateEmpAbsenceRequest $request, $id)
     {
-        EmpAbsence::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+       $emp= EmpAbsence::findOrfail($id)->update($request->all());
+        if($emp){
+            Session::flash('flash_massage_type');
+      return redirect()->route('emp-absences.index')->withFlashMassage('Empoloyee Absence Deleted Susscefully');
+    }
+
     }
 
     /**
@@ -86,9 +96,12 @@ class EmpAbsenceController extends Controller
      */
     public function destroy($id)
     {
-        EmpAbsence::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+
+$emp= EmpAbsence::findOrfail($id)->delete();
+
+        if($emp){
+            Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Empoloyee Absence Deleted Susscefully');
+    }
     }
 }
