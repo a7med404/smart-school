@@ -8,16 +8,14 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Calend;
 use Modules\Employee\Transformers\CalendResource;
 use Modules\Employee\Http\Requests\CreateCalendRequest;
-
+use Session;
 class AddCalendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
+
     public function index()
     {
-        return  CalendResource::collection(Calend::all());
+        $payruls = PayRuls::all();
+        return view('student::students.account.pay-ruls.index ', ['payruls' => $payruls]);
     }
 
     /**
@@ -34,15 +32,21 @@ class AddCalendController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreatePayRulsRequest $request)
     {
-        $calend =  Calend::create($request->all());
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'data' => $calend 
-        ], 201);
-    }
+        $ismandatary = $request->has('is_mandatary') ? true : false;
 
+
+        $payrul = PayRuls::create([
+             'name' => $request->name,
+             'is_mandatary' => $ismandatary,
+            'note' => $request->note
+     ]);
+         if($payrul){
+            Session::flash('flash_massage_type');
+             return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Created Susscefully');
+        }
+    }
     /**
      * Show the specified resource.
      * @param int $id
@@ -50,9 +54,14 @@ class AddCalendController extends Controller
      */
     public function show($id)
     {
-        return new CalendResource(Calend::findOrfail($id));
-        /* return view('student::show'); */
+        $Infos= PayRuls::findOrFail($id);
+        return view('student::students.account.pay-ruls.show', ['Infos' => $Infos]);
     }
+    /**
+     * Show all classrooms in one payrul .
+     * @param int $id
+     * @return Response
+     */
 
 
     /**
@@ -62,23 +71,29 @@ class AddCalendController extends Controller
      */
     public function edit($id)
     {
-        return new CalendResource(Calend::findOrfail($id));
-        /* return view('student::edit'); */
+        $payrulInfo = PayRuls::findOrFail($id);
+        return view('student::students.account.pay-ruls.edit', ['payrulInfo' => $payrulInfo]);
     }
-
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Responsedestroy
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePayRulsRequest $request, $id)
     {
-        Calend::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        $ismandatary = $request->has('is_mandatary') ? true : false;
+        $payruls=PayRuls::findorFail($id);
+
+        $payruls->name = $request->name;
+            $payruls->is_mandatary = $ismandatary;
+           $payruls->note = $request->note;
+$payruls->save();
+
+      Session::flash('flash_massage_type');
+      return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Updated Susscefully');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -87,9 +102,11 @@ class AddCalendController extends Controller
      */
     public function destroy($id)
     {
-        Calend::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+        $payrul = PayRuls::findOrFail($id);
+      $payrul->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Deleted Susscefully');
     }
+
+
 }

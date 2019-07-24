@@ -6,7 +6,7 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li class="active">لفت نظر</li>
       </ol>
-    </section>
+    </section> 
 
     <!-- Main content -->
     <section class="content">
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="box-body">
-                  
+
           <div class="row">
             <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
@@ -76,7 +76,7 @@
       </div>
       <!-- /.box -->
     </section>
-    
+
 
     <!-- Popup  -->
     <div class="modal fade" id="popup-add-formal">
@@ -143,14 +143,14 @@
         mounted() {
             console.log('Component mounted.')
         },
-      data(){ 
+      data(){
           return {
             edit: false,
             bear_in_mind: {
               id                     : '',
               empolyee_id            : '',
-              date                   : '',  
-              note                   : '' 
+              date                   : '',
+              note                   : ''
             }
 
           }

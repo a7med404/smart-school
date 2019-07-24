@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="box-body">
-                  
+
           <div class="row">
             <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
@@ -73,7 +73,7 @@
       </div>
       <!-- /.box -->
     </section>
-    
+
 
     <!-- Popup  -->
     <div class="modal fade" id="popup-add-pay_rule">
@@ -167,7 +167,7 @@
           this.addPayRule(params).then(function(){
             self.pay_rule.name = '',
             self.pay_rule.is_mandatary = '',
-            self.pay_rule.note = ''        
+            self.pay_rule.note = ''
           });
         },
         editPayRule: function(pay_rule) {
@@ -183,11 +183,11 @@
           let self = this;
           let params = Object.assign({}, self.pay_rule);
           self.updatePayRule(params, pay_rule).then(function(){
-          
+
             self.edit = false;
             self.pay_rule.name = '',
             self.pay_rule.is_mandatary = '',
-            self.pay_rule.note = ''  
+            self.pay_rule.note = ''
           });
         },
       }

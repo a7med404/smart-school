@@ -17,7 +17,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return  EmployeeResource::collection(Employee::all());
+        return view('employee::employees.emp.employees-info.index');
     }
 
     /**
@@ -62,7 +62,6 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        return new EmployeeResource(Employee::findOrfail($id));
         /* return view('student::edit'); */
     }
 

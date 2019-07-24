@@ -14,7 +14,7 @@ class CreateCutAllowanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                 => 'integer|required'
+            'name'                 => 'string|required'
         ];
     }
 
