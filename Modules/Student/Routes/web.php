@@ -57,7 +57,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('student-transfers', 'StudentTransferController');
     
     /* offline */
-    Route::resource('attendance', 'AttendanceController');
+    Route::resource('attendances', 'AttendanceController');
+    Route::get('attendances-select', 'AttendanceController@attendancesSelect')->name('attendances.select');
     Route::get('attendance-for-class', 'AttendanceController@attendanceForClass')->name('attendance-for-class');
     Route::resource('student-pull', 'StudentPullController');
     Route::get('discounts', 'DiscountSettingParentController@discounts')->name('discounts');

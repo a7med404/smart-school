@@ -61,7 +61,7 @@ class Student extends Model
 
     public function health()
     {
-        return $this->hasMany(Health::class);
+        return $this->hasOne(Health::class);
     }
 
     public function part()

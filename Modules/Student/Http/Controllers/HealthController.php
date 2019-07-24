@@ -9,6 +9,7 @@ use Modules\Student\Entities\Health;
 use Modules\Student\Transformers\HealthResource;
 use Modules\Student\Transformers\SingleHealthResource;
 use Modules\Student\Http\Requests\CreateHealthRequest;
+use Session;
 
 class HealthController extends Controller
 {
@@ -35,7 +36,7 @@ class HealthController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateHealthRequest $request)
     {
         $data = [
             'doctor_name'            => $request->doctor_name,
@@ -43,10 +44,11 @@ class HealthController extends Controller
             'blood_type'             => $request->blood_type,
             'insurance_number'       => $request->insurance_number,
             'health_status'          => $request->health_status,
-            'student_id'             => 3,//$request->student_id,
+            'student_id'             => $request->student_id,
         ];
         $Health = Health::create($data);
-        return response()->json(['message' => 'تم الحفظ بنجاح', 'data' => $Health], 201);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Health Added Susscefully');
     }
 
     /**
@@ -57,7 +59,7 @@ class HealthController extends Controller
     public function show($id)
     {
         return new SingleHealthResource(Health::findOrfail($id));
-        /* return view('student::show'); */
+        /* return view('student::show'); */ 
     }
 
     /**
@@ -67,8 +69,8 @@ class HealthController extends Controller
      */
     public function edit($id)
     {
-        return new SingleHealthResource(Health::findOrfail($id));
-        /* return view('student::edit'); */
+        $healthInfo = Health::findOrfail($id);
+        return view('student::students.healthes.edit',['healthInfo' => $healthInfo]);
     }
 
     /**
@@ -79,9 +81,16 @@ class HealthController extends Controller
      */
     public function update(CreateHealthRequest $request, $id)
     {
-
-        Health::findOrfail($id)->fill($request->all());
-        return response()->json(['message' => 'تم التحديث بنجاح'], 200);
+        $data = [
+            'doctor_name'            => $request->doctor_name,
+            'doctor_number'          => $request->doctor_number,
+            'blood_type'             => $request->blood_type,
+            'insurance_number'       => $request->insurance_number,
+            'health_status'          => $request->health_status,
+        ];
+        $studentId = Health::findOrfail($id)->update($data);
+        Session::flash('flash_massage_type');
+        return redirect()->route('students.show',['id' => $request->student_id])->withFlashMassage('Health Updated Susscefully');
     }
 
     /**
