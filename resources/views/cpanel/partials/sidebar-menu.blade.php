@@ -77,7 +77,7 @@
                     </span>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="{{ route('attendance.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
+                    <li><a href="{{ route('attendances.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
                     <li><a href="{{ route('attendance-for-class') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل لفصل</a></li>
                   </ul>
                 </li>

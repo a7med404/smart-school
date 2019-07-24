@@ -34,7 +34,7 @@
               'education_year', 
               'study_status', 
               'student_parent_id',
-              'health_id' --}}
+              '' --}}
 
               <h3 class="text-center">{{ $studentInfo->name }}</h3>
               <p class="text-muted text-center">{{ $studentInfo->level->name." ".$studentInfo->classroom->name }}</p>
@@ -69,30 +69,28 @@
           </div>
           <!-- /.box -->
 
-          
-          @empty($studentInfo->health)
-              
+          @if (!empty($studentInfo->health))
           <!-- About Me Box -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">About Me</h3>
+              <h3 class="box-title">الحالة الصحية</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+              <strong><i class="fa fa-book margin-r-5"></i> اسم الطبيب</strong>
               <p class="text-muted">
                 {{$studentInfo->health->doctor_name}}
               </p>
-              <strong><i class="fa fa-book margin-r-5"></i> doctor_number</strong>
+              <strong><i class="fa fa-book margin-r-5"></i> رقم الطبيب </strong>
               <p class="text-muted">
                 {{$studentInfo->health->doctor_number}}
               </p>
-              <strong><i class="fa fa-book margin-r-5"></i> blood_type</strong>
+              <strong><i class="fa fa-book margin-r-5"></i> فصيل الدم</strong>
               <p class="text-muted">
                 {{$studentInfo->health->blood_type}}
               </p>
 
-              <strong><i class="fa fa-book margin-r-5"></i> insurance_number</strong>
+              <strong><i class="fa fa-book margin-r-5"></i> رقم التامين </strong>
               <p class="text-muted">
                 {{$studentInfo->health->insurance_number}}
               </p>
@@ -117,14 +115,18 @@
 
               <hr>
 
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> ملاحظة </strong>
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> الحالة الصحية </strong>
               <p>{{$studentInfo->health->health_status}}</p>
+
+              <a href="{{ route('healthes.edit',  ['id' => $studentInfo->health->id]) }}" class="btn btn-primary btn-block"><b>تعديل الحالة الصحية</b></a>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
 
-          @endempty
+          @else
+            <button type="button" data-toggle="modal" data-target="#popup-add-healthe" href="#" class="btn btn-info btn-block"> <i class="fa fa-user-plus"></i> اضافة الحالة الصحية </button>
+          @endif
         </div>
         <!-- /.col -->
         <div class="col-md-9">
@@ -536,6 +538,7 @@
       @include('address::addresses.add', ['studentInfo' => $studentInfo])
       @include('address::contacts.add', ['studentInfo' => $studentInfo])
       @include('address::identifcations.add', ['studentInfo' => $studentInfo])
+      @include('student::students.healthes.add', ['studentInfo' => $studentInfo])
     </section>
     <!-- /.content -->
 

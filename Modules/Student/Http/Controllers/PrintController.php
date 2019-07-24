@@ -13,15 +13,27 @@ use Modules\Student\Entities\Attendance;
 use Modules\Student\Entities\Classroom;
 use Modules\Student\Entities\Part;
 use PDF;
+use Illuminate\Support\Facades\DB;
 
 class PrintController extends Controller
 {
-    public function printPage($page) 
+    public function printPage($page, Request $request) 
     {
         $data = [];
         switch($page){
             case 'levels':
-                $data = Level::where('id', '<', 7)->get();
+                if($request->has('id')){
+                    $requestAll = $request->toArray();
+                    $query = DB::table('levels')->select('*');
+                    foreach ($requestAll as $key => $req) {
+                        if (!($req == "" || null)) {
+                            $query->where($key, $req);
+                        }
+                    }
+                    $data = $query->orderBy('id','desc')->get();
+                }else{
+                    $data = Level::all();
+                }
                 break;
             case 'tests':
                 $data = \DB::table('levels')->get();
