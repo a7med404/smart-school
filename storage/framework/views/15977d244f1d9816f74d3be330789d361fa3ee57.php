@@ -54,34 +54,44 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                          <td>1</td>
-                                          <td>ادارة الحسابات</td>
+                                        <?php $__empty_1 = true; $__currentLoopData = $managaments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $managament): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                        <tr class="text-center">
+                                            <td><?php echo e($managament->id); ?></td>
+                                            <td><?php echo e($managament->name); ?></td>
                                           <td>
-                                            <div class="btn-group">
-                                              <a class="btn btn-info" type="button" data-toggle="modal" data-target="#popup-add-vehicle"><i class="fa fa-pencil"></i></a>
-                                              <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                            </div>
+                                              <div class="dropdown">
+                                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                                      <span class="fa fa-ellipsis-h"></span>
+                                                  </a>
+                                                  <ul class="dropdown-menu">
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('managaments.show',  ['id' => $managament->id])); ?>"}}>استعراض</a></li>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('managaments.edit',  ['id' => $managament->id])); ?>">تعديل</a></li>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                                      <form action="<?php echo e(route('managaments.destroy',['id' => $managament->id])); ?>" method="post">
+                                                          <?php echo csrf_field(); ?>
+                                                          <?php echo method_field('DELETE'); ?>
+                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
+                                                      </form>
+                                                      </ul>
+                                              </div>
+                                          </td>
                                           </td>
                                         </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <tr>
-                                          <td>2</td>
-                                          <td>الادارة التعليمية</td>
-                                          <td>
-                                            <div class="btn-group">
-                                              <a class="btn btn-info" type="button" data-toggle="modal" data-target="#popup-add-vehicle"><i class="fa fa-pencil"></i></a>
-                                              <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                            </div>
-                                          </td>
-                                        </tr>
+                                            <td colspan="7">
+                                                <div class="text-center">
+                                                    <p>لا توجد بيانات في هذا الجدول</p>
+                                                </div>
+                                            </td>
+                                        </tr>   
+                                        <?php endif; ?>
                                     </tbody>
                                 </table>
                               </div>
                             </div>
-          
                           </div>
                           <div class="tab-pane" id="department" role="tabpanel" aria-expanded="true">
-          
                             <div class="box-tools">
                               <a type="button" data-toggle="modal" data-target="#popup-add-department" class="btn btn-info m--20 m-t-20 m-b-10">
                                 <i class="fa fa-plus"></i>  اضافة جديد
@@ -100,30 +110,39 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                          <td>1</td>
-                                          <td>الادارة التعليمية</td>
-                                          <td>المعلمين</td>
+                                        <?php $__empty_1 = true; $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                        <tr class="text-center">
+                                            <td><?php echo e($department->id); ?></td>
+                                            <td><?php echo e($department->managament_id); ?></td>
+                                            <td><?php echo e($department->name); ?></td>
                                           <td>
-                                            <div class="btn-group">
-                                              <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
-                                              <a class="btn btn-info" type="button" data-toggle="modal" data-target="#popup-add-vehicle"><i class="fa fa-pencil"></i></a>
-                                              <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                            </div>
+                                              <div class="dropdown">
+                                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                                      <span class="fa fa-ellipsis-h"></span>
+                                                  </a>
+                                                  <ul class="dropdown-menu">
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('departments.show',  ['id' => $department->id])); ?>"}}>استعراض</a></li>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('departments.edit',  ['id' => $department->id])); ?>">تعديل</a></li>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                                      <form action="<?php echo e(route('departments.destroy',['id' => $department->id])); ?>" method="post">
+                                                          <?php echo csrf_field(); ?>
+                                                          <?php echo method_field('DELETE'); ?>
+                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
+                                                      </form>
+                                                      </ul>
+                                              </div>
+                                          </td>
                                           </td>
                                         </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <tr>
-                                          <td>2</td>
-                                          <td>ادارة الحسابات</td>
-                                          <td>قسم الحسابات العامة</td>
-                                          <td>
-                                            <div class="btn-group">
-                                              <router-link :to="{name: 'view-vehicle', params: {id:23}}" class="btn btn-default"><i class="fa fa-arrows-alt"></i></router-link>
-                                              <a class="btn btn-info" type="button" data-toggle="modal" data-target="#popup-add-vehicle"><i class="fa fa-pencil"></i></a>
-                                              <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                            </div>
-                                          </td>
-                                        </tr>
+                                            <td colspan="7">
+                                                <div class="text-center">
+                                                    <p>لا توجد بيانات في هذا الجدول</p>
+                                                </div>
+                                            </td>
+                                        </tr>   
+                                        <?php endif; ?>
                                     </tbody>
                                 </table>
                               </div>
@@ -204,7 +223,10 @@
     </div>
     <!-- /.box -->
     
-    <?php echo $__env->make('employee::employees.managaments.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('employee::employees.managaments.management.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('employee::employees.managaments.department.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
 </section>
 <!-- /.content -->
 

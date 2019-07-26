@@ -51,7 +51,7 @@
                             <?php $__empty_1 = true; $__currentLoopData = $AddCalends; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $AddCalend): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <tr>
                                 <td><?php echo e($AddCalend->id); ?></td>
-                                <td><?php echo e($AddCalend->addcalends->name); ?></td>
+                                <td><?php echo e($AddCalend->employee_id); ?></td>
                                 <td><?php echo e($AddCalend->date); ?></td>
                                 <td><?php echo e($AddCalend->type); ?></td>
  

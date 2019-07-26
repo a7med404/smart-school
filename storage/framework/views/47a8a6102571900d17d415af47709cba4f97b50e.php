@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
               <!-- Personal Information Form  -->
-              <form role="form">
+            <form role="form" action="<?php echo e(route('managaments.store')); ?>" methode="post">
     
                 <div class="row">
                   <div class="col col-lg-6 col-md-5 col-sm-12 col-12">

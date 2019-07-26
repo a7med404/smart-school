@@ -2,10 +2,12 @@
 
 namespace Modules\Employee\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Managament;
+use Modules\Employee\Entities\Department;
 use Modules\Employee\Transformers\ManagamentResource;
 use Modules\Employee\Http\Requests\CreateManagamentRequest;
 class ManagamentController extends Controller
@@ -16,8 +18,9 @@ class ManagamentController extends Controller
      */
     public function index()
     {
-       
-        return view('employee::employees.managaments.index');
+        $managament = Managament::all();
+
+        return view('employee::employees.managaments.index',['managaments' => $managament,'departments' => Department::all()]);
     }
  
    public function create()
@@ -30,16 +33,14 @@ class ManagamentController extends Controller
     * @param Request $request
     * @return Response
     */
-   public function store(CreateempPullRequest $request)
+   public function store(CreateManagamentRequest $request)
    {
-       $Empull= empPull::create($request->all());
+       $Managament= Managament::create($request->all());
 
-              
-
-       if($Empull){
+       if($Managament){
 
            Session::flash('flash_massage_type');
-           return redirect()->route('pay-classes.index')->withFlashMassage('empPull Created Susscefully');
+           return redirect()->route('managaments.index')->withFlashMassage('managament Created Susscefully');
        }
    }
    /**
@@ -49,17 +50,17 @@ class ManagamentController extends Controller
     */
    public function show($id)
    {
-       $empPullInfo = EmpPull::findOrFail($id);
-       return view('employee::empPulls.show', ['EmpullInfo' => $EmpullInfo]);
+       $ManagamentInfo = managament::findOrFail($id);
+       return view('employee::.employees.managaments.management.show', ['ManagamentInfo' => $ManagamentInfo]);
    }
    /**
-    * Show all classrooms in one empPull .
+    * Show all classrooms in one managament .
     * @param int $id
     * @return Response
     */
    public function classrooms($id)
    {
-       return new ClassroomResource(empPull::findOrfail($id)->classrooms);
+       return new ClassroomResource(managament::findOrfail($id)->classrooms);
        /* return view('employee::show'); */
    }
 
@@ -70,8 +71,8 @@ class ManagamentController extends Controller
     */
    public function edit($id)
    {
-       $empPullInfo = empPull::findOrFail($id);
-       return view('employee::employees.claends.edit', ['EmpullInfo' => $EmpullInfo]);
+       $ManagamentInfo = Managament::findOrFail($id);
+       return view('employee::employees.managaments.management.edit', ['ManagamentInfo' => $ManagamentInfo]);
    }
    /**
     * Update the specified resource in storage.
@@ -79,12 +80,12 @@ class ManagamentController extends Controller
     * @param int $id
     * @return Response
     */
-   public function update(CreateempPullRequest $request, $id)
+   public function update(CreatemanagamentRequest $request, $id)
    {
-     $updateempPull = empPull::findOrfail($id)->update($request->all());
+     $updatemanagament = managament::findOrfail($id)->update($request->all());
      
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('empPull Updated Susscefully');
+     return redirect()->back()->withFlashMassage('managament Updated Susscefully');
    }
 
 
@@ -93,11 +94,11 @@ class ManagamentController extends Controller
     * @param int $id
     * @return Response
     */
-   public function destroy($id, Empull $OneempPull)
+   public function destroy($id, Managament $Onemanagament)
    {
-     $EmpullForDelete = $OneempPull->findOrfail($id);
-     $EmpullForDelete->delete();
+     $ManagamentForDelete = $Onemanagament->findOrfail($id);
+     $ManagamentForDelete->delete();
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('empPull Deleted Susscefully');
+     return redirect()->back()->withFlashMassage('managament Deleted Susscefully');
    }      
 }

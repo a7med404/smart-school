@@ -68,7 +68,6 @@
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('pay-classes.show',  ['id' => $PayClass->id])); ?>">استعراض</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('pay-classes.edit',  ['id' => $PayClass->id])); ?>">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-
                                         <form action="<?php echo e(route('pay-classes.destroy',['id' => $PayClass->id])); ?>" method="post">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>

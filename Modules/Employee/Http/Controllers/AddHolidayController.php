@@ -2,6 +2,7 @@
 
 namespace Modules\Employee\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -12,11 +13,11 @@ class AddHolidayController extends Controller
 {
        /**
     * Display a listing of the resource.
-    * @return Response
-    */
+    * @return Response     */
    public function index()
    {
-       return  AddHolidayResource::collection(AddHoliday::all());
+       $addholiday = AddHoliday::all();
+       return view('employee::employees.holiday.addholiday.index', ['addholidays' => $addholiday]);
    }
 
    /**
@@ -25,7 +26,7 @@ class AddHolidayController extends Controller
     */
    public function create()
    {
-       return view('student::create');
+       return view('employee::create');
    }
 
    /**
@@ -35,13 +36,14 @@ class AddHolidayController extends Controller
     */
    public function store(CreateAddHolidayRequest $request)
    {
-       $id =  AddHoliday::create($request->all())->id;
-       return response()->json([
-           'message' => 'تم الحفظ بنجاح',
-           'AddHoliday_id' => $id
-       ], 201);
-   }
+       $AddHoliday= AddHoliday::create($request->all());
 
+       if($AddHoliday){
+
+           Session::flash('flash_massage_type');
+           return redirect()->route('emp-holidays')->withFlashMassage('تمت اضافة الاجازة بنجاح');
+       }
+   }
    /**
     * Show the specified resource.
     * @param int $id
@@ -49,10 +51,19 @@ class AddHolidayController extends Controller
     */
    public function show($id)
    {
-       return new AddHolidayResource(AddHoliday::findOrfail($id));
-       /* return view('student::show'); */
+       $addholidayInfo = addholiday::findOrFail($id);
+       return view('employee::employees.holiday.addholiday.show', ['addholidayInfo' => $addholidayInfo]);
    }
-
+   /**
+    * Show all classrooms in one addholiday .
+    * @param int $id
+    * @return Response
+    */
+   public function classrooms($id)
+   {
+       return new ClassroomResource(addholiday::findOrfail($id)->classrooms);
+       /* return view('employee::show'); */
+   }
 
    /**
     * Show the form for editing the specified resource.
@@ -61,34 +72,35 @@ class AddHolidayController extends Controller
     */
    public function edit($id)
    {
-       return new AddHolidayResource(AddHoliday::findOrfail($id));
-       /* return view('student::edit'); */
+       $addholidayInfo = AddHoliday::findOrFail($id);
+       return view('employee::employees.holiday.addholiday.edit', ['addholidayInfo' => $addholidayInfo]);
    }
-
    /**
     * Update the specified resource in storage.
     * @param Request $request
     * @param int $id
-    * @return Responsedestroy
+    * @return Response
     */
    public function update(CreateAddHolidayRequest $request, $id)
    {
-       AddHoliday::findOrfail($id)->update($request->all());
-       return response()->json([
-           'message' => 'تم التحديث بنجاح',
-       ], 200);
+     $updateaddholiday = AddHoliday::findOrfail($id)->update($request->all());
+     
+     Session::flash('flash_massage_type');
+     return redirect()->back()->withFlashMassage(' تم تعديل اسم الاجازة بنجاح');
    }
+
 
    /**
     * Remove the specified resource from storage.
     * @param int $id
     * @return Response
     */
-   public function destroy($id)
+   public function destroy($id, AddHoliday $Oneaddholiday)
    {
-       AddHoliday::findOrfail($id)->delete();
-       return response()->json([
-           'message' => 'تم الحذف بنجاح',
-       ], 200);
-   }
+     $AddHolidayForDelete = $Oneaddholiday->findOrfail($id);
+     $AddHolidayForDelete->delete();
+     Session::flash('flash_massage_type');
+     return redirect()->back()->withFlashMassage('تم حذف اسم الاجازة بنجاح');
+   }      
+
 }

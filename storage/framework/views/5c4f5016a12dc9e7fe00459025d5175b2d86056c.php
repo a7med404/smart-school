@@ -77,7 +77,7 @@
                     </span>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="<?php echo e(route('attendance.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
+                    <li><a href="<?php echo e(route('attendances.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
                     <li><a href="<?php echo e(route('attendance-for-class')); ?>"><i class="fa fa-circle-o text-aqua"></i> تسجيل لفصل</a></li>
                   </ul>
                 </li>

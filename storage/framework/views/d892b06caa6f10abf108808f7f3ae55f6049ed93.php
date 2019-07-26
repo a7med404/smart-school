@@ -257,10 +257,11 @@
             </li>
             </ul>
         </li>
-        
-        
+
+
         </ul>
     </div>
 
     </nav>
-</header><?php /**PATH /home/barca/fouad/projects/school-system_4/school-system/resources/views/cpanel/partials/header.blade.php ENDPATH**/ ?>
+</header>
+<?php /**PATH /home/barca/fouad/projects/school-system_4/school-system/resources/views/cpanel/partials/header.blade.php ENDPATH**/ ?>
