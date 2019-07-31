@@ -11,10 +11,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-  <h1> كل الطلاب <small>  </small></h1>
+  <h1> تقرير غياب الطلاب <small>  </small></h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
-    <li class="active">كل الطلاب</li>
+    <li class="active">تقرير غياب الطلاب</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -22,7 +22,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">كل الطلاب</h3>
+          <h3 class="box-title">تقرير غياب الطلاب</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
               <i class="fa fa-minus"></i></button>
@@ -53,12 +53,40 @@
                     {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}"]) !!}
                   </div>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-6 col-12">
+                <div class="col col-lg-3 col-md-3 col-sm-6 col-12">
                   <div class="form-group">
                     {!! Form::label('gender', 'النوع', ['class' => 'control-label']) !!}
                     {!! Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 {{ $errors->has('gender') ? ' is-invalid' : '' }}", 'value' => "{{ old('gender') }}"]) !!}
                   </div>
                 </div>
+              </div>
+              <div class="row">
+                  <div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+                      <div class="bootstrap-timepicker">
+                          <div class="form-group">
+                              {!! Form::label('from', 'التاريخ من ', ['class' => 'control-label']) !!}
+                              <div class="input-group">
+                                  {!! Form::text('from', null, ['id' => 'from', 'class' => "form-control  {{ $errors->has('from') ? ' is-invalid' : '' }}", 'value' => "{{ old('from') }}", 'autofocus']) !!}
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+                      <div class="bootstrap-timepicker">
+                          <div class="form-group">
+                              {!! Form::label('to', 'التاريخ الي ', ['class' => 'control-label']) !!}
+                              <div class="input-group">
+                                  {!! Form::text('to', null, ['id' => 'to', 'class' => "form-control  {{ $errors->has('to') ? ' is-invalid' : '' }}", 'value' => "{{ old('to') }}", 'autofocus']) !!}
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
                 <div class="col col-lg-1 col-md-1 col-sm-12 col-12 m-t-25">
                   <button type="submit" class="btn btn-info">بحــــث</button>
                 </div>
@@ -89,33 +117,20 @@
                             <th>اسم المرحلة التعليمية</th>
                             <th>اسم الصف</th>
                             <th>اسم الفصل</th>
-                            <th>النوع</th>
-                            <th>{{ __('home/labels.options') }}</th>
+                            <th>التاريخ</th>
+                            <th>ملاحظة</th>
                         </tr>
                     </thead>
                     <tbody>
-                      @forelse($students as $student)
+                      @forelse($data as $object)
                         <tr>
-                          <td>{{ $student->id }}</td>
-                          <td>{{ $student->name }}</td>
-                          <td>{{ $student->level->name }}</td>
-                          <td>{{ $student->classroom->name }}</td>
-                          <td>{{ $student->part->name }}</td>
-                          <td>{{ gender()[$student->gender] }}</td>
-                          <td>
-                            <div class="dropdown">
-                              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                <span class="fa fa-ellipsis-h"></span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $student->id]) }}">استعراض</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $student->id]) }}">تعديل</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('students.delete',['id' => $student->id]) }}">حذف</a></li>
-                              </ul>
-                            </div>
-                          </td>
+                          <td>{{ $object->id }}</td>
+                          <td>{{ $object->name }}</td>
+                          <td>{{ $object->level->name }}</td>
+                          <td>{{ $object->classroom->name }}</td>
+                          <td>{{ $object->part->name }}</td>
+                          <td>{{ $object->date }}</td>
+                          <td>{{ $object->attendances_note }}</td>
                         </tr>
 
                         @empty
@@ -145,6 +160,23 @@
 {!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
 {!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
 <script>
+
+    $(function () {
+        $('#from').datepicker({
+            autoclose: true,
+            language: 'ar',
+            rtl: true,
+            format: 'yyyy-mm-dd'
+        });
+        $('#to').datepicker({
+            autoclose: true,
+            language: 'ar',
+            rtl: true,
+            format: 'yyyy-mm-dd'
+        });
+        $(".select2").select2();
+    });
+
     $('#table_id').DataTable({
         // processing: true,
         // serverSide: true,

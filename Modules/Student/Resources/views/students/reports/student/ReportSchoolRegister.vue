@@ -84,7 +84,7 @@
                 <button href="#" class="btn btn-primary">عرض</button>
                 <button href="#" class="btn btn-primary">طباعة</button>
               </div>
-            </div>
+            </div> 
             <!-- Print Buttons -->
               <div class="no-print">
                   <div class="col-xs-12">

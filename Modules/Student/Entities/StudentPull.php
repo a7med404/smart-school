@@ -9,7 +9,6 @@ class StudentPull extends Model
 {
     protected $fillable = [
         'student_id',
-        'pull_date',
         'reason'
     ];
 

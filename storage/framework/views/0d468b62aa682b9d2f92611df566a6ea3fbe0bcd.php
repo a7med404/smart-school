@@ -257,10 +257,11 @@
             </li>
             </ul>
         </li>
-        
-        
+
+
         </ul>
     </div>
 
     </nav>
-</header><?php /**PATH /home/a7med404/a7meD404/WD_WORK/WorkingFolder/work-on/school-system/resources/views/cpanel/partials/header.blade.php ENDPATH**/ ?>
+</header>
+<?php /**PATH /home/a7med404/a7meD404/WD_WORK/WorkingFolder/work-on/school-system/resources/views/cpanel/partials/header.blade.php ENDPATH**/ ?>

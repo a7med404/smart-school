@@ -53,7 +53,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('students.index') }}"><i class="fa fa-circle-o text-aqua"></i> الطلاب</a></li>
-                <li><a href="{{ route('students.index') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
+                <li><a href="{{ route('student-pulls.index') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
                 
                 <li>
                   <a href="#">
@@ -111,8 +111,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('student-reports', ['report' => 'report-emp-student']) }}"><i class="fa fa-circle-o text-aqua"></i> عرض ابناء العاملين</a></li>
-                <li><a href="{{ route('student-reports', ['report' => 'report-separate']) }}"><i class="fa fa-circle-o text-aqua"></i> قرار فصل</a></li>
-                <li><a href="{{ route('student-reports', ['report' => 'report-warning']) }}"><i class="fa fa-circle-o text-aqua"></i> انذار فصل</a></li>
+                <li><a href="{{ route('report-separates.index') }}"><i class="fa fa-circle-o text-aqua"></i> قرار فصل</a></li>
+                <li><a href="{{ route('report-warnings.index') }}"><i class="fa fa-circle-o text-aqua"></i> انذار فصل</a></li>
                 <li><a href="{{ route('student-reports', ['report' => 'report-auth']) }}"><i class="fa fa-circle-o text-aqua"></i>عرض بيانات دخول الموقع</a></li>
                 
                 <li>
@@ -128,7 +128,7 @@
                     <li><a href="{{ route('student-reports', ['report' => 'report-kindness']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير شهادة حسن سير وسلوك</a></li>
                     <li><a href="{{ route('student-reports', ['report' => 'report-sudent-statement']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير حركة طالب</a></li>
                     <li><a href="{{ route('student-reports', ['report' => 'report-not-complate-data']) }}"><i class="fa fa-circle-o text-aqua"></i>طلاب لم تكتمل بياناتهم</a></li>
-                    <li><a href="{{ route('student-reports', ['report' => 'report-student-absece']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الطلاب</a></li>
+                    <li><a href="{{ route('student-reports', ['report' => 'report-student-attendances']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الطلاب</a></li>
                   </ul>
                 </li>
               </ul>

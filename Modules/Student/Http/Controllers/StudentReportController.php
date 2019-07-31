@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Level;
 use Illuminate\Support\Facades\DB;
 use Modules\Student\Entities\Student;
+use Modules\Student\Entities\Attendance;
 
 class StudentReportController extends Controller
 {
@@ -82,7 +83,6 @@ class StudentReportController extends Controller
 
     public function viewPage(Request $request, $report)
     {
-
         $data = [];
         switch($report){
             case 'levels':
@@ -99,9 +99,6 @@ class StudentReportController extends Controller
                     $data = Level::all();
                 }
                 break;
-            case 'report-separates':
-                $data = \DB::table('report-separates')->get();
-                break;
             case 'report-emp-student':
                 if($request->has('filter')){
                     $data = Student::orderBy('id','desc')->where('student_parent_id', $request->student_parent_id)->get();
@@ -109,20 +106,55 @@ class StudentReportController extends Controller
                     $data = Student::where('is_staff_son', 1)->get();
                 }
                 break;
-            case 'report_warnings':
-                $data = \DB::table('report-warnings')->get();
+            case 'report-student-attendances':
+                if($request->has('filter')){
+                    $requestAll = array_except($request->toArray(), ['from', 'to']);
+                    $query = Student::orderBy('level_id');
+                    foreach ($requestAll as $key => $req) {
+                        if (!($req == "" || null)) {
+                            $query->where($key, $req);
+                        }
+                    }
+                    $query = $query->join('attendances', function ($join) {
+                        $join->on('students.id', '=', 'attendances.student_id');
+                            //  ->where('attendances.user_id', '>', 5);
+                    })->select('students.*', 'attendances.*', 'attendances.note as attendances_note');
+
+                    if (!($request->from == "" || null) && ($request->to   == "" || null)) {
+                        $query = $query->where('date', '>=', $request->from);
+                    }elseif (($request->from == "" || null) && !($request->to   == "" || null)) {
+                        $query = $query->where('date', '<=', $request->to);
+                    }elseif(!($request->from == "" || null) && !($request->to   == "" || null)){
+                        $query = $query->whereBetween('date', [$request->from, $request->to]);
+                    }
+                    $data = $query->get();
+
+                }else {
+                    $data = Student::join('attendances', function ($join) {
+                        $join->on('students.id', '=', 'attendances.student_id');
+                            //  ->where('attendances.user_id', '>', 5);
+                    })->select('students.*', 'attendances.*', 'attendances.note as attendances_note')
+                    ->get();
+                }
                 break;
             case 'report-school-register':
-                $data = Student::where('level_id', 7)
-                ->orWhere('classroom_id', 1)
-                ->orWhere('part_id', 1)
-                ->orWhere('gender', 1)
-                ->get();
-                break;
+                    if($request->has('filter')){
+                        $requestAll = $request->toArray();
+                        $query = Student::orderBy('id', 'asc');
+                        foreach ($requestAll as $key => $req) {
+                            if (!($req == "" || null)) {
+                                $query->where($key, $req);
+                            }
+                        }
+                        $data = $query->orderBy('id','desc')->get();
+                    }else{
+                        $data = Level::all();
+                    }
+                    break;
             default:
             return abort(404);
         }
-        view("student::print.$report.print-page", ['data' => $data]);
+        // view("student::print.$report.print-page", ['data' => $data]);
         return view("student::students.reports.$report", ['data' => $data]);
     }
 

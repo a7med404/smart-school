@@ -16,7 +16,7 @@ class CreateAddCalendRequest extends FormRequest
         return [
             'managament_id'             => 'integer|required',
             'department_id'             => 'integer|required',
-            'celand_name'               => 'longText|required',
+            'celand_name'               => 'string|required',
             'date'                      => 'date|required'   
         ];
     }

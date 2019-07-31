@@ -94,25 +94,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                      @forelse($students as $student)
+                      @forelse($data as $object)
                         <tr>
-                          <td>{{ $student->id }}</td>
-                          <td>{{ $student->name }}</td>
-                          <td>{{ $student->level->name }}</td>
-                          <td>{{ $student->classroom->name }}</td>
-                          <td>{{ $student->part->name }}</td>
-                          <td>{{ gender()[$student->gender] }}</td>
+                          <td>{{ $object->id }}</td>
+                          <td>{{ $object->name }}</td>
+                          <td>{{ $object->level->name }}</td>
+                          <td>{{ $object->classroom->name }}</td>
+                          <td>{{ $object->part->name }}</td>
+                          <td>{{ gender()[$object->gender] }}</td>
                           <td>
                             <div class="dropdown">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <span class="fa fa-ellipsis-h"></span>
                               </a>
                               <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $student->id]) }}">استعراض</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $student->id]) }}">تعديل</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $object->id]) }}">استعراض</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $object->id]) }}">تعديل</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('students.delete',['id' => $student->id]) }}">حذف</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('students.delete',['id' => $object->id]) }}">حذف</a></li>
                               </ul>
                             </div>
                           </td>

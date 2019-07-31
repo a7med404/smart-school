@@ -48,11 +48,19 @@ class PrintController extends Controller
                 $data = \DB::table('report_warnings')->get();
                 break;
             case 'report-school-register':
-                $data = Student::where('level_id', 7)
-                ->orWhere('classroom_id', 1)
-                ->orWhere('part_id', 1)
-                ->orWhere('gender', 1)
-                ->get();
+            dd($request->all());
+                if($request->has('filter')){
+                    $requestAll = $request->toArray();
+                    $query = Student::orderBy('id', 'asc');
+                    foreach ($requestAll as $key => $req) {
+                        if (!($req == "" || null)) {
+                            $query->where($key, $req);
+                        }
+                    }
+                    $data = $query->orderBy('id','desc')->get();
+                }else{
+                    $data = Level::all();
+                }
                 break;
             case 'report-kindness':
                 $data = Offprint::where('type', 1)

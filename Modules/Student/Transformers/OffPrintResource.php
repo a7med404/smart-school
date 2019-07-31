@@ -18,7 +18,7 @@ class OffPrintResource extends JsonResource
             'id'                    => $this->id,
             'created_at'            => $this->created_at,
             'student_id'            => getName('students', $this->student_id),
-            'type'                  => offPrint()[$this->type],
+            'type'                  => $this->type,
         ];
         // return parent::toArray($request);
     }
