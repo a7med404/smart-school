@@ -2,10 +2,12 @@
 
 namespace Modules\Employee\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Managament;
+use Modules\Employee\Entities\Department;
 use Modules\Employee\Transformers\ManagamentResource;
 use Modules\Employee\Http\Requests\CreateManagamentRequest;
 class ManagamentController extends Controller
@@ -16,79 +18,87 @@ class ManagamentController extends Controller
      */
     public function index()
     {
-        return  ManagamentResource::collection(Managament::all());
-    }
+        $managament = Managament::all();
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('student::create');
+        return view('employee::employees.managaments.index',['managaments' => $managament,'departments' => Department::all()]);
     }
+ 
+   public function create()
+   {
+       return view('employee::create');
+   }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
-    public function store(CreateManagamentRequest $request)
-    {
-        $id =  Managament::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'Managament_id' => $id
-        ], 201);
-    }
+   /**
+    * Store a newly created resource in storage.
+    * @param Request $request
+    * @return Response
+    */
+   public function store(CreateManagamentRequest $request)
+   {
+       $Managament= Managament::create($request->all());
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return new ManagamentResource(Managament::findOrfail($id));
-        /* return view('student::show'); */
-    }
+       if($Managament){
+
+           Session::flash('flash_massage_type');
+           return redirect()->route('managaments.index')->withFlashMassage('managament Created Susscefully');
+       }
+   }
+   /**
+    * Show the specified resource.
+    * @param int $id
+    * @return Response
+    */
+   public function show($id)
+   {
+       $ManagamentInfo = managament::findOrFail($id);
+       return view('employee::.employees.managaments.management.show', ['ManagamentInfo' => $ManagamentInfo]);
+   }
+   /**
+    * Show all classrooms in one managament .
+    * @param int $id
+    * @return Response
+    */
+   public function classrooms($id)
+   {
+       return new ClassroomResource(managament::findOrfail($id)->classrooms);
+       /* return view('employee::show'); */
+   }
+
+   /**
+    * Show the form for editing the specified resource.
+    * @param int $id
+    * @return Response
+    */
+   public function edit($id)
+   {
+       $ManagamentInfo = Managament::findOrFail($id);
+       return view('employee::employees.managaments.management.edit', ['ManagamentInfo' => $ManagamentInfo]);
+   }
+   /**
+    * Update the specified resource in storage.
+    * @param Request $request
+    * @param int $id
+    * @return Response
+    */
+   public function update(CreatemanagamentRequest $request, $id)
+   {
+     $updatemanagament = managament::findOrfail($id)->update($request->all());
+     
+     Session::flash('flash_massage_type');
+     return redirect()->back()->withFlashMassage('managament Updated Susscefully');
+   }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return new ManagamentResource(Managament::findOrfail($id));
-        /* return view('student::edit'); */
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Responsedestroy
-     */
-    public function update(CreateManagamentRequest $request, $id)
-    {
-        Managament::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        Managament::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
-    }
+   /**
+    * Remove the specified resource from storage.
+    * @param int $id
+    * @return Response
+    */
+   public function destroy($id, Managament $Onemanagament)
+   {
+     $ManagamentForDelete = $Onemanagament->findOrfail($id);
+     $ManagamentForDelete->delete();
+     Session::flash('flash_massage_type');
+     return redirect()->back()->withFlashMassage('managament Deleted Susscefully');
+   }      
 }

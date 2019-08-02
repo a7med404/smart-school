@@ -16,79 +16,87 @@ class SpecialtyController extends Controller
      */
     public function index()
     {
-        return  SpecialtyResource::collection(CreateSpecialtyRequest::all());
-    }
+        $specilaity = Specilaity::all();
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('student::create');
+        return view('employee::employees.managaments.index',['specilaitys' => $specilaity,'managaments' => Managament::all()]);
     }
+ 
+   public function create()
+   {
+       return view('employee::create');
+   }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
-    public function store(CreateSpecialtyRequest $request)
-    {
-        $id =  CreateSpecialtyRequest::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'CreateSpecialtyRequest_id' => $id
-        ], 201);
-    }
+   /**
+    * Store a newly created resource in storage.
+    * @param Request $request
+    * @return Response
+    */
+   public function store(CreateSpecilaityRequest $request)
+   {
+       $specilaity = pecilaity::create($request->all());
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return new SpecialtyResource(CreateSpecialtyRequest::findOrfail($id));
-        /* return view('student::show'); */
-    }
+       if($specilaity){
+
+           Session::flash('flash_massage_type');
+           return redirect()->back()->withFlashMassage('specilaity Created Susscefully');
+       }
+   }
+   /**
+    * Show the specified resource.
+    * @param int $id
+    * @return Response
+    */
+   public function show($id)
+   {
+       $specilaityInfo = pecilaity::findOrFail($id);
+       return view('employee::.employees.managaments.specilaity.show', ['specilaityInfo' => $specilaityInfo]);
+   }
+   /**
+    * Show all classrooms in one specilaity .
+    * @param int $id
+    * @return Response
+    */
+   public function classrooms($id)
+   {
+       return new ClassroomResource(pecilaity::findOrfail($id)->classrooms);
+       /* return view('employee::show'); */
+   }
+
+   /**
+    * Show the form for editing the specified resource.
+    * @param int $id
+    * @return Response
+    */
+   public function edit($id)
+   {
+       $specilaityInfo = Specilaity::findOrFail($id);
+       return view('employee::employees.managaments.specilaity.edit', ['specilaityInfo' => $specilaityInfo]);
+   }
+   /**
+    * Update the specified resource in storage.
+    * @param Request $request
+    * @param int $id
+    * @return Response
+    */
+   public function update(CreateSpecilaityRequest $request, $id)
+   {
+     $updatespecilaity = Specilaity::findOrfail($id)->update($request->all());
+     
+     Session::flash('flash_massage_type');
+     return redirect()->back()->withFlashMassage('specilaity Updated Susscefully');
+   }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return new SpecialtyResource(CreateSpecialtyRequest::findOrfail($id));
-        /* return view('student::edit'); */
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Responsedestroy
-     */
-    public function update(CreateSpecialtyRequest $request, $id)
-    {
-        CreateSpecialtyRequest::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        CreateSpecialtyRequest::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
-    }
+   /**
+    * Remove the specified resource from storage.
+    * @param int $id
+    * @return Response
+    */
+   public function destroy($id, specilaity $Onespecilaity)
+   {
+     $specilaityForDelete = $Onespecilaity->findOrfail($id);
+     $specilaityForDelete->delete();
+     Session::flash('flash_massage_type');
+     return redirect()->back()->withFlashMassage('specilaity Deleted Susscefully');
+   }      
 }

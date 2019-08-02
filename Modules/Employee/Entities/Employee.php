@@ -42,9 +42,16 @@ class Employee extends Model
     {
         return $this->morphMany(Identifcation::class, 'identifcationable');
     }
+
     public function absence()
+
     {
         return $this->hasMany(EmpAbsence::class);
+    }
+
+    public function addcalends(){
+
+        return $this->belongsToMany(AddCalend::class);
     }
 
 }

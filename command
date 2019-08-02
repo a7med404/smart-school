@@ -213,8 +213,8 @@ Validator::make($data, [
 
 <div class="col-md-3 custom-label-checkbox-radio">
     <div class="form-group">
-        {!! Form::label($role->name, $role->display_name, ['class' => 'control-label']) !!} <br />
-        {!! Form::checkbox('role', $role->id, null, ['id' => $role->name, 'class' => " {{ $errors->has('role') ? ' is-invalid' : '' }}", 'value' => "{{ old('role') }}"]) !!}
+        {!! Form::label(role, display_name, ['class' => 'control-label']) !!} <br />
+        {!! Form::checkbox('role', role, null, ['id' => role, 'class' => " {{ $errors->has('role') ? ' is-invalid' : '' }}", 'value' => "{{ old('role') }}"]) !!}
     </div>
 </div>
 

@@ -16,7 +16,7 @@ class CreatePartsTable extends Migration
         Schema::create('parts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 100)->unique();
-            $table->integer('sort')->unique();
+            $table->integer('sort')->nullable();
             $table->integer('max_student_number');
             
             $table->unsignedBigInteger('level_id');

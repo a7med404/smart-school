@@ -26,9 +26,10 @@ function valueOrPersentage()
 function offPrint()
 {
     return [
-        1 => 'شهادة قيد طالب',
-        2 => 'شهادة حسن سير وسلوك',
-        3 => 'مخالصة بمصروفات طالب',
+        'to-clinic' => 'تحويل للمركز الطبي',
+        'record' => 'شهادة قيد طالب',
+        'kindness' => 'شهادة حسن سير وسلوك',
+        'completion' => 'مخالصة بمصروفات طالب',
     ];
 }
 
@@ -503,3 +504,10 @@ function getCustomerImageOrDefaultImage($imageName = null)
         return asset('storage/uploads/images/customers/default_customer_image.png');
     }
 }
+
+
+
+
+
+
+

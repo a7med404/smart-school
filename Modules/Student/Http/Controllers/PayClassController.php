@@ -2,11 +2,11 @@
 
 namespace Modules\Student\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\PayClass;
-use Modules\Student\Transformers\PayClassResource;
 use Modules\Student\Http\Requests\CreatePayClassRequest;
 class PayClassController extends Controller
 {
@@ -37,17 +37,9 @@ class PayClassController extends Controller
      */
     public function store(CreatePayClassRequest $request)
     {
-        $PayClases = PayClass::create($request->all());
-
-               $PayClases->education_year = $request->education_year;
-               $PayClases->level_id       = $request->level_id;
-               $PayClases->classroom_id   = $request->classroom_id;
-               $PayClases->pay_rul_id     = $request->pay_rul_id;
-               $PayClases->cascade        = $request->cascade;
-               $PayClases->value          = $request->value;
+        $PayClases= PayClass::create($request->all());
 
         if($PayClases){
-
             Session::flash('flash_massage_type');
             return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Created Susscefully');
         }
@@ -60,7 +52,7 @@ class PayClassController extends Controller
     public function show($id)
     {
         $PayClassInfo = PayClass::findOrFail($id);
-        return view('student::students.educations.PayClasss.show', ['PayClassInfo' => $PayClassInfo]);
+        return view('student::students.account.pay-class.show', ['PayClassInfo' => $PayClassInfo]);
     }
     /**
      * Show all classrooms in one PayClass .
@@ -81,7 +73,7 @@ class PayClassController extends Controller
     public function edit($id)
     {
         $PayClassInfo = PayClass::findOrFail($id);
-        return view('student::students.account.pay-classs.edit', ['PayClassInfo' => $PayClassInfo]);
+        return view('student::students.account.pay-class.edit', ['PayClassInfo' => $PayClassInfo]);
     }
     /**
      * Update the specified resource in storage.
@@ -89,18 +81,11 @@ class PayClassController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(CreatePayClassRequest $request, $id, PayClass $OnePayClass)
+    public function update(CreatePayClassRequest $request, $id)
     {
-      $PayClassUpdate = $OnePayClass->findOrFail($id);
-      $data = [
-            'name'          => $request->name,
-            'sort'          => $request->sort,
-            'head_master'   => $request->head_master,
-            'school_master' => $request->school_master,
-        ];
-      $updatePayClass = $PayClassUpdate->fill($data)->save();
+      PayClass::findOrfail($id)->update($request->all());
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('PayClass Updated Susscefully');
+      return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Updated Susscefully');
     }
 
 
@@ -111,8 +96,7 @@ class PayClassController extends Controller
      */
     public function destroy($id, PayClass $OnePayClass)
     {
-      $PayClassForDelete = $OnePayClass->findOrfail($id);
-      $PayClassForDelete->delete();
+      $OnePayClass->findOrfail($id)->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('PayClass Deleted Susscefully');
     }      

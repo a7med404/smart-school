@@ -15,7 +15,7 @@ class CreateCalendRequest extends FormRequest
     {
         return [
             'name'                 => 'string|required',
-            'discount_percentage'  => 'float|required',
+            'discount_percentage'  => 'required',
             'type'                 => 'integer|required'
 
         ];

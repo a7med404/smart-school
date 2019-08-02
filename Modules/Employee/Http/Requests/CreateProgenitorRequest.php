@@ -20,7 +20,7 @@ class CreateProgenitorRequest extends FormRequest
             'safe_id'                      => 'integer|required' ,
             'date'                         => 'date|required',
             'months_number'                => 'integer|required',
-            'note'                         => 'longText|nullable' 
+            'note'                         => 'string|nullable' 
         ];
     }
 

@@ -11,11 +11,11 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>المراحل التعلمية <small>  </small></h1>
+    <h1>رسوم الصفوف <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li><a href="#">شوؤن تعليمية</a></li>
-        <li class="active">المراحل التعلمية</li>
+        <li class="active">رسوم الصفوف</li>
     </ol>
 </section>
 
@@ -24,12 +24,12 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">المراحل التعلمية</h3>
+            <h3 class="box-title">رسوم الصفوف</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-PayClass" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+                <i class="fa fa-plus"></i> اضافة
                 </a>
             </div>
         </div>
@@ -39,32 +39,31 @@
                     <thead>
                         <tr>
                             <th>#ID</th>
+                            <th>العام الدراسي</th>
                             <th> المرحلة التعليمية</th>
                             <th>اسم الصف</th>
-                            <th>انواع الرسوم</th>
-                            <th>اجباري</th>
+                            <th>نوع الرسوم</th>
                             <th>القيمة</th>
-                            <th>العام الدراسي</th>
-                            <th>option</th>
+                            <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($PayClases as $PayClass)
                         <tr>
                             <td>{{ $PayClass->id }}</td>
-                            <td>{{ $PayClass->academic_year }}</td>
-                            <td>{{ $PayClass->level_id }}</td>
-                            <td>{{ $PayClass->classroom_id }}</td>
-                            <td>{{ $PayClass->pay_rul_id }}</td>
-                            <td>{{ $payClass->value }}</td>
+                            <td>{{ $PayClass->education_year }}</td>
+                            <td>{{ $PayClass->level->name }}</td>
+                            <td>{{ $PayClass->classroom->name }}</td>
+                            <td>{{ $PayClass->payRul->name }}</td>
+                            <td>{{ $PayClass->value }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('PayClasss.edit',  ['id' => $PayClass->id]) }}">تعديل</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.show',  ['id' => $PayClass->id]) }}">استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.edit',  ['id' => $PayClass->id]) }}">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-classes.delete',['id' => $PayClass->id]) }}">حذف</a></li>

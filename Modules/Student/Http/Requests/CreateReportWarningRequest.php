@@ -15,7 +15,7 @@ class CreateReportWarningRequest extends FormRequest
     {
         return [
             'student_id'        => 'required|integer',
-            'note'              => 'required|longText'
+            'note'              => 'nullable|string'
         ];
     }
 

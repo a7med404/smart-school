@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <section class="content-header">
       <h1>الفصول التعلمية <small>  </small></h1>

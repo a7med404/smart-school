@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Employee\Entities;
-
+use Modules\Employee\Entities\Managament;
 use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
@@ -10,4 +10,9 @@ class Department extends Model
         'managament_id',
         'name'
     ];
+
+    public function management(){
+
+        return $this->belongsTo(Managament::class);
+    }
 }
