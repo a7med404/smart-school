@@ -28,24 +28,15 @@ class OffPrintController extends Controller
 
     public function getOffPrints(Request $request, $type)
     {
-        if ($type) {
+        if ($type) { 
             $data = OffPrint::where('type', $request->type)->get();
+            // dd($data);
+            return view("student::students.offprints.$type", ['data' => $data]);
         } else {
-            $data = OffPrint::all();
+            return OffPrintResource::collection(OffPrint::all());
         }
-
-        return view("student::offprints.offprint", ['data' => $data]);
     }
 
-    
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('student::create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -54,42 +45,19 @@ class OffPrintController extends Controller
      */
     public function store(CreateOffPrintRequest $request)
     {
-        // dd($request->all());
         OffPrint::create($request->all());
-        $this->print($request->student_id, $request->type);
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-        ], 201);
-    } 
-    public function print($student, $type)
-    {
-        $data = Student::where('id', $student)->get();
-        // return view('student::print.offprint', ['data' => $data]);
-        $pdf  = PDF::loadView('student::print.tests.print-page', ['data' => $data])->setPaper('a4', 'portrail');
-        // $pdf  = PDF::loadHTML('<h1>'.$level.'</h1>')->setPaper('a4', 'portrail');
-        $fileName = 'data';//$data->name;
-        return $pdf->stream($fileName, '.pdf');
-    }
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return new OffPrintResource(OffPrint::findOrfail($id));
-        /* return view('student::show'); */
+        $data = Student::findOrfail($request->student_id);
+        return view("student::students.offprints.prints.$request->type", ['data' => $data]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
+    public function print($student, $type)
     {
-        return new OffPrintResource(OffPrint::findOrfail($id));
-        /* return view('student::edit'); */
+        $data = Student::findOrfail($student);
+        // $pdf  = PDF::loadView("student::students.offprints.prints.$type", ['data' => $data])->setPaper('a4', 'portrail');
+        // $pdf  = PDF::loadHTML('<h1>'.$data.'</h1>')->setPaper('a4', 'portrail');
+        // return $pdf;
+        return view("student::students.offprints.prints.$type", ['data' => $data]);
+        // return $pdf->stream($type, '.pdf');
     }
 
     /**
