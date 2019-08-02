@@ -74,34 +74,11 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('empty-palce', 'EmptyPalceController');
 
     Route::resource('pay-classes', 'PayClassController');
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    Route::resource('pay_rules', 'PayRulsController');
-=======
     Route::get('pay-classes/delete/{id}', 'PayClassController@destroy')->name('pay-classes.delete');
 
     Route::resource('pay-rules', 'PayRulsController');
     Route::get('pay-rules/delete/{id}', 'PayRulsController@destroy')->name('pay-rules.delete');
 
->>>>>>> f2a685fbb5eaa56e893684122930476688c7b754
 
     Route::any('/pay', 'StudentController@pay')->name('pay');
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');

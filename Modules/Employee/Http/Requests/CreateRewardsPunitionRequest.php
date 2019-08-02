@@ -20,13 +20,8 @@ class CreateRewardsPunitionRequest extends FormRequest
             'department_id'                => 'integer|required',
             'type'                         => 'boolean|required',
             'employee_id'                  => 'integer|required',
-<<<<<<< HEAD
-            'value'                        => 'required',
-            'reason'                       => 'required'
-=======
             'value'                        => 'float|required',
             'reason'                       => 'string|nullable'
->>>>>>> f2a685fbb5eaa56e893684122930476688c7b754
         ];
     }
 
