@@ -67,6 +67,25 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('discount-setting-sibling', 'DiscountSettingSiblingController');
     Route::resource('empty-palce', 'EmptyPalceController');
     Route::resource('pay-classes', 'PayClassController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     Route::resource('pay_rules', 'PayRulsController');
 
     Route::any('/pay', 'StudentController@pay')->name('pay');

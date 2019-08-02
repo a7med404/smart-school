@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\EmpPerissions;
 use Modules\Employee\Transformers\EmpPerissionsResource;
 use Modules\Employee\Http\Requests\CreateEmpPerissionsRequest;
+use Modules\Employee\Entities\Managament;
+use Session;
 class EmpPerissionsController extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class EmpPerissionsController extends Controller
      */
     public function index()
     {
-        return  EmpPerissionsResource::collection(EmpPerissions::all());
+    $shows=EmpPerissions::all();
+return view('employee::employees.perissions.EmpPerission.index',compact('shows'));
     }
 
     /**
@@ -35,11 +38,11 @@ class EmpPerissionsController extends Controller
      */
     public function store(CreateEmpPerissionsRequest $request)
     {
-        $id =  EmpPerissions::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'EmpPerissions_id' => $id
-        ], 201);
+        $id =  EmpPerissions::create($request->all());
+        if($id){
+            Session::flash('flash_massage_type');
+            return redirect()->route('emp-perissions.index')->withFlashMassage('Bear in minds Created Susscefully');
+        }
     }
 
     /**
@@ -61,8 +64,10 @@ class EmpPerissionsController extends Controller
      */
     public function edit($id)
     {
-        return new EmpPerissionsResource(EmpPerissions::findOrfail($id));
-        /* return view('student::edit'); */
+
+        $shows=EmpPerissions::find($id);
+        return view('employee::employees.perissions.EmpPerission.edit',compact('shows'));
+
     }
 
     /**
@@ -73,10 +78,9 @@ class EmpPerissionsController extends Controller
      */
     public function update(CreateEmpPerissionsRequest $request, $id)
     {
-        EmpPerissions::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        $shows=EmpPerissions::find($id);
+        $shows->    update($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -86,14 +90,13 @@ class EmpPerissionsController extends Controller
      */
     public function destroy($id)
     {
-        EmpPerissions::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+        $delete=EmpPerissions::find($id);
+        $delete->delete();
+        return redirect()->back();
     }
 
     public function report(Request $request){
-        
+
         return  EmpPerissionsResource::collection(EmpPerissions::where('employee_id',$request->employee_id)->where('date','>=',$request->from)->where('date','<=',$request->to)->get());
     }
 
@@ -101,5 +104,5 @@ class EmpPerissionsController extends Controller
     {
         return view('student::create');
     }
-    
+
 }

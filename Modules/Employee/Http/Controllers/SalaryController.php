@@ -17,7 +17,7 @@ class SalaryController extends Controller
      */
     public function index()
     {
-        return  SalaryResource::collection(Salary::all());
+        return  view('employee::employees.salary.salary-details.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class SalaryController extends Controller
      */
     public function create()
     {
-        return view('student::create');
+
     }
 
     /**
@@ -92,12 +92,14 @@ class SalaryController extends Controller
         ], 200);
     }
 
-        
+
     public function salaryDetails()
     {
-        return view('student::create');
+        return  view('employee::employees.salary.salary-details.index');
+
+
     }
-    
+
 
     public function reallianceSalary()
     {

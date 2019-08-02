@@ -408,7 +408,7 @@ function getName($tableName, $id)
 {
     if ($id === null) {
         return "...";
-    } 
+    }
     switch ($tableName) {
         case 'levels':
             $list = \DB::table('levels')->pluck('name', 'id');
