@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
                                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                                        <div class="form-group">
+                                        <div class="form-group"> 
                                             {!! Form::label('name', 'خصم', ['class' => 'control-label']) !!}
                                             {!! Form::checkbox('type', ' ', ['id' => 'from_hour', 'class' => "form-control", 'value' => "{{ old('from_hour') }}", 'required', 'autofocus']) !!}
 
