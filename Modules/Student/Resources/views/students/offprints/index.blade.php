@@ -1,6 +1,6 @@
 @extends('cpanel.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_payruls') }}
+{{ __('home/sidebar.all_levels') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>بنود رسوم الطلاب <small>  </small></h1>
+    <h1>المراحل التعلمية <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li><a href="#">شوؤن تعليمية</a></li>
@@ -24,45 +24,59 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">بنود رسوم الطلاب</h3>
+            <h3 class="box-title">المراحل التعلمية</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-payrul" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة
+                <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
+                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
                 </a>
             </div>
         </div>
         <div class="box-body">
+
+              <!-- Print Buttons -->
+              {{-- <div class="no-print">
+                    <div class="col-xs-12">
+                    <a href="/student/print-page/levels" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a type="button" href="/student/print-page/levels" class="btn btn-success" style="margin-right: 5px;">
+                        <i class="fa fa-download"></i> انشاء ملف PDF
+                    </a>
+                    <a href="/student/print-page/levels" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                    </div>
+                </div> --}}
+                <!-- End Prints buttons -->
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>اسم البند</th>
-                            <th>الحالة</th>
-                            <th>ملاحظات</th>
+                            <th>اسم المرحلة التعليمية</th>
+                            <th>الترتيب</th>
+                            <th>مدير المدرسة</th>
+                            <th>ناظر المدرسة</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($payruls as $payrul)
+                        @forelse($levels as $level)
                         <tr>
-                            <td>{{ $payrul->id }}</td>
-                            <td>{{ $payrul->name }}</td>
-                            <td>{{ is_mandatary()[$payrul->is_mandatary] }}</td>
-                            <td>{{ $payrul->note }}</td>
+                            <td>{{ $level->id }}</td>
+                            <td>{{ $level->name }}</td>
+                            <td>{{ $level->sort }}</td>
+                            <td>{{ $level->head_master }}</td>
+                            <td>{{ $level->school_master }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.show',  ['id' => $payrul->id]) }}" >استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.edit',  ['id' => $payrul->id]) }}" >تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $level->id]) }}">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-rules.delete',['id' => $payrul->id]) }}">حذف</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $level->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -74,7 +88,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>   
                         @endforelse
                     </tbody>
                 </table>
@@ -82,7 +96,7 @@
         </div>
     </div>
     <!-- /.box -->
-    @include('student::students.account.pay-ruls.add')
+    @include('student::students.educations.levels.add')
 </section>
 <!-- /.content -->
 

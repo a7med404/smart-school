@@ -143,7 +143,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('pay_rules.index') }}"><i class="fa fa-circle-o text-aqua"></i> بنود رسوم الطلاب</a></li>
+                <li><a href="{{ route('pay-rules.index') }}"><i class="fa fa-circle-o text-aqua"></i> بنود رسوم الطلاب</a></li>
                 {{-- <li><a href="{{ route('sms.index') }}"><i class="fa fa-circle-o text-aqua"></i> ارسال رسائل SMS للرسوم</a></li> --}}
                 <li>
                   <a href="#">

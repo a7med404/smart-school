@@ -29,10 +29,12 @@ class OffPrintController extends Controller
     public function getOffPrints(Request $request, $type)
     {
         if ($type) {
-            return OffPrintResource::collection(OffPrint::where('type', $request->type)->get());
+            $data = OffPrint::where('type', $request->type)->get();
         } else {
-            return OffPrintResource::collection(OffPrint::all());
+            $data = OffPrint::all();
         }
+
+        return view("student::offprints.offprint", ['data' => $data]);
     }
 
     
@@ -58,7 +60,7 @@ class OffPrintController extends Controller
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
         ], 201);
-    }
+    } 
     public function print($student, $type)
     {
         $data = Student::where('id', $student)->get();

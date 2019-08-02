@@ -19,7 +19,7 @@ class PayClassResource extends JsonResource
             'pay_rul_id'              => getName('pay_ruls', $this->pay_rul_id),
             'level_id'                => getName('levels', $this->level_id),
             'classroom_id'            => getName('classrooms', $this->classroom_id),
-            'academic_year'           => $this->academic_year
+            'education_year'           => $this->education_year
             ];
         // return parent::toArray($request);
     }

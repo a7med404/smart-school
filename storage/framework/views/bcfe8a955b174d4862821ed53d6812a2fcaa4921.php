@@ -33,25 +33,65 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
+
         <div class="box-body">
             <form  role="form">
               <div class="row">
-                
-                
-                <div class="col col-lg-3 col-md-3 col-sm-6 col-12">
-                  <div class="form-group">
-                    <?php echo Form::label('gender', 'النوع', ['class' => 'control-label']); ?>
+                <?php echo Form::hidden('filter', null, ['value' => "<?php echo e(old('filter')); ?>"]); ?>
 
-                    <?php echo Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 <?php echo e($errors->has('gender') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('gender')); ?>", 'required']); ?>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
+                  <div class="form-group">
+                      <?php echo Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']); ?>
+
+                      <?php echo Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  <?php echo e($errors->has('level_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('level_id')); ?>"]); ?>
 
                   </div>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                    <?php echo Form::label('classroom_id', 'اختيار الصف', ['class' => 'control-label']); ?>
+
+                    <?php echo Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  <?php echo e($errors->has('classroom_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('classroom_id')); ?>"]); ?>
+
+                  </div>
+                </div>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                    <?php echo Form::label('part_id', 'اختيار الفصل', ['class' => 'control-label']); ?>
+
+                    <?php echo Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  <?php echo e($errors->has('part_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('part_id')); ?>"]); ?>
+
+                  </div>
+                </div>
+                <div class="col col-lg-2 col-md-2 col-sm-6 col-12">
+                  <div class="form-group">
+                    <?php echo Form::label('gender', 'النوع', ['class' => 'control-label']); ?>
+
+                    <?php echo Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 <?php echo e($errors->has('gender') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('gender')); ?>"]); ?>
+
+                  </div>
+                </div>
+                <div class="col col-lg-1 col-md-1 col-sm-12 col-12 m-t-25">
                   <button type="submit" class="btn btn-info">بحــــث</button>
                 </div>
               </div>
             </form>
                 
+            <div class="row">
+              <!-- Print Buttons -->
+              <div class="no-print">
+                  <div class="col-xs-12 m-b-20">
+                    <a href="/student/print-page/students" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a type="button" href="/student/print-page/students" class="btn btn-success" style="margin-right: 5px;">
+                        <i class="fa fa-download"></i> انشاء ملف PDF
+                    </a>
+                    <a href="/student/print-page/students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                    <a href="/student/print-page/students" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
+                  </div>
+              </div>
+              <!-- End Prints buttons -->
+            </div>
+
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
@@ -70,17 +110,17 @@
                         <tr>
                           <td><?php echo e($student->id); ?></td>
                           <td><?php echo e($student->name); ?></td>
-                          <td><?php echo e($student->level_id); ?></td>
-                          <td><?php echo e($student->classroom_id); ?></td>
-                          <td><?php echo e($student->part_id); ?></td>
-                          <td><?php echo e($student->gender); ?></td>
+                          <td><?php echo e($student->level->name); ?></td>
+                          <td><?php echo e($student->classroom->name); ?></td>
+                          <td><?php echo e($student->part->name); ?></td>
+                          <td><?php echo e(gender()[$student->gender]); ?></td>
                           <td>
                             <div class="dropdown">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <span class="fa fa-ellipsis-h"></span>
                               </a>
                               <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('students.show',  ['id' => $student->id])); ?>">استعراض</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('students.edit',  ['id' => $student->id])); ?>">تعديل</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                 <li role="presentation" class="divider"></li>

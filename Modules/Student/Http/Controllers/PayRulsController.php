@@ -35,17 +35,10 @@ class PayRulsController extends Controller
      */
     public function store(CreatePayRulsRequest $request)
     {
-        $ismandatary = $request->has('is_mandatary') ? true : false;
-
-
-        $payrul = PayRuls::create([
-             'name' => $request->name,
-             'is_mandatary' => $ismandatary,
-            'note' => $request->note
-     ]);
+        $payrul = PayRuls::create($request->all());
          if($payrul){
             Session::flash('flash_massage_type');
-             return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Created Susscefully');
+             return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Created Susscefully');
         }
     }
     /**
@@ -83,16 +76,9 @@ class PayRulsController extends Controller
      */
     public function update(CreatePayRulsRequest $request, $id)
     {
-        $ismandatary = $request->has('is_mandatary') ? true : false;
-        $payruls=PayRuls::findorFail($id);
-
-        $payruls->name = $request->name;
-            $payruls->is_mandatary = $ismandatary;
-           $payruls->note = $request->note;
-$payruls->save();
-
-      Session::flash('flash_massage_type');
-      return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Updated Susscefully');
+        PayRuls::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Updated Susscefully');
     }
 
 
@@ -103,10 +89,9 @@ $payruls->save();
      */
     public function destroy($id)
     {
-        $payrul = PayRuls::findOrFail($id);
-      $payrul->delete();
-      Session::flash('flash_massage_type');
-      return redirect()->route('pay_rules.index')->withFlashMassage('PayRuls Deleted Susscefully');
+        $payrul = PayRuls::findOrFail($id)->delete();
+        Session::flash('flash_massage_type');
+        return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Deleted Susscefully');
     }
 
 
