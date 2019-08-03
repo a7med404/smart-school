@@ -94,6 +94,12 @@ $.widget.bridge('uibutton', $.ui.button);
     });
   </script>
 
+<script>
+    $(function () {
+        $(".select2").select2();
+    });
+</script>
+
 <!-- Page script -->
 {{-- <script>
   $(function () {

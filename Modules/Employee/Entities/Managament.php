@@ -12,7 +12,7 @@ class Managament extends Model
 
     public function departments(){
 
-        return $this->hasMany('App\Department');
+        return $this->hasMany(Department::class);
     }
 
 }

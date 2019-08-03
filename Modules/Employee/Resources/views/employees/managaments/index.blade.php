@@ -29,7 +29,7 @@
                         <ul class="nav nav-tabs pull-right">
                           <li class="active"><a href="#admins" data-toggle="tab">الادارة</a></li>
                           <li><a href="#department" data-toggle="tab">الاقسام</a></li>
-                          <li><a href="#specialty" data-toggle="tab">التخصصات</a></li>
+                          {{-- <li><a href="#specialty" data-toggle="tab">التخصصات</a></li> --}}
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="admins" role="tabpanel" aria-expanded="true">

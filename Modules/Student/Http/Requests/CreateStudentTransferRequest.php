@@ -15,8 +15,8 @@ class CreateStudentTransferRequest extends FormRequest
     {
         return [
             'student_id'          => 'required|integer',
-            'transfer_to'         => 'required|string',
-            'duration'            => 'required|string',
+            'transfer_to'         => 'string',
+            'duration'            => 'string',
             'payment_status'      => 'required|integer'
         ];
     }

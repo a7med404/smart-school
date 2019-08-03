@@ -8,8 +8,6 @@ use Modules\Employee\Entities\AddCalendEmployee;
 class AddCalend extends Model
 {
     protected $fillable = [
-        'management_id',
-        'department_id',
         'employee_id',
         'calend_id',
         'date',

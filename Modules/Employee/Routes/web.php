@@ -17,7 +17,7 @@ Route::prefix('employee')->group(function() {
 
 
 Route::group(['prefix' => '/employee'], function () {
-    Route::resource('calends', 'AddCalendController');
+    // Route::resource('calends', 'AddCalendController');
     // Route::resource('add-calend', 'AddCalendEmployeeController');
     // Route::resource('setting-perissions', 'EmpPerissionNameController');
     // Route::resource('emp-perissions', 'EmpPerissionsController');
@@ -51,6 +51,8 @@ Route::group(['prefix' => '/employee'], function () {
     
     /* offline works */
     Route::resource('calends', 'AddCalendController');
+    Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
+
     Route::resource('add-calend', 'AddCalendEmployeeController');
     Route::resource('setting-perissions', 'EmpPerissionNameController');
     Route::resource('emp-perissions', 'EmpPerissionsController');

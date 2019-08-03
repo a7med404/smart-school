@@ -3,6 +3,7 @@
 namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Student\Entities\Student;
 
 class StudentTransfer extends Model
 {
@@ -12,4 +13,9 @@ class StudentTransfer extends Model
         'duration',
         'payment_status'                        
     ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::Class);
+    }
 }

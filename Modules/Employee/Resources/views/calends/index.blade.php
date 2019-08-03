@@ -49,7 +49,7 @@
                             <tr>
                                 <td>{{ $calend->id }}</td>
                                 <td>{{ $calend->name }}</td>
-                                <td>{{ $calend->type }}</td>
+                                <td>{{ calendType()[$calend->type] }}</td>
                                 <td>{{ $calend->discount_percentage }}</td>
  
                                 <td>
@@ -61,11 +61,8 @@
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('calends.show',  ['id' => $calend->id]) }}"}}>استعراض</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('calends.edit',  ['id' => $calend->id]) }}">تعديل</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="{{ route('calends.destroy',['id' => $calend->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
+                                            <li role="presentation" class="divider"></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('calends.delete',['id' => $calend->id]) }}">حذف</a></li>
                                             </ul>
                                     </div>
                                 </td>

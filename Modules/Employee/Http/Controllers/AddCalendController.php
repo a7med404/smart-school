@@ -41,9 +41,7 @@ class AddCalendController extends Controller
    public function store(CreateAddCalendRequest $request)
    {
        $Calend= Calend::create($request->all());
-
        if($Calend){
-
            Session::flash('flash_massage_type');
            return redirect()->route('calends.index')->withFlashMassage('تمت اضافة المخالفة بنجاح');
        }
@@ -55,18 +53,8 @@ class AddCalendController extends Controller
     */
    public function show($id)
    {
-       $calendInfo = calend::findOrFail($id);
+       $calendInfo = Calend::findOrFail($id);
        return view('employee::calends.show', ['calendInfo' => $calendInfo]);
-   }
-   /**
-    * Show all classrooms in one calend .
-    * @param int $id
-    * @return Response
-    */
-   public function classrooms($id)
-   {
-       return new ClassroomResource(calend::findOrfail($id)->classrooms);
-       /* return view('employee::show'); */
    }
 
    /**
@@ -76,7 +64,7 @@ class AddCalendController extends Controller
     */
    public function edit($id)
    {
-       $calendInfo = calend::findOrFail($id);
+       $calendInfo = Calend::findOrFail($id);
        return view('employee::calends.edit', ['calendInfo' => $calendInfo]);
    }
    /**
@@ -87,8 +75,7 @@ class AddCalendController extends Controller
     */
    public function update(CreateAddCalendRequest $request, $id)
    {
-     $updatecalend = calend::findOrfail($id)->update($request->all());
-     
+     Calend::findOrfail($id)->update($request->all());
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage(' تم تعديل المخالفة بنجاح');
    }
@@ -101,8 +88,7 @@ class AddCalendController extends Controller
     */
    public function destroy($id, Calend $Onecalend)
    {
-     $CalendForDelete = $Onecalend->findOrfail($id);
-     $CalendForDelete->delete();
+     $Onecalend->findOrfail($id)->delete();
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage('تم حذف المخالفة بنجاح');
    }      

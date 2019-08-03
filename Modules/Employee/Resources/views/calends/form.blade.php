@@ -1,11 +1,10 @@
 <div class="row">
-
-        <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                <div class="form-group">
-                    {!! Form::label('type', ' نوع المخالفة  ', ['class' => 'control-label']) !!}
-                    {!! Form::select('type', calendType(), null, ['id' => 'type', 'type' => "select2 form-control  {{ $errors->has('type') ? ' is-invalid' : '' }}", 'value' => "{{ old('type') }}", 'required']) !!}
-                </div>
-            </div>
+    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="form-group">
+            {!! Form::label('type', ' نوع المخالفة  ', ['class' => 'control-label']) !!}
+            {!! Form::select('type', calendType(), null, ['id' => 'type', 'class' => "select2 form-control  {{ $errors->has('type') ? ' is-invalid' : '' }}", 'value' => "{{ old('type') }}", 'required']) !!}
+        </div>
+    </div>
         
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
@@ -24,10 +23,13 @@
 
 
 
-@if(isset($classroomInfo))
+@if(isset($calendInfo))
 <div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <button href="#" class="btn btn-primary">حـــفظ</button>
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+        <a type="button" href="{{route('calends.index')}}" class="btn btn-default pull-left"  data-dismiss="modal">رجوع</a>
     </div>
 </div>
     

@@ -18,9 +18,8 @@ class ManagamentController extends Controller
      */
     public function index()
     {
-        $managament = Managament::all();
-
-        return view('employee::employees.managaments.index',['managaments' => $managament,'departments' => Department::all()]);
+        $managaments = Managament::all();
+        return view('employee::employees.managaments.index',['managaments' => $managaments,'departments' => Department::all()]);
     }
  
    public function create()
@@ -36,9 +35,7 @@ class ManagamentController extends Controller
    public function store(CreateManagamentRequest $request)
    {
        $Managament= Managament::create($request->all());
-
        if($Managament){
-
            Session::flash('flash_massage_type');
            return redirect()->route('managaments.index')->withFlashMassage('managament Created Susscefully');
        }
@@ -82,8 +79,7 @@ class ManagamentController extends Controller
     */
    public function update(CreatemanagamentRequest $request, $id)
    {
-     $updatemanagament = managament::findOrfail($id)->update($request->all());
-     
+     Managament::findOrfail($id)->update($request->all());
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage('managament Updated Susscefully');
    }
@@ -96,8 +92,7 @@ class ManagamentController extends Controller
     */
    public function destroy($id, Managament $Onemanagament)
    {
-     $ManagamentForDelete = $Onemanagament->findOrfail($id);
-     $ManagamentForDelete->delete();
+     $Onemanagament->findOrfail($id)->delete();
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage('managament Deleted Susscefully');
    }      
