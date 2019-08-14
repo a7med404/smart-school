@@ -40,10 +40,7 @@
                 {!! Form::select('calend_id', getSelect('calends'), null, ['id' => 'calend_id', 'class' => "select2 form-control  {{ $errors->has('calend_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('calend_id') }}", 'required']) !!}
             </div>
         </div>
-    
 </div>
-
-
 
 @if(isset($calendInfo))
 <div class="row">

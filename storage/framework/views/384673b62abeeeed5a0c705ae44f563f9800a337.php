@@ -47,7 +47,7 @@
                             <th>option</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                             <?php $__empty_1 = true; $__currentLoopData = $calends; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $calend): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <tr>
                                 <td><?php echo e($calend->id); ?></td>
@@ -64,11 +64,11 @@
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('calends.show',  ['id' => $calend->id])); ?>"}}>استعراض</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('calends.edit',  ['id' => $calend->id])); ?>">تعديل</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="<?php echo e(route('calends.destroy',['id' => $calend->id])); ?>" method="post">
-                                                <?php echo csrf_field(); ?>
-                                                <?php echo method_field('DELETE'); ?>
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
+                                                <form action="<?php echo e(route('calends.destroy',['id' => $calend->id])); ?>" method="post">
+                                                    <?php echo csrf_field(); ?>
+                                                    <?php echo method_field('DELETE'); ?>
+                                                <button class="btn btn-dsnger btn-xs">حـــذف</button>
+                                                </form>
                                             </ul>
                                     </div>
                                 </td>

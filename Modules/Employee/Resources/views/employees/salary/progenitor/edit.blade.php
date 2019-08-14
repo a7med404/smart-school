@@ -2,6 +2,7 @@
 @extends('cpanel.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_payruls') }}
+{{ __('home/sidebar.all_payClasses') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -14,6 +15,13 @@
         <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanel\payruls') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payruls') }} </a></li>
         <li class="active"> {{ __('home/sidebar.edit_payrul') }} {{ $shows->note }} </li>
+
+    <h1>{{ __('home/sidebar.addcalend') }} <small>it all starts here</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanel\payClass') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payClasses') }} </a></li>
+        <li class="active"> {{ __('home/sidebar.addcalend') }} {{ $AddCalendInfo->name }} </li>
+>>>>>>> c6964634269fdc9d17c685d6f4ab9d25edf8ea2a
     </ol>
 </section>
 
@@ -22,7 +30,10 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
+
             <h3 class="box-title">اضافة مسمى خصومات او بدلات</h3>
+
+            <h3 class="box-title">{{ __('home/sidebar.addcalend') }}</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>
@@ -101,6 +112,15 @@
                 </div>
             </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {!! Form::model($AddCalendInfo, ['route' => ['add-calend.update', $AddCalendInfo->id], 'method' => "PATCH"]) !!}
+                    @include('employee::employees.calends.form')
+                    {!! Form::close() !!}
+                </div>
+            </div>
+
+        </div>
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
@@ -134,5 +154,7 @@
     });
 
 
+</script>
+@endsection
 </script>
 @endsection

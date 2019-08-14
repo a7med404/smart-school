@@ -14,6 +14,8 @@ class CreateEvaluationItemRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'                     => 'required',
+
             'name'                     => 'string|required',
             'degree'                   => 'integer|required'
         ];
