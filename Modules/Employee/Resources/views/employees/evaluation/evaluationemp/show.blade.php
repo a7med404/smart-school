@@ -29,7 +29,7 @@
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
                     <a type="button" data-toggle="modal" data-target="#popup-add-evaluationEmpInfo" href="#" class="btn btn-sm btn-info pull-left">
-                    <i class="fa fa-plus"></i>  تقييم الموظفين  
+                    <i class="fa fa-plus"></i>  اضافة   
                     </a>
                 </div>
             </div>

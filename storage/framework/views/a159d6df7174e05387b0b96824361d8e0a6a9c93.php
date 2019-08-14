@@ -1,6 +1,5 @@
 <div class="row">
-
-    <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             <?php echo Form::label('education_year', 'العام الدراسي', ['class' => 'control-label']); ?>
 
@@ -36,7 +35,6 @@
         </div>
     </div>
 
-
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             <?php echo Form::label('name', 'القيمة', ['class' => 'control-label']); ?>
@@ -48,9 +46,6 @@
 </div>
 
 
-</div>
-
-
 <?php if(isset($PayClassInfo)): ?>
 <div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
@@ -59,7 +54,7 @@
 </div>
     
 <?php else: ?>
-<div class="row m-t-40">
+<div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>

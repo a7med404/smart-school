@@ -14,11 +14,11 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <section class="content-header">
-    <h1>المراحل التعلمية <small>  </small></h1>
+    <h1>رسوم الصفوف <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li><a href="#">شوؤن تعليمية</a></li>
-        <li class="active">المراحل التعلمية</li>
+        <li class="active">رسوم الصفوف</li>
     </ol>
 </section>
 
@@ -27,12 +27,12 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">المراحل التعلمية</h3>
+            <h3 class="box-title">رسوم الصفوف</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-PayClass" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+                <i class="fa fa-plus"></i> اضافة
                 </a>
             </div>
         </div>
@@ -45,9 +45,9 @@
                             <th>العام الدراسي</th>
                             <th> المرحلة التعليمية</th>
                             <th>اسم الصف</th>
-                            <th>انواع الرسوم</th>
+                            <th>نوع الرسوم</th>
                             <th>القيمة</th>
-                            <th>option</th>
+                            <th><?php echo e(__('home/labels.options')); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,7 +57,7 @@
                             <td><?php echo e($PayClass->education_year); ?></td>
                             <td><?php echo e($PayClass->level->name); ?></td>
                             <td><?php echo e($PayClass->classroom->name); ?></td>
-                            <td><?php echo e($PayClass->pay_rul_id); ?></td>
+                            <td><?php echo e($PayClass->payRul->name); ?></td>
                             <td><?php echo e($PayClass->value); ?></td>
                             <td>
                                 <div class="dropdown">
@@ -68,11 +68,8 @@
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('pay-classes.show',  ['id' => $PayClass->id])); ?>">استعراض</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('pay-classes.edit',  ['id' => $PayClass->id])); ?>">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                        <form action="<?php echo e(route('pay-classes.destroy',['id' => $PayClass->id])); ?>" method="post">
-                                        <?php echo csrf_field(); ?>
-                                        <?php echo method_field('DELETE'); ?>
-                                          <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                    </form>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="<?php echo e(route('pay-classes.delete',['id' => $PayClass->id])); ?>">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>

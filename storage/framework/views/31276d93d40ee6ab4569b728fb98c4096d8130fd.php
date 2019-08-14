@@ -4,7 +4,7 @@
             <div class="form-group">
                 <?php echo Form::label('managament_id', ' اسم الادارة ', ['class' => 'control-label']); ?>
 
-                <?php echo Form::select('managament_id', getSelect('managaments'), null, ['id' => 'managament_id', 'class' => "select2 form-control  <?php echo e($errors->has('managament_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('managament_id')); ?>", 'required']); ?>
+                <?php echo Form::select('managament_id', getSelect('managaments'), null, ['id' => 'managament_id', 'class' => "form-control select2  <?php echo e($errors->has('managament_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('managament_id')); ?>", 'required']); ?>
 
             </div>
         </div>

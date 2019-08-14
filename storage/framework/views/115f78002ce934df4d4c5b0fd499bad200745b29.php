@@ -37,11 +37,13 @@
         <div class="box-body">
             <form  role="form">
               <div class="row">
+                <?php echo Form::hidden('filter', null, ['value' => "<?php echo e(old('filter')); ?>"]); ?>
+
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
                   <div class="form-group">
                       <?php echo Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']); ?>
 
-                      <?php echo Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  <?php echo e($errors->has('level_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('level_id')); ?>", 'required']); ?>
+                      <?php echo Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  <?php echo e($errors->has('level_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('level_id')); ?>"]); ?>
 
                   </div>
                 </div>
@@ -49,7 +51,7 @@
                   <div class="form-group">
                     <?php echo Form::label('classroom_id', 'اختيار الصف', ['class' => 'control-label']); ?>
 
-                    <?php echo Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  <?php echo e($errors->has('classroom_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('classroom_id')); ?>", 'required']); ?>
+                    <?php echo Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  <?php echo e($errors->has('classroom_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('classroom_id')); ?>"]); ?>
 
                   </div>
                 </div>
@@ -57,7 +59,7 @@
                   <div class="form-group">
                     <?php echo Form::label('part_id', 'اختيار الفصل', ['class' => 'control-label']); ?>
 
-                    <?php echo Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  <?php echo e($errors->has('part_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('part_id')); ?>", 'required']); ?>
+                    <?php echo Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  <?php echo e($errors->has('part_id') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('part_id')); ?>"]); ?>
 
                   </div>
                 </div>
@@ -65,7 +67,7 @@
                   <div class="form-group">
                     <?php echo Form::label('gender', 'النوع', ['class' => 'control-label']); ?>
 
-                    <?php echo Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 <?php echo e($errors->has('gender') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('gender')); ?>", 'required']); ?>
+                    <?php echo Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 <?php echo e($errors->has('gender') ? ' is-invalid' : ''); ?>", 'value' => "<?php echo e(old('gender')); ?>"]); ?>
 
                   </div>
                 </div>
