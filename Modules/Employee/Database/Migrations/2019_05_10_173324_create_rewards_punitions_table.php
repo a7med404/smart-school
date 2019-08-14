@@ -17,12 +17,6 @@ class CreateRewardsPunitionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('finance_year')->unsigned();
             $table->date('date');
-            $table->unsignedBigInteger('management_id')->foreign()
-            ->references('id')->on('managements')
-            ->onDelete('cascade');
-            $table->unsignedBigInteger('department_id')->foreign()
-            ->references('id')->on('departments')
-            ->onDelete('cascade');
             $table->boolean('type');
             $table->unsignedBigInteger('employee_id')->foreign()
             ->references('id')->on('employees')

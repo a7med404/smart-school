@@ -79,7 +79,7 @@ return view('employee::employees.perissions.EmpPerission.index',compact('shows')
     public function update(CreateEmpPerissionsRequest $request, $id)
     {
         $shows=EmpPerissions::find($id);
-        $shows->    update($request->all());
+        $shows->update($request->all());
         return redirect()->back();
     }
 

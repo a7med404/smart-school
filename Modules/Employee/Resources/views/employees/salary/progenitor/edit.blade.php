@@ -13,7 +13,7 @@
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanel\payruls') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payruls') }} </a></li>
-        <li class="active"> {{ __('home/sidebar.edit_payrul') }} {{ $rewards->reason }} </li>
+        <li class="active"> {{ __('home/sidebar.edit_payrul') }} {{ $shows->note }} </li>
     </ol>
 </section>
 
@@ -32,14 +32,27 @@
         </div>
         <div class="box-body">
 
-                {!! Form::model($rewards, ['route' => ['emp-perissions.update', $rewards->id], 'method' => "PUT"]) !!}
+                {!! Form::model($shows, ['route' => ['progenitors.update', $shows->id], 'method' => "PUT"]) !!}
 
+                        <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+                                <div class="form-group">
+                                    {!! Form::label('employee_id', 'اسم الموظف', ['class' => 'control-label']) !!}
+                                    {!! Form::select('employee_id',  getSelect('employees'), null,['id' => 'employee_id', 'class' => "select2 form-control", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
+
+                                </div>
+                            </div>
+                            <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="form-group">
+                                        {!! Form::label('amount', 'المبلغ', ['class' => 'control-label']) !!}
+                                        {!! Form::text('amount', ' ', ['id' => 'amount', 'class' => "select2 form-control", 'value' => "{{ old('amount') }}", 'required', 'autofocus']) !!}
+                                    </div>
+                                </div>
 
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                         <div class="form-group">
 
-                            {!! Form::label('finance_year', 'السنة المالية', ['class' => 'control-label']) !!}
-                            {!! Form::select('finance_year',  getSelect('managaments'),null, ['id' => 'finance_year', 'class' => "select2 form-control"]) !!}
+                            {!! Form::label('financial_year', 'السنة المالية', ['class' => 'control-label']) !!}
+                            {!! Form::select('financial_year',  getSelect('managaments'),null, ['id' => 'financial_year', 'class' => "select2 form-control"]) !!}
 
                         </div>
                     </div>
@@ -56,35 +69,24 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                                 <div class="form-group">
-                                    {!! Form::label('employee_id', 'اسم الموظف', ['class' => 'control-label']) !!}
-                                    {!! Form::select('employee_id',  getSelect('employees'), null,['id' => 'employee_id', 'class' => "select2 form-control", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
-
+                                    {!! Form::label('months_number', 'عدد الشهر', ['class' => 'control-label']) !!}
+                                    {!! Form::text('months_number', '', ['id' => 'months_number', 'class' => "form-control", 'value' => "{{ old('months_number') }}", 'required', 'autofocus']) !!}
                                 </div>
                             </div>
                             <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                                     <div class="form-group">
-                                        {!! Form::label('value', 'القيمة', ['class' => 'control-label']) !!}
-                                        {!! Form::text('value', 'value', ['id' => 'value', 'class' => "select2 form-control", 'value' => "{{ old('value') }}", 'required', 'autofocus']) !!}
+
+                                        {!! Form::label('safe_id', 'اسم الخزنة', ['class' => 'control-label']) !!}
+                                        {!! Form::select('safe_id',  getSelect('managaments'),null, ['id' => 'safe_id', 'class' => "select2 form-control"]) !!}
+
                                     </div>
                                 </div>
-                                <div class="col col-lg-12 col-md-12 col-sm-6 col-6">
-
-                                        <div class="form-group">
-                                                {!! Form::label('type', 'خصم', ['class' => 'control-label']) !!}
-                                                {!! Form::radio('type', 0, ['id' => 'type', 'class' => "form-control", 'value' => "{{ old('type') }}", 'required', 'autofocus']) !!}
-                                                {!! Form::label('type', 'مكافاة', ['class' => 'control-label']) !!}
-                                                {!! Form::radio('type', 1, ['id' => 'type', 'class' => "form-control", 'value' => "{{ old('type') }}", 'required', 'autofocus']) !!}
-
-                                            </div>
-
-                                    </div>
                                     <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
-                                                    {!! Form::label('reason', 'السبب', ['class' => 'control-label']) !!}
-                                                    {!! Form::textarea('reason', '', ['id' => 'reason', 'class' => "form-control", 'value' => "{{ old('reason') }}", 'required', 'autofocus']) !!}
+                                                    {!! Form::label('note', 'السبب', ['class' => 'control-label']) !!}
+                                                    {!! Form::textarea('note', '', ['id' => 'note', 'class' => "form-control", 'value' => "{{ old('note') }}", 'required', 'autofocus']) !!}
                                                 </div>
                                         </div>
 
@@ -114,12 +116,23 @@
         /*
             For iCheck =====================================>
         */
+
+        $('#date').datepicker({
+            autoclose: true,
+            language: 'ar',
+            rtl: true,
+            startDate: 'toDay',
+            format: 'yyyy-mm-dd'
+        });
+
+
         $("input").iCheck({
             checkboxClass: "icheckbox_square-yellow",
             radioClass: "iradio_square-yellow",
             increaseArea: "20%" // optional
         });
     });
+
 
 </script>
 @endsection

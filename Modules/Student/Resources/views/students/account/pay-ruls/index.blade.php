@@ -63,7 +63,7 @@
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-rules.delete',['id' => $payrul->id]) }}">حذف</a></li>
-                                    </ul>
+                                    </ul> 
                                 </div>
                             </td>
                         </tr>

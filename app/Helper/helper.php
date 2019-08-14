@@ -337,7 +337,7 @@ function getSelect($tableName, $all = null)
         case 'parts':
             $list = \DB::table('parts')->pluck('name', 'id');
             return $list->toArray();
-            break;
+            break; 
         case 'identifcations':
             $list = \DB::table('identifcations')->pluck('identifcationable_id', 'id');
             return $list->toArray();

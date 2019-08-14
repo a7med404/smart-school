@@ -15,12 +15,12 @@ class CreateProgenitorRequest extends FormRequest
     {
         return [
             'employee_id'                  => 'integer|required',
-            'amount'                       => 'float|required',
+            'amount'                       => 'required',
             'financial_year'               => 'integer|required',
             'safe_id'                      => 'integer|required' ,
             'date'                         => 'date|required',
             'months_number'                => 'integer|required',
-            'note'                         => 'string|nullable' 
+            'note'                         => 'string|nullable'
         ];
     }
 

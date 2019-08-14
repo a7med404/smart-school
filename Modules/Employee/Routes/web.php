@@ -47,8 +47,12 @@ Route::group(['prefix' => '/employee'], function () {
     Route::get('overpayment', 'SalaryController@overpayment')->name('overpayment');
     Route::get('overpayment-division', 'SalaryController@overpaymentPivision')->name('overpayment-division');
     Route::resource('progenitors', 'ProgenitorController');
-    
-    
+    Route::get('progenitors/{id}/delete', [
+        'uses' => 'ProgenitorController@destroy',
+        'as' => 'progenitors.delete'
+        ]);
+
+
     /* offline works */
     Route::resource('calends', 'AddCalendController');
     Route::resource('add-calend', 'AddCalendEmployeeController');
@@ -70,12 +74,16 @@ Route::group(['prefix' => '/employee'], function () {
     Route::resource('evaluation-items', 'EvaluationItemController');
     Route::resource('agreements', 'AgreementController');
     Route::resource('rewards-punition', 'RewardsPunitionController');
+    Route::get('rewardsdelete/{id}/delete',[
+        'uses' => 'RewardsPunitionController@destroy',
+        'as' => 'rewards.delete'
+    ]);
     Route::resource('resignation', 'ResignationController');
 
 
 
     /* reports Routes */
     Route::get('emp-perissions-report', 'EmpPerissionsController@report');
-    
+
     Route::get('/employee-reports/{report}', 'EmployeeReportController@viewPage')->name('employee-reports');
 });
