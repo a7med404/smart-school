@@ -16,7 +16,7 @@ class CreateResignationRequest extends FormRequest
         return [
             'employee_id'                         => 'integer|required',
             'applicant_to'                        => 'string|required',
-            'reason'                              => 'longText|required'
+            'reason'                              => 'string|required'
         ];
     }
 

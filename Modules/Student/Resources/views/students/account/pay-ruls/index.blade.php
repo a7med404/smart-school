@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $payrul->id }}</td>
                             <td>{{ $payrul->name }}</td>
-                            <td>{{ $payrul->is_mandatary }}</td>
+                            <td>{{ is_mandatary()[$payrul->is_mandatary] }}</td>
                             <td>{{ $payrul->note }}</td>
                             <td>
                                 <div class="dropdown">
@@ -58,16 +58,11 @@
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay_rules.show',  ['id' => $payrul->id]) }}" >استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay_rules.edit',  ['id' => $payrul->id]) }}" >تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.show',  ['id' => $payrul->id]) }}" >استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.edit',  ['id' => $payrul->id]) }}" >تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
-                                    <li role="presentation">
-                                        <form action="{{ route('pay_rules.destroy',['id' => $payrul->id]) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger btn-xs">حذف</button>
-                                        </form>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-rules.delete',['id' => $payrul->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>

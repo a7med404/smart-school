@@ -36,8 +36,5 @@
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>
-    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-        <button type="button" class="btn btn-default pull-left"  data-dismiss="modal">اغلاق</button>
-    </div>
 </div>
 @endif

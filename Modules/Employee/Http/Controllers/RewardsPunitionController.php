@@ -17,7 +17,7 @@ class RewardsPunitionController extends Controller
      */
     public function index()
     {
-        return  RewardsPunitionResource::collection(RewardsPunition::all());
+    return view('employee::employees.salary.rewards-punition.index');
     }
 
     /**
@@ -26,7 +26,6 @@ class RewardsPunitionController extends Controller
      */
     public function create()
     {
-        return view('student::create');
     }
 
     /**

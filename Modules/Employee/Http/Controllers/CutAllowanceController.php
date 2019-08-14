@@ -95,7 +95,7 @@ return view('employee::employees.cut-allowance.edit',compact('cuts'));
         $emp=CutAllowance::findOrfail($id);
         $emp->delete();
         if($emp){
-            Session::flash('flash_massage_type');
+            Session::flash('flash_massage_type');   
             return redirect()->back()->withFlashMassage('Deleted Susscefully');
         }
     }

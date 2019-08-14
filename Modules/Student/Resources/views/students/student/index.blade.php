@@ -34,28 +34,29 @@
         <div class="box-body">
             <form  role="form">
               <div class="row">
+                {!! Form::hidden('filter', null, ['value' => "{{ old('filter') }}"]) !!}
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
                   <div class="form-group">
                       {!! Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']) !!}
-                      {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}", 'required']) !!}
+                      {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}"]) !!}
                   </div>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                   <div class="form-group">
                     {!! Form::label('classroom_id', 'اختيار الصف', ['class' => 'control-label']) !!}
-                    {!! Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  {{ $errors->has('classroom_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('classroom_id') }}", 'required']) !!}
+                    {!! Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  {{ $errors->has('classroom_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('classroom_id') }}"]) !!}
                   </div>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                   <div class="form-group">
                     {!! Form::label('part_id', 'اختيار الفصل', ['class' => 'control-label']) !!}
-                    {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}", 'required']) !!}
+                    {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}"]) !!}
                   </div>
                 </div>
                 <div class="col col-lg-2 col-md-2 col-sm-6 col-12">
                   <div class="form-group">
                     {!! Form::label('gender', 'النوع', ['class' => 'control-label']) !!}
-                    {!! Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 {{ $errors->has('gender') ? ' is-invalid' : '' }}", 'value' => "{{ old('gender') }}", 'required']) !!}
+                    {!! Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 {{ $errors->has('gender') ? ' is-invalid' : '' }}", 'value' => "{{ old('gender') }}"]) !!}
                   </div>
                 </div>
                 <div class="col col-lg-1 col-md-1 col-sm-12 col-12 m-t-25">

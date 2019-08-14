@@ -59,11 +59,11 @@
                                                         <span class="fa fa-ellipsis-h"></span>
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay_rules.show',  ['id' => $Infos->id]) }}">استعراض</a></li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay_rules.edit',  ['id' => $Infos->id]) }}">تعديل</a></li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.show',  ['id' => $Infos->id]) }}">استعراض</a></li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.edit',  ['id' => $Infos->id]) }}">تعديل</a></li>
                                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                                         <li role="presentation" class="divider"></li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay_rules.destroy',['id' => $Infos->id]) }}">حذف</a></li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-rules.destroy',['id' => $Infos->id]) }}">حذف</a></li>
                                                     </ul>
                                                 </div>
                                             </td>

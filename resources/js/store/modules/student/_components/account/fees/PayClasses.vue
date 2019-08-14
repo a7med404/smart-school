@@ -101,7 +101,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">  العام الدراسي </label>
-                    <select class="form-control select2" v-model="pay_class.academic_year">
+                    <select class="form-control select2" v-model="pay_class.education_year">
                     <option value="1">الكل</option>
                     <option value="0">2010-2011</option>
                     <option value="0">2011-2012</option>
@@ -191,7 +191,7 @@
               pay_rul_id          : '',
               level_id            : '',
               classroom_id        : '',
-              academic_year       : ''
+              education_year       : ''
             },
 
             loading: true,

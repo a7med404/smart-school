@@ -15,7 +15,7 @@ class CreateOffPrintRequest extends FormRequest
     {
         return [
             'student_id'          => 'required|integer',
-            'type'                => 'required|integer'
+            'type'                => 'required|string'
         ];
     }
 

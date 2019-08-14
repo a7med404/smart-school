@@ -8,45 +8,10 @@
                 <h4 class="title">بنود رسوم الطلاب</h4>
             </div>
             <div class="modal-body">
-                <form action="{{route('pay_rules.store')}}" method="post">
-                    @csrf
-                  <div class="row">
-                    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-                      <div class="form-group">
-                        <label class="control-label"> الاسم </label>
-                        <input class="form-control" placeholder="" type="text" name="name" >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                      <div class="form-group">
-                        <label class="control-label">
-                          <input type="checkbox" class="minimal" name="is_mandatary">
-                          اجباري
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-                      <div class="form-group">
-                        <label class="control-label">ملاحظة</label>
-                        <textarea class="form-control" placeholder="" name="note"></textarea>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                      <button type="submit" class="btn btn-primary">حـــفظ</button>
-                    </div>
-                    <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              {!! Form::open(['route' => ['pay-rules.store'], 'method' => "POST", 'class' => 'form']) !!}
+              @include('student::students.account.pay-ruls.form')
+              {!! Form::close() !!}
+            </div>
         </div>
     </div>
 </div>

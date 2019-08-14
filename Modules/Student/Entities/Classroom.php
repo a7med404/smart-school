@@ -27,7 +27,7 @@ class Classroom extends Model
 
     public function payclasses()
     {
-        return $this->hasMany('App\PayClass');
+        return $this->hasMany(PayClass::class);
     }
 
 }

@@ -8,15 +8,18 @@ use Illuminate\Routing\Controller;
 use Modules\Student\Entities\ReportSeparate;
 use Modules\Student\Transformers\ReportSeparateResource;
 use Modules\Student\Http\Requests\CreateReportSeparateRequest;
+use Session;
+
 class ReportSeparateController extends Controller
 {
-   /**
+    /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return ReportSeparateResource::collection(ReportSeparate::all());
+        $reportSeparates = ReportSeparate::orderBy('id', 'asc')->get();
+        return view('student::students.reports.report-separates.index', ['reportSeparates' => $reportSeparates]);
     }
 
     /**
@@ -34,12 +37,12 @@ class ReportSeparateController extends Controller
      * @return Response
      */
     public function store(CreateReportSeparateRequest $request)
-    {
-         $id= ReportSeparate::create($request->all())->id;    
-        return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'ReportSeparate_id' => $id
-            ], 201);
+    { 
+        $reportSeparate = ReportSeparate::create($request->all());
+        if($reportSeparate){
+            Session::flash('flash_massage_type');
+            return redirect()->back()->withFlashMassage('ReportSeparate Created Susscefully');
+        }
     }
 
     /**
@@ -49,8 +52,8 @@ class ReportSeparateController extends Controller
      */
     public function show($id)
     {
-        return new ReportSeparateResource(ReportSeparate::findOrfail($id));
-        /* return view('student::show'); */
+        $reportSeparateInfo = ReportSeparate::findOrFail($id);
+        return view('student::students.reports.report-separates.show', ['reportSeparateInfo' => $reportSeparateInfo]);
     }
 
     /**
@@ -60,36 +63,34 @@ class ReportSeparateController extends Controller
      */
     public function edit($id)
     {
-        return new ReportSeparateResource(ReportSeparate::findOrfail($id));
-        /* return view('student::edit'); */
+        $reportSeparateInfo = ReportSeparate::findOrFail($id);
+        return view('student::students.reports.report-separates.edit', ['reportSeparateInfo' => $reportSeparateInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
     public function update(CreateReportSeparateRequest $request, $id)
     {
-        ReportSeparate::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $reportSeparateUpdate = ReportSeparate::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('ReportSeparate Updated Susscefully');
     }
-
 
     /**
      * Remove the specified resource from storage.
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, ReportSeparate $OnereportSeparate)
     {
-        ReportSeparate::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
-    }
- 
+      $reportSeparateForDelete = $OnereportSeparate->findOrfail($id);
+      $reportSeparateForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('ReportSeparate Deleted Susscefully');
+    }     
+
 }

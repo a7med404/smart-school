@@ -21,7 +21,7 @@ class CreateRewardsPunitionRequest extends FormRequest
             'type'                         => 'boolean|required',
             'employee_id'                  => 'integer|required',
             'value'                        => 'float|required',
-            'reason'                       => 'longText|nullable'
+            'reason'                       => 'string|nullable'
         ];
     }
 

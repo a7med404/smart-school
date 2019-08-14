@@ -1,6 +1,5 @@
 <div class="row">
-
-    <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('education_year', 'العام الدراسي', ['class' => 'control-label']) !!}
             {!! Form::select('education_year', educationYear(), null, ['id' => 'education_year', 'class' => "form-control select2 {{ $errors->has('education_year') ? ' is-invalid' : '' }}", 'value' => "{{ old('education_year') }}", 'required']) !!}
@@ -28,16 +27,12 @@
         </div>
     </div>
 
-
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('name', 'القيمة', ['class' => 'control-label']) !!}
             {!! Form::text('value', null, ['id' => 'value', 'class' => "form-control ",'required', 'autofocus']) !!}
         </div>
     </div>
-</div>
-
-
 </div>
 
 
@@ -49,7 +44,7 @@
 </div>
     
 @else
-<div class="row m-t-40">
+<div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>

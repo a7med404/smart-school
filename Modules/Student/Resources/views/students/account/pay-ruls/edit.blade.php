@@ -33,7 +33,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-6">
-                    {!! Form::model($payrulInfo, ['route' => ['pay_rules.update', $payrulInfo->id], 'method' => "PUT"]) !!}
+                    {!! Form::model($payrulInfo, ['route' => ['pay-rules.update', $payrulInfo->id], 'method' => "PUT"]) !!}
                     @include('student::students.account.pay-ruls.form')
                     {!! Form::close() !!}
                 </div>

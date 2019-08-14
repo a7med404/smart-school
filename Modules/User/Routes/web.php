@@ -17,7 +17,6 @@ Route::prefix('user')->group(function() {
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
-Route::any('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
@@ -35,8 +34,10 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 Route::prefix('cpanel')->group(function() {
     Route::group(['middleware' => ['web', 'auth']], function(){
         /**
-         * Users Routes  ==================================================================================> 
+         * Users Routes  ==================================================================================>
          */
+
+        Route::any('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
         Route::resource('users','UserController');
         # change-password For User
         Route::get('users/{user}/change-password', 'UserController@changePassword')->name('change-password');
@@ -44,7 +45,7 @@ Route::prefix('cpanel')->group(function() {
         Route::get('users/delete/{id}', 'UserController@destroy')->name('users.delete');
         #change level For Users
         Route::get('users/{user}/editLevel', 'UserController@editLevel')->name('users.editLevel');
-        
+
 
     });
 
@@ -57,10 +58,10 @@ Route::prefix('cpanel')->group(function() {
         */
         Route::Resource('roles', 'RoleController');
         Route::get('roles/delete/{id}', 'RoleController@destroy')->name('roles.delete');
-    
+
         Route::Resource('permissions', 'PermissionController');
         Route::get('permissions/delete/{id}', 'PermissionController@destroy')->name('permissions.delete');
-    
+
 
     // /*
     // |--------------------------------------------------------------------------
@@ -114,10 +115,10 @@ Route::prefix('cpanel')->group(function() {
     //     */
     //     Route::get('/sitesetting', 'SiteSettingController@index')->name('site-setting');
     //     Route::post('/sitesetting/update', 'SiteSettingController@store')->name('site-setting-update');
-    
-    
-    
-    
+
+
+
+
     //     /*
     //     |--------------------------------------------------------------------------
     //     | Resource For Roles
@@ -125,10 +126,10 @@ Route::prefix('cpanel')->group(function() {
     //     */
     //     Route::Resource('roles', 'RoleController');
     //     Route::get('roles/delete/{id}', 'RoleController@destroy')->name('roles.delete');
-    
-    
-    
-    
+
+
+
+
     //     /*
     //     |--------------------------------------------------------------------------
     //     | Resource For Permissions
@@ -136,9 +137,9 @@ Route::prefix('cpanel')->group(function() {
     //     */
     //     Route::Resource('permissions', 'PermissionController');
     //     Route::get('permissions/delete/{id}', 'PermissionController@destroy')->name('permissions.delete');
-    
+
     //   });
-    
+
 
 
 });

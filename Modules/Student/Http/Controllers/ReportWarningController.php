@@ -8,15 +8,17 @@ use Illuminate\Routing\Controller;
 use Modules\Student\Entities\ReportWarning;
 use Modules\Student\Transformers\ReportWarningResource;
 use Modules\Student\Http\Requests\CreateReportWarningRequest;
+use Session;
 class ReportWarningController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return ReportWarningResource::collection(ReportWarning::all());
+        $reportWarnings = ReportWarning::orderBy('id', 'asc')->get();
+        return view('student::students.reports.report-warnings.index', ['reportWarnings' => $reportWarnings]);
     }
 
     /**
@@ -34,12 +36,12 @@ class ReportWarningController extends Controller
      * @return Response
      */
     public function store(CreateReportWarningRequest $request)
-    {
-         $id= ReportWarning::create($request->all())->id;    
-        return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'ReportWarning_id' => $id
-            ], 201);
+    { 
+        $reportWarning = ReportWarning::create($request->all());
+        if($reportWarning){
+            Session::flash('flash_massage_type');
+            return redirect()->back()->withFlashMassage('ReportWarning Created Susscefully');
+        }
     }
 
     /**
@@ -49,8 +51,8 @@ class ReportWarningController extends Controller
      */
     public function show($id)
     {
-        return new ReportWarningResource(ReportWarning::findOrfail($id));
-        /* return view('student::show'); */
+        $reportWarningInfo = ReportWarning::findOrFail($id);
+        return view('student::students.reports.report-warnings.show', ['reportWarningInfo' => $reportWarningInfo]);
     }
 
     /**
@@ -60,36 +62,34 @@ class ReportWarningController extends Controller
      */
     public function edit($id)
     {
-        return new ReportWarningResource(ReportWarning::findOrfail($id));
-        /* return view('student::edit'); */
+        $reportWarningInfo = ReportWarning::findOrFail($id);
+        return view('student::students.reports.report-warnings.edit', ['reportWarningInfo' => $reportWarningInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
     public function update(CreateReportWarningRequest $request, $id)
     {
-        ReportWarning::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $reportWarningUpdate = ReportWarning::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('ReportWarning Updated Susscefully');
     }
-
 
     /**
      * Remove the specified resource from storage.
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, ReportWarning $OnereportWarning)
     {
-        ReportWarning::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
-    }
- 
+      $reportWarningForDelete = $OnereportWarning->findOrfail($id);
+      $reportWarningForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('ReportWarning Deleted Susscefully');
+    }     
+
 }

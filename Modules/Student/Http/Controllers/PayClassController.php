@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\PayClass;
-use Modules\Student\Transformers\PayClassResource;
 use Modules\Student\Http\Requests\CreatePayClassRequest;
 class PayClassController extends Controller
 {
@@ -40,10 +39,7 @@ class PayClassController extends Controller
     {
         $PayClases= PayClass::create($request->all());
 
-               
-
         if($PayClases){
-
             Session::flash('flash_massage_type');
             return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Created Susscefully');
         }
@@ -87,10 +83,9 @@ class PayClassController extends Controller
      */
     public function update(CreatePayClassRequest $request, $id)
     {
-      $updatePayClass = PayClass::findOrfail($id)->update($request->all());
-      
+      PayClass::findOrfail($id)->update($request->all());
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('PayClass Updated Susscefully');
+      return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Updated Susscefully');
     }
 
 
@@ -101,8 +96,7 @@ class PayClassController extends Controller
      */
     public function destroy($id, PayClass $OnePayClass)
     {
-      $PayClassForDelete = $OnePayClass->findOrfail($id);
-      $PayClassForDelete->delete();
+      $OnePayClass->findOrfail($id)->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('PayClass Deleted Susscefully');
     }      

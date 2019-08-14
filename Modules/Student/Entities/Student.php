@@ -13,6 +13,7 @@ use Modules\Student\Entities\Permissiontodepart;
 use Modules\Student\Entities\Absence;
 use Modules\Student\Entities\Attendance;
 use Modules\Student\Entities\Level;
+use Modules\Student\Entities\ReportSeparate;
 
 class Student extends Model
 {
@@ -82,6 +83,11 @@ class Student extends Model
     public function absences()
     {
         return $this->hasMany(Absence::class);
+    }
+
+    public function reportSeparates()
+    {
+        return $this->hasMany(ReportSeparate::class);
     }
 
     public function attendances()
