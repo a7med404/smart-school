@@ -44,7 +44,7 @@
                             <th>option</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                             @forelse($calends as $calend)
                             <tr>
                                 <td>{{ $calend->id }}</td>
@@ -61,11 +61,11 @@
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('calends.show',  ['id' => $calend->id]) }}"}}>استعراض</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('calends.edit',  ['id' => $calend->id]) }}">تعديل</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="{{ route('calends.destroy',['id' => $calend->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
+                                                <form action="{{ route('calends.destroy',['id' => $calend->id]) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                <button class="btn btn-dsnger btn-xs">حـــذف</button>
+                                                </form>
                                             </ul>
                                     </div>
                                 </td>

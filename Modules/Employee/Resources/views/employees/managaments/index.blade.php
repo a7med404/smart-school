@@ -64,11 +64,7 @@
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('managaments.show',  ['id' => $managament->id]) }}"}}>استعراض</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('managaments.edit',  ['id' => $managament->id]) }}">تعديل</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                                      <form action="{{ route('managaments.destroy',['id' => $managament->id]) }}" method="post">
-                                                          @csrf
-                                                          @method('DELETE')
-                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                                      </form>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('managament.delete',['id' => $managament->id]) }}">حذف</a></li>
                                                       </ul>
                                               </div>
                                           </td>
@@ -121,11 +117,7 @@
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('departments.show',  ['id' => $department->id]) }}"}}>استعراض</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('departments.edit',  ['id' => $department->id]) }}">تعديل</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                                      <form action="{{ route('departments.destroy',['id' => $department->id]) }}" method="post">
-                                                          @csrf
-                                                          @method('DELETE')
-                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                                      </form>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('department.delete',['id' => $department->id]) }}">حذف</a></li>
                                                       </ul>
                                               </div>
                                           </td>

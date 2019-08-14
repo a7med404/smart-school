@@ -18,7 +18,6 @@ Route::prefix('student')->group(function() {
 Route::group(['prefix' => '/student'], function () {
     Route::get('/print-page/{page}', 'PrintController@printPage');
     Route::get('/print-page/{page}', 'PrintController@printPage');
-
     Route::get('/print', 'PrintController@print')->name('print');
     Route::get('/download-PDF', 'PrintController@downloadPDF')->name('download-PDF');
     Route::get('/print-PDF', 'PrintController@printPDF')->name('print-PDF');
@@ -28,24 +27,19 @@ Route::group(['prefix' => '/student'], function () {
 
 Route::group(['prefix' => '/student'], function () {
     Route::get('/student-reports/{report}', 'StudentReportController@viewPage')->name('student-reports');
-
     Route::resource('/levels', 'LevelController');
     Route::get('levels/delete/{id}', 'LevelController@destroy')->name('levels.delete');
-
-
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
     Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     Route::resource('/parts', 'PartController');
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
-
     Route::resource('/students', 'StudentController');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
     Route::any('/all', 'StudentController@allStudents')->name('all-students');
     Route::resource('/studentParent', 'StudentParentController');
     Route::get('studentParent/delete/{id}', 'StudentParentController@destroy')->name('studentParent.delete');
-
     Route::get('/add-student-manual', 'StudentController@addStudentManual')->name('add-student-manual');
     Route::patch('/students/dist', 'StudentController@dist');
     Route::resource('/healthes', 'HealthController');
@@ -67,11 +61,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('empty-palce', 'EmptyPalceController');
     Route::resource('pay-classes', 'PayClassController');
     Route::resource('pay_rules', 'PayRulsController');
-
-
     Route::any('/pay', 'StudentController@pay')->name('pay');
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
-
     Route::resource('permissiontodepart', 'PermissiontodepartController');
     Route::resource('report-separate', 'ReportSeparateController');
     Route::resource('report-warning', 'ReportWarningController');

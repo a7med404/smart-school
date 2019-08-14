@@ -52,10 +52,7 @@
 
             </div>
         </div>
-    
 </div>
-
-
 
 <?php if(isset($calendInfo)): ?>
 <div class="row">

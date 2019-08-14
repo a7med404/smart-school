@@ -67,11 +67,7 @@
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('managaments.show',  ['id' => $managament->id])); ?>"}}>استعراض</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('managaments.edit',  ['id' => $managament->id])); ?>">تعديل</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                                      <form action="<?php echo e(route('managaments.destroy',['id' => $managament->id])); ?>" method="post">
-                                                          <?php echo csrf_field(); ?>
-                                                          <?php echo method_field('DELETE'); ?>
-                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                                      </form>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="<?php echo e(route('managament.delete',['id' => $managament->id])); ?>">حذف</a></li>
                                                       </ul>
                                               </div>
                                           </td>
@@ -124,11 +120,7 @@
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('departments.show',  ['id' => $department->id])); ?>"}}>استعراض</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo e(route('departments.edit',  ['id' => $department->id])); ?>">تعديل</a></li>
                                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                                      <form action="<?php echo e(route('departments.destroy',['id' => $department->id])); ?>" method="post">
-                                                          <?php echo csrf_field(); ?>
-                                                          <?php echo method_field('DELETE'); ?>
-                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                                      </form>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="<?php echo e(route('department.delete',['id' => $department->id])); ?>">حذف</a></li>
                                                       </ul>
                                               </div>
                                           </td>
