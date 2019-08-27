@@ -5,6 +5,7 @@ namespace Modules\Dashboard\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Student\Entities\Student;
 
 class DashboardController extends Controller
 {
@@ -14,7 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard::index');
+        $allStudents = Student::all(); 
+        return view('dashboard::index', ['allStudents' => $allStudents]);
     }
 
     /**

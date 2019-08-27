@@ -1,25 +1,25 @@
 php artisan module:make 
 
 php artisan module:unuse User
-php artisan module:use File
+php artisan module:use Setting
 
 php artisan module:migrate File
 
 php artisan module:make-controller View\AddCalendController
 
 
-php artisan module:make-factory InstalmentFactory
-php artisan module:make-seed InstalmentTableSeeder
+php artisan module:make-factory SettingFactory
+php artisan module:make-seed SettingTableSeeder
 
-php artisan module:make-request CreateInstalmentRequest
+php artisan module:make-request CreateSettingRequest
 
-php artisan module:make-resource InstalmentResource --collection
+php artisan module:make-resource SettingResource --collection
 
-php artisan module:make-model Instalment --migration
-php artisan module:make-controller EmployeeReportController
+php artisan module:make-model Setting --migration
+php artisan module:make-controller SettingController
 
 
-php artisan module:migrate User
+php artisan module:migrate Setting
 php artisan module:seed
 
 php artisan module:publish-migration

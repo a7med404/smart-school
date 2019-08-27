@@ -122,28 +122,6 @@
         $(".select2").select2();
     });
 
-    $('#table_id').DataTable({
-        // processing: true,
-        // serverSide: true,
-        // "columnDefs":[
-        //   {
-        //     "targets":[1, 3, 7],
-        //     "orderable":false,
-        //   },
-        // ],
-        "stateSave": false,
-        "responsive": true,
-        "order": [
-            [0, 'desc']
-        ],
-        "pagingType": "full_numbers",
-        aLengthMenu: [
-            [10, 25, 50, 100, 200, -1],
-            [10, 25, 50, 100, 200, "All"]
-        ],
-        iDisplayLength: 25,
-        fixedHeader: true,
-    });
     $(document).ready(function () {
         /*
             For iCheck =====================================>

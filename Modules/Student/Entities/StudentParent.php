@@ -8,12 +8,11 @@ use Modules\Student\Entities\Student;
 class StudentParent extends Model
 {
     protected $fillable = [
-        'mr_d', 
+        'mr_d',  
         'name', 
         'religion', 
         'relation', 
         'nationality', 
-        'identifcation_id', 
         'qualification', 
         'job', 
         'work_place', 

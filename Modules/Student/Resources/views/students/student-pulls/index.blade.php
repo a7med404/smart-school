@@ -29,7 +29,7 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-student-pulls" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+                <i class="fa fa-plus"></i> سحب ملف طالب
                 </a>
             </div>
         </div>
@@ -94,32 +94,8 @@
 {!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
 {!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
 <script>
-    $('#table_id').DataTable({
-        // processing: true,
-        // serverSide: true,
-        // "columnDefs":[
-        //   {
-        //     "targets":[1, 3, 7],
-        //     "orderable":false,
-        //   },
-        // ],
-        "stateSave": false,
-        "responsive": true,
-        "order": [
-            [0, 'desc']
-        ],
-        "pagingType": "full_numbers",
-        aLengthMenu: [
-            [10, 25, 50, 100, 200, -1],
-            [10, 25, 50, 100, 200, "All"]
-        ],
-        iDisplayLength: 25,
-        fixedHeader: true,
-    });
     $(document).ready(function () {
-        /*
-            For iCheck =====================================>
-        */
+        // For iCheck =====================================>
         $("input").iCheck({
             checkboxClass: "icheckbox_square-yellow",
             radioClass: "iradio_square-yellow",

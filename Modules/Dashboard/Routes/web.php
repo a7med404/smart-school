@@ -11,7 +11,6 @@
 |
 */
 
-Route::prefix('dashboard')->group(function() {
-  Route::get('/', 'DashboardController@index');
-
+Route::group(['middleware' => ['web', 'auth']], function(){
+  Route::get('/cpanel', 'DashboardController@index')->name('cpanel');       
 });

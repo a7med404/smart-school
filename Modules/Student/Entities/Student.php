@@ -14,9 +14,11 @@ use Modules\Student\Entities\Absence;
 use Modules\Student\Entities\Attendance;
 use Modules\Student\Entities\Level;
 use Modules\Student\Entities\ReportSeparate;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'name', 
         'gender', 

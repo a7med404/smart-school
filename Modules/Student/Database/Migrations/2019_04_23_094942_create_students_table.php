@@ -42,6 +42,7 @@ class CreateStudentsTable extends Migration
                 ->references('id')->on('parts')
                 ->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

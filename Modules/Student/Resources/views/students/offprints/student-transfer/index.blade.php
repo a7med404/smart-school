@@ -11,11 +11,11 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>بنود رسوم الطلاب <small>  </small></h1>
+    <h1>طلب تحويل طالب <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li><a href="#">شوؤن تعليمية</a></li>
-        <li class="active">المراحل التعلمية</li>
+        <li class="active">طلب تحويل طالب</li>
     </ol>
 </section>
 
@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">بنود رسوم الطلاب</h3>
+            <h3 class="box-title">طلب تحويل طالب</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
@@ -96,28 +96,7 @@
 {!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
 {!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
 <script>
-    $('#table_id').DataTable({
-        // processing: true,
-        // serverSide: true,
-        // "columnDefs":[
-        //   {
-        //     "targets":[1, 3, 7],
-        //     "orderable":false,
-        //   },
-        // ],
-        "stateSave": false,
-        "responsive": true,
-        "order": [
-            [0, 'desc']
-        ],
-        "pagingType": "full_numbers",
-        aLengthMenu: [
-            [10, 25, 50, 100, 200, -1],
-            [10, 25, 50, 100, 200, "All"]
-        ],
-        iDisplayLength: 25,
-        fixedHeader: true,
-    });
+
     $(document).ready(function () {
         /*
             For iCheck =====================================>

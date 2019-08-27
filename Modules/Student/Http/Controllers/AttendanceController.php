@@ -9,7 +9,7 @@ use Modules\Student\Entities\Attendance;
 use Modules\Student\Transformers\AttendanceResource;
 use Modules\Student\Http\Requests\CreateAttendanceRequest;
 use Modules\Student\Entities\Student;
-use Illuminate\Support\Facades\DB;
+use Session;
 
 class AttendanceController extends Controller
 {
@@ -20,15 +20,16 @@ class AttendanceController extends Controller
     public function index(Request $request)
     {
         if($request->has('level_id')){
-            $requestAll = $request->toArray();
-            $query = DB::table('students')->select('*');
+            $date = $request->date;
+            $requestAll = array_except($request->toArray(), 'date');
+            $query = Student::orderBy('id', 'desc');
             foreach ($requestAll as $key => $req) {
                 if (!($req == "" || null)) {
                     $query->where($key, $req);
                 }
             }
             $students = $query->orderBy('id','desc')->get();
-            return view('student::students.attendances.index', ['students' => $students]);
+            return view('student::students.attendances.index', ['students' => $students, 'date' => $date]);
         }
 
 
@@ -36,7 +37,7 @@ class AttendanceController extends Controller
         //     $students = Student::where('level_id', $request->level_id)->orderBy('id','desc')->get();
         //     return view('student::students.attendances.index', ['students' => $students]);
         // }
-        $students = Student::all();
+        $students = [];//Student::all();
         return view('student::students.attendances.index', ['students' => $students]);
     }
 
@@ -61,12 +62,19 @@ class AttendanceController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
-        $attendance = Attendance::create($request->all());
-        if($attendance){
-            Session::flash('flash_massage_type');
-            return redirect()->route('attendances.index')->withFlashMassage('Attendance Created Susscefully');
+    {
+        dd($request->all());
+        foreach ($request->status as $student_id => $value) {
+            $data = [
+                'date'      => $request->date,
+                'status'    => $value,
+                'student_id'=>  $student_id,
+                // 'note'      => 
+            ];
+            Attendance::create($data);
         }
+        Session::flash('flash_massage_type');
+        return redirect()->route('attendances.index')->withFlashMassage('Attendance Created Susscefully');
     }
 
     /**

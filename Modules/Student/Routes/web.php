@@ -43,6 +43,10 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::resource('/students', 'StudentController');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
+    Route::get('studentOnlyTrashed', 'StudentController@studentOnlyTrashed')->name('students.student-only-trashed');
+    Route::get('restore/{id}', 'StudentController@restoreStudent')->name('students.restore');
+    
+    
     Route::any('/all', 'StudentController@allStudents')->name('all-students');
 
     Route::resource('/studentParent', 'StudentParentController');
@@ -84,6 +88,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
 
     Route::resource('permissiontodepart', 'PermissiontodepartController');
+    Route::get('permissiontodepart/delete/{id}', 'PermissiontodepartController@destroy')->name('permissiontodepart.delete');
+
     Route::resource('report-separates', 'ReportSeparateController');
     Route::get('report-separates/delete/{id}', 'ReportSeparateController@destroy')->name('report-separates.delete');
 

@@ -16,7 +16,8 @@ class StudentParentController extends Controller
      */
     public function index()
     {
-        return StudentParentResource::collection(StudentParent::all());
+        $studentParents = StudentParent::orderBy('id', 'asc')->get();
+        return view('student::students.student-parents.index', ['studentParents' => $studentParents]);
     }
 
     /**
@@ -33,13 +34,13 @@ class StudentParentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateStudentStudentParentRequest $request)
-    {
-         $id= StudentParent::create($request->all())->id;    
-        return response()->json([
-                'message' => 'تم الحفظ بنجاح',
-                'StudentParent_id' => $id
-            ], 201);
+    public function store(Request $request)
+    { 
+        $studentParent = StudentParent::create($request->all());
+        if($studentParent){
+            Session::flash('flash_massage_type');
+            return redirect()->route('studentParents.index')->withFlashMassage('StudentParent Created Susscefully');
+        }
     }
 
     /**
@@ -49,8 +50,8 @@ class StudentParentController extends Controller
      */
     public function show($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
-        /* return view('student::show'); */
+        $studentParentInfo = StudentParent::findOrFail($id);
+        return view('student::students.student-parents.show', ['studentParentInfo' => $studentParentInfo]);
     }
 
     /**
@@ -60,36 +61,34 @@ class StudentParentController extends Controller
      */
     public function edit($id)
     {
-        return new StudentParentResource(StudentParent::findOrfail($id));
-        /* return view('student::edit'); */
+        $studentParentInfo = StudentParent::findOrFail($id);
+        return view('student::students.student-parents.edit', ['studentParentInfo' => $studentParentInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(CreateStudentStudentParentRequest $request, $id)
+    public function update(CreateStudentParentRequest $request, $id)
     {
-        StudentParent::findOrfail($id)->update($request->all());
-        return response()->json([
-                'message' => 'تم التحديث بنجاح',
-            ], 200);
+        $studentParentUpdate = StudentParent::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('StudentParent Updated Susscefully');
     }
-
 
     /**
      * Remove the specified resource from storage.
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, StudentParent $OnestudentParent)
     {
-        StudentParent::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
-    }
- 
+      $studentParentForDelete = $OnestudentParent->findOrfail($id);
+      $studentParentForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('StudentParent Deleted Susscefully');
+    }     
+
 }

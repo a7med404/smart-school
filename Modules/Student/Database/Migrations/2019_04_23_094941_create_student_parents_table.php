@@ -29,10 +29,6 @@ class CreateStudentParentsTable extends Migration
             $table->integer('is_die');
             $table->text('note')->nullable();
             
-            $table->unsignedBigInteger('identifcation_id')->nullable();
-            $table->foreign('identifcation_id')
-                ->references('id')->on('identifcations')
-                ->onDelete('cascade');
             $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')
                 ->references('id')->on('addresses')

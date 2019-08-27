@@ -1,4 +1,11 @@
 <?php
+function getSetting($settingName = 'side_name'){
+    return Modules\Setting\Entities\Setting::where('name_setting', $settingName)->get()[0]->value;
+}
+function getTestimonial(){
+    return Modules\Setting\Entities\Testimonial::where('status', 1)->get();
+}
+
 
 function gender()
 {
@@ -251,9 +258,9 @@ function calendType()
 function attendanceStatus()
 {
     return [
-        1 => 'حاضر',
-        2 => 'غائب',
-        3 => 'اخرى',
+        1 => 'حضور',
+        2 => 'غياب بعذر',
+        3 => 'غياب بدون عذر',
     ];
 }
 
@@ -323,35 +330,42 @@ function experience_years()
 
 function getSelect($tableName, $all = null)
 {
-    // $list = [];
+    $list = [];
     // $list[0] = ($all) ? '' : $list ;
     switch ($tableName) {
         case 'levels':
             $list = \DB::table('levels')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'classrooms':
             $list = \DB::table('classrooms')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'parts':
             $list = \DB::table('parts')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'identifcations':
             $list = \DB::table('identifcations')->pluck('identifcationable_id', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'students':
             $list = \DB::table('students')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'parts':
             $list = \DB::table('students')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'employees':
             $list = \DB::table('employees')->pluck('full_name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'pay_ruls':
@@ -368,14 +382,17 @@ function getSelect($tableName, $all = null)
             break;
         case 'managaments':
             $list = \DB::table('managaments')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'departments':
             $list = \DB::table('departments')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'employees':
             $list = \DB::table('employees')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         case 'add_holidays':
@@ -396,10 +413,12 @@ function getSelect($tableName, $all = null)
             break;
         case 'calends':
             $list = \DB::table('calends')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
         default:
             $list = \DB::table('parts')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
             return $list->toArray();
             break;
     }
@@ -495,6 +514,18 @@ function getDefaultImage($imageName)
 
     return $imageName == null ? "default_customer_image.png" : "$imageName";
 }
+
+
+function getSchoolLogo($imageName = null)
+{
+    if ($imageName != null) {
+        if (\File::exists(public_path('storage/uploads/setting/' . $imageName))) {
+            return asset('storage/uploads/setting/'. $imageName);
+        }
+        return asset('storage/uploads/setting/default_school_logo_image.png');
+    }
+}
+
 function getCustomerImageOrDefaultImage($imageName = null)
 {
     if ($imageName != null) {

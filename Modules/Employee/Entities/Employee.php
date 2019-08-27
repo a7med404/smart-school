@@ -5,9 +5,11 @@ namespace Modules\Employee\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Entities\Identifcation;
 use Modules\Employee\Entities\EmpAbsence;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Employee extends Model
 {    
+    use SoftDeletes;
     protected $fillable = [
         'full_name',
         'gender',

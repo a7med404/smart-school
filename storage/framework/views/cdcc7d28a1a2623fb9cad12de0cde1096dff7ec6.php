@@ -8,7 +8,7 @@
               <img src="<?php echo e(asset('modules/master/images/user.png')); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>shahab</p>
+              <p><?php echo e(auth()->user()->name); ?></p>
               <a href="#">
                 <i class="fa fa-circle text-success"></i> متصل الان
               </a>
@@ -53,7 +53,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo e(route('students.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> الطلاب</a></li>
-                <li><a href="<?php echo e(route('student-pulls.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
+                <li><a href="<?php echo e(route('students.student-only-trashed')); ?>"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
                 
                 <li>
                   <a href="#">
@@ -113,7 +113,7 @@
                 <li><a href="<?php echo e(route('student-reports', ['report' => 'report-emp-student'])); ?>"><i class="fa fa-circle-o text-aqua"></i> عرض ابناء العاملين</a></li>
                 <li><a href="<?php echo e(route('report-separates.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> قرار فصل</a></li>
                 <li><a href="<?php echo e(route('report-warnings.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> انذار فصل</a></li>
-                <li><a href="<?php echo e(route('student-reports', ['report' => 'report-auth'])); ?>"><i class="fa fa-circle-o text-aqua"></i>عرض بيانات دخول الموقع</a></li>
+                
                 
                 <li>
                   <a href="#">
@@ -519,7 +519,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo e(route('calends.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> لوائح المخالفات</a></li>
-                <li><a href="<?php echo e(route('add-calend.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> اضافة مخالفةالى موظف</a></li>
+                <li><a href="<?php echo e(route('add-calend.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> اضافة مخالفة الى موظف</a></li>
                 <li><a href="<?php echo e(route('bear-in-minds.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> لفت نظر</a></li>
                 <li><a href="<?php echo e(route('emp-absences.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> تسجيل غياب الموظفين</a></li>
                 <li><a href="<?php echo e(route('cut-allowances.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> خصومات او بدلات</a></li>
@@ -677,7 +677,28 @@
               </ul>
             </li>
           
-            
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-gears text-aqua"></i> <span><?php echo e(__('home/sidebar.settings')); ?> </span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu" style="display: none;">
+                <li><a href="<?php echo e(route('settings.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> <?php echo e(__('home/sidebar.settings')); ?></a></li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o text-red"></i> <?php echo e(__('home/sidebar.testimonials')); ?> 
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo e(route('testimonials.index')); ?>"><i class="fa fa-circle-o"></i> <?php echo e(__('home/sidebar.all_testimonials')); ?></a></li>
+                    <li><a href="<?php echo e(route('testimonials.create')); ?>"><i class="fa fa-circle-o"></i><?php echo e(__('home/sidebar.add_testimonial')); ?></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
             <li class="header m-b-20"></li>
           </ul>
         </section>

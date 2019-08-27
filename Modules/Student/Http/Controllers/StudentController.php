@@ -22,15 +22,14 @@ class StudentController extends Controller
         
         if($request->has('gender')){
             $requestAll = $request->toArray();
-            $query = DB::table('students')->select('*');
+            $query = Student::orderBy('id', 'desc');
             foreach ($requestAll as $key => $req) {
                 if (!($req == "" || null)) {
                     $query->where($key, $req);
                 }
             }
             $students = $query->orderBy('id','desc')->get();
-            
-            return view('user::roles.index', ['students' => $students]);
+            return view('student::students.student.index', ['students' => $students]);
         }
 
         $students = Student::all();
@@ -179,10 +178,23 @@ class StudentController extends Controller
     public function destroy($id)
     {
         Student::findOrfail($id)->delete();
-        return response()->json([
-                'message' => 'تم الحذف بنجاح',
-            ], 200);
+        return redirect()->back()->withFlashMassage('Student Deleted Susscefully');
     }
+
+    public function studentOnlyTrashed(Request $request)
+    {
+        $studentTrashed = Student::onlyTrashed()->get();
+        return view('student::students.student.trashed-student', ['studentTrashed' => $studentTrashed]);
+    }
+
+
+    public function restoreStudent(Request $request, $id)
+    {
+        Student::where('id', $id)->restore();
+        return redirect()->back()->withFlashMassage('Student restore Susscefully');
+    }
+    
+    
     public function report_quality(){
 
     }

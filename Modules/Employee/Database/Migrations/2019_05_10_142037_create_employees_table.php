@@ -43,6 +43,7 @@ class CreateEmployeesTable extends Migration
             ->references('id')->on('contacts')
             ->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
