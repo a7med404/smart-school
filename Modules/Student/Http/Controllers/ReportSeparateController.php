@@ -53,9 +53,21 @@ class ReportSeparateController extends Controller
     public function show($id)
     {
         $reportSeparateInfo = ReportSeparate::findOrFail($id);
-        return view('student::students.reports.report-separates.show', ['reportSeparateInfo' => $reportSeparateInfo]);
+        return view("student::print.report-separates.print-student-page", ['reportSeparateInfo' => $reportSeparateInfo]);
+        return view('student::students.reports.report-separates.print-student-page', ['reportSeparateInfo' => $reportSeparateInfo]);
     }
 
+    /**
+     * Show the specified resource.
+     * @param int $id
+     * @return Response
+     */
+    public function printStudentPage($id)
+    {
+        $reportSeparateInfo = ReportSeparate::findOrFail($id);
+        return view('student::students.reports.report-separates.print-student-page', ['reportSeparateInfo' => $reportSeparateInfo]);
+    }
+    
     /**
      * Show the form for editing the specified resource.
      * @param int $id

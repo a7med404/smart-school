@@ -7,6 +7,21 @@ function getTestimonial(){
 }
 
 
+function transactionStatus()
+{
+    return [
+        0 => 'منصرفات',
+        1 => 'ايرادات ',
+    ];
+}
+
+function deletable()
+{
+    return [
+        0 => 'غير قابل للحذف',
+        1 => 'قابل للحذف',
+    ];
+}
 function gender()
 {
     return [

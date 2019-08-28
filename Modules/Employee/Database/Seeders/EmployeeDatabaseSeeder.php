@@ -16,6 +16,14 @@ class EmployeeDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        
+        Employee::create([
+            'full_name' => 'name',
+            'username' => 'smartadmin',
+            'password' => Hash::make('smartschool'),
+            'created_at'=> new DateTime(), 
+            'updated_at'=> new DateTime()
+        ]);
         // $this->call("OthersTableSeeder");
     }
 }

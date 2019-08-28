@@ -17,7 +17,7 @@ class CreateAttendancesTable extends Migration
             $table->bigIncrements('id');
             $table->date('date');
             $table->tinyInteger('status');
-            $table->text('note')->nullable();
+            // $table->text('note')->nullable();
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')
                 ->references('id')->on('students')

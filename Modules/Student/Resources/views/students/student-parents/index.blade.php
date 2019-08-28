@@ -38,12 +38,12 @@
               <!-- Print Buttons -->
               <div class="no-print">
                   <div class="col-xs-12 m-b-20">
-                    <a href="/studentParent/print-page/studentParents" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a href="/studentParent/print-page/studentParents/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
                     <a type="button" href="/studentParent/print-page/studentParents" class="btn btn-success" style="margin-right: 5px;">
                         <i class="fa fa-download"></i> انشاء ملف PDF
                     </a>
                     <a href="/studentParent/print-page/studentParents" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
-                    <a href="/studentParent/print-page/studentParents" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
+                    <a href="/studentParent/print-page/studentParents/printpage" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
                   </div>
               </div>
               <!-- End Prints buttons -->

@@ -41,6 +41,37 @@ class AttendanceController extends Controller
         return view('student::students.attendances.index', ['students' => $students]);
     }
 
+
+    public function listShow(Request $request)
+    {
+        dd($request->all());
+        if($request->has('level_id')){
+            $date = $request->date;
+            $requestAll = array_except($request->toArray(), 'date');
+            $query = Student::orderBy('id', 'desc');
+            foreach ($requestAll as $key => $req) {
+                if (!($req == "" || null)) {
+                    $query->where($key, $req);
+                }
+            }
+            // $students = $query->orderBy('id','desc')->get();
+            $students = $query->join('attendances')
+            ->orderBy('id','desc')->get();
+            dd($students);
+            return view('student::students.attendances.list', ['students' => $students, 'date' => $date]);
+        }
+
+
+        // if($request->has('level_id')){
+        //     $students = Student::where('level_id', $request->level_id)->orderBy('id','desc')->get();
+        //     return view('student::students.attendances.index', ['students' => $students]);
+        // }
+        $students = [];//Student::all();
+        dd($students);
+        return view('student::students.attendances.index', ['students' => $students]);
+    }
+
+    
     public function attendancesSelect()
     {
         return view('student::students.attendances.select');
@@ -63,18 +94,16 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         foreach ($request->status as $student_id => $value) {
             $data = [
-                'date'      => $request->date,
-                'status'    => $value,
-                'student_id'=>  $student_id,
-                // 'note'      => 
+                'date'          => $request->date,
+                'status'        => $value,
+                'student_id'    => $student_id,
             ];
             Attendance::create($data);
         }
         Session::flash('flash_massage_type');
-        return redirect()->route('attendances.index')->withFlashMassage('Attendance Created Susscefully');
+        return redirect()->route('attendances.index')->withFlashMassage('تم اضافة الغياب و الحضور بنجاح');
     }
 
     /**

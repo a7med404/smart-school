@@ -17,8 +17,6 @@ Route::prefix('student')->group(function() {
 
 Route::group(['prefix' => '/student'], function () {
     Route::get('/print-page/{page}', 'PrintController@printPage');
-    Route::get('/print-page/{page}', 'PrintController@printPage');
-
     Route::get('/print', 'PrintController@print')->name('print');
     Route::get('/download-PDF', 'PrintController@downloadPDF')->name('download-PDF');
     Route::get('/print-PDF', 'PrintController@printPDF')->name('print-PDF');
@@ -27,7 +25,7 @@ Route::group(['prefix' => '/student'], function () {
 
 
 Route::group(['prefix' => '/student'], function () {
-    Route::get('/student-reports/{report}', 'StudentReportController@viewPage')->name('student-reports');
+    Route::get('/student-reports/{report}/{printpage?}', 'StudentReportController@viewPage')->name('student-reports');
 
     Route::resource('/levels', 'LevelController');
     Route::get('levels/delete/{id}', 'LevelController@destroy')->name('levels.delete');
@@ -45,6 +43,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
     Route::get('studentOnlyTrashed', 'StudentController@studentOnlyTrashed')->name('students.student-only-trashed');
     Route::get('restore/{id}', 'StudentController@restoreStudent')->name('students.restore');
+    Route::get('/report-not-complate-data', 'StudentController@reportNotComplateData')->name('report-not-complate-data');
     
     
     Route::any('/all', 'StudentController@allStudents')->name('all-students');
@@ -67,6 +66,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('attendances', 'AttendanceController');
     Route::get('attendances-select', 'AttendanceController@attendancesSelect')->name('attendances.select');
     Route::get('attendance-for-class', 'AttendanceController@attendanceForClass')->name('attendance-for-class');
+    Route::get('attendance-list', 'AttendanceController@list')->name('attendances.list');
+    Route::get('attendance-list-show', 'AttendanceController@listShow')->name('attendances.list-show');
 
     Route::resource('student-pulls', 'StudentPullController');
     Route::get('student-pulls/delete/{id}', 'StudentPullController@destroy')->name('student-pulls.delete');
@@ -83,8 +84,13 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('pay-rules', 'PayRulsController');
     Route::get('pay-rules/delete/{id}', 'PayRulsController@destroy')->name('pay-rules.delete');
 
-
-    Route::any('/pay', 'StudentController@pay')->name('pay');
+    
+    Route::resource('operations', 'OperationController');
+    Route::get('operations/delete/{id}', 'OperationController@destroy')->name('operations.delete');
+    Route::resource('transactions', 'TransactionController');
+    Route::get('transactions/delete/{id}', 'TransactionController@destroy')->name('transactions.delete');
+    Route::resource('rsc-types', 'RscTypeController');
+    Route::get('rsc-types/delete/{id}', 'RscTypeController@destroy')->name('rsc-types.delete');
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
 
     Route::resource('permissiontodepart', 'PermissiontodepartController');

@@ -37,6 +37,26 @@ class StudentController extends Controller
     }
 
 
+    public function reportNotComplateData(Request $request)
+    {
+        if($request->has('gender')){
+            $requestAll = $request->toArray();
+            $query = Student::orderBy('id', 'desc')->where('identifcation_id', null)->orWhere('student_parent_id', null)->orWhere('address_id', null)->orWhere('contact_id', null);
+            foreach ($requestAll as $key => $req) {
+                if (!($req == "" || null)) {
+                    $query->where($key, $req);
+                }
+            }
+            $students = $query->orderBy('id','desc')->get();
+            return view('student::students.student.index', ['students' => $students]);
+        }
+
+        $students = Student::where('identifcation_id', null)->orWhere('student_parent_id', null)->orWhere('address_id', null)->orWhere('contact_id', null)->get();
+        return view('student::students.student.index', ['students' => $students]);
+    }
+
+
+    
     public function allStudents(Request $request)
     {
         if($request->has('gender')){
@@ -74,7 +94,7 @@ class StudentController extends Controller
 
     public function pay()
     {
-        return view('student::create');
+        return view('student::students.account.fees.index');
     }
 
     public function payRegistration()

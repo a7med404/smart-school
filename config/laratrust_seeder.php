@@ -2,16 +2,16 @@
 
 return [
     'role_structure' => [
-        'superadministrator' => [
+        'مدير عام' => [
             'users' => 'c,r,u,d',
             'acl' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'administrator' => [
+        'شوؤن الطلاب' => [
             'users' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'user' => [
+        'مستخدم' => [
             'profile' => 'r,u'
         ],
     ],

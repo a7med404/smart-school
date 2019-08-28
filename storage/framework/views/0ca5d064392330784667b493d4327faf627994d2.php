@@ -37,6 +37,10 @@
             </div>
         </div>
         <div class="box-body">
+
+              <!-- Print Buttons -->
+              
+                <!-- End Prints buttons -->
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
@@ -72,7 +76,6 @@
                                 </div>
                             </td>
                         </tr>
-
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr>
                             <td colspan="7">
@@ -103,28 +106,7 @@
 <?php echo Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')); ?>
 
 <script>
-    $('#table_id').DataTable({
-        // processing: true,
-        // serverSide: true,
-        // "columnDefs":[
-        //   {
-        //     "targets":[1, 3, 7],
-        //     "orderable":false,
-        //   },
-        // ],
-        "stateSave": false,
-        "responsive": true,
-        "order": [
-            [0, 'desc']
-        ],
-        "pagingType": "full_numbers",
-        aLengthMenu: [
-            [10, 25, 50, 100, 200, -1],
-            [10, 25, 50, 100, 200, "All"]
-        ],
-        iDisplayLength: 25,
-        fixedHeader: true,
-    });
+
     $(document).ready(function () {
         /*
             For iCheck =====================================>

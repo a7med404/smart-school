@@ -44,7 +44,7 @@ class PrintController extends Controller
             case 'report-emp-student':
                 $data = Student::where('is_staff_son', 1)->get();
                 break;
-            case 'report_warnings':
+            case 'report-warnings':
                 $data = \DB::table('report_warnings')->get();
                 break;
             case 'report-school-register':
@@ -102,9 +102,45 @@ class PrintController extends Controller
             case 'report-count-parts':
                 $data = Part::all();
                 break;
+            case 'report-student-attendances':
+                if($request->has('filter')){
+                    $requestAll = array_except($request->toArray(), ['from', 'to']);
+                    $query = Student::orderBy('level_id');
+                    foreach ($requestAll as $key => $req) {
+                        if (!($req == "" || null)) {
+                            $query->where($key, $req);
+                        }
+                    }
+                    $query = $query->join('attendances', function ($join) {
+                        $join->on('students.id', '=', 'attendances.student_id');
+                            //  ->where('attendances.user_id', '>', 5);
+                    })->select('students.*', 'attendances.*', 'attendances.note as attendances_note');
+
+                    if (!($request->from == "" || null) && ($request->to   == "" || null)) {
+                        $query = $query->where('date', '>=', $request->from);
+                    }elseif (($request->from == "" || null) && !($request->to   == "" || null)) {
+                        $query = $query->where('date', '<=', $request->to);
+                    }elseif(!($request->from == "" || null) && !($request->to   == "" || null)){
+                        $query = $query->whereBetween('date', [$request->from, $request->to]);
+                    }
+                    $data = $query->get();
+
+                }else {
+                    $data = Student::join('attendances', function ($join) {
+                        $join->on('students.id', '=', 'attendances.student_id');
+                            //  ->where('attendances.user_id', '>', 5);
+                    })->select('students.*', 'attendances.*', 'attendances.note as attendances_note')
+                    ->get();
+                }
+                break;
             default:
             return abort(404);
         }
+        // $pdf = PDF::loadView("student::print.$page.print-page", ['data' => $data]);
+        // // dd($pdf);
+        // return $pdf->stream($page, '.pdf');
+        // return $pdf->download($page.'.pdf');
+
         return view("student::print.$page.print-page", ['data' => $data]);
     }    
 

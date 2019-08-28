@@ -10,7 +10,6 @@ use Modules\Student\Entities\PayClass;
 use Modules\Student\Http\Requests\CreatePayClassRequest;
 class PayClassController extends Controller
 {
-     /**
     /**
      * Display a listing of the resource.
      * @return Response

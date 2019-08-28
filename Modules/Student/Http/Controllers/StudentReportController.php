@@ -81,8 +81,9 @@ class StudentReportController extends Controller
         //
     }
 
-    public function viewPage(Request $request, $report)
+    public function viewPage(Request $request, $report, $printpage = null)
     {
+        // dd($printpage);
         $data = [];
         switch($report){
             case 'levels':
@@ -137,6 +138,18 @@ class StudentReportController extends Controller
                     ->get();
                 }
                 break;
+            case 'report-separates':
+                $data = \DB::table('report_separates')->get();
+                break;
+            case 'report-warnings':
+                $data = \DB::table('report_warnings')->get();
+                break;
+            case 'report-data-classrooms':
+                $data = Student::where('level_id', 1)
+                ->orWhere('classroom_id' , 1)
+                ->orWhere('gender', 1)
+                ->get();
+                break;
             case 'report-school-register':
                     if($request->has('filter')){
                         $requestAll = $request->toArray();
@@ -154,7 +167,11 @@ class StudentReportController extends Controller
             default:
             return abort(404);
         }
-        // view("student::print.$report.print-page", ['data' => $data]);
+        if ($printpage) {
+            return view("student::print.$report.print-page", ['data' => $data]);
+        }else{
+
+        }
         return view("student::students.reports.$report", ['data' => $data]);
     }
 

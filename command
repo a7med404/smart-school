@@ -1,31 +1,36 @@
 php artisan module:make 
 
 php artisan module:unuse User
-php artisan module:use Setting
+php artisan module:use RscType
 
 php artisan module:migrate File
 
 php artisan module:make-controller View\AddCalendController
 
 
-php artisan module:make-factory SettingFactory
-php artisan module:make-seed SettingTableSeeder
+php artisan module:make-factory RscTypeFactory
+php artisan module:make-seed RscTypeTableSeeder
 
-php artisan module:make-request CreateSettingRequest
+php artisan module:make-request CreateRscTypeRequest
 
-php artisan module:make-resource SettingResource --collection
+php artisan module:make-resource RscTypeResource --collection
 
-php artisan module:make-model Setting --migration
-php artisan module:make-controller SettingController
+php artisan module:make-model RscType --migration
+php artisan module:make-controller RscTypeController
 
 
-php artisan module:migrate Setting
+php artisan module:migrate RscType
 php artisan module:seed
 
 php artisan module:publish-migration
-
-
 // the migration
+php artisan module:migrate 
+php artisan module:migrate Address
+php artisan module:migrate Setting
+php artisan module:migrate Student
+php artisan module:migrate Employee
+php artisan module:migrate Vehicle
+php artisan migrate --path=/database/migrations/2019_07_19_225659_laratrust_setup_tables.php
 
 
 /****************************************************************************************************************/

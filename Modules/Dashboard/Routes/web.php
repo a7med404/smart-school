@@ -11,6 +11,8 @@
 |
 */
 
-Route::group(['middleware' => ['web', 'auth']], function(){
+Config::set('auth.defines', 'employee');
+
+Route::group(['middleware' => ['web', 'auth:employee']], function(){
   Route::get('/cpanel', 'DashboardController@index')->name('cpanel');       
 });

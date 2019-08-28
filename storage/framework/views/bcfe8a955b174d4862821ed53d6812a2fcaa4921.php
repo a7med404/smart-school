@@ -81,12 +81,12 @@
               <!-- Print Buttons -->
               <div class="no-print">
                   <div class="col-xs-12 m-b-20">
-                    <a href="/student/print-page/students" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                    <a type="button" href="/student/print-page/students" class="btn btn-success" style="margin-right: 5px;">
+                    <a href="/student/student-reports/students/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a type="button" href="/student/student-reports/students" class="btn btn-success" style="margin-right: 5px;">
                         <i class="fa fa-download"></i> انشاء ملف PDF
                     </a>
-                    <a href="/student/print-page/students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
-                    <a href="/student/print-page/students" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
+                    <a href="/student/student-reports/students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                    <a href="/student/student-reports/students/printpage" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
                   </div>
               </div>
               <!-- End Prints buttons -->

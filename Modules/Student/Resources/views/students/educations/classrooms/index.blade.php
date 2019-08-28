@@ -11,11 +11,11 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>المراحل التعلمية <small>  </small></h1>
+    <h1>الصفوف التعلمية <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
         <li><a href="#">شوؤن تعليمية</a></li>
-        <li class="active">المراحل التعلمية</li>
+        <li class="active">الصفوف التعلمية</li>
     </ol>
 </section>
 
@@ -24,12 +24,12 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">المراحل التعلمية</h3>
+            <h3 class="box-title">الصفوف التعلمية</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-classroom" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+                <i class="fa fa-plus"></i> اضافة صف
                 </a>
             </div>
         </div>

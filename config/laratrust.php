@@ -45,8 +45,8 @@ return [
     */
     'user_models' => [
         // 'users' => 'App\User',
-        'users' => 'Modules\User\Entities\User',
-        // 'employees' => 'Modules\Company\Entities\Employee',
+        // 'users' => 'Modules\User\Entities\User',
+        'employees' => 'Modules\Employee\Entities\Employee',
         
     ],
 
@@ -64,12 +64,12 @@ return [
         /**
          * Role model
          */
-        'role' => 'Modules\User\Entities\Role',
+        'role' => 'Modules\Employee\Entities\Role',
 
         /**
          * Permission model
          */
-        'permission' => 'Modules\User\Entities\Permission',
+        'permission' => 'Modules\Employee\Entities\Permission',
 
         /**
          * Team model

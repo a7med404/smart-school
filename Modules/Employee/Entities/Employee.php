@@ -6,10 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Entities\Identifcation;
 use Modules\Employee\Entities\EmpAbsence;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laratrust\Traits\LaratrustUserTrait;
+use Illuminate\Notifications\Notifiable;
+use Modules\Address\Entities\Address;
+use Modules\Address\Entities\Contact;
 
-class Employee extends Model
+
+class Employee extends Authenticatable
 {    
     use SoftDeletes;
+    use LaratrustUserTrait;
+    use Notifiable;
+    
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+    
     protected $fillable = [
         'full_name',
         'gender',
@@ -28,6 +41,11 @@ class Employee extends Model
         'identification_id',
         'note'
     ];
+
+    public function username()
+    {
+        return 'username';
+    }
 
     public function addresses()
     {

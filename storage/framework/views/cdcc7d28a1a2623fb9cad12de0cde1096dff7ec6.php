@@ -8,7 +8,7 @@
               <img src="<?php echo e(asset('modules/master/images/user.png')); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p><?php echo e(auth()->user()->name); ?></p>
+              <p><?php echo e(Auth::guard('employee')->user()->full_name); ?></p>
               <a href="#">
                 <i class="fa fa-circle text-success"></i> متصل الان
               </a>
@@ -64,7 +64,6 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="<?php echo e(route('students.create')); ?>"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب</a></li>
-                    <li><a href="<?php echo e(route('all-students')); ?>"><i class="fa fa-circle-o text-aqua"></i> الطلاب</a></li>
                     <li><a href="<?php echo e(route('add-student-manual')); ?>"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب يدويا</a></li>
                   
                   </ul>
@@ -78,7 +77,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="<?php echo e(route('attendances.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
-                    <li><a href="<?php echo e(route('attendance-for-class')); ?>"><i class="fa fa-circle-o text-aqua"></i> تسجيل لفصل</a></li>
+                    <li><a href="<?php echo e(route('attendances.list')); ?>"><i class="fa fa-circle-o text-aqua"></i>قائمة الحضور</a></li>
                   </ul>
                 </li>
                 <li>
@@ -127,7 +126,7 @@
                     <li><a href="<?php echo e(route('student-reports', ['report' => 'report-fee-completion'])); ?>"><i class="fa fa-circle-o text-aqua"></i> مخالصه بمصروفات طالب</a></li>
                     <li><a href="<?php echo e(route('student-reports', ['report' => 'report-kindness'])); ?>"><i class="fa fa-circle-o text-aqua"></i> تقرير شهادة حسن سير وسلوك</a></li>
                     <li><a href="<?php echo e(route('student-reports', ['report' => 'report-sudent-statement'])); ?>"><i class="fa fa-circle-o text-aqua"></i> تقرير حركة طالب</a></li>
-                    <li><a href="<?php echo e(route('student-reports', ['report' => 'report-not-complate-data'])); ?>"><i class="fa fa-circle-o text-aqua"></i>طلاب لم تكتمل بياناتهم</a></li>
+                    <li><a href="<?php echo e(route('report-not-complate-data')); ?>"><i class="fa fa-circle-o text-aqua"></i>طلاب لم تكتمل بياناتهم</a></li>
                     <li><a href="<?php echo e(route('student-reports', ['report' => 'report-student-attendances'])); ?>"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الطلاب</a></li>
                   </ul>
                 </li>
@@ -154,7 +153,9 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="<?php echo e(route('pay-classes.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> رسوم الصفوف</a></li>
-                    <li><a href="<?php echo e(route('pay')); ?>"><i class="fa fa-circle-o text-aqua"></i> دفع رسوم</a></li>
+                    <li><a href="<?php echo e(route('transactions.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> العمليات المالية</a></li>
+                    <li><a href="<?php echo e(route('operations.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> دفع رسوم</a></li>
+                    <li><a href="<?php echo e(route('rsc-types.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> الخزن المالية</a></li>
                     <li><a href="<?php echo e(route('pay-registration')); ?>"><i class="fa fa-circle-o text-aqua"></i> رسوم تسجيل الطالب</a></li>
                   </ul>
                 </li>
@@ -213,7 +214,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo e(route('student-reports', ['report' => 'report-levels'])); ?>"><i class="fa fa-circle-o text-aqua"></i> تقرير المراحل</a></li>
+                <li><a href="<?php echo e(route('student-reports', ['report' => 'levels'])); ?>"><i class="fa fa-circle-o text-aqua"></i> تقرير المراحل</a></li>
                 <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الصفوف
@@ -651,7 +652,7 @@
                 </span>
               </a>
               <ul class="treeview-menu" style="display: none;">
-                <li><a href="<?php echo e(route('users.index')); ?>"><i class="fa fa-circle-o text-aqua"></i> كل المستخدمين</a></li>
+                
                 <li>
                   <a href="#"><i class="fa fa-circle-o text-red"></i> <?php echo e(__('home/sidebar.roles')); ?> 
                     <span class="pull-right-container">

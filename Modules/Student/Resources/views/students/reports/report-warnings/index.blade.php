@@ -29,7 +29,7 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-report-warning" href="#" class="btn btn-sm btn-info pull-left">
-                    <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+                    <i class="fa fa-plus"></i> اضافة قرار فصل
                 </a>
             </div>
         </div>
@@ -38,11 +38,11 @@
             <div class="no-print m-b-10">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href="/student/print-page/report-emp-students" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                        <a type="button" href="/student/print-page/report-emp-students" class="btn btn-success" style="margin-right: 5px;">
+                        <a href="/student/student-reports/report-warnings/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                        <a type="button" href="/student/student-reports/report-warnings" class="btn btn-success" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> انشاء ملف PDF
                         </a>
-                        <a href="/student/print-page/report-emp-students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                        <a href="/student/student-reports/report-warnings" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
                     </div>
                 </div>
             </div>

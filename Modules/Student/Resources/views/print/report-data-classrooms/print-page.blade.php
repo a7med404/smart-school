@@ -18,13 +18,13 @@
                         <!-- /.col -->
                         <div class="col-sm-3 invoice-col">
                             <div class="pull-right">
-                                <img src="{{asset('modules/master/images/school-logo.png')}}"src="" class="img-responsive m-r-10" alt="">
+                                <img src="{{asset(getSchoolLogo(getSetting('logo')))}}"src="" class="img-responsive m-r-10" alt="">
                             </div>
                         </div>
                         <div class="col-sm-6 text-center invoice-col">
                             <p class="m-b-10 name-of-allah"> بسم الله الرحمن الرحيم</p>
                             <strong>وزاة التربية و التعليم</strong><br>
-                            <strong>مدرسة العميد</strong><br>
+                            <strong>{{getSetting('school_name')}}</strong><br>
                             <div class="m-t-30">
                             <strong class="report-title"> تقرير كل بيانات الصف  </strong>
                             </div>
@@ -32,7 +32,7 @@
                         <!-- /.col -->
                         <div class="col-sm-3 invoice-col">
                         <div class="pull-left">
-                            <img src="{{asset('modules/master/images/school-logo.png')}}"src="" class="img-responsive m-l-10" alt="">
+                            <img src="{{asset(getSchoolLogo(getSetting('logo')))}}"src="" class="img-responsive m-l-10" alt="">
                         </div>
                         </div>
                     </div>

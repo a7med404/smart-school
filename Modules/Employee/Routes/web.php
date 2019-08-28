@@ -80,4 +80,140 @@ Route::group(['prefix' => '/employee'], function () {
     Route::get('emp-perissions-report', 'EmpPerissionsController@report');
     
     Route::get('/employee-reports/{report}', 'EmployeeReportController@viewPage')->name('employee-reports');
+
+
+
+
+});
+
+
+
+Route::group(['middleware' => 'guest:employee'], function () {
+    Route::get('login', 'AuthController@showLoginForm')->name('login');
+    Route::post('login', 'AuthController@login');
+});
+
+
+
+
+// Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+// Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+// Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+// Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+// Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+
+Route::prefix('cpanel')->group(function() {
+    Route::group(['middleware' => ['web', 'auth:employee']], function(){
+        /**
+         * Users Routes  ==================================================================================>
+         */
+
+        Route::any('logout', 'AuthController@logout')->name('logout')->middleware('auth:employee');
+        // Route::resource('users','UserController');
+        // # change-password For User
+        // Route::get('users/{user}/change-password', 'UserController@changePassword')->name('change-password');
+        // Route::patch('users/{user}/update-password', 'UserController@updatePassword')->name('update-password');
+        // Route::get('users/delete/{id}', 'UserController@destroy')->name('users.delete');
+        // #change level For Users
+        // Route::get('users/{user}/editLevel', 'UserController@editLevel')->name('users.editLevel');
+
+
+    });
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Resource For Roles
+        |--------------------------------------------------------------------------
+        */
+        Route::Resource('roles', 'RoleController');
+        Route::get('roles/delete/{id}', 'RoleController@destroy')->name('roles.delete');
+
+        Route::Resource('permissions', 'PermissionController');
+        Route::get('permissions/delete/{id}', 'PermissionController@destroy')->name('permissions.delete');
+
+
+    // /*
+    // |--------------------------------------------------------------------------
+    // | Need Owner Roles
+    // |--------------------------------------------------------------------------
+    // */
+    Route::middleware('role:superadministrator|administrator')->group(function () {
+
+    });
+
+
+    // /*
+    // |--------------------------------------------------------------------------
+    // | Need ... Roles
+    // |--------------------------------------------------------------------------
+    // */
+    // Route::middleware('role:superadministrator|administrator')->group(function () {
+
+    // });
+
+
+
+    // /*
+    // |--------------------------------------------------------------------------
+    // | Need ... Roles
+    // |--------------------------------------------------------------------------
+    // */
+    // Route::middleware('role:superadministrator|administrator')->group(function () {
+
+    // });
+
+
+    // /*
+    // |--------------------------------------------------------------------------
+    // | Need ... Roles
+    // |--------------------------------------------------------------------------
+    // */
+    // Route::middleware('role:superadministrator|administrator')->group(function () {
+
+    // });
+
+
+
+
+    // Route::middleware('role:superadministrator|administrator')->group(function () {
+
+    //     /*
+    //     |--------------------------------------------------------------------------
+    //     | change sidesetting
+    //     |--------------------------------------------------------------------------
+    //     */
+    //     Route::get('/sitesetting', 'SiteSettingController@index')->name('site-setting');
+    //     Route::post('/sitesetting/update', 'SiteSettingController@store')->name('site-setting-update');
+
+
+
+
+    //     /*
+    //     |--------------------------------------------------------------------------
+    //     | Resource For Roles
+    //     |--------------------------------------------------------------------------
+    //     */
+    //     Route::Resource('roles', 'RoleController');
+    //     Route::get('roles/delete/{id}', 'RoleController@destroy')->name('roles.delete');
+
+
+
+
+    //     /*
+    //     |--------------------------------------------------------------------------
+    //     | Resource For Permissions
+    //     |--------------------------------------------------------------------------
+    //     */
+    //     Route::Resource('permissions', 'PermissionController');
+    //     Route::get('permissions/delete/{id}', 'PermissionController@destroy')->name('permissions.delete');
+
+    //   });
+
+
 });

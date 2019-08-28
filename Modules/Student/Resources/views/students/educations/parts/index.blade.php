@@ -38,11 +38,11 @@
                 <!-- Print Buttons -->
                 {{-- <div class="no-print">
                     <div class="col-xs-12">
-                    <a href="/student/print-page/levels" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                    <a type="button" href="/student/print-page/levels" class="btn btn-success" style="margin-right: 5px;">
+                    <a href="/student/student-reports/levels/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a type="button" href="/student/student-reports/levels" class="btn btn-success" style="margin-right: 5px;">
                         <i class="fa fa-download"></i> انشاء ملف PDF
                     </a>
-                    <a href="/student/print-page/levels" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                    <a href="/student/student-reports/levels" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
                     </div>
                 </div> --}}
                 <!-- End Prints buttons -->

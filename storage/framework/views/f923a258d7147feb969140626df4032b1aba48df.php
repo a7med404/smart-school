@@ -20,24 +20,24 @@
   <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-        <a href="../../index2.html"><b>Ahgiz </b>24</a>
+        <a href="../../index2.html"><b>Smart </b>school</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">تسجيل دخول من الوصول الي النطام</p>
         <form method="POST" action="<?php echo e(route('login')); ?>">
             <?php echo csrf_field(); ?>
             <div class="form-group has-feedback">
-                <input  id="email" type="email" class="form-control<?php echo e($errors->has('email') ? ' is-invalid' : ''); ?>" name="email" value="<?php echo e(old('email')); ?>" required autofocus placeholder="<?php echo e(__('E-Mail Address')); ?>">
+                <input  id="username" type="text" class="form-control<?php echo e($errors->has('username') ? ' is-invalid' : ''); ?>" name="username" value="<?php echo e(old('username')); ?>" required autofocus placeholder="البريد الالكتروني">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <?php if($errors->has('email')): ?>
+                <?php if($errors->has('username')): ?>
                     <span class="invalid-feedback" role="alert">
-                        <strong><?php echo e($errors->first('email')); ?></strong>
+                        <strong><?php echo e($errors->first('username')); ?></strong>
                     </span>
                 <?php endif; ?>
             </div>
             <div class="form-group has-feedback">
-                <input  id="password" type="password" class="form-control<?php echo e($errors->has('password') ? ' is-invalid' : ''); ?>" name="password" required placeholder="Password">
+                <input  id="password" type="password" class="form-control<?php echo e($errors->has('password') ? ' is-invalid' : ''); ?>" name="password" required placeholder="كلمة السر">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 <?php if($errors->has('password')): ?>
                     <span class="invalid-feedback" role="alert">
@@ -49,16 +49,14 @@
             <div class="col-xs-8">
                 <div class="checkbox icheck">
                 <label>
-                    <input type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>> <?php echo e(__('Remember Me')); ?>
-
+                    <input type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>> تذكرني
                 </label>
                 </div>
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">
-                    <?php echo e(__('Login')); ?>
-
+                     دخول
                 </button>
     
                 
@@ -66,7 +64,7 @@
             <!-- /.col -->
             </div>
         </form>
-        <a href="<?php echo e(route('password.request')); ?>">I forgot my password</a>
+        <a href="<?php echo e(route('password.request')); ?>">نسيت كلمة السر</a>
         </div>
         <!-- /.login-box-body -->
     </div>
