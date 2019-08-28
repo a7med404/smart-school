@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col col-lg-12 col-md-6 col-sm-6 col-6">
             <div class="form-group">
-                {!! Form::label('name', ' اسم الاجازة ', ['class' => 'control-label']) !!}
+                {!! Form::label('name', ' الاسم   ', ['class' => 'control-label']) !!}
                 {!! Form::text('name', null, ['id' => 'name', 'class' => "form-control  {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('name') }}", 'required', 'autofocus']) !!}
             </div>
         </div>
-    
+
 </div>
 
 

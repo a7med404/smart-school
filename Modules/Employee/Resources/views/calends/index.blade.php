@@ -44,7 +44,7 @@
                             <th>option</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                             @forelse($calends as $calend)
                             <tr>
                                 <td>{{ $calend->id }}</td>

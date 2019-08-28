@@ -36,7 +36,6 @@
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
-                        @forelse($empholidays as $empholiday)
                             <tr>
                                 <th>#ID</th>
                                 <th> اسم الموظف </th>
@@ -48,7 +47,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                                <tr>
+                                @forelse($empholidays as $empholiday)
+                                <tr class="text-center">
                                     <td>{{ $empholiday->id }}</td>
                                     <td>{{ $empholiday->employee_id  }}</td>
                                     <td>{{ $empholiday->from }}</td>
@@ -65,11 +65,7 @@
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('emp-holidays.show',  ['id' => $empholiday->id]) }}"}}>استعراض</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('emp-holidays.edit',  ['id' => $empholiday->id]) }}">تعديل</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="{{ route('emp-holidays.destroy',['id' => $empholiday->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('empholiday.delete',['id' => $empholiday->id]) }}">حذف</a></li>
                                             </ul>
                                     </div>
                                 </td>

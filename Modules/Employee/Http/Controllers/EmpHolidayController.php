@@ -42,7 +42,7 @@ class EmpHolidayController extends Controller
        if($EmpHoliday){
 
            Session::flash('flash_massage_type');
-           return redirect()->route('emp-holidays')->withFlashMassage('تمت اضافة طلب الاجازة بنجاح');
+           return redirect()->back()->withFlashMassage('تمت اضافة طلب الاجازة بنجاح');
        }
    }
    /**

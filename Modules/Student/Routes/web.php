@@ -29,8 +29,6 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::resource('/levels', 'LevelController');
     Route::get('levels/delete/{id}', 'LevelController@destroy')->name('levels.delete');
-
-
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
     Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
@@ -38,7 +36,6 @@ Route::group(['prefix' => '/student'], function () {
     
     Route::resource('/parts', 'PartController');
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
-
     Route::resource('/students', 'StudentController');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
     Route::get('studentOnlyTrashed', 'StudentController@studentOnlyTrashed')->name('students.student-only-trashed');
@@ -50,7 +47,6 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::resource('/studentParent', 'StudentParentController');
     Route::get('studentParent/delete/{id}', 'StudentParentController@destroy')->name('studentParent.delete');
-
     Route::get('/add-student-manual', 'StudentController@addStudentManual')->name('add-student-manual');
     Route::patch('/students/dist', 'StudentController@dist');
     Route::resource('/healthes', 'HealthController');
@@ -79,6 +75,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('empty-palce', 'EmptyPalceController');
 
     Route::resource('pay-classes', 'PayClassController');
+    Route::resource('pay_rules', 'PayRulsController');
     Route::get('pay-classes/delete/{id}', 'PayClassController@destroy')->name('pay-classes.delete');
 
     Route::resource('pay-rules', 'PayRulsController');
@@ -92,7 +89,6 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('rsc-types', 'RscTypeController');
     Route::get('rsc-types/delete/{id}', 'RscTypeController@destroy')->name('rsc-types.delete');
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
-
     Route::resource('permissiontodepart', 'PermissiontodepartController');
     Route::get('permissiontodepart/delete/{id}', 'PermissiontodepartController@destroy')->name('permissiontodepart.delete');
 

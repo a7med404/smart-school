@@ -3,7 +3,7 @@
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
             <div class="form-group">
                 {!! Form::label('managament_id', ' اسم الادارة ', ['class' => 'control-label']) !!}
-                {!! Form::select('managament_id', getSelect('managaments'), null, ['id' => 'managament_id', 'class' => "select2 form-control  {{ $errors->has('managament_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('managament_id') }}", 'required']) !!}
+                {!! Form::select('managament_id', getSelect('managaments'), null, ['id' => 'managament_id', 'class' => "form-control select2  {{ $errors->has('managament_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('managament_id') }}", 'required']) !!}
             </div>
         </div>
 

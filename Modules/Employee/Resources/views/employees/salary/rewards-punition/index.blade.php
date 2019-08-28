@@ -42,52 +42,42 @@
                       <thead>
                           <tr>
                               <th>#ID</th>
-                              <th>الادارة </th>
-                              <th>اسم القسم </th>
-                              <th>اسم الموظف </th>
-                              <th>التاريخ </th>
-                              <th>القيمة </th>
+                              <th>السنة التمويلية </th>
+                              <th>التاريخ</th>
                               <th>النوع </th>
+                              <th>اسم الموظف </th>
+                              <th>القيمة </th>
                               <th>السبب</th>
-                              <th>options</th>
+                              <th>الخيارات</th>
+
                           </tr>
                       </thead>
                       <tbody>
+                          @foreach ($rewards as $item)
                           <tr>
-                              <td>1</td>
-                              <td>ادارة التعليم</td>
-                              <td>معلم</td>
-                              <td>محمد عبد القادر علي</td>
-                              <td>20-12-2018</td>
-                              <td>200</td>
-                              <td>مكافأة</td>
-                              <td>عمل اضافي</td>
+                          <td>{{$item->id}}</td>
+                              <td> {{$item->finance_year}}</td>
+                          <td>{{$item->date}}</td>
+                              <td>{{$item->type}}</td>
+                              <td>{{$item->employee_id}}</td>
+                              <td>{{$item->value}}</td>
+                              <td>{{$item->reason}}</td>
                               <td>
-                                  <div class="btn-group">
-                                      <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                      <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                      <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                  </div>
+                                  <div class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                          <span class="caret"></span> خيارات
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('rewards-punition.edit',['id' => $item->id])}}">تعديل</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('rewards.delete',['id' => $item->id])}}">حذف</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                          <li role="presentation" class="divider"></li>
+                                        </ul>
+                                      </div>
                               </td>
                           </tr>
-                          <tr>
-                              <td>2</td>
-                              <td>ادارة التعليم</td>
-                              <td>معلم</td>
-                              <td>علي عبد القادر علي</td>
-                              <td>20-12-2018</td>
-                              <td>200</td>
-                              <td>مكافأة</td>
-                              <td>عمل اضافي</td>
-                              <td>
-                                  <div class="btn-group">
-                                      <a class="btn btn-default" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                      <a class="btn btn-info   " href="#"><i class="fa fa-pencil"></i></a>
-                                      <a class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></a>
-                                  </div>
-                              </td>
-                          </tr>
-                      </tbody>
+                          @endforeach
+                        </tbody>
                   </table>
                 </div>
               </div>
@@ -97,7 +87,7 @@
           </div>
           <!-- /.box -->
       </section>
-      
+
   <!-- /.box -->
     @include('employee::employees.salary.rewards-punition.add')
 

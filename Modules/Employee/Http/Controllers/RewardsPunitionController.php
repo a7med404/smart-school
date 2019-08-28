@@ -8,16 +8,14 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\RewardsPunition;
 use Modules\Employee\Transformers\RewardsPunitionResource;
 use Modules\Employee\Http\Requests\CreateRewardsPunitionRequest;
-
+use Session;
 class RewardsPunitionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
+
     public function index()
     {
-    return view('employee::employees.salary.rewards-punition.index');
+        $rewards = RewardsPunition::all();
+        return view('employee::employees.salary.rewards-punition.index', ['rewards' => $rewards]);
     }
 
     /**
@@ -26,6 +24,7 @@ class RewardsPunitionController extends Controller
      */
     public function create()
     {
+        return view('student::create');
     }
 
     /**
@@ -35,13 +34,12 @@ class RewardsPunitionController extends Controller
      */
     public function store(CreateRewardsPunitionRequest $request)
     {
-        $id =  RewardsPunition::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'RewardsPunition_id' => $id
-        ], 201);
+        $reward = RewardsPunition::create($request->all());
+         if($reward){
+            Session::flash('flash_massage_type');
+             return redirect()->route('rewards-punition.index')->withFlashMassage('Rewards Created Susscefully');
+        }
     }
-
     /**
      * Show the specified resource.
      * @param int $id
@@ -49,9 +47,14 @@ class RewardsPunitionController extends Controller
      */
     public function show($id)
     {
-        return new RewardsPunitionResource(RewardsPunition::findOrfail($id));
-        /* return view('student::show'); */
+        $Infos= RewardsPunition::findOrFail($id);
+        return view('employee::employees.salary.rewards-punition.show', ['Infos' => $Infos]);
     }
+    /**
+     * Show all classrooms in one payrul .
+     * @param int $id
+     * @return Response
+     */
 
 
     /**
@@ -61,23 +64,22 @@ class RewardsPunitionController extends Controller
      */
     public function edit($id)
     {
-        return new RewardsPunitionResource(RewardsPunition::findOrfail($id));
-        /* return view('student::edit'); */
+        $rewards =RewardsPunition::findOrFail($id);
+        return view('employee::employees.salary.rewards-punition.edit', ['rewards' => $rewards]);
     }
-
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Responsedestroy
+     * @return Response
      */
-    public function update(CreateRewardsPunitionRequest $request, $id)
+    public function update(CreatePayRulsRequest $request, $id)
     {
         RewardsPunition::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        Session::flash('flash_massage_type');
+        return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Updated Susscefully');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -86,9 +88,11 @@ class RewardsPunitionController extends Controller
      */
     public function destroy($id)
     {
-        RewardsPunition::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+        $payrul = RewardsPunition::findOrFail($id)->delete();
+        Session::flash('flash_massage_type');
+        return redirect()->route('rewards-punition.index')->withFlashMassage('rewards Deleted Susscefully');
     }
+
+
+
 }

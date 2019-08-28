@@ -47,8 +47,12 @@ Route::group(['prefix' => '/employee'], function () {
     Route::get('overpayment', 'SalaryController@overpayment')->name('overpayment');
     Route::get('overpayment-division', 'SalaryController@overpaymentPivision')->name('overpayment-division');
     Route::resource('progenitors', 'ProgenitorController');
-    
-    
+    Route::get('progenitors/{id}/delete', [
+        'uses' => 'ProgenitorController@destroy',
+        'as' => 'progenitors.delete'
+        ]);
+
+
     /* offline works */
     Route::resource('calends', 'AddCalendController');
     Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
@@ -63,22 +67,34 @@ Route::group(['prefix' => '/employee'], function () {
     Route::resource('emp-absences', 'EmpAbsenceController');
     Route::resource('emp-pulls', 'EmpPullController');
     Route::resource('managaments', 'ManagamentController');
+    Route::get('managaments/{id}/delete','ManagamentController@destroy')->name('managament.delete');
+
     Route::resource('departments', 'DepartmentController');
+    Route::get('departments/{id}/delete', 'DepartmentController@destroy')->name('department.delete');
     Route::resource('specialies', 'SpecialtyController');
     Route::resource('add-holidays', 'AddHolidayController');
+    Route::get('add-holidays/{id}/delete', 'AddHolidayController@destroy')->name('addholiday.delete');
     Route::resource('formalholidays', 'FormalHolidayController');
     Route::resource('emp-holidays', 'EmpHolidayController');
+    Route::get('emp-holidays/{id}/delete','EmpHolidayController@destroy')->name('empholiday.delete');
     Route::resource('emp-evaluation', 'EvaluationEmpController');
+    Route::get('emp-evaluation/{id}/delete','EvaluationEmpController@destroy')->name('emp-evaluation.delete');
     Route::resource('evaluation-items', 'EvaluationItemController');
+    Route::get('evaluation-items/{id}/delete','EvaluationItemController@destroy')->name('evaluation-items.delete');
+
     Route::resource('agreements', 'AgreementController');
     Route::resource('rewards-punition', 'RewardsPunitionController');
+    Route::get('rewardsdelete/{id}/delete',[
+        'uses' => 'RewardsPunitionController@destroy',
+        'as' => 'rewards.delete'
+    ]);
     Route::resource('resignation', 'ResignationController');
 
 
 
     /* reports Routes */
     Route::get('emp-perissions-report', 'EmpPerissionsController@report');
-    
+
     Route::get('/employee-reports/{report}', 'EmployeeReportController@viewPage')->name('employee-reports');
 
 

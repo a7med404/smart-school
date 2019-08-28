@@ -74,4 +74,6 @@ class Employee extends Authenticatable
         return $this->belongsToMany(AddCalend::class);
     }
 
+
+
 }

@@ -362,7 +362,7 @@ function getSelect($tableName, $all = null)
             $list = \DB::table('parts')->pluck('name', 'id');
             array_add($list, '', 'الكل');
             return $list->toArray();
-            break;
+            break; 
         case 'identifcations':
             $list = \DB::table('identifcations')->pluck('identifcationable_id', 'id');
             array_add($list, '', 'الكل');
