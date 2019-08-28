@@ -1,4 +1,4 @@
-php artisan module:make 
+php artisan module:make Finance
 
 php artisan module:unuse User
 php artisan module:use RscType

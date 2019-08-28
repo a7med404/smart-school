@@ -383,6 +383,10 @@ function getSelect($tableName, $all = null)
             array_add($list, '', 'الكل');
             return $list->toArray();
             break;
+        case 'rsc_types':
+            $list = \DB::table('rsc_types')->pluck('name', 'id');
+            return $list->toArray();
+            break;
         case 'pay_ruls':
             $list = \DB::table('pay_ruls')->pluck('name', 'id');
             return $list->toArray();
