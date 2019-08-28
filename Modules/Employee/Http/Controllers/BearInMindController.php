@@ -40,7 +40,7 @@ class BearInMindController extends Controller
         $bearinmind=BearInMind::create([
         'note' => $request->note,
         'date' => $request->date,
-        'empolyee_id' => $request->empolyee_id
+        'employee_id' => $request->employee_id
         ]);
         if($bearinmind){
             Session::flash('flash_massage_type');

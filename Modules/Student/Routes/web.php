@@ -37,6 +37,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('/parts', 'PartController');
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
     Route::resource('/students', 'StudentController');
+    Route::get('students/fees/{id}', 'StudentController@fees')->name('students.fees');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
     Route::get('studentOnlyTrashed', 'StudentController@studentOnlyTrashed')->name('students.student-only-trashed');
     Route::get('restore/{id}', 'StudentController@restoreStudent')->name('students.restore');

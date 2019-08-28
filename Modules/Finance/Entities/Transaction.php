@@ -16,9 +16,8 @@ class Transaction extends Model
     	return $this->belongsTo(Journal::class);
 	}
 
-
-    public function absences()
+    public function operation()
     {
-        return $this->hasMany(Operation::class);
+        return $this->hasOne(Operation::class);
     }
 }

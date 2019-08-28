@@ -8,7 +8,7 @@ use Modules\Employee\Entities\Employee;
 class EmpAbsence extends Model
 {
     protected $fillable = [
-        'empolyee_id',
+        'employee_id',
         'absence_from',
         'absence_to',
         'absence_reason'
@@ -16,7 +16,7 @@ class EmpAbsence extends Model
 
     public function employee()
     {
-        return $this->belongsTo(Employee::Class,'empolyee_id');
+        return $this->belongsTo(Employee::Class,'employee_id');
     }
 
 }

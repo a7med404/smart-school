@@ -15,8 +15,8 @@ class CreateEmpAbsencesTable extends Migration
     {
         Schema::create('emp_absences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('empolyee_id')->foreign()
-            ->references('id')->on('empolyees')
+            $table->unsignedBigInteger('employee_id')->foreign()
+            ->references('id')->on('employees')
             ->onDelete('cascade');
             $table->date('absence_from');
             $table->date('absence_to');

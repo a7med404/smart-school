@@ -93,7 +93,7 @@
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="form-group">
                     <label class="control-label">اسم الموظف</label>
-                    <select class="form-control select2" v-model="bear_in_mind.empolyee_id">
+                    <select class="form-control select2" v-model="bear_in_mind.employee_id">
                       <option value="1">محمد ابراهيم ابراهيم السيد</option>
                       <option value="1">احمد محمد احمد علي</option>
                       <option value="0">عباس الخير عبد الرحمن محمد</option>
@@ -148,7 +148,7 @@
             edit: false,
             bear_in_mind: {
               id                     : '',
-              empolyee_id            : '',
+              employee_id            : '',
               date                   : '',  
               note                   : '' 
             }

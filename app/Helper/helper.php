@@ -449,8 +449,8 @@ function getName($tableName, $id)
         return "...";
     }
     switch ($tableName) {
-        case 'levels':
-            $list = \DB::table('levels')->pluck('name', 'id');
+        case 'pay_ruls':
+            $list = \DB::table('pay_ruls')->pluck('name', 'id');
             return $list[$id];
             break;
         case 'classrooms':

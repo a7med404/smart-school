@@ -53,6 +53,9 @@ Route::group(['prefix' => '/employee'], function () {
         ]);
 
 
+    Route::resource('bearinminds', 'BearInMindController');
+    Route::get('bearinminds/delete/{id}', 'BearInMindController@destroy')->name('bearinminds.delete');
+
     /* offline works */
     Route::resource('calends', 'AddCalendController');
     Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
@@ -62,6 +65,8 @@ Route::group(['prefix' => '/employee'], function () {
     Route::resource('emp-perissions', 'EmpPerissionsController');
     Route::get('emp-setting-perissions', 'EmpPerissionsController@empSettingPerissions')->name('emp-setting-perissions');
     Route::resource('cut-allowances', 'CutAllowanceController');
+    Route::get('cut-allowances/delete/{id}', 'CutAllowanceController@destroy')->name('cut-allowances.delete');
+
     Route::resource('bear-in-minds', 'BearInMindController');
     Route::resource('bearinminds', 'BearInMindController');
     Route::resource('emp-absences', 'EmpAbsenceController');

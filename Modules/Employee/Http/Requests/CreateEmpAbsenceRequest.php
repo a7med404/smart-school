@@ -14,7 +14,7 @@ class CreateEmpAbsenceRequest extends FormRequest
     public function rules()
     {
         return [
-            'empolyee_id'                         => 'integer|required',
+            'employee_id'                         => 'integer|required',
             'absence_from'                        => 'date|required',
             'absence_to'                          => 'date|required',
             'absence_reason'                      => 'nullable'

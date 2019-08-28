@@ -11,6 +11,10 @@ use Modules\Student\Transformers\StudentResource;
 use Modules\Student\Transformers\SingleStudentResource;
 use Modules\Student\Http\Requests\CreateStudentRequest;
 use Session;
+use Modules\Finance\Entities\Operation;
+use Modules\Finance\Entities\PayRuls;
+use Modules\Finance\Entities\PayClass;
+
 class StudentController extends Controller
 {
    /**
@@ -214,7 +218,22 @@ class StudentController extends Controller
         return redirect()->back()->withFlashMassage('Student restore Susscefully');
     }
     
+
     
+    
+    public function fees(Request $request, $id)
+    {
+        $student = Student::where('id', $id)->first();
+        $payClasses = PayClass::where('level_id', $student->level->id)->where('classroom_id', $student->classroom->id)->get();
+        $payClasses->map(function($payClass){
+            dd($payClass);
+
+        });
+        $operations = Operation::where('student_id', $id)->get();
+        dd($operations, $payClass);
+        return view('student::students.student.fees', ['operations' => $operations]);
+    }
+
     public function report_quality(){
 
     }

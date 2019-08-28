@@ -3,17 +3,18 @@
 namespace Modules\Employee\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Employee\Entities\Employee;
 
 class BearInMind extends Model
 {
     protected $fillable = [
         'note',
         'date',
-        'empolyee_id'
+        'employee_id'
     ];
 
-    public function Employee()
+    public function employee()
     {
-        return $this->belongsTo('Modules\Employee\Entities\Employee','empolyee_id');
+        return $this->belongsTo(Employee::class);
     }
 }

@@ -45,40 +45,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                            @forelse($AddCalends as $AddCalend)
-                            <tr>
-                                <td>{{ $AddCalend->id }}</td>
-                                <td>{{ $AddCalend->employee_id  }}</td>
-                                <td>{{ $AddCalend->date  }}</td>
-                                <td>{{ $AddCalend->type }}</td>
- 
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                            <span class="fa fa-ellipsis-h"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.show',  ['id' => $AddCalend->id]) }}"}}>استعراض</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.edit',  ['id' => $AddCalend->id]) }}">تعديل</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="{{ route('add-calend.destroy',['id' => $AddCalend->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
-                                            </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td colspan="7">
-                                    <div class="text-center">
-                                        <p>لا توجد بيانات في هذا الجدول</p>
-                                    </div>
-                                </td>
-                            </tr>   
-                            @endforelse
+                        @forelse($AddCalends as $AddCalend)
+                        <tr>
+                            <td>{{ $AddCalend->id }}</td>
+                            <td>{{ $AddCalend->employee_id  }}</td>
+                            <td>{{ $AddCalend->date  }}</td>
+                            <td>{{ $AddCalend->type }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <span class="fa fa-ellipsis-h"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.show',  ['id' => $AddCalend->id]) }}" >استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.edit',  ['id' => $AddCalend->id]) }}" >تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('add-calend.delete',['id' => $AddCalend->id]) }}">حذف</a></li>
+                                    </ul> 
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="7">
+                                <div class="text-center">
+                                    <p>لا توجد بيانات في هذا الجدول</p>
+                                </div>
+                            </td>
+                        </tr>   
+                        @endforelse
                     </tbody>
                 </table>
             </div>

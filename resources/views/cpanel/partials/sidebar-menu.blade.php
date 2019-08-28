@@ -28,7 +28,7 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            {{-- <li class="header">MAIN NAVIGATION</li> --}}
             <li class="active treeview">
               <a href="{{route('cpanel')}}">
                 <i class="fa fa-dashboard"></i>
@@ -136,6 +136,32 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-money text-red"></i>
+                <span>الشؤون المالية</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('transactions.index') }}"><i class="fa fa-circle-o text-aqua"></i> العمليات المالية</a></li>
+                <li><a href="{{ route('operations.index') }}"><i class="fa fa-circle-o text-aqua"></i> دفع رسوم</a></li>
+                <li><a href="{{ route('rsc-types.index') }}"><i class="fa fa-circle-o text-aqua"></i> الخزن المالية</a></li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-circle-o text-aqua"></i> الرسوم
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="{{ route('pay-classes.index') }}"><i class="fa fa-circle-o text-aqua"></i> رسوم الصفوف</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+      
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-money text-red"></i>
                 <span>حسابات الطلاب</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -143,6 +169,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('pay-rules.index') }}"><i class="fa fa-circle-o text-aqua"></i> بنود رسوم الطلاب</a></li>
+                {{-- <li><a href="{{ route('students.fees') }}"><i class="fa fa-circle-o text-aqua"></i> رسوم الطلاب</a></li> --}}
                 {{-- <li><a href="{{ route('sms.index') }}"><i class="fa fa-circle-o text-aqua"></i> ارسال رسائل SMS للرسوم</a></li> --}}
                 <li>
                   <a href="#">

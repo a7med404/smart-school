@@ -2,7 +2,7 @@
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('name', 'اسم الموظف', ['class' => 'control-label']) !!}
-            {!! Form::text('empolyee_id', null, ['id' => 'empolyee_id', 'class' => "form-control  {{ $errors->has('empolyee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('empolyee_id') }}", 'required', 'autofocus']) !!}
+            {!! Form::text('employee_id', null, ['id' => 'employee_id', 'class' => "form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
 
         </div>
     </div>

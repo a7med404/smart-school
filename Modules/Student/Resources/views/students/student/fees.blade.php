@@ -1,6 +1,6 @@
 @extends('cpanel.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_students') }}
+{{ __('home/sidebar.all_operations') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -69,12 +69,12 @@
               <!-- Print Buttons -->
               <div class="no-print">
                   <div class="col-xs-12 m-b-20">
-                    <a href="/student/student-reports/students/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                    <a type="button" href="/student/student-reports/students" class="btn btn-success" style="margin-right: 5px;">
+                    <a href="/student/student-reports/operations/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
+                    <a type="button" href="/student/student-reports/operations" class="btn btn-success" style="margin-right: 5px;">
                         <i class="fa fa-download"></i> انشاء ملف PDF
                     </a>
-                    <a href="/student/student-reports/students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
-                    <a href="/student/student-reports/students/printpage" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
+                    <a href="/student/student-reports/operations" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
+                    <a href="/student/student-reports/operations/printpage" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
                   </div>
               </div>
               <!-- End Prints buttons -->
@@ -89,31 +89,43 @@
                             <th>اسم المرحلة التعليمية</th>
                             <th>اسم الصف</th>
                             <th>اسم الفصل</th>
-                            <th>النوع</th>
+                            <th>الرسوم</th>
+                            <th>مدفوع</th>
+                            <th>المتبقي</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                      @forelse($students as $student)
+                      @forelse($operations as $operation)
                         <tr>
-                          <td>{{ $student->id }}</td>
-                          <td>{{ $student->name }}</td>
-                          <td>{{ $student->level->name }}</td>
-                          <td>{{ $student->classroom->name }}</td>
-                          <td>{{ $student->part->name }}</td>
-                          <td>{{ gender()[$student->gender] }}</td>
+                            {{-- <td>{{ $transaction->id }}</td>
+                            <td>{{ transactionStatus()[$transaction->journal->status] }}</td>
+                            <td>{{ $transaction->journal->rscType->name }}</td>
+                            <td>{{ $transaction->journal->employee->full_name }}</td> 
+                            <td>{{ getName('pay_ruls', $transaction->operation->pay_rul_id) }}</td>
+                            <td>{{ $transaction->amount }}</td>
+                            <td>{{ $transaction->created_at }}</td>
+                            <td>{{ $transaction->journal->note }}</td> --}}
+
+                            {{dd($operation->student->level)}}
+                          <td>{{ $operation->id }}</td>
+                          <td>{{ $operation->student->name }}</td>
+                          <td>{{ $operation->student->level->name }}</td>
+                          <td>{{ $operation->student->classroom->name }}</td>
+                          <td>{{ $operation->student->part->name }}</td>
+                          <td>{{ getName('pay_ruls', $operation->pay_rul_id) }}</td>
                           <td>
                             <div class="dropdown">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <span class="fa fa-ellipsis-h"></span>
                               </a>
                               <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $student->id]) }}">استعراض</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $student->id]) }}">تعديل</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.fees',  ['id' => $student->id]) }}">عرض البيانات المالية</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('operations.show',  ['id' => $operation->id]) }}">استعراض</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('operations.edit',  ['id' => $operation->id]) }}">تعديل</a></li>
+                                {{-- <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('operations.print',  ['id' => $operation->id]) }}">عرض البيانات المالية</a></li> --}}
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('students.delete',['id' => $student->id]) }}">حذف</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('operations.delete',['id' => $operation->id]) }}">حذف</a></li>
                               </ul>
                             </div>
                           </td>
@@ -134,7 +146,7 @@
         </div>
     </div>
     <!-- /.box -->
-    {{-- @include('user::students.add') --}}
+    {{-- @include('user::operations.add') --}}
 </section>
 <!-- /.content -->
 

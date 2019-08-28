@@ -51,25 +51,24 @@
                       <tbody>
                           @foreach ($cuts as $cut)
                           <tr>
-                          <td>{{$cut->id}}</td>
-                          <td><a href="#" class="">{{$cut->name}}</a></td>
-                                <td>
-                                    <div class="btn-group">
-                                    <form action="{{route('cut-allowances.edit',['id' => $cut->id])}}" method="get">
-                                            <button class="btn btn-info " ><i class="fa fa-pencil"></i></button>
-                                    </form>
-                                <form action="{{route('cut-allowances.destroy',['id' => $cut->id])}}" method="post">
-                                    @csrf
-                                @method('DELETE')
-
-                                <button class="btn btn-danger confirm"> <i class="fa fa-times"></i></button>
-                                </form>
-                                    </div>
-                                </td>
-                            </tr>
-
+                            <td>{{$cut->id}}</td>
+                            <td>{{$cut->name}}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <span class="fa fa-ellipsis-h"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('cut-allowances.show',  ['id' => $cut->id]) }}" >استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('cut-allowances.edit',  ['id' => $cut->id]) }}" >تعديل</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('cut-allowances.delete',['id' => $cut->id]) }}">حذف</a></li>
+                                    </ul> 
+                                </div>
+                            </td>
+                          </tr>
                           @endforeach
-
                       </tbody>
                   </table>
                 </div>

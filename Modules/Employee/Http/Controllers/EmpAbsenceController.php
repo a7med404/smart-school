@@ -38,7 +38,7 @@ class EmpAbsenceController extends Controller
     public function store(CreateEmpAbsenceRequest $request)
     {
         $emp=EmpAbsence::create([
-            'empolyee_id' => '2',
+            'employee_id' => '2',
             'absence_from' => $request->absence_from,
             'absence_to'   => $request->absence_to,
             'absence_reason'=> $request->absence_reason

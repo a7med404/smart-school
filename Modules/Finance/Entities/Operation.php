@@ -23,7 +23,7 @@ class Operation extends Model
 
     public function payRul()
 	{
-		return $this->belongsTo(PayRuls::class, 'pay_rul_id', 'id');
+		return $this->hasOne(PayRuls::class);
 	}
 	
 }

@@ -16,8 +16,6 @@ class AddCalendResource extends JsonResource
     {
         return [
             'id'                 => $this->id,
-            'managament_id'            => getName('managaments', $this->managament_id),
-            'department_id'            => getName('departments', $this->department_id),
             'celand_name'              => $this->celand_name,
             'date'                     => $this->date   
         ];

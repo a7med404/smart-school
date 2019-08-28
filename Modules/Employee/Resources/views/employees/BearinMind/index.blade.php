@@ -53,24 +53,25 @@
                     <tbody>
                         @foreach ($bearinminds as $item)
                         <tr>
-                        <td>{{$item->id}}</td>
-                        <td><a href="#" class="">{{$item->empolyee_id}}</a></td>
-                        <td><a href="#" class="">{{$item->date}}</a></td>
-                        <td><a href="#" class="">{{$item->note}}</a></td>
-                        <td>
-                            <div class="btn-group">
-                            <form action="{{route('bearinminds.edit',['id' => $item->id])}}" method="get">
-                                <button class="btn btn-info>"><i class="fa fa-pencil"></i></button>
-                           </form>
-                            <form action="{{route('bearinminds.destroy',['id' => $item->id])}}" method="post">
-                                @csrf
-                                    @method('DELETE')
-                                        <button class="btn btn-danger confirm" href="#"> <i class="fa fa-times"></i></button>
-                                </form>
-
-                            </div>
-                        </td>
-                    </tr>
+                          <td>{{ $item->id }}</td>
+                          <td>{{ $item->employee->full_name }}</td>
+                          <td>{{ $item->date }}</td>
+                          <td>{{ $item->note }}</td>
+                          <td>
+                              <div class="dropdown">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                      <span class="fa fa-ellipsis-h"></span>
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('bearinminds.show',  ['id' => $item->id]) }}" >استعراض</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('bearinminds.edit',  ['id' => $item->id]) }}" >تعديل</a></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                      <li role="presentation" class="divider"></li>
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('bearinminds.delete',['id' => $item->id]) }}">حذف</a></li>
+                                  </ul> 
+                              </div>
+                          </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

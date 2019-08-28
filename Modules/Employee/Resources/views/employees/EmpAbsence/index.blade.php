@@ -51,7 +51,7 @@
 
                   <tr>
                     <td>{{$empabsence->id}}</td>
-                    <td>{{$empabsence->empolyee_id}}</td>
+                    <td>{{$empabsence->employee_id}}</td>
                     <td>{{$empabsence->absence_from}}</td>
                   <td>{{$empabsence->absence_to}}</td>
                     <td>{{$empabsence->absence_reason}}</td>

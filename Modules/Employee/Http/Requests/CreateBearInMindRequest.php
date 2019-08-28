@@ -16,7 +16,7 @@ class CreateBearInMindRequest extends FormRequest
         return [
             'note'                        => 'required',
             'date'                        => 'date|required',
-            'empolyee_id'                 => 'integer|required'
+            'employee_id'                 => 'integer|required'
         ];
     }
 

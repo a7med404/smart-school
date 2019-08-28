@@ -39,26 +39,29 @@
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>العام الدراسي</th>
                             <th>نوع العملية</th>
+                            <th>الخزنة</th>
                             <th>المستخدم</th>
                             <th>نوع الرسوم</th>
                             <th>القيمة</th>
+                            <th>الوقت و التاريخ</th>
                             <th>ملاحظة</th>
-                            <th>{{ __('home/labels.options') }}</th>
+                            {{-- <th>{{ __('home/labels.options') }}</th> --}}
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($Transactions as $transaction)
                         <tr>
                             <td>{{ $transaction->id }}</td>
-                            <td>{{ $transaction->education_year }}</td>
-                            <td>{{ $transaction->level->name }}</td>
-                            <td>{{ $transaction->classroom->name }}</td>
-                            <td>{{ $transaction->payRul->name }}</td>
+                            <td>{{ transactionStatus()[$transaction->journal->status] }}</td>
+                            <td>{{ $transaction->journal->rscType->name }}</td>
+                            <td>{{ $transaction->journal->employee->full_name }}</td> 
+                            <td>{{ getName('pay_ruls', $transaction->operation->pay_rul_id) }}</td>
                             <td>{{ $transaction->amount }}</td>
-                            <td>{{ $transaction->note }}</td>
-                            <td>
+                            <td>{{ $transaction->created_at }}</td>
+                            <td>{{ $transaction->journal->note }}</td>
+                            
+                            {{-- <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                         <span class="fa fa-ellipsis-h"></span>
@@ -71,7 +74,7 @@
                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('transactions.delete',['id' => $transaction->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
-                            </td>
+                            </td> --}}
                         </tr>
                         @empty
                         <tr>
