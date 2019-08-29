@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Entities\Address;
 use Modules\Address\Entities\Contact;
 use Modules\Address\Entities\Identifcation;
+use Modules\Student\Entities\Level;
+use Modules\Student\Entities\Classroom;
 use Modules\Student\Entities\Part;
 use Modules\Student\Entities\Health;
 use Modules\Student\Entities\StudentParent;
 use Modules\Student\Entities\Permissiontodepart;
 use Modules\Student\Entities\Absence;
 use Modules\Student\Entities\Attendance;
-use Modules\Student\Entities\Level;
 use Modules\Student\Entities\ReportSeparate;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

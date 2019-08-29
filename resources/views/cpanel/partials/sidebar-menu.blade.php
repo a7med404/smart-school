@@ -8,7 +8,7 @@
               <img src="{{ asset('modules/master/images/user.png')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{ Auth::guard('employee')->user()->full_name }}</p>
+              <p>{{ (Auth::guard('employee')->user()->full_name) ? Auth::guard('employee')->user()->full_name : ''  }}</p>
               <a href="#">
                 <i class="fa fa-circle text-success"></i> متصل الان
               </a>

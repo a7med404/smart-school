@@ -27,15 +27,15 @@
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="modules/master/images/user.png" class="user-image" alt="User Image">
-            <span class="hidden-xs">{{ Auth::guard('employee')->user()->username }}</span>
+            <span class="hidden-xs">{{ (Auth::guard('employee')->user()->username) ? Auth::guard('employee')->user()->username : '' }}</span>
             </a>
             <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
                 <img src="modules/master/images/user.png" class="img-circle" alt="User Image">
                 <p>
-                    {{ Auth::guard('employee')->user()->full_name }} - مدير
-                    <small>عضو منذ. {{ Auth::guard('employee')->user()->created_at->diffForHumans() }}</small>
+                    {{ (Auth::guard('employee')->user()->full_name) ? Auth::guard('employee')->user()->full_name : ''  }} - مدير
+                    <small>عضو منذ. {{ (Auth::guard('employee')->user()->created_at->diffForHumans()) ? Auth::guard('employee')->user()->created_at->diffForHumans() : '' }}</small>
                 </p>
             </li>
             <!-- Menu Body -->

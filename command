@@ -1,25 +1,26 @@
-php artisan module:make Finance
+php artisan module:make Education
+php artisan module:use Education
 
 php artisan module:unuse User
-php artisan module:use RscType
+php artisan module:use Education
 
 php artisan module:migrate File
 
-php artisan module:make-controller View\AddCalendController
+
+php artisan module:make-factory SubjectFactory
+php artisan module:make-seed SubjectTableSeeder
+
+php artisan module:make-request CreateSubjectRequest
+
+php artisan module:make-resource SubjectResource --collection
+
+php artisan module:make-model Subject --migration
+php artisan module:make-controller SubjectController
+php artisan module:make-controller API\SubjectController
 
 
-php artisan module:make-factory RscTypeFactory
-php artisan module:make-seed RscTypeTableSeeder
 
-php artisan module:make-request CreateRscTypeRequest
-
-php artisan module:make-resource RscTypeResource --collection
-
-php artisan module:make-model RscType --migration
-php artisan module:make-controller RscTypeController
-
-
-php artisan module:migrate RscType
+php artisan module:migrate Education
 php artisan module:seed
 
 php artisan module:publish-migration
@@ -30,6 +31,7 @@ php artisan module:migrate Setting
 php artisan module:migrate Student
 php artisan module:migrate Employee
 php artisan module:migrate Vehicle
+php artisan module:migrate Education
 php artisan migrate --path=/database/migrations/2019_07_19_225659_laratrust_setup_tables.php
 
 
@@ -150,7 +152,7 @@ public function attributes()
     ];
 }
 
-messages = [
+Subjects = [
     'same'    => 'The :attribute and :other must match.',
     'size'    => 'The :attribute must be exactly :size.',
     'between' => 'The :attribute value :input is not between :min - :max.',
