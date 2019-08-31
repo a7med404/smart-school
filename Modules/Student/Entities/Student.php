@@ -29,7 +29,6 @@ class Student extends Model
         'start_data',
         'education_year', 
         'study_status', 
-        'student_parent_id', 
         'level_id', 
         'classroom_id', 
         'part_id', 
@@ -75,7 +74,7 @@ class Student extends Model
 
     public function studentParents()
     {
-        return $this->belongsTo(StudentParent::class);
+        return $this->belongsToMany(StudentParent::class);
     }
 
     public function permissiontodeparts()

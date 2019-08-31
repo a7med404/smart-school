@@ -1,6 +1,6 @@
 php artisan module:make Education
-php artisan module:use Education
-
+php artisan module:use Student
+php artisan module:make-request CreateAuthStudentParentRequest
 php artisan module:unuse User
 php artisan module:use Education
 
@@ -12,13 +12,14 @@ php artisan module:make-seed SubjectTableSeeder
 
 php artisan module:make-request CreateSubjectRequest
 
+
 php artisan module:make-resource SubjectResource --collection
 
 php artisan module:make-model Subject --migration
 php artisan module:make-controller SubjectController
 php artisan module:make-controller API\SubjectController
 
-
+php artisan module:make-controller API/StudentAuthController Student
 
 php artisan module:migrate Education
 php artisan module:seed

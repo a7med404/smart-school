@@ -14,6 +14,7 @@ use Session;
 use Modules\Finance\Entities\Operation;
 use Modules\Finance\Entities\PayRuls;
 use Modules\Finance\Entities\PayClass;
+use Modules\Student\Entities\StudentParent;
 
 class StudentController extends Controller
 {
@@ -45,7 +46,7 @@ class StudentController extends Controller
     {
         if($request->has('gender')){
             $requestAll = $request->toArray();
-            $query = Student::orderBy('id', 'desc')->where('identifcation_id', null)->orWhere('student_parent_id', null)->orWhere('address_id', null)->orWhere('contact_id', null);
+            $query = Student::orderBy('id', 'desc')->where('identifcation_id', null)->orWhere('address_id', null)->orWhere('contact_id', null);
             foreach ($requestAll as $key => $req) {
                 if (!($req == "" || null)) {
                     $query->where($key, $req);
@@ -55,7 +56,7 @@ class StudentController extends Controller
             return view('student::students.student.index', ['students' => $students]);
         }
 
-        $students = Student::where('identifcation_id', null)->orWhere('student_parent_id', null)->orWhere('address_id', null)->orWhere('contact_id', null)->get();
+        $students = Student::where('identifcation_id', null)->orWhere('address_id', null)->orWhere('contact_id', null)->get();
         return view('student::students.student.index', ['students' => $students]);
     }
 
@@ -112,11 +113,18 @@ class StudentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateStudentRequest $request)
     {
+        // dd($request->all());
+        $request['is_staff_son'] = request()->has('is_staff_son')? true : false;
         $student = Student::create($request->all());
         if($student){
+            $studentParent = StudentParent::find($request->student_parent_id);
+            $studentParent->students()->attach($student);
             Session::flash('flash_massage_type');
+            if($request['save-and-new']){
+                return redirect()->back()->withFlashMassage('تم انشاء الحساب بنجاح');
+            }
             return redirect()->route('students.index')->withFlashMassage('student Created Susscefully');
         }
     }
@@ -225,13 +233,8 @@ class StudentController extends Controller
     {
         $student = Student::where('id', $id)->first();
         $payClasses = PayClass::where('level_id', $student->level->id)->where('classroom_id', $student->classroom->id)->get();
-        $payClasses->map(function($payClass){
-            dd($payClass);
-
-        });
         $operations = Operation::where('student_id', $id)->get();
-        dd($operations, $payClass);
-        return view('student::students.student.fees', ['operations' => $operations]);
+        return view('student::students.student.fees', ['payClasses' => $payClasses, 'operations' => $operations, 'student' => $student]);
     }
 
     public function report_quality(){

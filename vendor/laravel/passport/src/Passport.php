@@ -139,6 +139,13 @@ class Passport
     public static $unserializesCookies = false;
 
     /**
+     * Indicates the scope should inherit its parent scope.
+     *
+     * @var bool
+     */
+    public static $withInheritedScopes = false;
+
+    /**
      * Enable the implicit grant type.
      *
      * @return static
@@ -268,8 +275,6 @@ class Passport
             if (isset(static::$scopes[$id])) {
                 return new Scope($id, static::$scopes[$id]);
             }
-
-            return;
         })->filter()->values()->all();
     }
 
@@ -381,7 +386,7 @@ class Passport
      */
     public static function actingAs($user, $scopes = [], $guard = 'api')
     {
-        $token = Mockery::mock(Passport::tokenModel())->shouldIgnoreMissing(false);
+        $token = Mockery::mock(self::tokenModel())->shouldIgnoreMissing(false);
 
         foreach ($scopes as $scope) {
             $token->shouldReceive('can')->with($scope)->andReturn(true);

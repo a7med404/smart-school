@@ -4,6 +4,7 @@ namespace Modules\Finance\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Finance\Entities\PayClass;
+use Modules\Finance\Entities\Operation;
 
 class PayRuls extends Model
 {
@@ -14,5 +15,11 @@ class PayRuls extends Model
     {
         return $this->hasMany(PayClass::class);
     }
+
+    public function operations()
+	{
+		return $this->hasMany(Operation::class);
+	}
+	
 
 }

@@ -16,7 +16,9 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 200);
-            $table->tinyInteger('his_degree');
+            $table->string('education_year', 200);
+            $table->tinyInteger('degree');
+            $table->tinyInteger('pass_degree');
             // $table->unsignedBigInteger('level_id')->nullable();
             // $table->foreign('level_id')
             //     ->references('id')->on('levels')

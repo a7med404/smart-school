@@ -40,15 +40,12 @@ class OperationController extends Controller
      */
     public function store(CreateOperationRequest $request)
     {
-        // "student_id" => "1"
-        // "date" => "2019-08-13"
-        // "pay_rul_id" => "2"
-        // "amount" => "200"
-        // "note" => null
+
         // dd($request->all());
         $journal = new Journal();
 		$journal->status = 1;
 		$journal->employee_id = Auth::guard('employee')->user()->id;
+		$journal->rsc_type_id = $request->input('rsc_type_id');
 		$journal->note = $request->input('note');
 		$journal->date = $request->input('date');
 		if ($journal->save()) {

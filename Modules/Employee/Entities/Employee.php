@@ -12,13 +12,11 @@ use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Notifications\Notifiable;
 use Modules\Address\Entities\Address;
 use Modules\Address\Entities\Contact;
-
+use Laravel\Passport\HasApiTokens;
 
 class Employee extends Authenticatable
 {    
-    use SoftDeletes;
-    use LaratrustUserTrait;
-    use Notifiable;
+    use SoftDeletes, LaratrustUserTrait, Notifiable, HasApiTokens;
     
     protected $hidden = [
         'password', 'remember_token',
@@ -40,7 +38,9 @@ class Employee extends Authenticatable
         'address_id',
         'contact_id',
         'identification_id',
-        'note'
+        'note',
+        'username', 
+        'password'
     ];
 
     public function username()

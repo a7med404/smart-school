@@ -14,7 +14,6 @@
             </div>
         </div>
     </div>
-    'address_id', 
 
     <div class="row">
         <div class="col col-lg-6 col-md-6 col-sm-12 col-12"> 
@@ -61,7 +60,7 @@
         <div class="col col-lg-6 col-md-6 col-sm-12 col-12"> 
             <div class="form-group">
                 {!! Form::label('qualification', 'موهل الوالد ', ['class' => 'control-label']) !!}
-                {!! Form::select('qualification', getSelect('levels'), null, ['id' => 'qualification', 'class' => "select2 form-control  {{ $errors->has('qualification') ? ' is-invalid' : '' }}", 'value' => "{{ old('qualification') }}", 'required']) !!}
+                {!! Form::select('qualification', qualification(), null, ['id' => 'qualification', 'class' => "select2 form-control  {{ $errors->has('qualification') ? ' is-invalid' : '' }}", 'value' => "{{ old('qualification') }}", 'required']) !!}
             </div>
         </div>
     </div>
@@ -81,6 +80,31 @@
         </div>
     </div>
 
+
+    @if(!isset($studentParentInfo))
+    <hr>
+    <div class="row">
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="form-group">
+                {!! Form::label('username', ' اسم المستخدم', ['class' => 'control-label']) !!}
+                {!! Form::text('username', null, ['id' => 'username', 'class' => "form-control  {{ $errors->has('username') ? ' is-invalid' : '' }}", 'value' => "{{ old('username') }}", 'required', 'autofocus']) !!}
+            </div>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="form-group">
+                {!! Form::label('password', ' كلمة السر ', ['class' => 'control-label']) !!}
+                {!! Form::password('password', ['id' => 'password', 'class' => "form-control  {{ $errors->has('password') ? ' is-invalid' : '' }}", 'value' => "{{ old('password') }}", 'required', 'autofocus']) !!}
+            </div>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="form-group">
+                {!! Form::label('password_confirmation', ' تاكيد كلمة السر ', ['class' => 'control-label']) !!}
+                {!! Form::password('password_confirmation', ['id' => 'password_confirmation', 'class' => "form-control  {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}", 'value' => "{{ old('password_confirmation') }}", 'required', 'autofocus']) !!}
+            </div>
+        </div>
+    </div>
+    @endif
+
     <div class="row">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="form-group">
@@ -98,9 +122,22 @@
         </div>
     </div>
 
+    
+        
+    @if(isset($studentParentInfo))
     <div class="row">
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-        <button class="btn btn-primary btn-md">حفــظ</button>
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+            <button href="#" class="btn btn-primary">حـــفظ</button>
         </div>
     </div>
-    <!-- ... end Personal Information Form  -->
+        
+    @else
+    <div class="row m-t-20">
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+            <button href="#" class="btn btn-primary">حـــفظ</button>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
+            <button type="button" class="btn btn-default pull-left"  data-dismiss="modal">اغلاق</button>
+        </div>
+    </div>
+    @endif

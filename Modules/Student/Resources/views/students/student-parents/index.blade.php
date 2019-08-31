@@ -28,7 +28,7 @@
               <i class="fa fa-minus"></i>
             </button>
             <a type="button" data-toggle="modal" data-target="#popup-add-studentParents" href="#" class="btn btn-sm btn-info pull-left">
-              <i class="fa fa-plus"></i> اضافة مرحلة تعليمية
+              <i class="fa fa-plus"></i> اضافة ولي امر جديد
             </a>
           </div>
         </div>
@@ -68,18 +68,19 @@
                           <td>{{ $studentParent->name }}</td>
                           <td>{{ $studentParent->phone_number }}</td>
                           <td>{{ nationality()[$studentParent->nationality] }}</td>
-                          <td>{{ $studentParent->studens->count() }}</td>
+                          <td>{{ $studentParent->students->count() }}</td>
                           <td>
                             <div class="dropdown">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <span class="fa fa-ellipsis-h"></span>
                               </a>
                               <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('studentParents.show',  ['id' => $studentParent->id]) }}">استعراض</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('studentParents.edit',  ['id' => $studentParent->id]) }}">تعديل</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('student-parents.show',  ['id' => $studentParent->id]) }}">استعراض</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('student-parents.edit',  ['id' => $studentParent->id]) }}">تعديل</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('studentParents.delete',['id' => $studentParent->id]) }}">حذف</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('student-parents.edit-auth',['id' => $studentParent->id]) }}">تعديل بيانات الدخول</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('student-parents.delete',['id' => $studentParent->id]) }}">حذف</a></li>
                               </ul>
                             </div>
                           </td>
@@ -100,6 +101,7 @@
     </div>
     <!-- /.box -->
     @include('student::students.student-parents.add')
+    {{-- @include('student::students.student-parents.add-auth') --}}
 </section>
 <!-- /.content -->
 

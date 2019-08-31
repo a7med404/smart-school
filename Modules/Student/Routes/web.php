@@ -27,6 +27,9 @@ Route::group(['prefix' => '/student'], function () {
 Route::group(['prefix' => '/student'], function () {
     Route::get('/student-reports/{report}/{printpage?}', 'StudentReportController@viewPage')->name('student-reports');
 
+
+    Route::resource('empty-palce', 'EmptyPalceController');
+
     Route::resource('/levels', 'LevelController');
     Route::get('levels/delete/{id}', 'LevelController@destroy')->name('levels.delete');
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
@@ -43,7 +46,10 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('restore/{id}', 'StudentController@restoreStudent')->name('students.restore');
     Route::get('/report-not-complate-data', 'StudentController@reportNotComplateData')->name('report-not-complate-data');
     
-    
+    Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
+    Route::resource('permissiontodepart', 'PermissiontodepartController');
+    Route::get('permissiontodepart/delete/{id}', 'PermissiontodepartController@destroy')->name('permissiontodepart.delete');
+
     Route::any('/all', 'StudentController@allStudents')->name('all-students');
 
     Route::resource('/studentParent', 'StudentParentController');
@@ -78,7 +84,9 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::resource('student-parents', 'StudentParentController');
     Route::get('student-parents/delete/{id}', 'StudentParentController@destroy')->name('student-parents.delete');
-
+    Route::get('student-parents/edit-auth/{id}', 'StudentParentController@showEditAuthForm')->name('student-parents.edit-auth');
+    Route::PATCH('student-parents/edit-auth/{id}', 'StudentParentController@saveEditAuth')->name('student-parents.edit-auth');
+    
 
 // employee routes //
 

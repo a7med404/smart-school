@@ -26,13 +26,13 @@ class Journal extends Model
 		return $this->hasMany(Transaction::Class, 'journals');
 	}
 
-	public function transaction()
-	{
-		if ($this->first()->status == "0") { 
-			$return = $this->hasOne(Transaction::Class, 'journals', 'id')->where('type', '=', 0);
-		} else if ($this->first()->status == "1") {
-			$return = $this->hasOne(Transaction::Class, 'journals', 'id')->where('type', '!=', 0);
-		}
-		return $return;
-	}
+	// public function transaction()
+	// {
+	// 	if ($this->first()->status == "0") { 
+	// 		$return = $this->hasOne(Transaction::Class, 'journals', 'id')->where('type', '=', 0);
+	// 	} else if ($this->first()->status == "1") {
+	// 		$return = $this->hasOne(Transaction::Class, 'journals', 'id')->where('type', '!=', 0);
+	// 	}
+	// 	return $return;
+	// }
 }

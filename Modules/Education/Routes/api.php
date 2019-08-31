@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/education', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('education')->namespace('API')->group(function() {
+    Route::get('subjects/{student_id}', 'SubjectController@getSubject');
+    
+    Route::get('timetables/{student_id}', 'TimetableController@getTimetable');
+
+    Route::get('evaluations/{student_id}', 'EvaluationController@getEvaluation');
+
+    Route::get('examinations/{student_id}', 'ExaminationController@getExamination');
+});

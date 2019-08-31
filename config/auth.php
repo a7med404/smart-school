@@ -45,6 +45,15 @@ return [
             'provider' => 'employees',
         ],
 
+        'employee-api' => [
+            'driver' => 'passport',
+            'provider' => 'employees',
+        ],
+
+        'student_parents-api' => [
+            'driver' => 'passport',
+            'provider' => 'student_parents',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -78,6 +87,10 @@ return [
         'employees' => [
             'driver' => 'eloquent',
             'model' => Modules\Employee\Entities\Employee::class,
+        ],
+        'student_parents' => [
+            'driver' => 'eloquent',
+            'model' => Modules\Student\Entities\StudentParent::class,
         ],
 
 

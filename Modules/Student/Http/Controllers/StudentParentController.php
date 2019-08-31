@@ -7,7 +7,12 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\StudentParent;
 use Modules\Student\Transformers\StudentParentResource;
-use Modules\Student\Http\Requests\CreateStudentStudentParentRequest;
+use Session;
+use Modules\Student\Http\Requests\CreateStudentParentRequest;
+use Hash;
+use URL;
+use Modules\Student\Http\Requests\CreateAuthStudentParentRequest;
+
 class StudentParentController extends Controller
 {
     /**
@@ -34,12 +39,17 @@ class StudentParentController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateStudentParentRequest $request)
     { 
+        $request['is_die'] = request()->has('is_die')? true : false;
+        $request['password'] = Hash::make($request->password);
         $studentParent = StudentParent::create($request->all());
         if($studentParent){
             Session::flash('flash_massage_type');
-            return redirect()->route('studentParents.index')->withFlashMassage('StudentParent Created Susscefully');
+            if(URL::previous() == route('students.create')){
+                return redirect()->back()->withFlashMassage('تم انشاء الحساب بنجاح');
+            }
+            return redirect()->route('student-parents.index')->withFlashMassage('StudentParent Created Susscefully');
         }
     }
 
@@ -63,6 +73,29 @@ class StudentParentController extends Controller
     {
         $studentParentInfo = StudentParent::findOrFail($id);
         return view('student::students.student-parents.edit', ['studentParentInfo' => $studentParentInfo]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     * @param int $id
+     * @return Response
+     */
+    public function showEditAuthForm($id)
+    {
+        $studentParentInfo = StudentParent::findOrFail($id);
+        return view('student::students.student-parents.edit-auth', ['studentParentInfo' => $studentParentInfo]);
+    }
+
+    
+    public function saveEditAuth(CreateAuthStudentParentRequest $request, $id)
+    {
+        $data = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+        $studentParentUpdate = StudentParent::findOrfail($id)->update($data);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('StudentParent Updated Susscefully');
     }
 
     /**

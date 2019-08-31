@@ -101,11 +101,7 @@ class StudentReportController extends Controller
                 }
                 break;
             case 'report-emp-student':
-                if($request->has('filter')){
-                    $data = Student::orderBy('id','desc')->where('student_parent_id', $request->student_parent_id)->get();
-                }else {
                     $data = Student::where('is_staff_son', 1)->get();
-                }
                 break;
             case 'report-student-attendances':
                 if($request->has('filter')){

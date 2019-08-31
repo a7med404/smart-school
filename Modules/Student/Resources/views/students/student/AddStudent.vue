@@ -453,7 +453,7 @@
                         <li class="active"><a href="#father" data-toggle="tab">اختيار / اضافة والد</a></li>
                         <li><a href="#mather" data-toggle="tab">اختيار / اضافة والدة</a></li>
                       </ul>
-                      <div class="tab-content">
+                      <div class="tab-content"> 
                         <div  class="tab-pane active" id="father">
                           <div class="row">
                             <div class="col col-lg-4 col-md-4 col-sm-12 col-12">

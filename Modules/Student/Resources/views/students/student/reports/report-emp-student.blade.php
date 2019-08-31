@@ -36,8 +36,8 @@
                 <div class="row">
                     <div class="col col-lg-4 col-md-4 col-sm-12 col-12"> 
                         <div class="form-group">
-                            {!! Form::label('student_parent_id', 'اختر موظف', ['class' => 'control-label']) !!}
-                            {!! Form::select('student_parent_id', getSelect('employees'), null, ['id' => 'student_parent_id', 'class' => "select2 form-control  {{ $errors->has('student_parent_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('student_parent_id') }}"]) !!}
+                            {!! Form::label('employee_id', 'اختر موظف', ['class' => 'control-label']) !!}
+                            {!! Form::select('employee_id', getSelect('employees'), null, ['id' => 'employee_id', 'class' => "select2 form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}"]) !!}
                         </div>
                     </div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-12 m-t-25">

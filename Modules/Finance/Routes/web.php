@@ -18,8 +18,6 @@ Route::prefix('finance')->group(function() {
     Route::get('discount-setting', 'DiscountSettingParentController@discountSetting')->name('discount-setting');
     Route::resource('discount-setting-parent', 'DiscountSettingParentController');
     Route::resource('discount-setting-sibling', 'DiscountSettingSiblingController');
-    Route::resource('empty-palce', 'EmptyPalceController');
-
     Route::resource('pay-classes', 'PayClassController');
     Route::resource('pay_rules', 'PayRulsController');
     Route::get('pay-classes/delete/{id}', 'PayClassController@destroy')->name('pay-classes.delete');
@@ -34,8 +32,5 @@ Route::prefix('finance')->group(function() {
     Route::get('transactions/delete/{id}', 'TransactionController@destroy')->name('transactions.delete');
     Route::resource('rsc-types', 'RscTypeController');
     Route::get('rsc-types/delete/{id}', 'RscTypeController@destroy')->name('rsc-types.delete');
-    Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
-    Route::resource('permissiontodepart', 'PermissiontodepartController');
-    Route::get('permissiontodepart/delete/{id}', 'PermissiontodepartController@destroy')->name('permissiontodepart.delete');
 
 });

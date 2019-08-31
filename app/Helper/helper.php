@@ -84,6 +84,88 @@ function payment_status()
     ];
 }
 
+
+function qualification()
+{
+    return [
+        1 => 'شهادة الاساس',
+        2 => 'شهادة السودانية',
+        3 => 'دبلوم',
+        4 => 'بكلاريوس',
+        5 => 'ماجستير',
+        6 => 'دكتوراة',
+        7 => 'بروفسير',
+        8 => 'اخري',
+    ];
+}
+
+function subjectNumber()
+{
+    return [
+        1 => 'الحصة الاولي',
+        2 => 'الحصة الثانية',
+        3 => 'الحصة الثالثة',
+        4 => 'الحصة الرابعة',
+        5 => 'الحصة الخامسة',
+        6 => 'الحصة السادسة',
+        7 => 'الحصة السابعة',
+        8 => 'الحصة الثامنة',
+        9 => 'الحصة التاسعة',
+        10 => 'الحصة العاشرة',
+    ];
+}
+
+function daysOfTheWeak()
+{
+    return [
+        1 => 'يوم الاحد',
+        2 => 'يوم الاثنين',
+        3 => 'يوم الثلاثاء',
+        4 => 'يوم الاربعاء',
+        5 => 'يوم الخميس',
+        6 => 'يوم الجمعة',
+        7 => 'يوم السبت',
+    ];
+}
+
+
+function examinationType()
+{
+    return [
+        111 => 'الفترة الاولي',
+        222 => 'الفترة الثانية',
+        1 => 'شهر واحد',
+        2 => 'شهر اثنين',
+        3 => 'شهر ثلاثة',
+        4 => 'شهر اربعة',
+        5 => 'شهر خمسة',
+        6 => 'شهر ستة',
+        7 => 'شهر سبعة',
+        8 => 'شهر ثمانية',
+        9 => 'شهر تسعة',
+        10 => 'شهر عشرة',
+        11 => 'شهر احدي عشر',
+        12 => 'شهر اثني عشر',
+    ];
+}
+
+
+
+function evaluationFor()
+{
+    return [
+        1 => 'الواجب',
+        2 => 'التفاعل',
+        3 => 'الانتباه',
+        4 => 'الكتابة',
+        5 => 'إحضار الكتب',
+        6 => 'إحترام المعلم',
+        7 => 'متطور',
+        8 => 'الشجار',
+        9 => 'النوم بالفصل'
+    ];
+}
+
 function bloodType()
 {
     return [
@@ -113,9 +195,9 @@ function mr_d()
     return [
         1 => 'السيد',
         2 => 'السيدة',
-        3 => '\د',
-        4 => '\أ',
-        5 => '\بروف',
+        3 => 'د',
+        4 => 'أ',
+        5 => 'بروف',
     ];
 }
 
@@ -128,7 +210,7 @@ function relation()
         4 => 'عم',
         5 => 'خالة',
         6 => 'عمة',
-        7 => 'احرى',
+        7 => 'اخرى',
     ];
 }
 
@@ -141,7 +223,7 @@ function nationality()
         4 => 'اثيوبيا',
         5 => 'اريتريا',
         6 => 'سوريا',
-        7 => 'احرى',
+        7 => 'اخرى',
     ];
 }
 
@@ -353,6 +435,11 @@ function getSelect($tableName, $all = null)
             array_add($list, '', 'الكل');
             return $list->toArray();
             break;
+        case 'student_parents':
+            $list = \DB::table('student_parents')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
+            return $list->toArray();
+            break;
         case 'classrooms':
             $list = \DB::table('classrooms')->pluck('name', 'id');
             array_add($list, '', 'الكل');
@@ -360,6 +447,11 @@ function getSelect($tableName, $all = null)
             break;
         case 'parts':
             $list = \DB::table('parts')->pluck('name', 'id');
+            array_add($list, '', 'الكل');
+            return $list->toArray();
+            break; 
+        case 'subjects':
+            $list = \DB::table('subjects')->pluck('name', 'id');
             array_add($list, '', 'الكل');
             return $list->toArray();
             break; 
@@ -466,10 +558,6 @@ function getName($tableName, $id)
             return $list[$id];
             break;
         case 'students':
-            $list = \DB::table('students')->pluck('name', 'id');
-            return $list[$id];
-            break;
-        case 'parts':
             $list = \DB::table('students')->pluck('name', 'id');
             return $list[$id];
             break;

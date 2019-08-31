@@ -26,7 +26,11 @@ class CreateTimetablesTable extends Migration
             $table->foreign('subject_id')
                 ->references('id')->on('subjects')
                 ->onDelete('cascade');
-            $table->timestamps();
+            $table->unsignedBigInteger('part_id')->nullable();
+            $table->foreign('part_id')
+                ->references('id')->on('parts')
+                ->onDelete('cascade');
+            $table->timestamps(); 
         });
     }
 

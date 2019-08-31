@@ -31,5 +31,10 @@ class PayClass extends Model
     {
         return $this->belongsTo(PayRuls::Class);
     }
-    
+ 
+    public function operations()
+	{
+		return $this->hasMany(Operation::class);
+	}
+	
 }

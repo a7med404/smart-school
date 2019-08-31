@@ -55,14 +55,14 @@
             autoclose: true,
             language: 'ar',
             rtl: true,
-            startDate: 'toDay',
+            
             format: 'yyyy-mm-dd'
         });
         $('#birthday').datepicker({
             autoclose: true,
             language: 'ar',
             rtl: true,
-            startDate: 'toDay',
+            
             format: 'yyyy-mm-dd'
         });
         $(".select2").select2();

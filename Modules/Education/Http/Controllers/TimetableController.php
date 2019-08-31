@@ -5,6 +5,9 @@ namespace Modules\Education\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Education\Entities\Timetable;
+use Session;
+use Modules\Education\Http\Requests\CreateTimetableRequest;
 
 class TimetableController extends Controller
 {
@@ -14,7 +17,8 @@ class TimetableController extends Controller
      */
     public function index()
     {
-        return view('education::index');
+        $timetables = Timetable::orderBy('id', 'asc')->get();
+        return view('education::timetables.index', ['timetables' => $timetables]);
     }
 
     /**
@@ -32,8 +36,12 @@ class TimetableController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $timetable = Timetable::create($request->all());
+        if($timetable){
+            Session::flash('flash_massage_type');
+            return redirect()->route('timetables.index')->withFlashMassage('Timetable Created Susscefully');
+        }
     }
 
     /**
@@ -43,7 +51,8 @@ class TimetableController extends Controller
      */
     public function show($id)
     {
-        return view('education::show');
+        $timetableInfo = timetable::findOrFail($id);
+        return view('education::timetables.show', ['timetableInfo' => $timetableInfo]);
     }
 
     /**
@@ -53,18 +62,21 @@ class TimetableController extends Controller
      */
     public function edit($id)
     {
-        return view('education::edit');
+        $timetableInfo = timetable::findOrFail($id);
+        return view('education::timetables.edit', ['timetableInfo' => $timetableInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateTimetableRequest $request, $id)
     {
-        //
+        $timetableUpdate = Timetable::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->route('timetables.index')->withFlashMassage('Timetable Updated Susscefully');
     }
 
     /**
@@ -72,8 +84,12 @@ class TimetableController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Timetable $Onetimetable)
     {
-        //
-    }
+      $timetableForDelete = $Onetimetable->findOrfail($id);
+      $timetableForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Timetable Deleted Susscefully');
+    }     
+
 }

@@ -100,7 +100,7 @@
             autoclose: true,
             language: 'ar',
             rtl: true,
-            startDate: 'toDay',
+            
             format: 'yyyy-mm-dd'
         });
     });

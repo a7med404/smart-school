@@ -5,6 +5,9 @@ namespace Modules\Education\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Education\Entities\Subject;
+use Session;
+use Modules\Education\Http\Requests\CreateSubjectRequest;
 
 class SubjectController extends Controller
 {
@@ -14,7 +17,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return view('education::index');
+        $subjects = Subject::orderBy('id', 'asc')->get();
+        return view('education::subjects.index', ['subjects' => $subjects]);
     }
 
     /**
@@ -32,8 +36,12 @@ class SubjectController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $subject = Subject::create($request->all());
+        if($subject){
+            Session::flash('flash_massage_type');
+            return redirect()->route('subjects.index')->withFlashMassage('Subject Created Susscefully');
+        }
     }
 
     /**
@@ -43,7 +51,8 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
-        return view('education::show');
+        $subjectInfo = subject::findOrFail($id);
+        return view('education::subjects.show', ['subjectInfo' => $subjectInfo]);
     }
 
     /**
@@ -53,18 +62,21 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
-        return view('education::edit');
+        $subjectInfo = subject::findOrFail($id);
+        return view('education::subjects.edit', ['subjectInfo' => $subjectInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateSubjectRequest $request, $id)
     {
-        //
+        $subjectUpdate = Subject::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->route('timetables.index')->withFlashMassage('Subject Updated Susscefully');
     }
 
     /**
@@ -72,8 +84,13 @@ class SubjectController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Subject $Onesubject)
     {
-        //
-    }
+      $subjectForDelete = $Onesubject->findOrfail($id);
+      $subjectForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Subject Deleted Susscefully');
+    }     
+
+
 }

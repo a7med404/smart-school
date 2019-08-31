@@ -25,7 +25,6 @@ class StudentResource extends JsonResource
             'start_data'            => $this->start_data,
             'education_year'        => $this->education_year,
             'note'                  => $this->note,
-            'student_parent_id'     => $this->student_parent_id,
             'level_id'              => getName('levels', $this->level_id),
             'classroom_id'          => getName('classrooms', $this->classroom_id),
             'part_id'               => getName('parts', $this->part_id)

@@ -3,6 +3,7 @@
 namespace Modules\Student\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateStudentParentRequest extends FormRequest
 {
@@ -15,7 +16,7 @@ class CreateStudentParentRequest extends FormRequest
     {
         return [
             'mr_d'                  => 'required|integer',
-            'name'                  => 'required|max:255|min:10',  
+            'name'                  => 'required|max:255|min:6',  
             'religion'              => 'nullable|integer',  
             'relation'              => 'required|integer',
             'nationality'           => 'required|integer',  
@@ -25,8 +26,9 @@ class CreateStudentParentRequest extends FormRequest
             'work_place'            => 'nullable|string',  
             'martial'               => 'nullable|integer',  
             'phone_number'          => 'required|max:14|min:6',  
-            'address_id'            => 'nullable|integer', 
             'email'                 => 'nullable|max:255|min:5|email', 
+            'username'              => 'unique:student_parents|max:30|min:6'.\Request::instance()->id,  
+            'password'              => 'nullable|max:255|min:6|confirmed', 
             'is_die'                => 'nullable|integer', 
             'note'                  => 'string|nullable'
         ];

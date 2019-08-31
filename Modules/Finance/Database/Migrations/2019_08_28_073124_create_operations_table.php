@@ -15,8 +15,8 @@ class CreateOperationsTable extends Migration
     { 
         Schema::create('operations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('pay_rul_id')->foreign()
-            ->references('id')->on('pay_ruls')
+            $table->unsignedBigInteger('pay_class_id')->foreign()
+            ->references('id')->on('pay_classes')
             ->onDelete('cascade');
             $table->unsignedBigInteger('student_id')->foreign()
             ->references('id')->on('students')

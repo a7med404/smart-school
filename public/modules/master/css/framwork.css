@@ -18,6 +18,10 @@ body {
   border-left: 1px solid #ccc;
 }
 
+.total-bg{
+  background-color: aliceblue;
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Helvetica Neue", "Droid Sans", sans-serif !important;
 }

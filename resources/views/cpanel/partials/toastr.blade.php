@@ -1,6 +1,6 @@
 
         @if(Session::has('flash_massage'))
-          {{ $i = Session::get('flash_massage_type') }}
+          @php $i = Session::get('flash_massage_type') @endphp
           @switch($i)
               @case(1)
               <script>

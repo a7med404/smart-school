@@ -5,6 +5,9 @@ namespace Modules\Education\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Education\Entities\Examination;
+use Session;
+use Modules\Education\Http\Requests\CreateExaminationRequest;
 
 class ExaminationController extends Controller
 {
@@ -14,7 +17,8 @@ class ExaminationController extends Controller
      */
     public function index()
     {
-        return view('education::index');
+        $examinations = Examination::orderBy('id', 'asc')->get();
+        return view('education::examinations.index', ['examinations' => $examinations]);
     }
 
     /**
@@ -32,8 +36,12 @@ class ExaminationController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $examination = Examination::create($request->all());
+        if($examination){
+            Session::flash('flash_massage_type');
+            return redirect()->route('examinations.index')->withFlashMassage('Examination Created Susscefully');
+        }
     }
 
     /**
@@ -43,7 +51,8 @@ class ExaminationController extends Controller
      */
     public function show($id)
     {
-        return view('education::show');
+        $examinationInfo = examination::findOrFail($id);
+        return view('education::examinations.show', ['examinationInfo' => $examinationInfo]);
     }
 
     /**
@@ -53,18 +62,21 @@ class ExaminationController extends Controller
      */
     public function edit($id)
     {
-        return view('education::edit');
+        $examinationInfo = examination::findOrFail($id);
+        return view('education::examinations.edit', ['examinationInfo' => $examinationInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateExaminationRequest $request, $id)
     {
-        //
+        $examinationUpdate = Examination::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->route('examinations.index')->withFlashMassage('Examination Updated Susscefully');
     }
 
     /**
@@ -72,8 +84,12 @@ class ExaminationController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Examination $Oneexamination)
     {
-        //
-    }
+      $examinationForDelete = $Oneexamination->findOrfail($id);
+      $examinationForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Examination Deleted Susscefully');
+    }     
+
 }

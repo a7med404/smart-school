@@ -28,13 +28,6 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="{{ asset('modules/master/images/user.png')}}" alt="User profile picture">
-              {{--  
-              'is_staff_son',
-              'start_data',
-              'education_year', 
-              'study_status', 
-              'student_parent_id',
-              '' --}}
 
               <h3 class="text-center">{{ $studentInfo->name }}</h3>
               <p class="text-muted text-center">{{ $studentInfo->level->name." ".$studentInfo->classroom->name }}</p>

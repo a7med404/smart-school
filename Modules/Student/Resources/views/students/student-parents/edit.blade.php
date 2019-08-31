@@ -1,7 +1,7 @@
 
 @extends('cpanel.layouts.master')
 @section('title')
-كل الطلاب
+بيانات ولي الامر
 @endsection
 @section('header')
 <!-- icheck -->
@@ -9,11 +9,11 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>كل الطلاب <small>it all starts here</small></h1>
+    <h1>بيانات ولي الامر <small>{{ $studentParentInfo->name }}</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ route('studentParents.index') }}"><i class="fa fa-dashboard"></i> كل الطلاب </a></li>
-        <li class="active"> {{ __('home/sidebar.edit_studentParent') }} {{ $studentParentParentInfo->name }} </li>
+        <li><a href="{{ route('student-parents.index') }}"><i class="fa fa-dashboard"></i> بيانات ولي الامر </a></li>
+        <li class="active"> {{ __('home/sidebar.edit_studentParent') }} {{ $studentParentInfo->name }} </li>
     </ol>
 </section>
 
@@ -55,14 +55,14 @@
             autoclose: true,
             language: 'ar',
             rtl: true,
-            startDate: 'toDay',
+            
             format: 'yyyy-mm-dd'
         });
         $('#birthday').datepicker({
             autoclose: true,
             language: 'ar',
             rtl: true,
-            startDate: 'toDay',
+            
             format: 'yyyy-mm-dd'
         });
         $(".select2").select2();

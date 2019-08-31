@@ -14,15 +14,14 @@ class CreateStudentRequest extends FormRequest
     public function rules()
     {
         return [ 
-            'name'                  => 'required|max:255|min:10',  
+            'name'                  => 'required|max:255|min:5',  
             'religion'              => 'nullable|integer',  
             'gender'                => 'required|integer',  
-            'is_staff_son'          => 'required|boolean',  
+            'is_staff_son'          => 'boolean',  
             'birthday'              => 'required|date',  
             'start_data'            => 'required|date', 
-            'education_year'            => 'required', 
+            'education_year'        => 'required', 
             'note'                  => 'string|nullable',
-            'student_parent_id'     => 'nullable|integer',
             'address_id'            => 'nullable|integer',
             'contact_id'            => 'nullable|integer',
             'level_id'              => 'nullable|integer',

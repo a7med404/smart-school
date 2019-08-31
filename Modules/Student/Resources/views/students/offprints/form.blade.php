@@ -35,7 +35,7 @@
 </div>
     
 @else
-<div class="row m-t-40">
+<div class="row m-t-20">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>

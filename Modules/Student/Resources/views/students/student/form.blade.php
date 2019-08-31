@@ -8,7 +8,17 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col col-lg-3 col-md-3 col-sm-6 col-12">
+            <div class="form-group">
+                {!! Form::label('student_parent_id', 'اختيار والد', ['class' => 'control-label']) !!}
+                {!! Form::select('student_parent_id', getSelect('student_parents'), null, ['id' => 'student_parent_id', 'class' => "select2 form-control  {{ $errors->has('student_parent_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('student_parent_id') }}", 'required']) !!}
+            </div>
+        </div>
+        <div class="col col-lg-3 col-md-3 col-sm-6 col-12">
+            <button type="button" data-toggle="modal" data-target="#popup-add-studentParents" class="btn btn-default m-t-25">اضافة ولي امر جديد</button>
+        </div>
+    </div>
     <div class="row">
         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
             <div class="form-group">
@@ -115,7 +125,9 @@
 
     <div class="row">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
-        <button class="btn btn-primary btn-md">حفــظ</button>
+        <input name="save" type="submit" value="حفــظ" class="btn btn-primary btn-md">
+        
+        <input name="save-and-new" type="submit" value="حفــظ و جديد" class="btn btn-primary btn-md">
         </div>
     </div>
     <!-- ... end Personal Information Form  -->

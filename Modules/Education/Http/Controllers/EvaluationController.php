@@ -5,6 +5,9 @@ namespace Modules\Education\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Education\Entities\Evaluation;
+use Session;
+use Modules\Education\Http\Requests\CreateEvaluationRequest;
 
 class EvaluationController extends Controller
 {
@@ -14,7 +17,8 @@ class EvaluationController extends Controller
      */
     public function index()
     {
-        return view('education::index');
+        $evaluations = Evaluation::orderBy('id', 'asc')->get();
+        return view('education::evaluations.index', ['evaluations' => $evaluations]);
     }
 
     /**
@@ -32,8 +36,12 @@ class EvaluationController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $evaluation = Evaluation::create($request->all());
+        if($evaluation){
+            Session::flash('flash_massage_type');
+            return redirect()->route('evaluations.index')->withFlashMassage('Evaluation Created Susscefully');
+        }
     }
 
     /**
@@ -43,7 +51,8 @@ class EvaluationController extends Controller
      */
     public function show($id)
     {
-        return view('education::show');
+        $evaluationInfo = evaluation::findOrFail($id);
+        return view('education::evaluations.show', ['evaluationInfo' => $evaluationInfo]);
     }
 
     /**
@@ -53,18 +62,21 @@ class EvaluationController extends Controller
      */
     public function edit($id)
     {
-        return view('education::edit');
+        $evaluationInfo = evaluation::findOrFail($id);
+        return view('education::evaluations.edit', ['evaluationInfo' => $evaluationInfo]);
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return Responsedestroy
      */
-    public function update(Request $request, $id)
+    public function update(CreateEvaluationRequest $request, $id)
     {
-        //
+        $evaluationUpdate = Evaluation::findOrfail($id)->update($request->all());
+        Session::flash('flash_massage_type');
+        return redirect()->route('evaluations.index')->withFlashMassage('Evaluation Updated Susscefully');
     }
 
     /**
@@ -72,8 +84,12 @@ class EvaluationController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, Evaluation $Oneevaluation)
     {
-        //
-    }
+      $evaluationForDelete = $Oneevaluation->findOrfail($id);
+      $evaluationForDelete->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('Evaluation Deleted Susscefully');
+    }     
+
 }

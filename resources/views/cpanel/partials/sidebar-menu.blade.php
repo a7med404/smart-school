@@ -228,6 +228,10 @@
                   <li><a href="{{ route('levels.index') }}"><i class="fa fa-circle-o text-aqua"></i> المراحل التعلمية</a></li>
                   <li><a href="{{ route('classrooms.index') }}"><i class="fa fa-circle-o text-aqua"></i> الصفوف التعلمية</a></li>
                   <li><a href="{{ route('parts.index') }}"><i class="fa fa-circle-o text-aqua"></i> الفصول التعلمية</a></li>
+                  <li><a href="{{ route('subjects.index') }}"><i class="fa fa-circle-o text-aqua"></i>المواد التعلمية</a></li>
+                  <li><a href="{{ route('timetables.index') }}"><i class="fa fa-circle-o text-aqua"></i>جدول الحصص</a></li>
+                  <li><a href="{{ route('evaluations.index') }}"><i class="fa fa-circle-o text-aqua"></i>تقييم الطلاب</a></li>
+                  <li><a href="{{ route('examinations.index') }}"><i class="fa fa-circle-o text-aqua"></i>الامتحانات</a></li>
                   {{-- <li><a href="{{ route('dist-students.index') }}"><i class="fa fa-circle-o text-aqua"></i> توزيع الطلاب علي الفصول</a></li> --}}
               </ul>
             </li>

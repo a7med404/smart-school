@@ -5,13 +5,13 @@ namespace Laravel\Passport;
 use DateInterval;
 use Illuminate\Auth\RequestGuard;
 use Illuminate\Auth\Events\Logout;
+use League\OAuth2\Server\CryptKey;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Guards\TokenGuard;
-use League\OAuth2\Server\CryptKey;
 use League\OAuth2\Server\ResourceServer;
 use Illuminate\Config\Repository as Config;
 use League\OAuth2\Server\AuthorizationServer;
@@ -78,12 +78,13 @@ class PassportServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if (! $this->app->configurationIsCached()) {
+            $this->mergeConfigFrom(__DIR__.'/../config/passport.php', 'passport');
+        }
+
         $this->registerAuthorizationServer();
-
         $this->registerResourceServer();
-
         $this->registerGuard();
-
         $this->offerPublishing();
     }
 
@@ -226,7 +227,7 @@ class PassportServiceProvider extends ServiceProvider
     }
 
     /**
-     * Create a CryptKey instance without permissions check
+     * Create a CryptKey instance without permissions check.
      *
      * @param string $key
      * @return \League\OAuth2\Server\CryptKey

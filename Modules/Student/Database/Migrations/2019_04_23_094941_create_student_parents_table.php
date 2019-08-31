@@ -20,19 +20,16 @@ class CreateStudentParentsTable extends Migration
             $table->integer('religion')->nullable();
             $table->integer('relation');
             $table->integer('nationality')->nullable();
-            $table->string('qualification')->nullable();
+            $table->integer('qualification')->nullable();
             $table->string('job', 255)->nullable();
             $table->string('work_place', 255)->nullable();
             $table->integer('martial')->nullable();
             $table->string('phone_number', 14);
             $table->string('email', 14);
-            $table->integer('is_die');
+            $table->integer('is_die')->default(0);
             $table->text('note')->nullable();
-            
-            $table->unsignedBigInteger('address_id')->nullable();
-            $table->foreign('address_id')
-                ->references('id')->on('addresses')
-                ->onDelete('cascade');
+            $table->string('username')->unique()->nullable();
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }

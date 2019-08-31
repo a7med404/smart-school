@@ -12,5 +12,15 @@
 */
 
 Route::prefix('education')->group(function() {
-    Route::get('/', 'EducationController@index');
+    Route::resource('subjects', 'SubjectController'); 
+    Route::get('subjects/delete/{id}', 'SubjectController@destroy')->name('subjects.delete');
+    
+    Route::resource('timetables', 'TimetableController'); 
+    Route::get('timetables/delete/{id}', 'TimetableController@destroy')->name('timetables.delete');
+    
+    Route::resource('evaluations', 'EvaluationController'); 
+    Route::get('evaluations/delete/{id}', 'EvaluationController@destroy')->name('evaluations.delete');
+    
+    Route::resource('examinations', 'ExaminationController'); 
+    Route::get('examinations/delete/{id}', 'ExaminationController@destroy')->name('examinations.delete');
 });

@@ -9,7 +9,7 @@ use Modules\Student\Entities\Student;
 
 class Operation extends Model
 {  
-    protected $fillable = ['id', 'pay_rul_id', 'student_id', 'transaction_id'];
+    protected $fillable = ['id', 'pay_class_id', 'student_id', 'transaction_id'];
 
     public function student()
 	{
@@ -21,9 +21,15 @@ class Operation extends Model
 		return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
 	}
 
+    public function payClass()
+	{
+		return $this->belongsTo(PayClass::class);
+	}
+
     public function payRul()
 	{
-		return $this->hasOne(PayRuls::class);
+		return $this->belongsTo(PayRuls::class, 'pay_rul_id');
 	}
-	
+
+
 }
