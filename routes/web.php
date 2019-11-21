@@ -25,4 +25,4 @@ Auth::routes();
 // Route::group(['middleware' => ['web', 'auth:employee']], function(){
 //   Route::get('/cpanel', function () { return view('cpanel.app'); })->name('cpanel');       
 // });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
