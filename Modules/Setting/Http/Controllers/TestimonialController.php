@@ -44,7 +44,7 @@ class TestimonialController extends Controller
         ];
         $testimonial->create($data);
         Session::flash('flash_massage_type', 1);
-        return redirect('cpanel/testimonials')->withFlashMassage('Testimonial Added Successfully');
+        return redirect('cpanelAdmin/testimonials')->withFlashMassage('Testimonial Added Successfully');
     }
 
     /**

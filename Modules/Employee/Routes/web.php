@@ -127,7 +127,7 @@ Route::group(['middleware' => 'guest:employee'], function () {
 // Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 
-Route::prefix('cpanel')->group(function() {
+Route::prefix('cpanelAdmin')->group(function() {
     Route::group(['middleware' => ['web', 'auth:employee']], function(){
         /**
          * Users Routes  ==================================================================================>

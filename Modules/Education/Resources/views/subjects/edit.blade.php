@@ -1,5 +1,5 @@
 
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_subjects') }}
 @endsection
@@ -11,8 +11,8 @@
 <section class="content-header">
     <h1>{{ __('home/sidebar.all_subjects') }} <small>it all starts here</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanel\subjects') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_subjects') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin\subjects') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_subjects') }} </a></li>
         <li class="active"> {{ __('home/sidebar.edit_subject') }} {{ $subjectInfo->name }} </li>
     </ol>
 </section>

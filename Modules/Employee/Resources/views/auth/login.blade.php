@@ -12,7 +12,7 @@
     <link rel="icon" href="{{ asset('admin/images/visa.png') }}" type="image/ico" />
 
     <title>Ahgiz-24! || @yield('title') </title>
-    @include('cpanel.partials.styles')
+    @include('cpanelAdmin.partials.styles')
     @yield('header')
 
   </head>
@@ -75,7 +75,7 @@
     <!-- /.login-box -->
 
 
-    @include('cpanel.partials.scripts')
+    @include('cpanelAdmin.partials.scripts')
     @yield('footer') 
       <script>
         toastr.options = {
@@ -104,8 +104,8 @@
         });
       </script>
 
-    @include('cpanel.partials.toastr')
-    @include('cpanel.partials.errors')
+    @include('cpanelAdmin.partials.toastr')
+    @include('cpanelAdmin.partials.errors')
   </body>
 </html>
 

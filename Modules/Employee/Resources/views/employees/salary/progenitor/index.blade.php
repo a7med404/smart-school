@@ -1,4 +1,4 @@
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_HOME') }}
 {{ __('home/sidebar.all_calends') }}

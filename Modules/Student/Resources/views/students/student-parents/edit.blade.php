@@ -1,5 +1,5 @@
 
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 بيانات ولي الامر
 @endsection
@@ -11,7 +11,7 @@
 <section class="content-header">
     <h1>بيانات ولي الامر <small>{{ $studentParentInfo->name }}</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ route('student-parents.index') }}"><i class="fa fa-dashboard"></i> بيانات ولي الامر </a></li>
         <li class="active"> {{ __('home/sidebar.edit_studentParent') }} {{ $studentParentInfo->name }} </li>
     </ol>

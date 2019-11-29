@@ -40,7 +40,7 @@ class AuthController extends Controller
         $rememberme = request()->has('remember_me')? true : false;
         if(Auth::guard('employee')->attempt(['username' => request('username'), 'password' => request('password')], $rememberme)){
           Session::flash('flash_massage_type');
-          return redirect()->route('cpanel')->withFlashMassage('Login Susscefully');
+          return redirect()->route('cpanelAdmin')->withFlashMassage('Login Susscefully');
         }else{
           Session::flash('flash_massage_type', 4);
           return redirect()->back()->withFlashMassage('Password Is\'t Correct');

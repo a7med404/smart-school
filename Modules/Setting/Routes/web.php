@@ -16,7 +16,7 @@ Route::prefix('setting')->group(function() {
 });
 
 
-Route::prefix('cpanel')->group(function() {
+Route::prefix('cpanelAdmin')->group(function() {
     Route::group(['middleware' => ['web', 'auth:employee']], function(){
         Route::Resource('testimonials', 'TestimonialController');
         Route::get('testimonials/delete/{id}', 'TestimonialController@destroy')->name('testimonials.delete');

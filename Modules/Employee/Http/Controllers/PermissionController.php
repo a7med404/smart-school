@@ -56,7 +56,7 @@ class PermissionController extends Controller
            'description'       => $request->description
        ]);
        Session::flash('flash_massage_type');
-       return redirect('cpanel/permissions')->withFlashMassage('Permission Created Susscefully');
+       return redirect('cpanelAdmin/permissions')->withFlashMassage('Permission Created Susscefully');
      }
 
     /**

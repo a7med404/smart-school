@@ -1,5 +1,5 @@
 
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.Infos') }}
 @endsection

@@ -1,5 +1,5 @@
 
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_rscTypes') }}
 @endsection
@@ -11,8 +11,8 @@
 <section class="content-header">
     <h1>{{ __('home/sidebar.all_rscTypes') }} <small>it all starts here</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanel\rscTypes') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_rscTypes') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin\rscTypes') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_rscTypes') }} </a></li>
         <li class="active"> {{ __('home/sidebar.edit_rscType') }} {{ $rscTypeInfo->name }} </li>
     </ol>
 </section>
