@@ -17,7 +17,8 @@
         "laravelcollective/html": "^5.7",
         "nexmo/client": "^1.5",
         "nwidart/laravel-modules": "^5.0",
-        "santigarcor/laratrust": "4.0.*"
+        "santigarcor/laratrust": "4.0.*",
+        "yajra/laravel-datatables": "^1.5"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
