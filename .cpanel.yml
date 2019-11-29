@@ -1,6 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/smartschool/public_html/
-    - /bin/cp * $DEPLOYPATH
- 
+    - export DEPLOYPATH=/home/smartschool/public_html/testGit
+    - /bin/cp -a * $DEPLOYPATH
