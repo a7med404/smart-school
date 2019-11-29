@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/smartschool/public_html/
-    - /bin/cp -a * $DEPLOYPATH
+    - /bin/cp * $DEPLOYPATH
  
