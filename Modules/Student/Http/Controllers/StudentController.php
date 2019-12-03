@@ -4,6 +4,7 @@ namespace Modules\Student\Http\Controllers;
 
 use \DB;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Student;
@@ -24,7 +25,7 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         if($request->has('gender')){
             $requestAll = $request->toArray();
             $query = Student::orderBy('id', 'desc');
@@ -40,6 +41,41 @@ class StudentController extends Controller
         $students = Student::all();
         return view('student::students.student.index', ['students' => $students]);
     }
+
+
+    public function studentDataTables()
+    {
+        return DataTables::of(Student::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($student) {
+                return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'students']);
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('status', function ($student) {
+            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
+            // })
+            ->rawColumns(['last_login', 'roles', 'options', 'status'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
+
+
 
 
     public function reportNotComplateData(Request $request)
@@ -61,7 +97,7 @@ class StudentController extends Controller
     }
 
 
-    
+
     public function allStudents(Request $request)
     {
         if($request->has('gender')){
@@ -73,7 +109,7 @@ class StudentController extends Controller
                 }
             }
             $students = $query->orderBy('id','desc')->get();
-            
+
             return view($students)->withErrors;
             return StudentResource::collection($students);
         }
@@ -107,7 +143,7 @@ class StudentController extends Controller
         return view('student::create');
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -141,7 +177,7 @@ class StudentController extends Controller
             "education_year" => "2019-05-07",//$request->education_year,
             "note" => $request->note
         ];
-        // $id = Student::create($data)->id;    
+        // $id = Student::create($data)->id;
         // return response()->json([
         //     'message' => 'تم الحفظ بنجاح',
         //     'student_id' => 2//$id
@@ -151,7 +187,7 @@ class StudentController extends Controller
 
         }
     }
-    
+
     /**
      * Show the specified resource.
      * @param int $id
@@ -174,7 +210,7 @@ class StudentController extends Controller
     {
         $studentInfo = Student::findOrFail($id);
         return view('student::students.student.edit', ['studentInfo' => $studentInfo]);
-        
+
         return Student::with('addresses')->with('contacts')->with('identifcations')->with('health')->findOrfail($id);
         /* return view('student::edit'); */
     }
@@ -193,7 +229,7 @@ class StudentController extends Controller
             return redirect()->back()->withFlashMassage('Student Updated Susscefully');
         }
     }
-    
+
     // public function update(CreateStudentRequest $request, $id)
     // {
     //     Student::findOrfail($id)->update($request->all());
@@ -225,10 +261,10 @@ class StudentController extends Controller
         Student::where('id', $id)->restore();
         return redirect()->back()->withFlashMassage('Student restore Susscefully');
     }
-    
 
-    
-    
+
+
+
     public function fees(Request $request, $id)
     {
         $student = Student::where('id', $id)->first();
@@ -252,5 +288,5 @@ class StudentController extends Controller
     public function report_auth(){
 
     }
- 
+
 }
