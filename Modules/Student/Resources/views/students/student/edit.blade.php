@@ -51,14 +51,7 @@
 {!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
 <script>
     $(function () {
-        $('#start_data').datepicker({
-            autoclose: true,
-            language: 'ar',
-            rtl: true,
-            
-            format: 'yyyy-mm-dd'
-        });
-        $('#birthday').datepicker({
+        $('#issue_date').datepicker({
             autoclose: true,
             language: 'ar',
             rtl: true,

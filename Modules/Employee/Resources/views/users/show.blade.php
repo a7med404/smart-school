@@ -53,7 +53,7 @@
               <strong><i class="fa fa-book margin-r-5"></i> {{ __('home/labels.note') }}</strong>
               <p class="text-muted"> {{ $userInfo->note }} </p>
               
-              <a href="{{ route('users.edit',  ['id' => $userInfo->id]) }}" class="btn btn-primary btn-block"><b>تعديل بيانات الشركة</b></a>
+              <a href="{{ route('users.edit',  ['id' => $userInfo->id]) }}" class="btn btn-primary btn-block"><b>تعديل بيانات الطالب</b></a>
 
             </div>
             <!-- /.box-body -->
@@ -64,7 +64,7 @@
         <div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#address" data-toggle="tab">عنوان الشركة (المكاتب)</a></li>
+              <li class="active"><a href="#address" data-toggle="tab">عنوان الطالب (المكاتب)</a></li>
               <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
             </ul>
             <div class="tab-content">

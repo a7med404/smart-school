@@ -37,6 +37,7 @@ class TransactionController extends Controller
      */
     public function store(CreateTransactionRequest $request)
     {
+        dd($request->all());
         $Transactions= Transaction::create($request->all());
 
         if($Transactions){

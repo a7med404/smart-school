@@ -210,7 +210,7 @@ class StudentController extends Controller
     public function destroy($id)
     {
         Student::findOrfail($id)->delete();
-        return redirect()->back()->withFlashMassage('Student Deleted Susscefully');
+        return redirect()->route('students.index')->withFlashMassage('Student Deleted Susscefully');
     }
 
     public function studentOnlyTrashed(Request $request)

@@ -42,7 +42,7 @@
                             <th>الطالب</th>
                             <th>المستخدم</th>
                             <th>الخزنة</th>
-                            <th>نوع الرسوم</th>
+                            {{-- <th>نوع الرسوم</th> --}}
                             <th>القيمة</th>
                             <th>ملاحظة</th>
                             <th>{{ __('home/labels.options') }}</th>
@@ -55,7 +55,7 @@
                             <td>{{ $operation->student->name }}</td>
                             <td>{{ $operation->transaction->journal->employee->full_name }}</td> 
                             <td>{{ $operation->transaction->journal->rscType->name }}</td>
-                            <td>{{ $operation->payRul->name }}</td>
+                            {{-- <td>{{ $operation->payRul->name }}</td> --}}
                             <td>{{ $operation->transaction->amount }}</td>
                             <td>{{ $operation->transaction->journal->note }}</td>
                             <td>

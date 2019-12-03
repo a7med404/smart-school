@@ -77,7 +77,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('attendances.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
-                    <li><a href="{{ route('attendances.list') }}"><i class="fa fa-circle-o text-aqua"></i>قائمة الحضور</a></li>
+                    <li><a href="{{ route('attendances.list-show') }}"><i class="fa fa-circle-o text-aqua"></i>قائمة الحضور</a></li>
                   </ul>
                 </li>
                 <li>

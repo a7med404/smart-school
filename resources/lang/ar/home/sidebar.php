@@ -66,13 +66,13 @@ return [
     'companies' => 'شركات النقل',
     'all_companies' => 'شركات النقل',
     'add_company' => 'اضافة شركة جديد',
-    'edit_company' => 'تعديل بيانات الشركة',
+    'edit_company' => 'تعديل بيانات الطالب',
 
 
     'contacts' => 'معلومات الاتصال',
     'all_contacts' => 'شركات النقل',
     'add_contact' => 'اضافة شركة جديد',
-    'edit_contact' => 'تعديل بيانات الشركة',
+    'edit_contact' => 'تعديل بيانات الطالب',
 
     'vehicles' => 'المركبات',
     'all_vehicles' => 'كل المركبات',

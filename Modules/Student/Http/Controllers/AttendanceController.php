@@ -44,7 +44,7 @@ class AttendanceController extends Controller
 
     public function listShow(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         if($request->has('level_id')){
             $date = $request->date;
             $requestAll = array_except($request->toArray(), 'date');
