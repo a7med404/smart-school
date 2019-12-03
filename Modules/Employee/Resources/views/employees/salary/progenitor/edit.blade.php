@@ -21,7 +21,7 @@
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanelAdmin\payClass') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payClasses') }} </a></li>
         <li class="active"> {{ __('home/sidebar.addcalend') }} {{ $AddCalendInfo->name }} </li>
->>>>>>> c6964634269fdc9d17c685d6f4ab9d25edf8ea2a
+
     </ol>
 </section>
 
