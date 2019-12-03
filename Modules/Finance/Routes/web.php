@@ -19,10 +19,13 @@ Route::prefix('finance')->group(function() {
     Route::resource('discount-setting-parent', 'DiscountSettingParentController');
     Route::resource('discount-setting-sibling', 'DiscountSettingSiblingController');
     Route::resource('pay-classes', 'PayClassController');
+    Route::get('pay-classes/dataTables','PayClassController@payTables')->name('payTables.dataTables');
     Route::resource('pay_rules', 'PayRulsController');
+    Route::get('pay_rules/dataTables','PayRulsController@payTable')->name('pay_rules.dataTables');
     Route::get('pay-classes/delete/{id}', 'PayClassController@destroy')->name('pay-classes.delete');
 
     Route::resource('pay-rules', 'PayRulsController');
+
     Route::get('pay-rules/delete/{id}', 'PayRulsController@destroy')->name('pay-rules.delete');
 
     

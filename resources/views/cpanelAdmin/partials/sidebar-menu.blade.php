@@ -53,8 +53,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('students.index') }}"><i class="fa fa-circle-o text-aqua"></i> الطلاب</a></li>
-                <li><a href="{{ route('students.student-only-trashed') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
-                
+                <li><a href="{{ route('studentOnlyTrashed.dataTables') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
+
                 <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الطالب
@@ -65,7 +65,7 @@
                   <ul class="treeview-menu">
                     <li><a href="{{ route('students.create') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب</a></li>
                     <li><a href="{{ route('add-student-manual') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب يدويا</a></li>
-                  
+
                   </ul>
                 </li>
                 <li>
@@ -94,7 +94,7 @@
                     <li><a href="{{ route('offprints', ['type' => 'completion']) }}"><i class="fa fa-circle-o text-aqua"></i>مخالصة بمصروفات طالب</a></li>
                     <li><a href="{{ route('permissiontodepart.index') }}"><i class="fa fa-circle-o text-aqua"></i> اذونات الانصراف للطبة</a></li>
                     <li><a href="{{ route('student-transfers.index') }}"><i class="fa fa-circle-o text-aqua"></i> طلب تحويل طالب</a></li>
-                    
+
                   </ul>
                 </li>
               </ul>
@@ -113,7 +113,7 @@
                 <li><a href="{{ route('report-separates.index') }}"><i class="fa fa-circle-o text-aqua"></i> قرار فصل</a></li>
                 <li><a href="{{ route('report-warnings.index') }}"><i class="fa fa-circle-o text-aqua"></i> انذار فصل</a></li>
                 {{-- <li><a href="{{ route('student-reports', ['report' => 'report-auth']) }}"><i class="fa fa-circle-o text-aqua"></i>عرض بيانات دخول الموقع</a></li> --}}
-                
+
                 <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> بيانات الطلاب
@@ -158,7 +158,7 @@
                 </li>
               </ul>
             </li>
-      
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-money text-red"></i>
@@ -200,7 +200,7 @@
                 </li>
               </ul>
             </li>
-    
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-files-o text-aqua"></i>
@@ -212,7 +212,7 @@
               <ul class="treeview-menu">
                 <li><a href="{{ route('student-reports', ['report' => 'report-separate']) }}"><i class="fa fa-circle-o text-aqua"></i> المدفوعات حسب المراحل</a></li>
                 <li><a href="{{ route('student-reports', ['report' => 'report-warning']) }}"><i class="fa fa-circle-o text-aqua"></i> مدفوعات الحافلة</a></li>
-                
+
               </ul>
             </li>
 
@@ -556,7 +556,7 @@
                 <li><a href="{{ route('emp-absences.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل غياب الموظفين</a></li>
                 <li><a href="{{ route('cut-allowances.index') }}"><i class="fa fa-circle-o text-aqua"></i> خصومات او بدلات</a></li>
                 <li><a href="{{ route('emp-pulls.index') }}"><i class="fa fa-circle-o text-aqua"></i> طلب اخلاء طرف</a></li>
-                
+
                 <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الاعدادت
@@ -638,7 +638,7 @@
                 </li>
               </ul>
             </li>
-    
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-files-o text-aqua"></i>
@@ -658,7 +658,7 @@
                 <li><a href="{{ route('employee-reports', ['report' => 'reportvels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير</a></li>
               </ul>
             </li>
-    
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-home"></i>
@@ -673,7 +673,7 @@
                 <li><a href="{{ route('student-parents.index') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة اولياء الامور يدويا</a></li>
               </ul>
             </li>
-            
+
             <li class="header">قسم الادارة</li>
             <li class="treeview">
               <a href="#">
@@ -685,7 +685,7 @@
               <ul class="treeview-menu" style="display: none;">
                 {{-- <li><a href="{{ route('users.index') }}"><i class="fa fa-circle-o text-aqua"></i> كل المستخدمين</a></li> --}}
                 <li>
-                  <a href="#"><i class="fa fa-circle-o text-red"></i> {{ __('home/sidebar.roles') }} 
+                  <a href="#"><i class="fa fa-circle-o text-red"></i> {{ __('home/sidebar.roles') }}
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -696,7 +696,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-circle-o text-yellow"></i> {{ __('home/sidebar.permissions') }} 
+                  <a href="#"><i class="fa fa-circle-o text-yellow"></i> {{ __('home/sidebar.permissions') }}
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -708,7 +708,7 @@
                 </li>
               </ul>
             </li>
-          
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-gears text-aqua"></i> <span>{{ __('home/sidebar.settings') }} </span>
@@ -719,7 +719,7 @@
               <ul class="treeview-menu" style="display: none;">
                 <li><a href="{{ route('settings.index') }}"><i class="fa fa-circle-o text-aqua"></i> {{ __('home/sidebar.settings') }}</a></li>
                 <li>
-                  <a href="#"><i class="fa fa-circle-o text-red"></i> {{ __('home/sidebar.testimonials') }} 
+                  <a href="#"><i class="fa fa-circle-o text-red"></i> {{ __('home/sidebar.testimonials') }}
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>

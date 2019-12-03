@@ -58,6 +58,7 @@ Route::group(['prefix' => '/employee'], function () {
 
     /* offline works */
     Route::resource('calends', 'AddCalendController');
+    Route::get('calends/dataTables','AddCalendController@CalendTables')->name('calends.dataTables');
     Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
 
     Route::resource('add-calend', 'AddCalendEmployeeController');

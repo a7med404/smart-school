@@ -43,6 +43,39 @@ class PayClassController extends Controller
             return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Created Susscefully');
         }
     }
+    
+    public function payTables()
+    {
+        return DataTables::of(PayClass::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($PayClass) {
+                return view('Finance::calends.colums.options', ['id' => $PayClass->id, 'routeName' => 'PayClass.dataTables']);
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+ 
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('status', function ($student) {
+            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
+            // })
+            ->rawColumns(['last_login', 'roles', 'options', 'status'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+ 
+    }
+ 
     /**
      * Show the specified resource.
      * @param int $id
@@ -61,7 +94,7 @@ class PayClassController extends Controller
     public function classrooms($id)
     {
         return new ClassroomResource(PayClass::findOrfail($id)->classrooms);
-        /* return view('finance::show'); */
+        /* return view('finance::show'); */ 
     }
 
     /**
