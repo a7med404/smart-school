@@ -114,7 +114,7 @@
                 $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{status()[0]}}"> {{status()[0]}} </option><option value="{{status()[1]}}"> {{status()[1]}} </option></select>' );
 
             }else if($(this).index() == 5){
-                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{status()[0]}}"> {{status()[0]}} </option><option value="{{status()[1]}}"> {{status()[1]}} </option></select>' );
+                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
             }
         });
 
@@ -127,10 +127,10 @@
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },
-                { data: 'gender', name: 'gender', "width": "15%" },
+                { data: 'level_id', name: 'level_id', "width": "15%" },
                 { data: 'religion', name: 'religion', "width": "10%"},
                 { data: 'classroom_id', name: 'classroom_id', "width": "15%"},
-                { data: 'level_id', name: 'level_id', "width": "15%", orderable: false},
+                { data: 'gender', name: 'gender', "width": "15%", orderable: false},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

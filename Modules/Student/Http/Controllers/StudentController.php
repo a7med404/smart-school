@@ -4,7 +4,7 @@ namespace Modules\Student\Http\Controllers;
 
 use \DB;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Student\Entities\Student;
@@ -16,6 +16,7 @@ use Modules\Finance\Entities\Operation;
 use Modules\Finance\Entities\PayRuls;
 use Modules\Finance\Entities\PayClass;
 use Modules\Student\Entities\StudentParent;
+// use Yajra\DataTables\Facades\DataTables;
 
 class StudentController extends Controller
 {
@@ -23,7 +24,11 @@ class StudentController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index(Request $request)
+    public function index()
+    {
+        return view('student::students.student.index');
+    }
+    public function indexOld(Request $request)
     {
 
         if($request->has('gender')){
@@ -45,9 +50,14 @@ class StudentController extends Controller
 
     public function studentDataTables()
     {
+        // return "jhgf";
         return DataTables::of(Student::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($student) {
                 return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'students']);
+            })
+
+            ->editColumn('gender', function ($customer) {
+                return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
             })
             // ->addColumn('last_login', function (student $student) {
             //     if($student->last_login != null) {
@@ -67,7 +77,7 @@ class StudentController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status'])
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
