@@ -61,7 +61,7 @@ class RoleController extends Controller
         }
       }
       Session::flash('flash_massage_type');
-      return redirect('cpanel/roles')->withFlashMassage('Role Created Susscefully');
+      return redirect('cpanelAdmin/roles')->withFlashMassage('Role Created Susscefully');
     }
 
     /**

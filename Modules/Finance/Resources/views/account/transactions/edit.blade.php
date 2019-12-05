@@ -1,5 +1,5 @@
 
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_transactions') }}
 @endsection
@@ -11,8 +11,8 @@
 <section class="content-header">
     <h1>{{ __('home/sidebar.all_transactions') }} <small>it all starts here</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanel\transaction') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_transactions') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin\transaction') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_transactions') }} </a></li>
         <li class="active"> {{ __('home/sidebar.edit_transaction') }} {{ $TransactionInfo->name }} </li>
     </ol>
 </section>

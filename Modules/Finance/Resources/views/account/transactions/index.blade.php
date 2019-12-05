@@ -1,4 +1,4 @@
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_transactions') }}
 @endsection
@@ -56,7 +56,8 @@
                             <td>{{ transactionStatus()[$transaction->journal->status] }}</td>
                             <td>{{ $transaction->journal->rscType->name }}</td>
                             <td>{{ $transaction->journal->employee->full_name }}</td> 
-                            <td>{{ getName('pay_ruls', $transaction->operation->pay_rul_id) }}</td>
+                            {{-- <td>{{ getName('pay_ruls', $transaction->operation->pay_rul_id) }}</td> --}}
+                            <td>{{ $transaction->operation }}</td>
                             <td>{{ $transaction->amount }}</td>
                             <td>{{ $transaction->created_at }}</td>
                             <td>{{ $transaction->journal->note }}</td>

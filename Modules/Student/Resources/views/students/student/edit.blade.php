@@ -1,5 +1,5 @@
 
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 كل الطلاب
 @endsection
@@ -11,7 +11,7 @@
 <section class="content-header">
     <h1>كل الطلاب <small>it all starts here</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ route('students.index') }}"><i class="fa fa-dashboard"></i> كل الطلاب </a></li>
         <li class="active"> {{ __('home/sidebar.edit_student') }} {{ $studentInfo->name }} </li>
     </ol>
@@ -51,14 +51,7 @@
 {!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
 <script>
     $(function () {
-        $('#start_data').datepicker({
-            autoclose: true,
-            language: 'ar',
-            rtl: true,
-            
-            format: 'yyyy-mm-dd'
-        });
-        $('#birthday').datepicker({
+        $('#issue_date').datepicker({
             autoclose: true,
             language: 'ar',
             rtl: true,

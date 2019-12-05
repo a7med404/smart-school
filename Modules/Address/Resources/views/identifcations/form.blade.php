@@ -7,7 +7,7 @@
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
             {!! Form::label('type', 'نوع اثبات الشخصية', ['class' => 'control-label']) !!}
-            {!! Form::select('type', identifcationTypes(), null, ['id' => 'type', 'class' => "form-control {{ $errors->has('type') ? ' is-invalid' : '' }}", 'value' => "{{ old('type') }}", 'required']) !!}
+            {!! Form::select('type', identifcationTypes(), null, ['id' => 'type', 'class' => "select2 form-control {{ $errors->has('type') ? ' is-invalid' : '' }}", 'value' => "{{ old('type') }}", 'required']) !!}
         </div> 
     </div>
     <div class="col col-xl-6 col-lg-6 col-md-6">

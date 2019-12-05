@@ -1,4 +1,4 @@
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_companies') }}
 @endsection
@@ -13,7 +13,7 @@
 <section class="content-header">
     <h1>{{ __('home/sidebar.all_companies') }} <small>it all starts here</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanel') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li class="active"> {{ __('home/sidebar.all_companies') }} </li>
     </ol>
 </section>
@@ -96,7 +96,7 @@
               <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
               <li><a href="#timeline" data-toggle="tab">Timeline</a></li>
               <li><a href="#settings" data-toggle="tab">Settings</a></li>
-              <li><a href="#address" data-toggle="tab">عنوان الشركة</a></li>
+              <li><a href="#address" data-toggle="tab">عنوان الطالب</a></li>
               <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
             </ul>
             <div class="tab-content">
@@ -385,7 +385,7 @@
                 </div>
                 @include('address::addresses.form')
                 <form role="form">
-                  <p class="title"> عنوان الشركة</p>
+                  <p class="title"> عنوان الطالب</p>
                   <input type="hidden" name="studentIdToSend">
                   <div class="row">
                     <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
@@ -447,7 +447,7 @@
                   <div class="row">
                     <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                       <div class="form-group">
-                        <label class="control-label">تلفون الشركة </label>
+                        <label class="control-label">تلفون الطالب </label>
                         <input class="form-control" placeholder="" type="text" name="number_1">
                       </div>
                     </div>

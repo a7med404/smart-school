@@ -1,4 +1,4 @@
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
 {{ __('home/sidebar.all_students') }}
 @endsection
@@ -11,7 +11,6 @@
 @endsection
 @section('content')
 <section class="content-header">
-  <h1> كل الطلاب <small>  </small></h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
     <li class="active">كل الطلاب</li>
@@ -32,56 +31,10 @@
         </div>
 
         <div class="box-body">
-            <form  role="form">
-              <div class="row">
-                {!! Form::hidden('filter', null, ['value' => "{{ old('filter') }}"]) !!}
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
-                  <div class="form-group">
-                      {!! Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']) !!}
-                      {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}"]) !!}
-                  </div>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                  <div class="form-group">
-                    {!! Form::label('classroom_id', 'اختيار الصف', ['class' => 'control-label']) !!}
-                    {!! Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  {{ $errors->has('classroom_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('classroom_id') }}"]) !!}
-                  </div>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                  <div class="form-group">
-                    {!! Form::label('part_id', 'اختيار الفصل', ['class' => 'control-label']) !!}
-                    {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}"]) !!}
-                  </div>
-                </div>
-                <div class="col col-lg-2 col-md-2 col-sm-6 col-12">
-                  <div class="form-group">
-                    {!! Form::label('gender', 'النوع', ['class' => 'control-label']) !!}
-                    {!! Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 {{ $errors->has('gender') ? ' is-invalid' : '' }}", 'value' => "{{ old('gender') }}"]) !!}
-                  </div>
-                </div>
-                <div class="col col-lg-1 col-md-1 col-sm-12 col-12 m-t-25">
-                  <button type="submit" class="btn btn-info">بحــــث</button>
-                </div>
-              </div>
-            </form>
-                
-            <div class="row">
-              <!-- Print Buttons -->
-              <div class="no-print">
-                  <div class="col-xs-12 m-b-20">
-                    <a href="/student/student-reports/students/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
-                    <a type="button" href="/student/student-reports/students" class="btn btn-success" style="margin-right: 5px;">
-                        <i class="fa fa-download"></i> انشاء ملف PDF
-                    </a>
-                    <a href="/student/student-reports/students" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
-                    <a href="/student/student-reports/students/printpage" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> تصدير اكسل</a>
-                  </div>
-              </div>
-              <!-- End Prints buttons -->
-            </div>
+
 
             <div class="table-responsive">
-                <table id="table_id" class="table table-bordered table-hover table-condensed">
+                <table id="data" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
@@ -93,42 +46,18 @@
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
-                    <tbody>
-                      @forelse($students as $student)
-                        <tr>
-                          <td>{{ $student->id }}</td>
-                          <td>{{ $student->name }}</td>
-                          <td>{{ $student->level->name }}</td>
-                          <td>{{ $student->classroom->name }}</td>
-                          <td>{{ $student->part->name }}</td>
-                          <td>{{ gender()[$student->gender] }}</td>
-                          <td>
-                            <div class="dropdown">
-                              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                <span class="fa fa-ellipsis-h"></span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $student->id]) }}">استعراض</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $student->id]) }}">تعديل</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.fees',  ['id' => $student->id]) }}">عرض البيانات المالية</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('students.delete',['id' => $student->id]) }}">حذف</a></li>
-                              </ul>
-                            </div>
-                          </td>
-                        </tr>
 
-                        @empty
+                    <tfoot>
                         <tr>
-                          <td colspan="7">
-                            <div class="text-center">
-                              <p>لا توجد بيانات في هذا الجدول</p>
-                            </div>
-                          </td>
-                        </tr>   
-                        @endforelse
-                    </tbody>
+                            <th>ID</th>
+                            <th>اسم الطالب</th>
+                            <th>اسم المرحلة التعليمية</th>
+                            <th>اسم الصف</th>
+                            <th>اسم الفصل</th>
+                            <th>النوع</th>
+                            <th class="noExport">{{ __('home/labels.options') }}</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -139,13 +68,7 @@
 <!-- /.content -->
 
 @stop
-@section('footer')
-<!-- icheck -->
-{!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
-<!-- dataTable -->
-{!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
-{!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
-<script>
+{{-- <script>
     $(document).ready(function () {
         /*
             For iCheck =====================================>
@@ -157,6 +80,151 @@
         });
     });
 
+</script> --}}
+
+
+@section('footer')
+<!-- icheck -->
+{!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
+<!-- dataTable -->
+{!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
+{!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
+{{-- {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js') !!}
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js') !!}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') !!}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js') !!}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js') !!}
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js') !!}
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js') !!} --}}
+
+<script type="text/javascript">
+
+    var lastIdx = null;
+
+        $('#data tfoot th').each( function () {
+            if($(this).index() < 3 || $(this).index() == 4){
+                var classname = $(this).index() == 3  ?  'filter-select' : 'filter-input';
+                var title = $(this).html();
+                if($(this).index() == 0 ){
+                    $(this).html( '<input type="text" style="max-width:70px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" '+title+'" />' );
+                }else{
+                    $(this).html( '<input type="text" style="max-width:180px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'"placeholder=" البحث '+title+'" />' );
+                }
+            }else if($(this).index() == 3){
+                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{status()[0]}}"> {{status()[0]}} </option><option value="{{status()[1]}}"> {{status()[1]}} </option></select>' );
+
+            }else if($(this).index() == 5){
+                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
+            }
+        });
+
+        var table = $('#data').DataTable({
+            processing: true,
+            serverSide: true,
+            autoWidth: false,
+            select: true,
+            ajax: '{!! route("students.dataTables") !!}',
+            columns: [
+                { data: 'id', name: 'id', "width": "10%"},
+                { data: 'name', name: 'name', "width": "20%" },
+                { data: 'level_id', name: 'level_id', "width": "15%" },
+                { data: 'religion', name: 'religion', "width": "10%"},
+                { data: 'classroom_id', name: 'classroom_id', "width": "15%"},
+                { data: 'gender', name: 'gender', "width": "15%", orderable: false},
+                { data: 'options', name: 'options', orderable: false, "width": "10%"},
+            ],
+            "language": {
+                "url": "{{ asset('modules/master/data/Arabic.json') }}"
+            },
+            "stateSave": false,
+            "responsive": true,
+            "order": [[0, 'desc']],
+            "pagingType": "full_numbers",
+            'searchDelay' : 350,
+            bAutoWidth: false,
+            aLengthMenu: [
+                [10, 25, 50, 100, 200, -1],
+                [10, 25, 50, 100, 200, "All"]
+            ],
+            iDisplayLength: 10,
+            fixedHeader: true,
+            dom: 'Blfrtip',
+            buttons: [
+                {
+                    extend: 'pdf',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                },
+                {
+                    extend: 'excel',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                },
+                {
+                    extend: 'print',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+
+                },
+                {
+                    extend: 'csv',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                },
+                {
+                    extend: 'copy',
+                    title: 'Test copy export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                }
+            ],
+            initComplete: function ()
+            {
+                var r = $('#data tfoot tr');
+                r.find('th').each(function(){
+                    $(this).css('padding', 8);
+                });
+                $('#data thead').append(r);
+                $('#search_0').css('text-align', 'center');
+            }
+
+        });
+
+
+        // $('.filter-select').change(function(){
+        //     // setTimeout(function(table) {
+        //         // delaySuccess(
+        //             table.column($(this).data('column'))
+        //             .search($(this).val())
+        //             .draw();
+        //         // );
+        //     // }, 2000);
+
+        // });
+
+
+        $('.filter-select').change(function(){
+            table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+
+        });
+
+        $('.filter-input').keyup(function(){
+            table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+        });
+
+
+        $('#data tbody').on( 'mouseover', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+            if ( colIdx !== lastIdx ) {
+                $( table.cells().nodes() ).removeClass( 'highlight' );
+                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+            }
+        })
+        .on( 'mouseleave', function () {
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+        });
 </script>
 @endsection
-

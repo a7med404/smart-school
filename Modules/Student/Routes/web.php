@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::prefix('student')->group(function() {
     Route::get('/', 'StudentController@index');
 });
@@ -31,21 +32,25 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('empty-palce', 'EmptyPalceController');
 
     Route::resource('/levels', 'LevelController');
+    Route::get('levels/dataTables','LevelController@index')->name('levels.dataTables');
     Route::get('levels/delete/{id}', 'LevelController@destroy')->name('levels.delete');
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
     Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
-    
+
     Route::resource('/parts', 'PartController');
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
     Route::resource('/students', 'StudentController');
+
+    Route::get('/student-dataTables', 'StudentController@studentDataTables')->name('students.dataTables');
+    
     Route::get('students/fees/{id}', 'StudentController@fees')->name('students.fees');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
-    Route::get('studentOnlyTrashed', 'StudentController@studentOnlyTrashed')->name('students.student-only-trashed');
+    Route::get('studentOnlyTrashed', 'StudentController@index')->name('studentOnlyTrashed.dataTables');
     Route::get('restore/{id}', 'StudentController@restoreStudent')->name('students.restore');
     Route::get('/report-not-complate-data', 'StudentController@reportNotComplateData')->name('report-not-complate-data');
-    
+
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
     Route::resource('permissiontodepart', 'PermissiontodepartController');
     Route::get('permissiontodepart/delete/{id}', 'PermissiontodepartController@destroy')->name('permissiontodepart.delete');
@@ -59,8 +64,10 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('/healthes', 'HealthController');
     Route::get('/levels/classrooms/{level_id}', 'ClassroomController@getClassrooms');
     Route::get('/classrooms/parts/{classroom_id}', 'PartController@getParts');
+
     Route::get('/offprints/{type}', 'OffPrintController@getOffPrints')->name('offprints');
     Route::resource('offprints', 'OffPrintController');
+    Route::get('offprints/dataTables','OffPrintController@index')->name('offprints.dataTables');
 
     Route::resource('student-transfers', 'StudentTransferController');
     Route::get('student-transfers/delete/{id}', 'StudentTransferController@destroy')->name('student-transfers.delete');
@@ -75,7 +82,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('student-pulls', 'StudentPullController');
     Route::get('student-pulls/delete/{id}', 'StudentPullController@destroy')->name('student-pulls.delete');
 
-   
+
     Route::resource('report-separates', 'ReportSeparateController');
     Route::get('report-separates/delete/{id}', 'ReportSeparateController@destroy')->name('report-separates.delete');
 
@@ -86,7 +93,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('student-parents/delete/{id}', 'StudentParentController@destroy')->name('student-parents.delete');
     Route::get('student-parents/edit-auth/{id}', 'StudentParentController@showEditAuthForm')->name('student-parents.edit-auth');
     Route::PATCH('student-parents/edit-auth/{id}', 'StudentParentController@saveEditAuth')->name('student-parents.edit-auth');
-    
+
 
 // employee routes //
 

@@ -1,4 +1,4 @@
-@extends('cpanel.layouts.master')
+@extends('cpanelAdmin.layouts.master')
 @section('title')
   Permission Informations
 @endsection
@@ -10,8 +10,8 @@
                   <div class="row">
                     <div class="col-lg-12  float-right">
                       <ol class="breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="{{ url('\cpanel') }}">HOME</a></li>
-                        <li><i class="fa fa-users"></i><a href="{{ url('\cpanel\permissions') }}">All Permissions</a></li>
+                        <li><i class="fa fa-home"></i><a href="{{ url('\cpanelAdmin') }}">HOME</a></li>
+                        <li><i class="fa fa-users"></i><a href="{{ url('\cpanelAdmin\permissions') }}">All Permissions</a></li>
                         <li><i class="fa fa-user"></i>Permission Informations</li>
                       </ol>
                     </div><!-- /.col-lg-12 -->
@@ -143,7 +143,7 @@
                                     <td>{{ $role->description }}</td>
                                     <td>
                                       <a class="btn btn-info btn-xs"   href="{{ route('permissions.edit', ['id' => $role->id]) }}">Edit</a>
-                                      <a class="btn btn-danger btn-xs" href="{{ url('cpanel/offer/'.$role->id.'/delete') }}">Delete</a>
+                                      <a class="btn btn-danger btn-xs" href="{{ url('cpanelAdmin/offer/'.$role->id.'/delete') }}">Delete</a>
                                     </td>
                                   </tr>
                                   @endforeach

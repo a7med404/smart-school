@@ -58,6 +58,7 @@ Route::group(['prefix' => '/employee'], function () {
 
     /* offline works */
     Route::resource('calends', 'AddCalendController');
+    Route::get('calends/dataTables','AddCalendController@CalendTables')->name('calends.dataTables');
     Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
 
     Route::resource('add-calend', 'AddCalendEmployeeController');
@@ -127,7 +128,7 @@ Route::group(['middleware' => 'guest:employee'], function () {
 // Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 
-Route::prefix('cpanel')->group(function() {
+Route::prefix('cpanelAdmin')->group(function() {
     Route::group(['middleware' => ['web', 'auth:employee']], function(){
         /**
          * Users Routes  ==================================================================================>

@@ -11,7 +11,7 @@ return [
     'seat_number' => 'عدد المقاعد',
     'available_seat' => 'عدد المقاعد المتاحة',
     'unavailable_seat' => 'عدد المقاعد غير المتاحة',
-    'company' => 'الشركة',
+    'company' => 'الطالب',
     'from' => 'مـن',
     'to' => 'الـي',
     'pay_method' => 'طريقة الدفع',

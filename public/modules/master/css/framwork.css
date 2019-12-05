@@ -628,8 +628,8 @@ table {
 }
 
 table thead {
-  background-color: #73879c;
-  color: #FFF;
+  /* background-color: #73879c; */
+  /* color: #FFF; */
   margin: auto -2px;
 }
 table .on-thead-style {

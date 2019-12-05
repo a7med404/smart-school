@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
-            {!! Form::label('number_1', 'تلفون الشركة', ['class' => 'control-label']) !!}
+            {!! Form::label('number_1', 'تلفون الطالب', ['class' => 'control-label']) !!}
             {!! Form::text('number_1', null, ['id' => 'number_1', 'class' => "form-control  {{ $errors->has('number_1') ? ' is-invalid' : '' }}", 'value' => "{{ old('number_1') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
