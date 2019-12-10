@@ -53,16 +53,17 @@
 
                     </tbody>
                     <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>{{ __('home/labels.name') }}</th>
-                                <th>{{ __('home/labels.phone_number') }}</th>
-                                {{-- <th>{{ __('home/labels.email') }}</th> --}}
-                                <th>{{ __('home/labels.status') }}</th>
-                                <th>{{ __('home/labels.last_login') }}</th>
-                                <th>{{ __('home/labels.roles') }}</th>
-                                <th class="noExport">{{ __('home/labels.options') }}</th>
-                            </tr>
+                             <tr>
+                            <th>#ID</th>
+                            <th>اسم المعلم</th>
+                            <th>اليوم</th>
+                            <th>المادة</th>
+                            <th>رقم الحصة</th>
+                            <th>زمن الحصة</th>
+                            <th>الفصل</th>
+                            <th>{{ __('home/labels.options') }}</th>
+                        </tr>
+                        
                         </tfoot>
                 </table>
             </div>
@@ -104,21 +105,21 @@
 
 
 @section('footer')
+
 <!-- icheck -->
 {!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
 <!-- dataTable -->
 {!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
 {!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js') !!}
+{{-- {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js') !!}
 {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js') !!}
 {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') !!}
 {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js') !!}
 {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js') !!}
 {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js') !!}
-
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js') !!} --}}
 <script type="text/javascript">
-
+ 
     var lastIdx = null;
 
         $('#data tfoot th').each( function () {
@@ -140,14 +141,16 @@
             serverSide: true,
             autoWidth: false,
             select: true,
-            ajax: '{!! route("subjects.dataTables") !!}',
+            ajax: '{!! route("timetables.dataTables") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
-                { data: 'name', name: 'name', "width": "20%" },
-                { data: 'phone_number', name: 'phone_number', "width": "15%" },
-                { data: 'status', name: 'status', "width": "10%"},
-                { data: 'last_login', name: 'last_login', "width": "15%"},
-                { data: 'roles', name: 'roles', "width": "15%", orderable: false},
+                { data: 'employee_id', name: 'employee_id', "width": "20%" },
+                { data: 'day', name: 'subject_number', "width": "15%" },
+                { data: 'subject_id', name: 'subject_id', "width": "10%"},
+                { data: 'part_id', name: 'part_id ', "width": "15%"},
+                { data: 'subject_number', name: 'subject_number', "width": "15%"},
+                { data: 'employee_id', name: 'employee_id', "width": "15%"},
+                { data: 'part_id', name: 'part_id', "width": "15%"},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

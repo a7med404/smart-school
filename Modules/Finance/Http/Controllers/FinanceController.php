@@ -17,10 +17,44 @@ class FinanceController extends Controller
         return view('finance::index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
+// ublic function financeDataTables()
+//     {
+//         // return "jhgf";
+//         return DataTables::of(Student::orderBy('id', 'desc')->get())
+//             ->addColumn('options', function ($student) {
+//                 return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'students']);
+//             })
+
+//             ->editColumn('gender', function ($customer) {
+//                 return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+//             })
+//             // ->addColumn('last_login', function (student $student) {
+//             //     if($student->last_login != null) {
+//             //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+//             //     }
+//             //     return $student->last_login;
+//             // })
+
+//             // ->addColumn('roles', function ($student) {
+//             //     // $data = [];
+//             //     // foreach ($student->roles as $role) {
+//             //         return view('student::students.colums.role', ['roles' => $student->roles]);
+//             //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+//             //     // }
+//             //     // return $data;
+//             // })
+//             // ->editColumn('status', function ($student) {
+//             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
+//             // })
+//             ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+//             // ->removeColumn('password')
+//             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+//             ->setRowId('{{$id}}')
+//             ->make(true);
+
+//     }
+//     /**
+    
     public function create()
     {
         return view('finance::create');

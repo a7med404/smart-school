@@ -1,7 +1,8 @@
 <?php
 
 namespace Modules\Finance\Http\Controllers;
-
+use \DB;
+use Yajra\DataTables\DataTables;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,6 +20,44 @@ class PayClassController extends Controller
         $PayClases = PayClass::all();
         return view('finance::account.pay-class.index', ['PayClases' => $PayClases]);
     }
+ function paydataTable()
+    {
+        // return "jhgf";
+        return DataTables::of(PayClass::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($PayClass) {
+                return view('finance::account.colums.options', ['id' => $PayClass->id, 'routeName' => 'pay-classes']);
+            // })
+
+            // ->editColumn('gender', function ($customer) {
+            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('status', function ($student) {
+            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
+            // })
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -28,6 +67,8 @@ class PayClassController extends Controller
     {
         return view('finance::create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,38 +85,6 @@ class PayClassController extends Controller
         }
     }
     
-    public function payTables()
-    {
-        return DataTables::of(PayClass::orderBy('id', 'desc')->get())
-            ->addColumn('options', function ($PayClass) {
-                return view('Finance::calends.colums.options', ['id' => $PayClass->id, 'routeName' => 'PayClass.dataTables']);
-            })
-            // ->addColumn('last_login', function (student $student) {
-            //     if($student->last_login != null) {
-            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
-            //     }
-            //     return $student->last_login;
-            // })
- 
-            // ->addColumn('roles', function ($student) {
-            //     // $data = [];
-            //     // foreach ($student->roles as $role) {
-            //         return view('student::students.colums.role', ['roles' => $student->roles]);
-            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
-            //     // }
-            //     // return $data;
-            // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status'])
-            // ->removeColumn('password')
-            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
-            ->setRowId('{{$id}}')
-            ->make(true);
- 
-    }
- 
     /**
      * Show the specified resource.
      * @param int $id

@@ -32,14 +32,20 @@ Route::group(['prefix' => '/student'], function () {
     Route::resource('empty-palce', 'EmptyPalceController');
 
     Route::resource('/levels', 'LevelController');
-    Route::get('levels/dataTables','LevelController@index')->name('levels.dataTables');
+    Route::get('levels-dataTables','LevelController@leveldataTable')->name('levels.dataTable');
+
     Route::get('levels/delete/{id}', 'LevelController@destroy')->name('levels.delete');
     Route::get('/level/{id}/classrooms', 'LevelController@classrooms');
     Route::resource('/classrooms', 'ClassroomController');
+    Route::get('classrooms-dataTable', 'ClassroomController@classTable')->name('classrooms.dataTable');
+
+
     Route::get('classrooms/delete/{id}', 'ClassroomController@destroy')->name('classrooms.delete');
     Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
 
     Route::resource('/parts', 'PartController');
+    Route::get('part-dataTables', 'PartController@partTable')->name('parts.dataTable');;
+    
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
     Route::resource('/students', 'StudentController');
 
@@ -58,6 +64,8 @@ Route::group(['prefix' => '/student'], function () {
     Route::any('/all', 'StudentController@allStudents')->name('all-students');
 
     Route::resource('/studentParent', 'StudentParentController');
+    Route::get('studentParent-dataTables', 'StudentParentController@ParentTable')->name('studentParent.dataTables');
+    
     Route::get('studentParent/delete/{id}', 'StudentParentController@destroy')->name('studentParent.delete');
     Route::get('/add-student-manual', 'StudentController@addStudentManual')->name('add-student-manual');
     Route::patch('/students/dist', 'StudentController@dist');

@@ -2,7 +2,8 @@
 
 namespace Modules\Employee\Http\Controllers;
 
-
+use \DB;
+use Yajra\DataTables\DataTables;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -27,7 +28,7 @@ class AddCalendController extends Controller
    {
        return DataTables::of(Calend::orderBy('id', 'desc')->get())
            ->addColumn('options', function ($calend) {
-               return view('Employee::calends.colums.options', ['id' => $calend->id, 'routeName' => 'calends']);
+               return view('employee::colums.options', ['id' => $calend->id, 'routeName' => 'calends']);
            })
            // ->addColumn('last_login', function (student $student) {
            //     if($student->last_login != null) {

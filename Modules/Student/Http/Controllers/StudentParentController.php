@@ -1,7 +1,8 @@
 <?php
 
 namespace Modules\Student\Http\Controllers;
-
+use \DB;
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -23,7 +24,47 @@ class StudentParentController extends Controller
     {
         $studentParents = StudentParent::orderBy('id', 'asc')->get();
         return view('student::students.student-parents.index', ['studentParents' => $studentParents]);
+    } 
+
+    public function ParentTable()
+    {
+        // return "jhgf";
+        return DataTables::of(StudentParent::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($studentParent) {
+                return view('student::students.student-parents.options', ['id' => $studentParent->id, 'routeName' => 'studentParent']);
+            // })
+
+            // ->editColumn('gender', function ($customer) {
+            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('status', function ($student) {
+            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
+            // })
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
     }
+
+ 
+
 
     /**
      * Show the form for creating a new resource.

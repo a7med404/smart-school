@@ -40,6 +40,7 @@ Route::group(['prefix' => '/employee'], function () {
 
 Route::group(['prefix' => '/employee'], function () {
     Route::resource('employees', 'EmployeeController');
+    Route::get('employees-dataTable', 'EmployeeController@empTable')->name('emptable.dataTables');;
     Route::resource('Certificates', 'CertificatController');
     Route::resource('salaries', 'SalaryController');
     Route::get('salary-details', 'SalaryController@salaryDetails')->name('salary-details');
@@ -58,7 +59,7 @@ Route::group(['prefix' => '/employee'], function () {
 
     /* offline works */
     Route::resource('calends', 'AddCalendController');
-    Route::get('calends/dataTables','AddCalendController@CalendTables')->name('calends.dataTables');
+    Route::get('calends-dataTables','AddCalendController@CalendTables')->name('calends.dataTables');
     Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
 
     Route::resource('add-calend', 'AddCalendEmployeeController');
@@ -66,9 +67,13 @@ Route::group(['prefix' => '/employee'], function () {
     Route::resource('emp-perissions', 'EmpPerissionsController');
     Route::get('emp-setting-perissions', 'EmpPerissionsController@empSettingPerissions')->name('emp-setting-perissions');
     Route::resource('cut-allowances', 'CutAllowanceController');
+    Route::get('cut-allowances-dataTables', 'CutAllowanceController@CutTable')->name('cut-allowances-dataTables');
+
     Route::get('cut-allowances/delete/{id}', 'CutAllowanceController@destroy')->name('cut-allowances.delete');
 
     Route::resource('bear-in-minds', 'BearInMindController');
+    Route::get('bearinminds-datatables', 'BearInMindController@bearinminds')->name('bearinminds.dataTable');
+
     Route::resource('bearinminds', 'BearInMindController');
     Route::resource('emp-absences', 'EmpAbsenceController');
     Route::resource('emp-pulls', 'EmpPullController');

@@ -35,7 +35,7 @@ class StudentController extends Controller
             $requestAll = $request->toArray();
             $query = Student::orderBy('id', 'desc');
             foreach ($requestAll as $key => $req) {
-                if (!($req == "" || null)) {
+                if (!($req == "" || null)) { 
                     $query->where($key, $req);
                 }
             }
@@ -74,10 +74,10 @@ class StudentController extends Controller
             //     // }
             //     // return $data;
             // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+            ->editColumn('level_id', function ($student) {
+                return $student->level->name;
+            })
+            ->rawColumns(['last_login', 'level_id', 'options', 'status', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')

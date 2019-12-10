@@ -102,22 +102,19 @@
     var lastIdx = null;
 
         $('#data tfoot th').each( function () {
-            if($(this).index() < 3 || $(this).index() == 4){
-                var classname = $(this).index() == 3  ?  'filter-select' : 'filter-input';
+            if($(this).index() < 5 ){
+                var classname = $(this).index() == 5  ?  'filter-select' : 'filter-input';
                 var title = $(this).html();
                 if($(this).index() == 0 ){
                     $(this).html( '<input type="text" style="max-width:70px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" '+title+'" />' );
                 }else{
                     $(this).html( '<input type="text" style="max-width:180px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'"placeholder=" البحث '+title+'" />' );
                 }
-            }else if($(this).index() == 3){
-                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{status()[0]}}"> {{status()[0]}} </option><option value="{{status()[1]}}"> {{status()[1]}} </option></select>' );
-
             }else if($(this).index() == 5){
                 $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
             }
         });
-
+        
         var table = $('#data').DataTable({
             processing: true,
             serverSide: true,

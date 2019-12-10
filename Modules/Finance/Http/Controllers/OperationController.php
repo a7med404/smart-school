@@ -1,7 +1,8 @@
 <?php
 
 namespace Modules\Finance\Http\Controllers;
-
+use \DB;
+use Yajra\DataTables\DataTables;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,20 +25,12 @@ class OperationController extends Controller
         return view('finance::account.operations.index', ['Operations' => $Operations]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('finance::create'); 
-    }
-    
+
     public function operationdataTables()
     {
         return DataTables::of(Operation::orderBy('id', 'desc')->get())
-            ->addColumn('options', function ($Operation) {
-                return view('Finance::calends.colums.options', ['id' => $Operation->id, 'routeName' => 'Operation.dataTables']);
+            ->addColumn('options', function ($operation) {
+                return view('finance::account.colums.options', ['id' => $operation->id, 'routeName' => 'operations']);
             })
             // ->addColumn('last_login', function (student $student) {
             //     if($student->last_login != null) {
@@ -65,6 +58,15 @@ class OperationController extends Controller
  
     }
  
+    /**
+     * Show the form for creating a new resource.
+     * @return Response
+     */
+    public function create()
+    {
+        return view('finance::create'); 
+    }
+    
     /**
      * Store a newly created resource in storage.
      * @param Request $request
