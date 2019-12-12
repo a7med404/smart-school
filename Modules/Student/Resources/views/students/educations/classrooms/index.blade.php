@@ -109,9 +109,9 @@
             ajax: '{!! route("classrooms.dataTable") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
+                { data: 'level_id', name: 'level_id ', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },
                 { data: 'sort', name: 'sort', "width": "15%" },
-                { data: 'level_id', name: 'level_id ', "width": "10%"},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

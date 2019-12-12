@@ -61,7 +61,15 @@ class TimetableController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+             ->editColumn('subject_id', function ($sub) {
+                return $sub->subject->name;
+            }) ->editColumn('part_id', function ($part) {
+                return $part->part->name;
+            })
+             ->editColumn('employee_id', function ($emp) {
+                return $emp->employee->full_name;
+            })
+            ->rawColumns(['last_login', 'roles', 'options', 'status'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')

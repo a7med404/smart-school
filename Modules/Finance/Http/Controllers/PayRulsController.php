@@ -48,7 +48,8 @@ class PayRulsController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+           
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'pay_rul_id'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')

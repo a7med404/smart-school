@@ -40,8 +40,8 @@
                         <tr>
                             <th>#ID</th>
                             <th>الطالب</th>
-                            <th>المستخدم</th>
-                            <th>ملاحظة</th>
+                           <<th>رسوم الصفوف</th>
+                            <th>المعاملات</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
@@ -52,7 +52,7 @@
                             <th>#ID</th>
                             <th>الطالب</th>
                             <th>المستخدم</th>
-                            <th>ملاحظة</th>
+                            <th>المعاملات</th>
                             <th>{{ __('home/labels.options') }}</th>
                                 
                             </tr>
@@ -140,8 +140,8 @@
             ajax: '{!! route("operations.dataTables") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
+                 { data: 'student_id', name: 'student_id', "width": "15%" },
                 { data: 'pay_class_id', name: 'pay_class_id', "width": "20%" },
-                { data: 'student_id', name: 'student_id', "width": "15%" },
                 { data: 'transaction_id', name: 'transaction_id ', "width": "10%"},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],

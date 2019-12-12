@@ -125,7 +125,7 @@
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },
                 { data: 'level_id', name: 'level_id', "width": "15%" },
-                { data: 'religion', name: 'religion', "width": "10%"},
+                { data: 'part_id', name: 'religion', "width": "10%"},
                 { data: 'classroom_id', name: 'classroom_id', "width": "15%"},
                 { data: 'gender', name: 'gender', "width": "15%", orderable: false},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},

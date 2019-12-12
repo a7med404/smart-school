@@ -25,7 +25,7 @@ class EmployeeController extends Controller
         // return "jhgf";
         return DataTables::of(Employee::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($emp) {
-                return view('employee::colums.options', ['id' => $emp->id, 'routeName' => 'emptable']);
+                return view('employee::employees.colums.options', ['id' => $emp->id, 'routeName' => 'employees']);
             // })
 
             // ->editColumn('gender', function ($customer) {
@@ -49,6 +49,13 @@ class EmployeeController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
+           
+               ->editColumn('department_id', function ($dep) {
+                return $dep->department->name;
+            })
+            ->editColumn('managament_id', function ($manag) {
+                return $manag->managament->name;
+            })
             ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')

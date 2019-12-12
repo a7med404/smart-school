@@ -134,7 +134,7 @@
             serverSide: true,
             autoWidth: false,
             select: true,
-            ajax: '{!! route("emptable.dataTables") !!}',
+            ajax: '{!! route("employees.dataTables") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'full_name', name: 'full_name', "width": "20%" },

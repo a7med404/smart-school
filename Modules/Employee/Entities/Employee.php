@@ -5,6 +5,7 @@ namespace Modules\Employee\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Entities\Identifcation;
 use Modules\Employee\Entities\BearInMind;
+use Modules\Employee\Entities\EmpHoliday;
 use Modules\Employee\Entities\EmpAbsence;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -78,6 +79,9 @@ class Employee extends Authenticatable
         return $this->belongsToMany(AddCalend::class);
     }
 
+  public function EmpHoliday(){
+        return $this->hasMany(Employee::class);
+    }
 
 
 }

@@ -40,7 +40,7 @@ Route::group(['prefix' => '/employee'], function () {
 
 Route::group(['prefix' => '/employee'], function () {
     Route::resource('employees', 'EmployeeController');
-    Route::get('employees-dataTable', 'EmployeeController@empTable')->name('emptable.dataTables');;
+    Route::get('employees-dataTable', 'EmployeeController@empTable')->name('employees.dataTables');;
     Route::resource('Certificates', 'CertificatController');
     Route::resource('salaries', 'SalaryController');
     Route::get('salary-details', 'SalaryController@salaryDetails')->name('salary-details');
@@ -87,7 +87,9 @@ Route::group(['prefix' => '/employee'], function () {
     Route::get('add-holidays/{id}/delete', 'AddHolidayController@destroy')->name('addholiday.delete');
     Route::resource('formalholidays', 'FormalHolidayController');
     Route::resource('emp-holidays', 'EmpHolidayController');
-    Route::get('emp-holidays/{id}/delete','EmpHolidayController@destroy')->name('empholiday.delete');
+  Route::get('emp-holidays-dataTable', 'EmpHolidayController@EmpTable')->name('emp-holidays.dataTable');
+    
+    Route::get('emp-holidays/{id}/delete','EmpHolidayController@destroy')->name('emp-holidays.delete');
     Route::resource('emp-evaluation', 'EvaluationEmpController');
     Route::get('emp-evaluation/{id}/delete','EvaluationEmpController@destroy')->name('emp-evaluation.delete');
     Route::resource('evaluation-items', 'EvaluationItemController');

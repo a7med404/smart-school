@@ -50,6 +50,15 @@ class EvaluationController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
+             ->editColumn('student_id', function ($student) {
+                return $student->student->name;
+            })
+            ->editColumn('employee_id', function ($emp) {
+                return $emp->employee->full_name;
+            })
+            ->editColumn('subject_id', function ($subject) {
+                return $subject->subject->name;
+            })
             ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')

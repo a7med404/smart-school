@@ -15,4 +15,8 @@ class Managament extends Model
         return $this->hasMany(Department::class);
     }
 
+public function Employee(){
+
+        return $this->hasMany(Employee::class);
+    }
 }

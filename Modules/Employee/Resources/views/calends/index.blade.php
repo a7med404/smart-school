@@ -119,6 +119,7 @@
             }
         });
 
+
         var table = $('#data').DataTable({
             processing: true,
             serverSide: true,
@@ -128,8 +129,8 @@
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },
-                { data: 'discount_percentage', name: 'discount_percentage', "width": "15%" },
                 { data: 'type', name: 'status', "width": "10%"},
+                { data: 'discount_percentage', name: 'discount_percentage', "width": "15%" },
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

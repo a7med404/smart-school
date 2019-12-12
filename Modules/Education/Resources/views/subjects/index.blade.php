@@ -134,9 +134,9 @@
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },
                 { data: 'education_year', name: 'education_year', "width": "15%" },
+                 { data: 'part_id', name: 'part_id', "width": "15%"},
                 { data: 'degree', name: 'degree', "width": "10%"},
                 { data: 'pass_degree', name: 'pass_degree', "width": "15%"},
-                { data: 'part_id', name: 'part_id', "width": "15%"},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

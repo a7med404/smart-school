@@ -137,11 +137,11 @@
             ajax: '{!! route("examinations.dataTables") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
+                { data: 'student_id', name: 'student_id', "width": "10%"},
+                { data: 'subject_id', name: 'subject_id', "width": "15%"},
                 { data: 'type', name: 'type', "width": "20%" },
                 { data: 'ratio', name: 'ratio', "width": "15%" },
-                { data: 'student_id', name: 'student_id', "width": "10%"},
                 { data: 'employee_id', name: 'employee_id', "width": "10%"},
-                { data: 'subject_id', name: 'subject_id', "width": "15%"},
                 { data: 'part_id', name: 'part_id', "width": "15%"},
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],

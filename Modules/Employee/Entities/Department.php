@@ -15,4 +15,9 @@ class Department extends Model
 
         return $this->belongsTo(Managament::class);
     }
+    public function Employee(){
+
+        return $this->belongsTo(Employee::class);
+    }
+}
 }

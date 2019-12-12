@@ -77,6 +77,12 @@ class StudentController extends Controller
             ->editColumn('level_id', function ($student) {
                 return $student->level->name;
             })
+            ->editColumn('classroom_id', function ($student) {
+                return $student->classroom->name;
+            })
+             ->editColumn('part_id', function ($student) {
+                return $student->part->name;
+            })
             ->rawColumns(['last_login', 'level_id', 'options', 'status', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')

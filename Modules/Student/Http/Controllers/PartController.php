@@ -52,6 +52,12 @@ class PartController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
+             ->editColumn('level_id', function ($student) {
+                return $student->level->name;
+            })
+            ->editColumn('classroom_id', function ($class) {
+                return $class->classroom->name;
+            })
             ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')

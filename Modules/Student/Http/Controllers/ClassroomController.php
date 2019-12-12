@@ -56,7 +56,11 @@ class ClassroomController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+            ->addColumn('level_id', function ($level) {
+                return $level->name;
+
+            })
+            ->rawColumns(['level', 'roles', 'options', 'status'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
