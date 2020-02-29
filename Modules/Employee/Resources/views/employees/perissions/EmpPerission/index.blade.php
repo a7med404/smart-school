@@ -34,7 +34,7 @@
     <!-- /.box -->
     <div class="row">
       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
+        <table id="data" class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
           <thead>
             <tr>
                 <th>#ID</th>
@@ -43,9 +43,10 @@
                 <th>من</th>
                 <th>الي</th>
                 <th>الاذونات</th>
-                <th>خصم</th>
+                <th>القسم</th>
+                <th>الادارة</th>
                 <th>ملاحظات</th>
-                <th>options</th>
+
             </tr>
           </thead>
      <tfoot>
@@ -56,9 +57,10 @@
                 <th>من</th>
                 <th>الي</th>
                 <th>الاذونات</th>
-                <th>خصم</th>
+                <th>القسم</th>
+                <th>الادارة</th>
                 <th>ملاحظات</th>
-                <th>options</th>
+
             </tr>
 
      </tfoot>
@@ -134,17 +136,17 @@
             serverSide: true,
             autoWidth: false,
             select: true,
-            ajax: '{!! route("emp-holidays.dataTable") !!}',
+            ajax: '{!! route("emp-perissions.dataTable") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
-                { data: 'employee_id', name: 'employee_id', "width": "20%" },
-                { data: 'date', name: 'from', "width": "15%" },
-                { data: 'from_hour', name: 'to', "width": "15%" },
-                { data: 'to_hour', name: 'add_holiday_id', "width": "15%" },
-                   { data: 'perission_id', name: 'perission_id', "width": "15%" },
-                      { data: 'to_hour', name: 'add_holiday_id', "width": "15%" },
+                { data: 'employee_id', name: 'employee_id', "width": "15%" },
+                { data: 'date', name: 'date', "width": "15%" },
+                { data: 'from_hour', name: 'from_hour', "width": "15%" },
+                { data: 'to_hour', name: 'to_hour', "width": "15%" },
+                { data: 'perission_id', name: 'perission_id', "width": "15%" },
+                { data: 'managament_id', name: 'managament_id', "width": "20%" },
+                { data: 'department_id', name: 'department_id', "width": "15%" },
                 { data: 'note', name: 'note', "width": "15%" },
-                { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {
                 "url": "{{ asset('modules/master/data/Arabic.json') }}"

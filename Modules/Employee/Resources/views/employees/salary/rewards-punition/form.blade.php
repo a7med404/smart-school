@@ -10,6 +10,23 @@
 
                                     </div>
                                 </div>
+                                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="form-group">
+
+                                        {!! Form::label('department_id', 'الاقسام', ['class' => 'control-label']) !!}
+                                        {!! Form::select('department_id',  getSelect('departments'),null, ['id' => 'department_id', 'class' => "select2 form-control"]) !!}
+
+                                    </div>
+                                </div>
+                                <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="form-group">
+
+                                        {!! Form::label('management_id', 'الادارة', ['class' => 'control-label']) !!}
+                                        {!! Form::select('management_id',  getSelect('managaments'),null, ['id' => 'management_id', 'class' => "select2 form-control"]) !!}
+
+                                    </div>
+                                </div>
+
                                 <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="bootstrap-timepicker">
                                             <div class="form-group">
@@ -34,7 +51,7 @@
                                         <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     {!! Form::label('value', 'القيمة', ['class' => 'control-label']) !!}
-                                                    {!! Form::text('value', ' ', ['id' => 'value', 'class' => "select2 form-control", 'value' => "{{ old('value') }}", 'required', 'autofocus']) !!}
+                                                    {!! Form::text('value', ' ', ['id' => 'value', 'class' => "form-control", 'value' => "{{ old('value') }}", 'required', 'autofocus']) !!}
                                                 </div>
                                             </div>
                                             <div class="col col-lg-12 col-md-12 col-sm-6 col-6">

@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-md-6">
                     {!! Form::model($attendanceInfo, ['route' => ['attendances.update', $attendanceInfo->id], 'method' => "PATCH"]) !!}
-                    @include('student::students.educations.attendances.form')
+                    @include('student::students.attendances.form')
                     {!! Form::close() !!}
                 </div>
             </div>

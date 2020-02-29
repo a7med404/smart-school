@@ -9,17 +9,14 @@ use Modules\Student\Entities\PayClass;
 class Level extends Model
 {
     protected $fillable = [
-        'name', 
-        'sort', 
+        'name',
+        'sort',
         'head_master',
         'school_master'
         ];
 
-    public function classrooms()
-    {
-        return $this->hasMany(Classroom::class);
-    }
     
+
     public function payclasses()
     {
         return $this->hasMany('App\PayClass');

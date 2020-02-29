@@ -94,10 +94,10 @@ class PayClassController extends Controller
 
         if($PayClases){
             Session::flash('flash_massage_type');
-            return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Created Susscefully');
+            return redirect()->route('pay-classes.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
-    
+
     /**
      * Show the specified resource.
      * @param int $id
@@ -116,7 +116,7 @@ class PayClassController extends Controller
     public function classrooms($id)
     {
         return new ClassroomResource(PayClass::findOrfail($id)->classrooms);
-        /* return view('finance::show'); */ 
+        /* return view('finance::show'); */
     }
 
     /**
@@ -139,7 +139,7 @@ class PayClassController extends Controller
     {
       PayClass::findOrfail($id)->update($request->all());
       Session::flash('flash_massage_type');
-      return redirect()->route('pay-classes.index')->withFlashMassage('PayClass Updated Susscefully');
+      return redirect()->route('pay-classes.index')->withFlashMassage('تم التحديث بنجاح');
     }
 
 
@@ -152,7 +152,7 @@ class PayClassController extends Controller
     {
       $OnePayClass->findOrfail($id)->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('PayClass Deleted Susscefully');
-    }      
- 
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
+
 }

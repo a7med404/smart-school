@@ -1,7 +1,7 @@
 
 @extends('cpanelAdmin.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_payruls') }}
+تسجيل غياب الموظفين
 @endsection
 @section('header')
 <!-- icheck -->
@@ -9,11 +9,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_payruls') }} <small>it all starts here</small></h1>
+    <h1>تسجيل غياب الموظفين <small></small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanelAdmin\payruls') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payruls') }} </a></li>
-        <li class="active"> {{ __('home/sidebar.edit_payrul') }} {{ $empabsence->name }} </li>
+
     </ol>
 </section>
 
@@ -22,7 +21,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ __('home/sidebar.edit_payrul') }}</h3>
+            <h3 class="box-title">تسجيل غياب الموظفين</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>

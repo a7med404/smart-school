@@ -69,7 +69,7 @@
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.show',  ['id' => $object->id]) }}">استعراض</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $object->id]) }}">تعديل</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $object->id]) }}">طباعة</a></li>
                                         <li role="presentation" class="divider"></li>
@@ -85,7 +85,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

@@ -24,7 +24,7 @@ class StudentParentController extends Controller
     {
         $studentParents = StudentParent::orderBy('id', 'asc')->get();
         return view('student::students.student-parents.index', ['studentParents' => $studentParents]);
-    } 
+    }
 
     public function ParentTable()
     {
@@ -52,10 +52,10 @@ class StudentParentController extends Controller
             //     // }
             //     // return $data;
             // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+             ->editColumn('nationality', function ($student) {
+                 return  nationality()[1];
+             })
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender','nationality'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
@@ -63,7 +63,7 @@ class StudentParentController extends Controller
 
     }
 
- 
+
 
 
     /**
@@ -81,7 +81,7 @@ class StudentParentController extends Controller
      * @return Response
      */
     public function store(CreateStudentParentRequest $request)
-    { 
+    {
         $request['is_die'] = request()->has('is_die')? true : false;
         $request['password'] = Hash::make($request->password);
         $studentParent = StudentParent::create($request->all());
@@ -102,6 +102,7 @@ class StudentParentController extends Controller
     public function show($id)
     {
         $studentParentInfo = StudentParent::findOrFail($id);
+         
         return view('student::students.student-parents.show', ['studentParentInfo' => $studentParentInfo]);
     }
 
@@ -127,7 +128,7 @@ class StudentParentController extends Controller
         return view('student::students.student-parents.edit-auth', ['studentParentInfo' => $studentParentInfo]);
     }
 
-    
+
     public function saveEditAuth(CreateAuthStudentParentRequest $request, $id)
     {
         $data = [
@@ -163,6 +164,6 @@ class StudentParentController extends Controller
       $studentParentForDelete->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('StudentParent Deleted Susscefully');
-    }     
+    }
 
 }

@@ -53,7 +53,6 @@
                             <th>#ID</th>
                             <th>اسم الخزنة</th>
                             <th>وصف</th>
-                            <th>الحالة</th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
@@ -62,7 +61,6 @@
                             <th>#ID</th>
                             <th>اسم الخزنة</th>
                             <th>وصف</th>
-                            <th>الحالة</th>
 
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
@@ -143,7 +141,6 @@
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },
                 { data: 'note', name: 'note'  , "width": "20%" },
-                { data: 'deletable', name: 'deletable'  , "width": "20%" },
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

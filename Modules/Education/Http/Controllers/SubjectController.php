@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Education\Entities\Subject;
-use Session;
+use Modules\Student\Entities\Part;
+use Illuminate\Support\Facades\Session;
 use Modules\Education\Http\Requests\CreateSubjectRequest;
 
 class SubjectController extends Controller
@@ -83,11 +84,11 @@ class SubjectController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
+    {
         $subject = Subject::create($request->all());
         if($subject){
             Session::flash('flash_massage_type');
-            return redirect()->route('subjects.index')->withFlashMassage('Subject Created Susscefully');
+            return redirect()->route('subjects.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -123,7 +124,7 @@ class SubjectController extends Controller
     {
         $subjectUpdate = Subject::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->route('timetables.index')->withFlashMassage('Subject Updated Susscefully');
+        return redirect()->route('timetables.index')->withFlashMassage('تم تحديث البيانات بنجاح');
     }
 
     /**
@@ -136,8 +137,8 @@ class SubjectController extends Controller
       $subjectForDelete = $Onesubject->findOrfail($id);
       $subjectForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Subject Deleted Susscefully');
-    }     
+      return redirect()->back()->withFlashMassage('تم حذف البيانات بنجاح');
+    }
 
 
 }

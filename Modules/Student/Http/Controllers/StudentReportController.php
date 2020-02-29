@@ -1,10 +1,13 @@
 <?php
 
 namespace Modules\Student\Http\Controllers;
-
+use Yajra\DataTables\DataTables;
+use App\Modules\User\Entities\Role;
 use Illuminate\Http\Request;
+use Modules\Student\Entities\StudentStudentParent;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Employee\Entities\Department;
 use Modules\Student\Entities\Level;
 use Illuminate\Support\Facades\DB;
 use Modules\Student\Entities\Student;
@@ -18,9 +21,103 @@ class StudentReportController extends Controller
      */
     public function index()
     {
-        return view('student::index');
+
+        return view('student::students.student.reports.report-levels')
+        ->with('level',Level::all())
+         ->with('department',Department::all())
+         ->with('student',Student::searched());
     }
 
+    public function class()
+    {
+        return view('student::students.student.reports.report-data-classrooms');
+    }
+    public function part()
+    {
+        $level=request()->query('level_id');
+         $class=request()->query('classroom_id');
+         $gender=request()->query('gender_id');
+         $part=request()->query('part_id');
+
+
+        if($level)
+        {
+            $std=Student::where('level_id', 'LIKE',"%$level%")
+             ->orWhere('classroom_id','LIKE',"%$class%")
+             ->orWhere('part_id','LIKE',"%$part%")
+             ->orWhere('gender','LIKE',"%$gender%")
+            ->get();
+        }
+        else{
+            $std=Student::where('level_id', 'LIKE',"%$level%")
+            ->orWhere('classroom_id','LIKE', "%$class%")
+             ->orWhere('part_id', 'LIKE' , "%$part%")
+            ->orWhere('gender',' LIKE',  "%$gender%")
+            ->get();
+        }
+        return view('student::students.student.reports.report-parts',compact('std'));
+    }
+    public function empstudent()
+    {
+
+        $emp=Student::where('is_staff_son',1)->get();
+        return view('student::students.student.reports.report-emp-student',compact('emp'));
+    }
+    public function empstudentDataTables()
+    {
+        // return "jhgf";
+        return DataTables::of(Student::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($student) {
+                return view('student::students.colums.fake', ['id' => $student->id, 'routeName' => 'empstudentDataTable']);
+            })
+
+            ->editColumn('gender', function ($customer) {
+                return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            ->editColumn('level_id', function ($student) {
+                return $student->level->name;
+            })
+            ->editColumn('classroom_id', function ($student) {
+                return $student->classroom->name;
+            })
+             ->editColumn('part_id', function ($student) {
+                return $student->part->name;
+            })
+            ->editColumn('religion', function ($religion) {
+                return religion()[1];
+            })
+            ->rawColumns(['last_login', 'level_id', 'options', 'status', 'gender','religion'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
+
+    public function PayLevelReport()
+    {
+        $role=Role::all();
+        return view('student::students.student.reports.PayLevel.PayLevel')
+        ->with('role',Role::all());
+    }
+    public function transport(){
+        return view('student::students.student.reports.transport-pay.transport');
+    }
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -172,7 +269,7 @@ class StudentReportController extends Controller
     }
 
     // public function viewPage(Request $request, $report)
-    // { 
+    // {
     //    dd($report);
     // }
 

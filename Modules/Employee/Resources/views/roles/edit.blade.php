@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_roles') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.all_roles') }} <small></small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanelAdmin\roles') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_roles') }} </a></li>
@@ -22,7 +22,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ __('home/sidebar.edit_role') }}</h3>
+            <h3 class="box-title">Homo</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>
@@ -38,7 +38,7 @@
                 {!! Form::close() !!}
                 </div>
             </div>
-    
+
         </div>
         <!-- /.box-body -->
     </div>

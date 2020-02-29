@@ -13,9 +13,9 @@ class Attendance extends Model
         'student_id',
         // 'note'
     ];
-    
-    public function students()
+
+    public function student()
     {
-        return $this->belongsToMany(Student::Class, 'attendance_student', 'student_id', 'attendance_id');
+        return $this->belongsTo(Student::class);
     }
 }

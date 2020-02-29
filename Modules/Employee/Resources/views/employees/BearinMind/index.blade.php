@@ -129,7 +129,7 @@
                 $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
             }
         });
-        
+
         var table = $('#data').DataTable({
             processing: true,
             serverSide: true,
@@ -138,9 +138,9 @@
             ajax: '{!! route("bearinminds.dataTable") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
-                { data: 'note', name: 'note', "width": "20%" },
-                { data: 'date', name: 'date', "width": "20%" },
                 { data: 'employee_id', name: 'employee_id', "width": "15%" },
+                { data: 'date', name: 'date', "width": "20%" },
+                { data: 'note', name: 'note', "width": "20%" },
                 { data: 'options', name: 'options', orderable: false, "width": "10%"},
             ],
             "language": {

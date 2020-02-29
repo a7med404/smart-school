@@ -16,7 +16,7 @@
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ route('students.index') }}"><i class="fa fa-dashboard"></i> كل الطلاب </a></li>
-        <li class="active"> {{ __('home/sidebar.edit_student') }} </li>
+        <li class="active"> </li>
     </ol>
 </section>
 
@@ -25,7 +25,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ __('home/sidebar.edit_student') }}</h3>
+            <h3 class="box-title">اضافة طالب جديد</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>

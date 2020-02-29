@@ -41,17 +41,17 @@
                             <th>اسم المخالفة</th>
                             <th> نوع المخالفة</th>
                             <th>النسبة من الراتب</th>
-                            <th>option</th>
+                            <th>الخيارات</th>
                         </tr>
                     </thead>
-                    
+
                     <tfoot>
                             <tr>
-                                <th>#ID</th>
+                            <th>#ID</th>
                             <th>اسم المخالفة</th>
                             <th> نوع المخالفة</th>
                             <th>النسبة من الراتب</th>
-                            <th>option</th>
+                            <th>الخيارات</th>
                             </tr>
                         </tfoot>
                 </table>

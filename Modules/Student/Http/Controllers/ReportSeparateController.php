@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Student\Http\Controllers;
-
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -18,8 +18,51 @@ class ReportSeparateController extends Controller
      */
     public function index()
     {
-        $reportSeparates = ReportSeparate::orderBy('id', 'asc')->get();
-        return view('student::students.reports.report-separates.index', ['reportSeparates' => $reportSeparates]);
+        $separate = ReportSeparate::latest()->first();
+        return view('student::students.student.reports.report-separates.index',compact('separate'));
+    }
+
+    public function separatesDataTable()
+    {
+        // return "jhgf";
+        return DataTables::of(ReportSeparate::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($student) {
+                return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'report-separates']);
+            })
+
+            ->editColumn('gender', function ($customer) {
+                return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('level_id', function ($student) {
+            //     return $student->level->name;
+            // })
+            // ->editColumn('classroom_id', function ($student) {
+            //     return $student->classroom->name;
+            // })
+             ->editColumn('student_id', function ($student) {
+                return $student->student->name;
+            })
+            ->rawColumns(['last_login', 'student_id', 'options', 'status', 'gender'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
     }
 
     /**
@@ -37,11 +80,11 @@ class ReportSeparateController extends Controller
      * @return Response
      */
     public function store(CreateReportSeparateRequest $request)
-    { 
+    {
         $reportSeparate = ReportSeparate::create($request->all());
         if($reportSeparate){
             Session::flash('flash_massage_type');
-            return redirect()->back()->withFlashMassage('ReportSeparate Created Susscefully');
+            return redirect()->back()->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -67,7 +110,7 @@ class ReportSeparateController extends Controller
         $reportSeparateInfo = ReportSeparate::findOrFail($id);
         return view('student::students.reports.report-separates.print-student-page', ['reportSeparateInfo' => $reportSeparateInfo]);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      * @param int $id
@@ -89,7 +132,7 @@ class ReportSeparateController extends Controller
     {
         $reportSeparateUpdate = ReportSeparate::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->back()->withFlashMassage('ReportSeparate Updated Susscefully');
+        return redirect()->back()->withFlashMassage('تم التحديث بنجاح');
     }
 
     /**
@@ -102,7 +145,7 @@ class ReportSeparateController extends Controller
       $reportSeparateForDelete = $OnereportSeparate->findOrfail($id);
       $reportSeparateForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('ReportSeparate Deleted Susscefully');
-    }     
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
 
 }

@@ -53,15 +53,15 @@
                         @forelse($Transactions as $transaction)
                         <tr>
                             <td>{{ $transaction->id }}</td>
-                            <td>{{ transactionStatus()[$transaction->journal->status] }}</td>
+                            {{-- <td>{{ transactionStatus()[$transaction->journal->status] }}</td>
                             <td>{{ $transaction->journal->rscType->name }}</td>
-                            <td>{{ $transaction->journal->employee->full_name }}</td> 
+                            <td>{{ $transaction->journal->employee->full_name }}</td> --}}
                             {{-- <td>{{ getName('pay_ruls', $transaction->operation->pay_rul_id) }}</td> --}}
-                            <td>{{ $transaction->operation }}</td>
+                            {{-- <td>{{ $transaction->operation }}</td> --}}
                             <td>{{ $transaction->amount }}</td>
                             <td>{{ $transaction->created_at }}</td>
-                            <td>{{ $transaction->journal->note }}</td>
-                            
+                            {{-- <td>{{ $transaction->journal->note }}</td> --}}
+
                             {{-- <td>
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -84,7 +84,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

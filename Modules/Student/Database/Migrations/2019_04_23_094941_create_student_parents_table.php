@@ -24,8 +24,8 @@ class CreateStudentParentsTable extends Migration
             $table->string('job', 255)->nullable();
             $table->string('work_place', 255)->nullable();
             $table->integer('martial')->nullable();
-            $table->string('phone_number', 14);
-            $table->string('email', 14);
+            $table->string('phone_number', 190);
+            $table->string('email', 190);
             $table->integer('is_die')->default(0);
             $table->text('note')->nullable();
             $table->string('username')->unique()->nullable();

@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\Employee\Http\Controllers;
+use Yajra\DataTables\DataTables;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -11,7 +12,7 @@ use \Session;
 
 class PermissionController extends Controller
 {
- 
+
     public function __construct()
     {
         $this->middleware('auth:employee');
@@ -31,7 +32,49 @@ class PermissionController extends Controller
       // dump($a);
       return view('employee::permissions.index', ['permissions' => $permissions]);
     }
+    public function PermissionDataTable()
+    {
+        // return "jhgf";
+        return DataTables::of(Permission::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($emp) {
+                return view('employee::employees.colums.options', ['id' => $emp->id, 'routeName' => 'permissions']);
+            // })
 
+            // ->editColumn('gender', function ($customer) {
+            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('status', function ($student) {
+            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
+            // })
+
+            //      ->editColumn('department_id', function ($dep) {
+            //       return $dep->department->name;
+            //   })
+            //   ->editColumn('managament_id', function ($manag) {
+            //         return $manag->managament->name;
+            //   })
+            ->rawColumns(['last_login', 'roles', 'options', 'status','managament_id'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -56,7 +99,7 @@ class PermissionController extends Controller
            'description'       => $request->description
        ]);
        Session::flash('flash_massage_type');
-       return redirect('cpanelAdmin/permissions')->withFlashMassage('Permission Created Susscefully');
+       return redirect('cpanelAdmin/permissions')->withFlashMassage('تم الاضافة بنجاح');
      }
 
     /**
@@ -100,7 +143,7 @@ class PermissionController extends Controller
        ];
        $permissionUpdate->fill($data)->save();
        Session::flash('flash_massage_type');
-       return redirect()->back()->withFlashMassage('Permission Updated Susscefully');
+       return redirect()->back()->withFlashMassage('تم التحديث بنجاح');
     }
 
     /**
@@ -115,7 +158,7 @@ class PermissionController extends Controller
        // dd($Onepermission->detachPermissions($permissionForDelete));
        $permissionForDelete->delete();
        Session::flash('flash_massage_type');
-       return redirect()->back()->withFlashMassage('Permission Deleted Susscefully');
+       return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
      }
 
 }

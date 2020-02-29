@@ -90,7 +90,7 @@ class LevelController extends Controller
         $level = Level::create($data);
         if($level){
             Session::flash('flash_massage_type');
-            return redirect()->route('levels.index')->withFlashMassage('Level Created Susscefully');
+            return redirect()->route('levels.index')->withFlashMassage('تم اضافة بنجاح');
         }
     }
     /**
@@ -141,7 +141,7 @@ class LevelController extends Controller
         ];
       $updateLevel = $levelUpdate->fill($data)->save();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Level Updated Susscefully');
+      return redirect()->back()->withFlashMassage('تم التحديث بنجاح');
     }
 
 
@@ -155,8 +155,8 @@ class LevelController extends Controller
       $levelForDelete = $Onelevel->findOrfail($id);
       $levelForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Level Deleted Susscefully');
-    }      
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
 
 
 }

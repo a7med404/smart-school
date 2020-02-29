@@ -1,13 +1,15 @@
 <?php
 
 namespace Modules\Employee\Http\Controllers;
+use Yajra\DataTables\DataTables;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Session;
 use Modules\Employee\Entities\Progenitor;
+use Modules\Employee\Entities\Employee;
 use Modules\Employee\Http\Requests\CreateProgenitorRequest;
-use Session;
 class ProgenitorController extends Controller
 {
     /**
@@ -19,6 +21,51 @@ class ProgenitorController extends Controller
         $prog=Progenitor::all();
         return view('employee::employees.salary.progenitor.index',compact('prog'));
     }
+
+
+    public function progenitorsDataTable()
+    {
+        // return "jhgf";
+        return DataTables::of(Progenitor::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($progenitor) {
+                return view('student::students.colums.options', ['id' => $progenitor->id, 'routeName' => 'progenitors']);
+            })
+
+            ->editColumn('gender', function ($customer) {
+                return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('employee_id', function ($student) {
+            //     return $student->employee->id;
+            // })
+            // ->editColumn('classroom_id', function ($student) {
+            //     return $student->classroom->name;
+            // })
+            //  ->editColumn('part_id', function ($student) {
+            //     return $student->part->name;
+            // })
+            ->rawColumns(['last_login', 'employee_id', 'options', 'status', 'gender'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,7 +98,11 @@ class ProgenitorController extends Controller
      */
     public function show($id)
     {
-        /* return view('student::show'); */
+        $shows=Progenitor::find($id);
+
+        return view('employee::employees.salary.progenitor.show',compact('shows'));
+
+
     }
 
 

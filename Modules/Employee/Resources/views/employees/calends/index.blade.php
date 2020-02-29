@@ -28,13 +28,13 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-addcalend" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مخالفة جديدة 
+                <i class="fa fa-plus"></i> اضافة مخالفة جديدة
                 </a>
             </div>
         </div>
         <div class="box-body">
             <div class="table-responsive">
-                <table id="table_id" class="table table-bordered table-hover table-condensed">
+                <table id="data" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
@@ -53,7 +53,7 @@
                             <th>option</th>
                         </tr>
                     </tfoot>
-                    
+
                 </table>
             </div>
         </div>
@@ -127,7 +127,7 @@
             serverSide: true,
             autoWidth: false,
             select: true,
-            ajax: '{!! route("students.dataTables") !!}',
+            ajax: '{!! route("calends.dataTables") !!}',
             columns: [
                 { data: 'id', name: 'id', "width": "10%"},
                 { data: 'name', name: 'name', "width": "20%" },

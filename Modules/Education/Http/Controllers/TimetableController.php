@@ -31,7 +31,7 @@ class TimetableController extends Controller
         return view('education::create');
     }
 
- 
+
     public function timeTable()
     {
         // return "jhgf";
@@ -76,7 +76,7 @@ class TimetableController extends Controller
             ->make(true);
 
     }
- 
+
 
     /**
      * Store a newly created resource in storage.
@@ -84,11 +84,11 @@ class TimetableController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
+    {
         $timetable = Timetable::create($request->all());
         if($timetable){
             Session::flash('flash_massage_type');
-            return redirect()->route('timetables.index')->withFlashMassage('Timetable Created Susscefully');
+            return redirect()->route('timetables.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -124,7 +124,7 @@ class TimetableController extends Controller
     {
         $timetableUpdate = Timetable::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->route('timetables.index')->withFlashMassage('Timetable Updated Susscefully');
+        return redirect()->route('timetables.index')->withFlashMassage('تم تحديث البيانات بنجاح');
     }
 
     /**
@@ -137,7 +137,7 @@ class TimetableController extends Controller
       $timetableForDelete = $Onetimetable->findOrfail($id);
       $timetableForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Timetable Deleted Susscefully');
-    }     
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
 
 }

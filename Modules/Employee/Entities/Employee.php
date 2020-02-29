@@ -5,7 +5,10 @@ namespace Modules\Employee\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Address\Entities\Identifcation;
 use Modules\Employee\Entities\BearInMind;
+use Modules\Employee\Entities\EmpPerissions;
 use Modules\Employee\Entities\EmpHoliday;
+use Modules\Employee\Entities\Managament;
+use Modules\Employee\Entities\Department;
 use Modules\Employee\Entities\EmpAbsence;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,16 +16,17 @@ use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Notifications\Notifiable;
 use Modules\Address\Entities\Address;
 use Modules\Address\Entities\Contact;
+use Modules\Employee\Entities\Progenitor;
 use Laravel\Passport\HasApiTokens;
 
 class Employee extends Authenticatable
-{    
+{
     use SoftDeletes, LaratrustUserTrait, Notifiable, HasApiTokens;
-    
+
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     protected $fillable = [
         'full_name',
         'gender',
@@ -40,7 +44,7 @@ class Employee extends Authenticatable
         'contact_id',
         'identification_id',
         'note',
-        'username', 
+        'username',
         'password'
     ];
 
@@ -48,7 +52,7 @@ class Employee extends Authenticatable
     {
         return 'username';
     }
-
+  
     public function addresses()
     {
         // return $this->hasOne(Address::class, 'address_id', 'id');
@@ -65,9 +69,21 @@ class Employee extends Authenticatable
         return $this->morphMany(Identifcation::class, 'identifcationable');
     }
 
-    public function absence()
+    public function empabsence()
     {
         return $this->hasMany(EmpAbsence::class);
+    }
+     public function managament()
+     {
+         return $this->belongsTo(Managament::class);
+    }
+     public function department()
+     {
+         return $this->belongsTo(Department::class);
+     }
+    public function perission()
+    {
+        return $this->hasMany(EmpPerissions::class);
     }
 
     public function bearInMind()
@@ -82,6 +98,7 @@ class Employee extends Authenticatable
   public function EmpHoliday(){
         return $this->hasMany(Employee::class);
     }
+
 
 
 }

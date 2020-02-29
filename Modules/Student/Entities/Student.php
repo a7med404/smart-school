@@ -21,17 +21,17 @@ class Student extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'name', 
-        'gender', 
-        'religion', 
+        'name',
+        'gender',
+        'religion',
         'is_staff_son',
-        'birthday', 
+        'birthday',
         'start_data',
-        'education_year', 
-        'study_status', 
-        'level_id', 
-        'classroom_id', 
-        'part_id', 
+        'education_year',
+        'study_status',
+        'level_id',
+        'classroom_id',
+        'part_id',
         'note',
         'is_partner_son',
         'health_id'
@@ -46,7 +46,7 @@ class Student extends Model
     {
         return $this->morphMany(Contact::class, 'contactable');
     }
-    
+
     public function level()
     {
         return $this->belongsTo(Level::class);
@@ -92,8 +92,24 @@ class Student extends Model
         return $this->hasMany(ReportSeparate::class);
     }
 
-    public function attendances()
+    // public function attendance()
+    // {
+    //     return $this->hasMany(Attendance::class);
+    // }
+    public function scopeSearched($query)
     {
-        return $this->belongsToMany(Attendance::Class, 'attendance_student', 'attendance_id', 'student_id');
+        $search=request()->query('level');
+
+        $gender=request()->query('gender');
+        if(!$search)
+       {
+           return $query;
+
+       }
+       return $query->where('level_id','LIKE',"%{$search}%")
+       ->orWhere('gender','LIKE',"%{$gender}%")
+       ->get();
     }
+
+
 }

@@ -71,7 +71,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>
@@ -116,8 +116,10 @@
     });
     $(document).ready(function () {
         /*
+
             For iCheck =====================================>
         */
+
         $("input").iCheck({
             checkboxClass: "icheckbox_square-red",
             radioClass: "iradio_square-yellow",

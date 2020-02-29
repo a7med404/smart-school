@@ -22,6 +22,16 @@ function deletable()
         1 => 'قابل للحذف',
     ];
 }
+function localities(){
+    return [
+        0 => 'الخرطوم',
+        1 => 'جبل اولياء',
+        2 => 'شرق النيل',
+        3 => 'امدرمان',
+        4 => 'كرري',
+        5=> 'الثورة'
+    ];
+}
 function gender()
 {
     return [
@@ -449,12 +459,12 @@ function getSelect($tableName, $all = null)
             $list = \DB::table('parts')->pluck('name', 'id');
             array_add($list, '', 'الكل');
             return $list->toArray();
-            break; 
+            break;
         case 'subjects':
             $list = \DB::table('subjects')->pluck('name', 'id');
             array_add($list, '', 'الكل');
             return $list->toArray();
-            break; 
+            break;
         case 'identifcations':
             $list = \DB::table('identifcations')->pluck('identifcationable_id', 'id');
             array_add($list, '', 'الكل');

@@ -38,7 +38,7 @@ class OperationController extends Controller
             //     }
             //     return $student->last_login;
             // })
- 
+
             // ->addColumn('roles', function ($student) {
             //     // $data = [];
             //     // foreach ($student->roles as $role) {
@@ -52,7 +52,7 @@ class OperationController extends Controller
             // })
             ->editColumn('student_id', function ($student) {
                 return $student->student->name;
-            }) 
+            })
             ->editColumn('student_id', function ($student) {
                 return $student->student->name;
             })
@@ -61,18 +61,18 @@ class OperationController extends Controller
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
             ->make(true);
- 
+
     }
- 
+
     /**
      * Show the form for creating a new resource.
      * @return Response
      */
     public function create()
     {
-        return view('finance::create'); 
+        return view('finance::create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -100,14 +100,14 @@ class OperationController extends Controller
                         $operation->save();
                         Session::flash('flash_massage_type');
                         return redirect()->route('operations.index')->withFlashMassage('Operation Created Susscefully');
-					} catch(\Illuminate\Database\QueryException $ex) { 	
+					} catch(\Illuminate\Database\QueryException $ex) {
 						Transaction::where('journal_id', $journal->id)->get()->each->delete();
 						Journal::find($journal->id)->get()->each->delete();
                         Session::flash('flash_massage_type', 4);
                         return redirect()->back()->withFlashMassage('SQL ERROR [OPERATION');
 					}
 				}
-			} catch(\Illuminate\Database\QueryException $ex) { 	
+			} catch(\Illuminate\Database\QueryException $ex) {
 				Journal::find($journal->id)->get()->each->delete();
                 Session::flash('flash_massage_type', 4);
                 return redirect()->back()->withFlashMassage('SQL ERROR [TRANSACTION');
@@ -155,7 +155,7 @@ class OperationController extends Controller
     {
       Operation::findOrfail($id)->update($request->all());
       Session::flash('flash_massage_type');
-      return redirect()->route('operations.index')->withFlashMassage('Operation Updated Susscefully');
+      return redirect()->route('operations.index')->withFlashMassage('تم  الاضافة بنجاح');
     }
 
 
@@ -164,13 +164,13 @@ class OperationController extends Controller
      * @param int $id
      * @return Response
      */
-    // public function destroy($id, Operation $OneOperation)
-    // {
-    //   $OneOperation->findOrfail($id)->delete();
-    //   Session::flash('flash_massage_type');
-    //   return redirect()->back()->withFlashMassage('Operation Deleted Susscefully');
-    // }     
-    
+    public function destroy($id, Operation $OneOperation)
+    {
+      $OneOperation->findOrfail($id)->delete();
+      Session::flash('flash_massage_type');
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
+
 	// public function destroy(Request $request) {
 	// 	try {
 	// 		DB::transaction(function () use ($request) {
@@ -181,6 +181,6 @@ class OperationController extends Controller
 	// 	}
 	// 	return response()->json(['message' => __('Operation deleted successfully.')], 200);
 	// }
-    
+
 
 }

@@ -2,6 +2,8 @@
 
 namespace Modules\Employee\Entities;
 use Modules\Employee\Entities\Employee;
+use Modules\Employee\Entities\AddHoliday;
+
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,4 +23,9 @@ class EmpHoliday extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+    public function AddHoliday()
+    {
+        return $this->belongsTo(AddHoliday::class);
+    }
+
 }

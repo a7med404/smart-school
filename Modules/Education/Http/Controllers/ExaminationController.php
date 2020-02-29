@@ -2,13 +2,17 @@
 
 namespace Modules\Education\Http\Controllers;
 use \DB;
+use Illuminate\Support\Facades\Input;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Education\Entities\Examination;
-use Session;
 use Modules\Education\Http\Requests\CreateExaminationRequest;
+use Illuminate\Support\Facades\Session;
+use Modules\Education\Entities\Mark;
+use Modules\Student\Entities\Level;
+use Modules\Student\Entities\Student;
 
 class ExaminationController extends Controller
 {
@@ -18,10 +22,18 @@ class ExaminationController extends Controller
      */
     public function index()
     {
-        $examinations = Examination::orderBy('id', 'asc')->get();
-        return view('education::examinations.index', ['examinations' => $examinations]);
+
+        $search=request()->level_id;
+        $part=Level::all();
+        $se=Level::where('level',$search);
+
+        $students =Student::orderBy('id', 'asc')->get();
+        return view('education::examinations.index', ['students' => $students])
+        ->with('part',$part)
+        ->with('se',$se)
+        ;
     }
- 
+
     public function Examtable()
     {
         // return "jhgf";
@@ -48,9 +60,9 @@ class ExaminationController extends Controller
             //     // }
             //     // return $data;
             // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
+             ->editColumn('type', function ($type) {
+                return examinationType()[111];
+            })
               ->editColumn('student_id', function ($student) {
                 return $student->student->name;
             })
@@ -77,7 +89,16 @@ class ExaminationController extends Controller
      */
     public function create()
     {
-        return view('education::create');
+        $examination=Examination::orderBy('id', 'desc')->get();
+
+        return view('education::examinations.list',compact('examination'));
+    }
+    public function get()
+
+    {
+        $get=Student::where('level','LIKE','"%{$level}%"')
+        ->orWhere('level','LIKE','"%{$lev}%"');
+        return view('');
     }
 
     /**
@@ -86,11 +107,43 @@ class ExaminationController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
-        $examination = Examination::create($request->all());
+    {
+
+
+        $request->validate([
+            'ratio' => 'required|array'
+        ]);
+        // $data=$request->all();
+        foreach($request->input('ratio') as $key=>$value){
+         $type=$request->input('type');
+         $student_id=$request->input('student_id') [$key];
+         $employee_id=$request->input('employee_id');
+         $subject_id=$request->input('subject_id');
+         $part_id=$request->input('part_id');
+
+        $examination=Examination::insert(
+    [
+        'type' => $type,
+        'ratio' => $value,
+        'student_id' => $student_id,
+        'subject_id' => $subject_id,
+        'part_id' => $part_id,
+        'employee_id' => $employee_id
+    ]
+        );
+        }
+        //
+
+        //     for($i=0;$i<count($data); $i++)
+        //     {
+
+        //         $examination=Examination::create($request->all());
+        //     }
+        //  }
+
         if($examination){
             Session::flash('flash_massage_type');
-            return redirect()->route('examinations.index')->withFlashMassage('Examination Created Susscefully');
+            return redirect()->route('examinations.create')->withFlashMassage('Examination Created Susscefully');
         }
     }
 
@@ -101,7 +154,7 @@ class ExaminationController extends Controller
      */
     public function show($id)
     {
-        $examinationInfo = examination::findOrFail($id);
+        $examinationInfo = Examination::findOrFail($id);
         return view('education::examinations.show', ['examinationInfo' => $examinationInfo]);
     }
 
@@ -140,6 +193,6 @@ class ExaminationController extends Controller
       $examinationForDelete->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('Examination Deleted Susscefully');
-    }     
+    }
 
 }

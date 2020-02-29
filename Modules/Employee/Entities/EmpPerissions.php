@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Employee\Entities;
-
+use Modules\Employee\Entities\Managament;
 use Illuminate\Database\Eloquent\Model;
 
 class EmpPerissions extends Model
@@ -16,4 +16,12 @@ class EmpPerissions extends Model
         'date',
         'note'
     ];
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+    public function managament()
+    {
+        return $this->belongsTo(Managament::class);
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Student\Http\Controllers;
-
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -14,7 +14,49 @@ class StudentTransferController extends Controller
     public function index()
     {
         $studentTransfers = StudentTransfer::all();
-        return view('student::students.offprints.student-transfer.index ', ['studentTransfers' => $studentTransfers]);
+        return view('student::students.offprints.student-transfer.index', ['studentTransfers' => $studentTransfers]);
+    }
+    public function StudentTransferDataTables()
+    {
+        // return "jhgf";
+        return DataTables::of(StudentTransfer::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($student) {
+                return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'student-transfers']);
+            })
+
+            ->editColumn('gender', function ($customer) {
+                return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('level_id', function ($student) {
+            //     return $student->level->name;
+            // })
+            // ->editColumn('classroom_id', function ($student) {
+            //     return $student->classroom->name;
+            // })
+             ->editColumn('student_id', function ($student) {
+                return $student->student->name;
+            })
+            ->rawColumns(['last_login', 'student_id', 'options', 'status', 'gender'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
     }
 
     /**
@@ -36,7 +78,7 @@ class StudentTransferController extends Controller
         $studentTransfer = StudentTransfer::create($request->all());
          if($studentTransfer){
             Session::flash('flash_massage_type');
-             return redirect()->route('student-transfers.index')->withFlashMassage('StudentTransfer Created Susscefully');
+             return redirect()->route('student-transfers.index')->withFlashMassage('تم اضافة البيانات بنجاح');
         }
     }
     /**
@@ -89,6 +131,6 @@ class StudentTransferController extends Controller
     {
         $studentTransfer = StudentTransfer::findOrFail($id)->delete();
         Session::flash('flash_massage_type');
-        return redirect()->route('student-transfers.index')->withFlashMassage('StudentTransfer Deleted Susscefully');
+        return redirect()->route('student-transfers.index')->withFlashMassage('تم الحذف  بنجاح');
     }
 }

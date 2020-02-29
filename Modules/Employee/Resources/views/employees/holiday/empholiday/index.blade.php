@@ -43,7 +43,7 @@
                                 <th> التاريخ الي  </th>
                                 <th>   نوع الاجازة </th>
                                 <th>  ملاحظات </th>
-                                <th>option</th>
+                                <th>الخيارات</th>
                             </tr>
                         </thead>
                       <tfoot>
@@ -54,7 +54,7 @@
                                 <th> التاريخ الي  </th>
                                 <th>   نوع الاجازة </th>
                                 <th>  ملاحظات </th>
-                                <th>option</th>
+                                <th>الخيارات</th>
                             </tr>
                       </tfoot>
                     </tbody>

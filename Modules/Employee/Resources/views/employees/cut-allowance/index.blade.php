@@ -45,14 +45,14 @@
                           <tr>
                               <th>#ID</th>
                               <th>القسم </th>
-                              <th>options</th>
+                              <th>الخيارات</th>
                           </tr>
                       </thead>
                     <tfoot>
                       <tr>
                            <th>#ID</th>
                               <th>القسم </th>
-                              <th>options</th>
+                              <th>الخيارات</th>
                       </tr>
                     </tfoot>
                   </table>

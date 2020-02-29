@@ -9,7 +9,8 @@
             </div>
             <div class="modal-body">
                 {!! Form::open(['route' => ['permissions.store'], 'method' => "POST", 'class' => 'form']) !!}
-                @include('user::permissions.form')
+                @include('employee::permissions.form')
+
                 {!! Form::close() !!}
             </div>
         </div>

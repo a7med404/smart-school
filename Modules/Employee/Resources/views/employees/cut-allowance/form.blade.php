@@ -6,8 +6,15 @@
 
         </div>
     </div>
-</div>
+    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="form-group">
+            {!! Form::label('name', 'اضافة مسمى خصومات او بدلات', ['class' => 'control-label']) !!}
+            {!! Form::text('name', null, ['id' => 'name', 'class' => "form-control  {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('name') }}", 'required', 'autofocus']) !!}
 
+        </div>
+    </div>
+</div>
+ 
 
 
 

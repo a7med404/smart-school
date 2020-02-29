@@ -3,9 +3,10 @@
 namespace Modules\Student\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Finance\Entities\PayClass;
 use Modules\Student\Entities\Part;
 use Modules\Student\Entities\Level;
-use Modules\Student\Entities\PayClass;
+
 
 class Classroom extends Model
 {

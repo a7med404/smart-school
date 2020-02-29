@@ -1,7 +1,7 @@
 
 @extends('cpanelAdmin.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_payClasses') }}
+عناصر تقييم الموظف
 @endsection
 @section('header')
 <!-- icheck -->
@@ -9,11 +9,11 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.addcalend') }} <small>it all starts here</small></h1>
+    <h1>عناصر تقييم الموظف
+        <small></small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanelAdmin\payClass') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payClasses') }} </a></li>
-        <li class="active"> {{ __('home/sidebar.addcalend') }} {{ $evaluationItemInfo->name }} </li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
+            <li class="active">    عناصر تقييم الموظف   </li>
     </ol>
 </section>
 
@@ -22,7 +22,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ __('home/sidebar.addcalend') }}</h3>
+            <h3 class="box-title"></h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>

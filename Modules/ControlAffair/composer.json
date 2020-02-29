@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/controlaffair",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ControlAffair\\Providers\\ControlAffairServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ControlAffair\\": ""
+        }
+    }
+}

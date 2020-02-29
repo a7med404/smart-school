@@ -40,6 +40,7 @@ Route::group(['prefix' => '/employee'], function () {
 
 Route::group(['prefix' => '/employee'], function () {
     Route::resource('employees', 'EmployeeController');
+    Route::get('employees/delete/{id}', 'EmployeeController@destroy')->name('employees.destroy');
     Route::get('employees-dataTable', 'EmployeeController@empTable')->name('employees.dataTables');;
     Route::resource('Certificates', 'CertificatController');
     Route::resource('salaries', 'SalaryController');
@@ -52,6 +53,7 @@ Route::group(['prefix' => '/employee'], function () {
         'uses' => 'ProgenitorController@destroy',
         'as' => 'progenitors.delete'
         ]);
+    Route::get('progenitros-datatable','ProgenitorController@progenitorsDataTable')->name('progenitors.dataTable');
 
 
     Route::resource('bearinminds', 'BearInMindController');
@@ -65,6 +67,7 @@ Route::group(['prefix' => '/employee'], function () {
     Route::resource('add-calend', 'AddCalendEmployeeController');
     Route::resource('setting-perissions', 'EmpPerissionNameController');
     Route::resource('emp-perissions', 'EmpPerissionsController');
+    Route::get('emp-perissions-dataTable', 'EmpPerissionsController@EmpPerissions')->name('emp-perissions.dataTable');
     Route::get('emp-setting-perissions', 'EmpPerissionsController@empSettingPerissions')->name('emp-setting-perissions');
     Route::resource('cut-allowances', 'CutAllowanceController');
     Route::get('cut-allowances-dataTables', 'CutAllowanceController@CutTable')->name('cut-allowances-dataTables');
@@ -76,9 +79,12 @@ Route::group(['prefix' => '/employee'], function () {
 
     Route::resource('bearinminds', 'BearInMindController');
     Route::resource('emp-absences', 'EmpAbsenceController');
+    Route::get('emp-absences-dataTables','EmpAbsenceController@empdataTable')->name('emp-absences.dataTable');
     Route::resource('emp-pulls', 'EmpPullController');
     Route::resource('managaments', 'ManagamentController');
     Route::get('managaments/{id}/delete','ManagamentController@destroy')->name('managament.delete');
+    Route::get('managaments-dataTable','ManagamentController@ManagamentTables')->name('managaments.dataTable');
+
 
     Route::resource('departments', 'DepartmentController');
     Route::get('departments/{id}/delete', 'DepartmentController@destroy')->name('department.delete');
@@ -88,19 +94,29 @@ Route::group(['prefix' => '/employee'], function () {
     Route::resource('formalholidays', 'FormalHolidayController');
     Route::resource('emp-holidays', 'EmpHolidayController');
   Route::get('emp-holidays-dataTable', 'EmpHolidayController@EmpTable')->name('emp-holidays.dataTable');
-    
+
+
     Route::get('emp-holidays/{id}/delete','EmpHolidayController@destroy')->name('emp-holidays.delete');
     Route::resource('emp-evaluation', 'EvaluationEmpController');
     Route::get('emp-evaluation/{id}/delete','EvaluationEmpController@destroy')->name('emp-evaluation.delete');
+    Route::get('emp-evaluation-dataTable', 'EvaluationEmpController@EmpEvalu')->name('emp-evaluation.dataTable');
+
+
+
     Route::resource('evaluation-items', 'EvaluationItemController');
     Route::get('evaluation-items/{id}/delete','EvaluationItemController@destroy')->name('evaluation-items.delete');
+    Route::post('evaluation-item','EvaluationItemController@store')->name('evaluation-item.store');
+    Route::get('evaluation-item-dataTable','EvaluationItemController@EvaluationDataTables')->name('evaluation-items.datatable');
+
+
 
     Route::resource('agreements', 'AgreementController');
     Route::resource('rewards-punition', 'RewardsPunitionController');
     Route::get('rewardsdelete/{id}/delete',[
         'uses' => 'RewardsPunitionController@destroy',
-        'as' => 'rewards.delete'
+        'as' => 'rewards-punition.delete'
     ]);
+    Route::get('rewards-punition-datatable','RewardsPunitionController@rewardsDataTable')->name('rewards-punition.datatable');
     Route::resource('resignation', 'ResignationController');
 
 
@@ -109,6 +125,15 @@ Route::group(['prefix' => '/employee'], function () {
     Route::get('emp-perissions-report', 'EmpPerissionsController@report');
 
     Route::get('/employee-reports/{report}', 'EmployeeReportController@viewPage')->name('employee-reports');
+    Route::get('/ReportPermission', 'EmployeeReportController@Permission')->name('ReportPermission');
+    Route::get('/report-rewards-punition', 'EmployeeReportController@Punition')->name('report-rewards-punition');
+    Route::get('/employee-search', 'EmployeeReportController@employesearch')->name('employee-search');
+    Route::get('/report-absence', 'EmployeeReportController@ReportAbsence')->name('ReportAbsence');
+    Route::get('/report-evaluation', 'EmployeeReportController@evaluation')->name('report-evaluation');
+    Route::get('/report-salary', 'EmployeeReportController@salary')->name('report-salary');
+    Route::get('/report-progenitor', 'EmployeeReportController@progenitor')->name('report-progenitor');
+
+
 
 
 
@@ -162,8 +187,10 @@ Route::prefix('cpanelAdmin')->group(function() {
         */
         Route::Resource('roles', 'RoleController');
         Route::get('roles/delete/{id}', 'RoleController@destroy')->name('roles.delete');
+        Route::get('RoleDataTable', 'RoleController@RoleDataTables')->name('roles.dataTables');
 
         Route::Resource('permissions', 'PermissionController');
+        Route::get('permissions-datatable', 'PermissionController@PermissionDataTable')->name('permissions.datatable');
         Route::get('permissions/delete/{id}', 'PermissionController@destroy')->name('permissions.delete');
 
 

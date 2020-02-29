@@ -34,8 +34,8 @@
 
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
-            {!! Form::label('pay_rul_id', 'نوع الرسوم', ['class' => 'control-label']) !!}
-            {!! Form::select('pay_rul_id', getSelect('pay_ruls'), null, ['id' => 'pay_rul_id', 'class' => "select2 form-control  {{ $errors->has('pay_rul_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('pay_rul_id') }}", 'required']) !!}
+            {!! Form::label('journal_id', 'نوع الرسوم', ['class' => 'control-label']) !!}
+            {!! Form::select('journal_id', getSelect('pay_ruls'), null, ['id' => 'journal_id', 'class' => "select2 form-control  {{ $errors->has('pay_rul_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('pay_rul_id') }}", 'required']) !!}
         </div>
     </div>
 
@@ -60,7 +60,7 @@
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>
 </div>
-    
+
 @else
 <div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

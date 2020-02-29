@@ -18,60 +18,38 @@
             <li class="active">    عناصر تقييم الموظف   </li>
         </ol>
     </section>
-    
+
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
         <div class="box box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">   عناصر تقييم الموظف </h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-                    <a type="button" data-toggle="modal" data-target="#popup-add-evaluationitem" href="#" class="btn btn-sm btn-info pull-left">
-                    <i class="fa fa-plus"></i> اضافة   
-                    </a>
-                </div>
             </div>
-    
+
         <div class="box-body">
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
-                    <thead> 
+                    <thead>
                             <tr >
                                 <th>#ID</th>
                                 <th> الاسم    </th>
                                 <th> درجة التقييم  </th>
-                                <th>option</th>
                             </tr>
                         </thead>
-                        <tbody> 
+                        <tbody>
                                 <tr class="text-center">
                                     <td>{{ $evaluationItemInfo->id }}</td>
                                     <td>{{ $evaluationItemInfo->name  }}</td>
                                     <td>{{ $evaluationItemInfo->degree  }}</td>
-                                    <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                            <span class="fa fa-ellipsis-h"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('evaluation-items.show',  ['id' => $evaluationItemInfo->id]) }}"}}>استعراض</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('evaluation-items.edit',  ['id' => $evaluationItemInfo->id]) }}">تعديل</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('evaluation-items.destroy',  ['id' => $evaluationItemInfo->id]) }}">حذف</a></li>
-                                            </ul>
-                                    </div>
-                                </td>
                             </tr>
-                         
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     <!-- /.box -->
-    @include('employee::employees.evaluation.evaluationItem.add')
 </section>
 <!-- /.content -->
 

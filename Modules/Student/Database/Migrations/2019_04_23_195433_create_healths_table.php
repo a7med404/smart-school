@@ -16,7 +16,7 @@ class CreateHealthsTable extends Migration
         Schema::create('healths', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('doctor_name', 255);
-            $table->string('doctor_number', 14);
+            $table->string('doctor_number', 190);
             $table->integer('blood_type');
             $table->string('insurance_number')->unique()->nullable();
             $table->text('health_status')->nullable();

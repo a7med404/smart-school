@@ -16,7 +16,19 @@ class EmpAbsence extends Model
 
     public function employee()
     {
-        return $this->belongsTo(Employee::Class,'employee_id');
+        return $this->belongsTo(Employee::class,'employee_id');
+    }
+    public function scopeSearched($query)
+    {
+        $search=request()->query('employee_id');
+
+        if(!$search)
+       {
+           return $query;
+
+       }
+       return $query->where('employee_id','LIKE',"%{$search}%")
+       ->get();
     }
 
 }

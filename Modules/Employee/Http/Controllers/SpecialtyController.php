@@ -20,7 +20,7 @@ class SpecialtyController extends Controller
 
         return view('employee::employees.managaments.index',['specilaitys' => $specilaity,'managaments' => Managament::all()]);
     }
- 
+
    public function create()
    {
        return view('employee::create');
@@ -38,7 +38,7 @@ class SpecialtyController extends Controller
        if($specilaity){
 
            Session::flash('flash_massage_type');
-           return redirect()->back()->withFlashMassage('specilaity Created Susscefully');
+           return redirect()->back()->withFlashMassage('تم الاضافة بنجاح');
        }
    }
    /**
@@ -81,9 +81,9 @@ class SpecialtyController extends Controller
    public function update(CreateSpecilaityRequest $request, $id)
    {
      $updatespecilaity = Specilaity::findOrfail($id)->update($request->all());
-     
+
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('specilaity Updated Susscefully');
+     return redirect()->back()->withFlashMassage('تم تحديث البيانات بنجاح');
    }
 
 
@@ -97,6 +97,6 @@ class SpecialtyController extends Controller
      $specilaityForDelete = $Onespecilaity->findOrfail($id);
      $specilaityForDelete->delete();
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('specilaity Deleted Susscefully');
-   }      
+     return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+   }
 }

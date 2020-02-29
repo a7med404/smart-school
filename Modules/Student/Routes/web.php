@@ -26,7 +26,14 @@ Route::group(['prefix' => '/student'], function () {
 
 
 Route::group(['prefix' => '/student'], function () {
-    Route::get('/student-reports/{report}/{printpage?}', 'StudentReportController@viewPage')->name('student-reports');
+    Route::get('/student-reports/{report}/{printpage?}', 'StudentReportController@index')->name('student-reports');
+    Route::get('/report-data-classrooms', 'StudentReportController@class')->name('report-data-classrooms');
+    Route::get('/report-parts', 'StudentReportController@part')->name('report-parts');
+    Route::get('/report-emp-student', 'StudentReportController@empstudent')->name('report-emp-student');
+    Route::get('/empdataTables' ,'StudentReportController@empstudentDataTables')->name('empstudentDataTable');
+    Route::get('/pay-level-report', 'StudentReportController@PayLevelReport')->name('PayLevelReport');
+    Route::get('/transport-report', 'StudentReportController@transport')->name('TransportReport');
+
 
 
     Route::resource('empty-palce', 'EmptyPalceController');
@@ -45,12 +52,12 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::resource('/parts', 'PartController');
     Route::get('part-dataTables', 'PartController@partTable')->name('parts.dataTable');;
-    
+
     Route::get('parts/delete/{id}', 'PartController@destroy')->name('parts.delete');
     Route::resource('/students', 'StudentController');
 
     Route::get('/student-dataTables', 'StudentController@studentDataTables')->name('students.dataTables');
-    
+
     Route::get('students/fees/{id}', 'StudentController@fees')->name('students.fees');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
     Route::get('studentOnlyTrashed', 'StudentController@index')->name('studentOnlyTrashed.dataTables');
@@ -65,7 +72,7 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::resource('/studentParent', 'StudentParentController');
     Route::get('studentParent-dataTables', 'StudentParentController@ParentTable')->name('studentParent.dataTables');
-    
+
     Route::get('studentParent/delete/{id}', 'StudentParentController@destroy')->name('studentParent.delete');
     Route::get('/add-student-manual', 'StudentController@addStudentManual')->name('add-student-manual');
     Route::patch('/students/dist', 'StudentController@dist');
@@ -78,24 +85,36 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('offprints/dataTables','OffPrintController@index')->name('offprints.dataTables');
 
     Route::resource('student-transfers', 'StudentTransferController');
+    Route::get('StudentTransfer-dataTable', 'StudentTransferController@StudentTransferDataTables')->name('student-transfers.dataTable');
     Route::get('student-transfers/delete/{id}', 'StudentTransferController@destroy')->name('student-transfers.delete');
 
     /* offline */
     Route::resource('attendances', 'AttendanceController');
+    Route::get('report-student-attendances','AttendanceController@attendancesdata')->
+    name('report-student-attendances');
+    Route::get('report-student-attendances-datatable','AttendanceController@attendanceData')->
+    name('report-student-attendances.datatable');
+
     Route::get('attendances-select', 'AttendanceController@attendancesSelect')->name('attendances.select');
     Route::get('attendance-for-class', 'AttendanceController@attendanceForClass')->name('attendance-for-class');
-    Route::get('attendance-list', 'AttendanceController@list')->name('attendances.list');
-    Route::get('attendance-list-show', 'AttendanceController@listShow')->name('attendances.list-show');
+    Route::get('attendance', 'AttendanceController@lists')->name('attendances');
+    Route::get('student-pulls/delete/{id}', 'StudentPullController@destroy')->name('student-pulls.delete');
+
+    Route::get('attendance-dataTable', 'AttendanceController@attendDataTables')->name('attendances.dataTables');
+
+    Route::get('attendance/delete/{id}', 'AttendanceController@destroy')->name('attendances.delete');
 
     Route::resource('student-pulls', 'StudentPullController');
     Route::get('student-pulls/delete/{id}', 'StudentPullController@destroy')->name('student-pulls.delete');
 
 
     Route::resource('report-separates', 'ReportSeparateController');
+    Route::get('report-separates-dataTable','ReportSeparateController@separatesDataTable')->name('report-separates.dataTable');
     Route::get('report-separates/delete/{id}', 'ReportSeparateController@destroy')->name('report-separates.delete');
 
     Route::resource('report-warnings', 'ReportWarningController');
     Route::get('report-warnings/delete/{id}', 'ReportWarningController@destroy')->name('report-warnings.delete');
+    Route::get('report-warnings-dataTable','ReportWarningController@ReportWarningDataTables')->name('report-warnings.dataTable');
 
     Route::resource('student-parents', 'StudentParentController');
     Route::get('student-parents/delete/{id}', 'StudentParentController@destroy')->name('student-parents.delete');

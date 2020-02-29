@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Employee\Http\Controllers;
-
+use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -24,9 +24,9 @@ return view('employee::employees.perissions.EmpPerission.index',compact('shows')
 public function EmpPerissions()
     {
         // return "jhgf";
-        return DataTables::of(EmpPerission::orderBy('id', 'desc')->get())
+        return DataTables::of(EmpPerissions::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($emp) {
-                return view('Employee::employees.colums.options', ['id' => $emp->id, 'routeName' => 'emp-holidays']);
+                return view('employee::employees.perissions.colums.options', ['id' => $emp->id, 'routeName' => 'emp-perission']);
             // })
 
             // ->editColumn('gender', function ($customer) {
@@ -56,10 +56,16 @@ public function EmpPerissions()
             // ->editColumn('employee_id', function ($emp) {
             //     return $emp->employee->full_name;
             // })
-            ->editColumn('employee_id', function ($emp) {
-                return $emp->employee->name;
+            ->editColumn('employee_id', function ($empo) {
+                return $empo->employee->full_name;
             })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'employee_id'])
+            ->editColumn('managament_id', function ($meng) {
+                return $meng->managament->name;
+            })
+            // ->editColumn('department_id', function ($dep) {
+            //     return $dep->department->name;
+            // })
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'employee_id','managament_id'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')

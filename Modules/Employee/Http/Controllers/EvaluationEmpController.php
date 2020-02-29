@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Employee\Http\Controllers;
-
+use Yajra\DataTables\DataTables;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -21,7 +21,51 @@ class EvaluationEmpController extends Controller
 
         return view('employee::employees.evaluation.evaluationemp.index',['evaluationEmps' => $evaluationEmp]);
     }
- 
+
+    public function EmpEvalu()
+    {
+        // return "jhgf";
+        return DataTables::of(EvaluationEmp::orderBy('id', 'desc')->get())
+            ->addColumn('options', function ($evaluation) {
+                return view('employee::employees.colums.options', ['id' => $evaluation->id, 'routeName' => 'emp-evaluation.dataTable']);
+            })
+
+            ->editColumn('gender', function ($customer) {
+                return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('level_id', function ($student) {
+            //     return $student->level->name;
+            // })
+            // ->editColumn('classroom_id', function ($student) {
+            //     return $student->classroom->name;
+            // })
+            ->editColumn('employee_id', function ($student) {
+                return $student->employee->full_name;
+             })
+            ->rawColumns(['last_login', 'employee_id', 'options', 'status', 'gender'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
+
+
    public function create()
    {
        return view('employee::create');
@@ -39,7 +83,7 @@ class EvaluationEmpController extends Controller
        if($evaluationemp){
 
            Session::flash('flash_massage_type');
-           return redirect()->back()->withFlashMassage('evaluationemp Created Susscefully');
+           return redirect()->back()->withFlashMassage('تم الاضافة بنجاح');
        }
    }
    /**
@@ -82,9 +126,9 @@ class EvaluationEmpController extends Controller
    public function update(CreateevaluationEmpRequest $request, $id)
    {
      EvaluationEmp::findOrfail($id)->update($request->all());
-     
+
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('evaluationEmp Updated Susscefully');
+     return redirect()->back()->withFlashMassage('تم تحديث البيانات بنجاح');
    }
 
 
@@ -98,6 +142,6 @@ class EvaluationEmpController extends Controller
      $evaluationEmpForDelete = $OneevaluationEmp->findOrfail($id);
      $evaluationEmpForDelete->delete();
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('evaluationEmp Deleted Susscefully');
-   }      
+     return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+   }
 }

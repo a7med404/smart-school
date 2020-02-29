@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_reportWarnings') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.all_reportWarnings') }} <small></small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanelAdmin\reportWarnings') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_reportWarnings') }} </a></li>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-md-6">
                     {!! Form::model($reportWarningInfo, ['route' => ['report-warnings.update', $reportWarningInfo->id], 'method' => "PATCH"]) !!}
-                    @include('student::students.reports.report-warnings.form')
+                    @include('student::students.student.reports.report-warnings.form')
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -64,7 +64,7 @@
             format: 'yyyy-mm-dd'
         });
     });
-    
+
     $(document).ready(function () {
         /*
             For iCheck =====================================>

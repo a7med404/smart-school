@@ -20,21 +20,21 @@
                                 <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="form-group">
                                             {!! Form::label('name', 'اسم القسم', ['class' => 'control-label']) !!}
-                                            {!! Form::select('department_id', getSelect('managaments'), ['id' => 'department_id', 'class' => "form-control  {{ $errors->has('department_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('department_id') }}", 'required', 'autofocus']) !!}
+                                            {!! Form::select('department_id', getSelect('departments'), ['id' => 'department_id', 'class' => "form-control  {{ $errors->has('department_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('department_id') }}", 'required', 'autofocus']) !!}
 
                                         </div>
                                     </div>
                                     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                                             <div class="form-group">
                                                 {!! Form::label('name', 'اسم الموظف', ['class' => 'control-label']) !!}
-                                                {!! Form::select('employee_id', getSelect('managaments'), ['id' => 'employee_id', 'class' => "form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
+                                                {!! Form::select('employee_id', getSelect('employees'), ['id' => 'employee_id', 'class' => "form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
 
                                             </div>
                                         </div>
                                         <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     {!! Form::label('name', 'الاذونات', ['class' => 'control-label']) !!}
-                                                    {!! Form::select('perission_id', getSelect('managaments'), ['id' => 'perission_id', 'class' => "form-control  {{ $errors->has('perission_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('perission_id') }}", 'required', 'autofocus']) !!}
+                                                    {!! Form::select('perission_id', getSelect('perission'), ['id' => 'perission_id', 'class' => "form-control  {{ $errors->has('perission_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('perission_id') }}", 'required', 'autofocus']) !!}
 
                                                 </div>
                                             </div>

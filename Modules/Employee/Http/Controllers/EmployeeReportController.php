@@ -2,6 +2,9 @@
 
 namespace Modules\Employee\Http\Controllers;
 
+use Modules\Employee\Entities\EmpAbsence;
+use Modules\Employee\Entities\Employee;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -14,7 +17,82 @@ class EmployeeReportController extends Controller
      */
     public function index()
     {
-        return view('employee::index');
+        return view('employee::employees');
+    }
+    public function Permission()
+    {
+        $emp=Employee::all();
+        return view('employee::employees.reports.ReportPermission.ReportPermission')
+        ->with('emp',Employee::all());
+
+    }
+public function progenitor(){
+    return view('employee::employees.reports.ReportProgenitor.ReportProgenitor');
+
+
+}
+
+    public function Punition()
+    {
+        $emp=Employee::all();
+        return view('employee::employees.reports.ReportRewardsPunition.ReportRewardsPunition')
+        ->with('emp',Employee::all());
+
+    }
+    public function employesearch()
+    {
+
+        $search=request()->query('full_name');
+        if($search){
+        $employees=Employee::where('full_name', 'LIKE' ,"%{$search}%")->get();
+        }
+        else{
+            $employees=Employee::where('full_name', 'LIKE' ,"%{$search}%")->get();
+
+        }
+
+        return view('employee::employees.reports.ReportSearch.ReportSearch')
+        ->with('emp',Employee::all())
+        ->with('employees',$employees)
+
+        ;
+
+
+    }
+    public function salary()
+    {
+        $search=request()->query('full_name');
+        if($search){
+        $employees=Employee::where('full_name', 'LIKE' ,"%{$search}%")->get();
+        }
+        else{
+            $employees=Employee::where('full_name', 'LIKE' ,"%{$search}%")->get();
+
+        }
+        return view('employee::employees.reports.ReportSalary.ReportSalary')
+        ->with('emp',Employee::all())
+        ->with('employees',$employees)
+        ;
+    }
+    public function ReportAbsence()
+    {
+        $search=request()->query('employee_id');
+        if($search){
+        $employees=EmpAbsence::where('employee_id', 'LIKE' ,"%{$search}%")->get();
+        }
+        else{
+            $employees=EmpAbsence::where('employee_id', 'LIKE' ,"%{$search}%")->get();
+
+        }
+        return view('employee::employees.reports.ReportAbsence.ReportAbsence')
+        ->with('employees',$employees);
+
+    }
+
+    public function evaluation()
+    {
+        return view('employee::employees.reports.ReportEvaluation.ReportEvaluation');
+
     }
 
     /**

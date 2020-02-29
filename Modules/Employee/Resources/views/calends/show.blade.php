@@ -28,7 +28,7 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add-calend" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مخالفة جديدة 
+                <i class="fa fa-plus"></i> اضافة مخالفة جديدة
                 </a>
             </div>
         </div>
@@ -41,7 +41,6 @@
                             <th>اسم المخالفة</th>
                             <th> نوع المخالفة</th>
                             <th>النسبة من الراتب</th>
-                            <th>option</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,16 +49,7 @@
                                 <td>{{ $calendInfo->name }}</td>
                                 <td>{{ $calendInfo->discount_percentage }}</td>
                                 <td>{{ $calendInfo->type }}</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                            <span class="fa fa-ellipsis-h"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <li role="presentation" class="divider"></li>
-                                        </ul>
-                                    </div>
-                                </td>
+
                             </tr>
                 </table>
             </div>

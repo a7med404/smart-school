@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\Student\Http\Controllers;
+use Yajra\DataTables\DataTables;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -25,7 +26,7 @@ class AttendanceController extends Controller
             $query = Student::orderBy('id', 'desc');
             foreach ($requestAll as $key => $req) {
                 if (!($req == "" || null)) {
-                    $query->where($key, $req);
+                     $query->where($key, $req);
                 }
             }
             $students = $query->orderBy('id','desc')->get();
@@ -39,6 +40,56 @@ class AttendanceController extends Controller
         // }
         $students = [];//Student::all();
         return view('student::students.attendances.index', ['students' => $students]);
+    }
+
+    public function lists(){
+        $attend=Attendance::all();
+
+        return view('student::students.attendances.attendance-list',['attend' => $attend]);
+
+    }
+    public function attendDataTables()
+    {
+        // return "jhgf";
+        return DataTables::of(Attendance::orderBy('id', 'desc')->where('status','LIKE', '2')->get())
+            ->addColumn('options', function ($attend) {
+                return view('student::students.colums.destroy', ['id' => $attend->id, 'routeName' => 'attendances']);
+            })
+
+            // ->editColumn('gender', function ($customer) {
+            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            // })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('level_id', function ($student) {
+            //     return $student->level->name;
+            // })
+              ->editColumn('student_id', function ($student) {
+                    return $student->student->name;
+              })
+
+              ->editColumn('status', function ($status) {
+                 return attendanceStatus() [1];
+             })
+            ->rawColumns(['last_login', 'student_id', 'options', 'status'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
     }
 
 
@@ -59,6 +110,7 @@ class AttendanceController extends Controller
             ->orderBy('id','desc')->get();
             dd($students);
             return view('student::students.attendances.list', ['students' => $students, 'date' => $date]);
+
         }
 
 
@@ -71,13 +123,59 @@ class AttendanceController extends Controller
         return view('student::students.attendances.index', ['students' => $students]);
     }
 
-    
+
     public function attendancesSelect()
     {
         return view('student::students.attendances.select');
     }
 
-    
+    public function attendancesdata()
+    {
+        return view('student::students.student.reports.report-student-attendances');
+    }
+    public function attendanceData()
+    {
+        // return "jhgf";
+        return DataTables::of(Attendance::orderBy('id', 'desc')->where('status','LIKE', '1')->get())
+            ->addColumn('options', function ($attend) {
+                return view('student::students.colums.fake', ['id' => $attend->id, 'routeName' => 'report-student-attendances']);
+            })
+
+            // ->editColumn('gender', function ($customer) {
+            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
+            // })
+            // ->addColumn('last_login', function (student $student) {
+            //     if($student->last_login != null) {
+            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
+            //     }
+            //     return $student->last_login;
+            // })
+
+            // ->addColumn('roles', function ($student) {
+            //     // $data = [];
+            //     // foreach ($student->roles as $role) {
+            //         return view('student::students.colums.role', ['roles' => $student->roles]);
+            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
+            //     // }
+            //     // return $data;
+            // })
+            // ->editColumn('level_id', function ($student) {
+            //     return $student->level->name;
+            // })
+              ->editColumn('student_id', function ($student) {
+                    return $student->student->name;
+              })
+
+              ->editColumn('status', function ($status) {
+                 return attendanceStatus() [2];
+             })
+            ->rawColumns(['last_login', 'student_id', 'options', 'status'])
+            // ->removeColumn('password')
+            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
+            ->setRowId('{{$id}}')
+            ->make(true);
+
+    }
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -162,7 +260,7 @@ class AttendanceController extends Controller
       $attendanceForDelete->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('Attendance Deleted Susscefully');
-    }     
+    }
 
 
     public function getAttendances($attendance_id)

@@ -9,18 +9,18 @@
                   <h4 class="title">بيانات </h4>
                 </div>
                 <div class="modal-body">
-                <form role="form"  action="{{route('empabsences.store')}}" method="post" >
+                <form role="form"  action="{{route('emp-absences.store')}}" method="post" >
                     @csrf
                     <div class="row">
                       <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
                         <div class="form-group">
                           <label class="control-label"> اسم الموظف </label>
                           <select class="form-control select2" name="employee_id">
-                            <option value="1">محمد ابراهيم ابراهيم السيد</option>
-                            <option value="1">احمد محمد احمد علي</option>
-                            <option value="0">عباس الخير عبد الرحمن محمد</option>
-                            <option value="1">الفاضل محمد عثمان بلال</option>
-                            <option value="0">معتز احمد محمد حنفي</option>
+                            @foreach ($emp as $item)
+
+                          <option value="{{$item->id}}">{{$item->full_name}}</option>
+                          @endforeach
+
                           </select>
                         </div>
                       </div>

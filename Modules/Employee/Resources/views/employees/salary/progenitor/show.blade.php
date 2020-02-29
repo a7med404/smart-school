@@ -11,10 +11,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1> اضافة مخالفةالى موظف  <small>  </small></h1>
+    <h1> عرض السلفيات  <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
-        <li class="active">اضافة مخالفةالى موظف  </li>
+        <li class="active">عرض السلفيات  </li>
     </ol>
 </section>
 
@@ -23,12 +23,11 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title"> اضافة مخالفةالى موظف</h3>
+            <h3 class="box-title">عرض السلفيات</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-addcalend" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مخالفة جديدة 
+              
                 </a>
             </div>
         </div>
@@ -38,35 +37,15 @@
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th> اسم الموظف </th>
-                            <th>التاريخ </th>
-                            <th> نوع المخالفة </th>
-                            <th>option</th>
+                            <th>اسم الموظف</th>
+                            <th>المبلغ</th>
                         </tr>
                     </thead>
                     <tbody>
                             <tr>
-                                <td>{{ $AddCalendInfo->id }}</td>
-                                <td>{{ $AddCalendInfo->employee_id  }}</td>
-                                <td>{{ $AddCalendInfo->date  }}</td>
-                                <td>{{ $AddCalendInfo->type }}</td>
- 
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                            <span class="fa fa-ellipsis-h"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.edit',  ['id' => $AddCalendInfo->id]) }}">تعديل</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="{{ route('add-calend.destroy',['id' => $AddCalendInfo->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
-                                            </ul>
-                                    </div>
-                                </td>
+                                <td>{{ $shows->id }}</td>
+                                <td>{{ $shows->employee_id  }}</td>
+                                <td>{{ $shows->transaction_id  }}</td>
                             </tr>
                     </tbody>
                 </table>

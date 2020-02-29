@@ -21,14 +21,14 @@ class CutAllowanceController extends Controller
         $cuts=CutAllowance::all();
         return view('employee::employees.cut-allowance.index',compact('cuts'));
     }
-    
+
 
     public function CutTable()
     {
         // return "jhgf";
         return DataTables::of(CutAllowance::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($cuts) {
-                return view('employee::colums.options', ['id' => $cuts->id, 'routeName' => 'cut-allowances']);
+                return view('employee::employees.colums.options', ['id' => $cuts->id, 'routeName' => 'cut-allowances']);
             // })
 
             // ->editColumn('gender', function ($customer) {
@@ -60,7 +60,7 @@ class CutAllowanceController extends Controller
 
     }
 
- 
+
 
     /**
      * Show the form for creating a new resource.
@@ -136,7 +136,7 @@ return view('employee::employees.cut-allowance.edit',compact('cuts'));
         $emp=CutAllowance::findOrfail($id);
         $emp->delete();
         if($emp){
-            Session::flash('flash_massage_type');   
+            Session::flash('flash_massage_type');
             return redirect()->back()->withFlashMassage('Deleted Susscefully');
         }
     }

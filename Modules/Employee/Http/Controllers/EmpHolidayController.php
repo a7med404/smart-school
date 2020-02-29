@@ -28,7 +28,7 @@ public function EmpTable()
         // return "jhgf";
         return DataTables::of(EmpHoliday::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($empholidy) {
-                return view('employee::colums.options', ['id' => $empholidy->id, 'routeName' => 'emp-holidays']);
+                return view('employee::employees.colums.options', ['id' => $empholidy->id, 'routeName' => 'emp-holidays']);
             // })
 
             // ->editColumn('gender', function ($customer) {
@@ -55,13 +55,13 @@ public function EmpTable()
             //  ->editColumn('student_id', function ($student) {
             //     return $student->student->name;
             // })
-            // ->editColumn('employee_id', function ($emp) {
-            //     return $emp->employee->full_name;
-            // })
+            ->editColumn('add_holiday_id', function ($holiday) {
+                 return $holiday->addholiday->name;
+             })
             ->editColumn('employee_id', function ($emp) {
-                return $emp->employee->name;
+                return $emp->employee->full_name;
             })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'employee_id'])
+            ->rawColumns(['last_login', 'roles', 'options', 'status', 'employee_id','add_holiday_id'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
@@ -133,7 +133,7 @@ public function EmpTable()
    public function update(CreateEmpHolidayRequest $request, $id)
    {
      $updateempholiday = EmpHoliday::findOrfail($id)->update($request->all());
-     
+
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage(' تم تعديل طلب الاجازة بنجاح');
    }
@@ -150,6 +150,6 @@ public function EmpTable()
      $EmpHolidayForDelete->delete();
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage('تم حذف طلب الاجازة بنجاح');
-   }      
+   }
 
 }

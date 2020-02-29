@@ -24,13 +24,6 @@
     <div class="box box-info">
         <div class="box-header with-border">
             <h3 class="box-title"> طلب اجازة </h3>
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-empholiday" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> طلب اجازة
-                </a>
-            </div>
         </div>
         <div class="box-body">
             <div class="table-responsive">
@@ -43,35 +36,16 @@
                                 <th> التاريخ الي  </th>
                                 <th>   نوع الاجازة </th>
                                 <th>  ملاحظات </th>
-                                <th>option</th>
                             </tr>
                         </thead>
                         <tbody>
                                 <tr>
                                     <td>{{ $empholidayInfo->id }}</td>
-                                    <td>{{ $empholidayInfo->employee_id  }}</td>
+                                    <td>{{ $empholidayInfo->employee->full_name}}</td>
                                     <td>{{ $empholidayInfo->from }}</td>
                                     <td>{{ $empholidayInfo->to }}</td>
                                     <td>{{ $empholidayInfo->add_holiday_id  }}</td>
                                     <td>{{ $empholidayInfo->note }}</td>
-     
-                                    <td>
-                                        <div class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                                <span class="fa fa-ellipsis-h"></span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('emp-holidays.show',  ['id' => $empholidayInfo->id]) }}"}}>استعراض</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('emp-holidays.edit',  ['id' => $empholidayInfo->id]) }}">تعديل</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                                <form action="{{ route('emp-holidays.destroy',['id' => $empholidayInfo->id]) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                                </form>
-                                                </ul>
-                                        </div>
-                                    </td>
                                 </tr>
                     </tbody>
                 </table>

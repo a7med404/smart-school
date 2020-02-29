@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/student', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/student', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::group(['prefix' => 'auth'], function () {
     #TODO::change any to post method
@@ -43,7 +43,7 @@ Route::group(['prefix' => '/student'], function () {
     // Route::resource('/classrooms', 'ClassroomController');
     // Route::get('/classroom/{id}/parts', 'ClassroomController@parts');
     // Route::resource('/parts', 'PartController');
-    
+
     // Route::resource('/students', 'StudentController');
     // Route::any('/all', 'StudentController@allStudents');
     // Route::resource('/studentParent', 'StudentParentController');
@@ -54,7 +54,7 @@ Route::group(['prefix' => '/student'], function () {
     // Route::get('/offprints/{type}', 'OffPrintController@getOffPrints');
     // Route::resource('offprints', 'OffPrintController');
     // Route::resource('studentTransfers', 'StudentTransferController');
-    
+
     // /* offline */
     // Route::resource('attendance', 'AttendanceController');
     // Route::resource('studentPull', 'StudentPullController');

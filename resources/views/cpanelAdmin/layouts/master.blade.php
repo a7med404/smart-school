@@ -11,12 +11,12 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="icon" href="{{ asset('admin/images/visa.png') }}" type="image/ico" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-  
+
     <title>{{ config('app.name', 'Laravel') }} || @yield('title') </title>
     @include('cpanelAdmin.partials.styles')
     @yield('header')
   </head>
-  
+
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper" id="app">
       @include('cpanelAdmin.partials.header')
@@ -32,7 +32,7 @@
     <!-- ./wrapper -->
 
     @include('cpanelAdmin.partials.scripts')
-    @yield('footer') 
+    @yield('footer')
       <script>
         toastr.options = {
           "closeButton": true,

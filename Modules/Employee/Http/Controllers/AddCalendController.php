@@ -28,7 +28,7 @@ class AddCalendController extends Controller
    {
        return DataTables::of(Calend::orderBy('id', 'desc')->get())
            ->addColumn('options', function ($calend) {
-               return view('employee::colums.options', ['id' => $calend->id, 'routeName' => 'calends']);
+               return view('employee::employees.colums.options', ['id' => $calend->id, 'routeName' => 'calends']);
            })
            // ->addColumn('last_login', function (student $student) {
            //     if($student->last_login != null) {

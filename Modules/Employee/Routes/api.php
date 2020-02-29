@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/employee', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/employee', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::group(['prefix' => 'auth'], function () {
     #TODO::change any to post method

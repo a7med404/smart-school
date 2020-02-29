@@ -76,7 +76,7 @@
         <div class="box-body">
             <div class="table-responsive">
                 {!! Form::open(['route' => ['attendances.store'], 'method' => "POST", 'class' => 'form']) !!}
-                {!! Form::hidden('date', $date, ['id' => 'date', 'class' => " {{ $errors->has('date') ? ' is-invalid' : '' }}", 'value' => "{{ old('date') }}"]) !!}   
+                {!! Form::hidden('date', $date, ['id' => 'date', 'class' => " {{ $errors->has('date') ? ' is-invalid' : '' }}", 'value' => "{{ old('date') }}"]) !!}
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
@@ -96,17 +96,17 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>
-                                {!! Form::radio("status[$student->id]", 1, 1, ['id' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}"]) !!}   
-                                حضور 
+                                {!! Form::radio("status[$student->id]", 1, 1, ['id' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}"]) !!}
+                                حضور
                                 {{-- {!! Form::label("$student->id", 'حضور', ['class' => 'control-label']) !!} --}}
                             </td>
                             <td>
-                                {!! Form::radio("status[$student->id]", 2, null, ['id' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}"]) !!}   
+                                {!! Form::radio("status[$student->id]", 2, null, ['id' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}"]) !!}
                                 غياب بعذر
                                 {{-- {!! Form::label("$student->id", 'غياب بعذر', ['class' => 'control-label']) !!}  --}}
                             </td>
                             <td>
-                                {!! Form::radio("status[$student->id]", 3, null, ['id' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}"]) !!}   
+                                {!! Form::radio("status[$student->id]", 3, null, ['id' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}"]) !!}
                                 غياب بدون عذر
                                 {{-- {!! Form::label("$student->id", 'غياب بدون عذر', ['class' => 'control-label']) !!}  --}}
                             </td>
@@ -121,7 +121,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                         <tr>
                             <td>

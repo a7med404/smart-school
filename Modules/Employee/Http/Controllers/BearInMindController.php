@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\BearInMind;
+use Modules\Employee\Entities\Employee;
+
 use Modules\Employee\Transformers\BearInMindResource;
 use Modules\Employee\Http\Requests\CreateBearInMindRequest;
 use Session;
@@ -19,15 +21,18 @@ class BearInMindController extends Controller
     public function index()
     {
         $bearinminds = BearInMind::all();
-        return view('employee::employees.BearinMind.index',compact('bearinminds'));
-    } 
+        $emp=Employee::all();
+        return view('employee::employees.BearinMind.index',compact('bearinminds'))
+        ->with('emp', $emp)
+        ;
+    }
 
     public function bearinminds()
     {
         // return "jhgf";
         return DataTables::of(BearInMind::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($BearInMind) {
-                return view('employee::colums.options', ['id' => $BearInMind->id, 'routeName' => 'bearinminds']);
+                return view('employee::employees.colums.options', ['id' => $BearInMind->id, 'routeName' => 'bearinminds']);
             // })
 
             // ->editColumn('gender', function ($customer) {
@@ -48,10 +53,10 @@ class BearInMindController extends Controller
             //     // }
             //     // return $data;
             // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+            ->editColumn('employee_id', function ($employee) {
+                 return $employee->employee->full_name;
+            })
+            ->rawColumns(['last_login', 'roles', 'options', 'employee_id', 'gender'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
@@ -59,7 +64,7 @@ class BearInMindController extends Controller
 
     }
 
- 
+
 
     /**
      * Show the form for creating a new resource.
@@ -84,7 +89,7 @@ class BearInMindController extends Controller
         ]);
         if($bearinmind){
             Session::flash('flash_massage_type');
-            return redirect()->route('bearinminds.index')->withFlashMassage('Bear in minds Created Susscefully');
+            return redirect()->route('bearinminds.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -97,7 +102,7 @@ class BearInMindController extends Controller
     public function show($id)
     {
         return new BearInMindResource(BearInMind::findOrfail($id));
-        /* return view('student::show'); */
+         return view('employee::employees.BearinMind.show');
     }
 
 
@@ -124,7 +129,7 @@ class BearInMindController extends Controller
         BearInMind::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
 
-        return redirect()->route('bearinminds.index')->withFlashMassage('Bear in minds updated Susscefully');
+        return redirect()->route('bearinminds.index')->withFlashMassage('تم تحديث البيانات  بنجاح');
 
     }
 
@@ -138,7 +143,7 @@ class BearInMindController extends Controller
     $bearinmind=BearInMind::findOrfail($id);
     $bearinmind->delete();
     Session::flash('flash_massage_type');
-    return redirect()->route('bearinminds.index')->withFlashMassage('Bear in minds deleted Susscefully');
+    return redirect()->route('bearinminds.index')->withFlashMassage('تم حذف بنجاح');
 
     }
 

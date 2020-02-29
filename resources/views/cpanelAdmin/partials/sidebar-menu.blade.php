@@ -41,7 +41,7 @@
               </a>
             </li>
 
-            <li class="header">شوؤن الطلاب</li>
+            <li class="header"></li>
 
             <li class="treeview">
               <a href="#">
@@ -77,7 +77,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('attendances.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل الاجازات و الغياب</a></li>
-                    <li><a href="{{ route('attendances.list-show') }}"><i class="fa fa-circle-o text-aqua"></i>قائمة الحضور</a></li>
+                    <li><a href="{{ route('attendances') }}"><i class="fa fa-circle-o text-aqua"></i>قائمة الحضور</a></li>
                   </ul>
                 </li>
                 <li>
@@ -109,7 +109,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('student-reports', ['report' => 'report-emp-student']) }}"><i class="fa fa-circle-o text-aqua"></i> عرض ابناء العاملين</a></li>
+                <li><a href="{{ route('report-emp-student') }}"><i class="fa fa-circle-o text-aqua"></i> عرض ابناء العاملين</a></li>
                 <li><a href="{{ route('report-separates.index') }}"><i class="fa fa-circle-o text-aqua"></i> قرار فصل</a></li>
                 <li><a href="{{ route('report-warnings.index') }}"><i class="fa fa-circle-o text-aqua"></i> انذار فصل</a></li>
                 {{-- <li><a href="{{ route('student-reports', ['report' => 'report-auth']) }}"><i class="fa fa-circle-o text-aqua"></i>عرض بيانات دخول الموقع</a></li> --}}
@@ -127,7 +127,7 @@
                     <li><a href="{{ route('student-reports', ['report' => 'report-kindness']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير شهادة حسن سير وسلوك</a></li>
                     <li><a href="{{ route('student-reports', ['report' => 'report-sudent-statement']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير حركة طالب</a></li>
                     <li><a href="{{ route('report-not-complate-data') }}"><i class="fa fa-circle-o text-aqua"></i>طلاب لم تكتمل بياناتهم</a></li>
-                    <li><a href="{{ route('student-reports', ['report' => 'report-student-attendances']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الطلاب</a></li>
+                    <li><a href="{{ route('report-student-attendances') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الطلاب</a></li>
                   </ul>
                 </li>
               </ul>
@@ -187,15 +187,15 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="#">
+                  {{-- <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الخصومات
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
-                  </a>
+                  </a> --}}
                   <ul class="treeview-menu">
-                    <li><a href="{{ route('discounts') }}"><i class="fa fa-circle-o text-aqua"></i> تنزيل خصومات</a></li>
-                    <li><a href="{{ route('discount-setting') }}"><i class="fa fa-circle-o text-aqua"></i>اعدادات الخصومات</a></li>
+                    {{-- <li><a href="{{ route('discounts') }}"><i class="fa fa-circle-o text-aqua"></i> تنزيل خصومات</a></li> --}}
+                    {{-- <li><a href="{{ route('discount-setting') }}"><i class="fa fa-circle-o text-aqua"></i>اعدادات الخصومات</a></li> --}}
                   </ul>
                 </li>
               </ul>
@@ -210,8 +210,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('student-reports', ['report' => 'report-separate']) }}"><i class="fa fa-circle-o text-aqua"></i> المدفوعات حسب المراحل</a></li>
-                <li><a href="{{ route('student-reports', ['report' => 'report-warning']) }}"><i class="fa fa-circle-o text-aqua"></i> مدفوعات الحافلة</a></li>
+                <li><a href="{{ route('TransportReport') }}"><i class="fa fa-circle-o text-aqua"></i> مدفوعات الحافلة</a></li>
 
               </ul>
             </li>
@@ -232,6 +231,8 @@
                   <li><a href="{{ route('timetables.index') }}"><i class="fa fa-circle-o text-aqua"></i>جدول الحصص</a></li>
                   <li><a href="{{ route('evaluations.index') }}"><i class="fa fa-circle-o text-aqua"></i>تقييم الطلاب</a></li>
                   <li><a href="{{ route('examinations.index') }}"><i class="fa fa-circle-o text-aqua"></i>الامتحانات</a></li>
+                  <li><a href="{{ route('examinations.create') }}"><i class="fa fa-circle-o text-aqua"></i>درجات الامتحانات</a></li>
+
                   {{-- <li><a href="{{ route('dist-students.index') }}"><i class="fa fa-circle-o text-aqua"></i> توزيع الطلاب علي الفصول</a></li> --}}
               </ul>
             </li>
@@ -245,30 +246,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('student-reports', ['report' => 'levels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير المراحل</a></li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> الصفوف
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="{{ route('student-reports', ['report' => 'report-data-classrooms']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير كل بيانات الصف</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> الفصول
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="{{ route('student-reports', ['report' => 'report-parts']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير الفصول</a></li>
-                    <li><a href="{{ route('student-reports', ['report' => 'report-count-parts']) }}"><i class="fa fa-circle-o text-aqua"></i> عدد الفصول بكل المراحل </a></li>
-                  </ul>
-                </li>
+                <li><a href="{{ route('student-reports', ['report' => 'report-levels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير المراحل</a></li>
+
               </ul>
             </li>
 
@@ -281,203 +260,22 @@
                 </span>
               </a>
               <ul class="treeview-menu">
+
                 <li>
-                  <router-link :to="{name: 'soon'}">
-                    <i class="fa fa-circle-o"></i>المعدل الدراسي
-                  </router-link>
-                </li>
+
+                    <a href="{{route('student-degree.index')}}">
+                        <i class="fa fa-circle-o"></i>النتيجة
+                      </a>
+                    </li>
+                    <li>
+                        <a href="{{route('estimate.index')}}">
+                            <i class="fa fa-circle-o"></i>اعدادات تقدير الدرجات
+                        </a>
+                        </li>
+
+
                 <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> اعمال الكنترول
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة كنترول
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة لجان
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة ارقام جلوس
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تعديل ارقام الجلوس
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة الارقام السرية
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>كشف مناداة اللجان
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> الكنترول الأمريكى
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة درجات المواد
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>عرض درجات المواد
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>نتيجة العام الدراسى
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>ترصيد درجات من شيت اكسل
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> اعمال اعضاء الكنترول
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تسجيل غياب امتحان
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اعضاء الكونترول
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تسجيل مراقبين اللجان
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i> حضور وانصراف يدوي
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اقرار الانتهاء من المنهج الدراسي
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>كشوف مراقبة اللجان
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> ترصيد النتائج
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>ترصيد نتائج النصف الاول والثاني
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة نتائج الدور الثاني
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>ترصيد النتائج الشهرية
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>ترصيد درجات عناصر المواد
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>ترصيد درجات المواد
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تعديل الدرجات للمراجع
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>كشفاللجان
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>كشفاللجان
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> المواد
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>كشفاللجان
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اضافة مواد
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>عناصر المادة
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>اعدادات تقدير الدرجات
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">
+                <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> عرض درجات
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
@@ -485,62 +283,23 @@
                   </a>
                   <ul class="treeview-menu">
                     <li>
-                      <router-link :to="{name: 'soon'}">
+
+                      <a href="{{route('Semester.index')}}">
                         <i class="fa fa-circle-o"></i>عرض درجات الترم الاول
-                      </router-link>
+                      </a>
                     </li>
-                    <li>
+                    {{-- <li>
                       <router-link :to="{name: 'soon'}">
                         <i class="fa fa-circle-o"></i>عرض نتائج اخر العام
                       </router-link>
-                    </li>
+                    </li> --}}
                   </ul>
                 </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-circle-o text-aqua"></i> تقارير الكنترول
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تقرير النتائج الشهرية
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تقرير الرقم السري
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i> حضور وانصراف اعضاء الكنترول
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تقرير حركة الاسئلة والاجابات
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تقرير احصاء اعمال الكنترول
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link :to="{name: 'soon'}">
-                        <i class="fa fa-circle-o"></i>تقرير نجاح ورسوب الطلاب
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
+
               </ul>
             </li>
 
 
-            <li class="header">شوؤن الموظفين</li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-users text-green"></i>
@@ -555,7 +314,7 @@
                 <li><a href="{{ route('bear-in-minds.index') }}"><i class="fa fa-circle-o text-aqua"></i> لفت نظر</a></li>
                 <li><a href="{{ route('emp-absences.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل غياب الموظفين</a></li>
                 <li><a href="{{ route('cut-allowances.index') }}"><i class="fa fa-circle-o text-aqua"></i> خصومات او بدلات</a></li>
-                <li><a href="{{ route('emp-pulls.index') }}"><i class="fa fa-circle-o text-aqua"></i> طلب اخلاء طرف</a></li>
+                {{-- <li><a href="{{ route('emp-pulls.index') }}"><i class="fa fa-circle-o text-aqua"></i> طلب اخلاء طرف</a></li> --}}
 
                 <li>
                   <a href="#">
@@ -577,12 +336,12 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('employees.index') }}"><i class="fa fa-circle-o text-aqua"></i> الموظفين</a></li>
-                    <li><a href="{{ route('employees.create') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة موظف جديد</a></li>
+                    {{-- <li><a href="{{ route('employees.create') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة موظف جديد</a></li> --}}
                     {{-- <li><a href="{{ route('soon') }}"><i class="fa fa-circle-o text-aqua"></i> البيانات الوظيفية</a></li> --}}
                   </ul>
                 </li>
-                <li><a href="{{ route('agreements.index') }}"><i class="fa fa-circle-o text-aqua"></i> اقرارات</a></li>
-                <li>
+                {{-- <li><a href="{{ route('agreements.index') }}"><i class="fa fa-circle-o text-aqua"></i> اقرارات</a></li> --}}
+                {{-- <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الاوذونات
                     <span class="pull-right-container">
@@ -593,7 +352,7 @@
                     <li><a href="{{ route('emp-setting-perissions') }}"><i class="fa fa-circle-o text-aqua"></i> اعدادات الآذونات</a></li>
                     <li><a href="{{ route('emp-perissions.index') }}"><i class="fa fa-circle-o text-aqua"></i> اذونات الموظفين</a></li>
                   </ul>
-                </li>
+                </li> --}}
                 <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الاجازات
@@ -617,10 +376,10 @@
                   <ul class="treeview-menu">
                     <li><a href="{{ route('salary-details') }}"><i class="fa fa-circle-o text-aqua"></i> اعتماد رواتب مفصل</a></li>
                     <li><a href="{{ route('rewards-punition.index') }}"><i class="fa fa-circle-o text-aqua"></i> المكافآت والجزاءات</a></li>
-                    <li><a href="{{ route('realliance-salary') }}"><i class="fa fa-circle-o text-aqua"></i> اعتماد الرواتب</a></li>
+                    {{-- <li><a href="{{ route('realliance-salary') }}"><i class="fa fa-circle-o text-aqua"></i> اعتماد الرواتب</a></li> --}}
                     <li><a href="{{ route('progenitors.index') }}"><i class="fa fa-circle-o text-aqua"></i> سٌلف الموظفين</a></li>
-                    <li><a href="{{ route('overpayment') }}"><i class="fa fa-circle-o text-aqua"></i> زيادة الرواتب الدورية لموظف</a></li>
-                    <li><a href="{{ route('overpayment-division') }}"><i class="fa fa-circle-o text-aqua"></i> زيادة الرواتب على الشرائح</a></li>
+                    {{-- <li><a href="{{ route('overpayment') }}"><i class="fa fa-circle-o text-aqua"></i> زيادة الرواتب الدورية لموظف</a></li>
+                    <li><a href="{{ route('overpayment-division') }}"><i class="fa fa-circle-o text-aqua"></i> زيادة الرواتب على الشرائح</a></li> --}}
 
                     <!-- <li><router-link :to="{name: 'salary-statement'}"> <i class="fa fa-circle-o"></i> كشف الرواتب </router-link></li> -->
                   </ul>
@@ -648,14 +407,14 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('employee-reports', ['report' => 'report-permission']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير اذونات موظف</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'report-rewards-punition']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير الخصومات والمكافأت</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'report-search']) }}"><i class="fa fa-circle-o text-aqua"></i> بحث الموظفين</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'report-salary']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير التعريف بالراتب</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'report-progenitor']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير سلف الموظفين</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'report-absence']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الموظفين</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'report-evaluation']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير تقييم الموظفين</a></li>
-                <li><a href="{{ route('employee-reports', ['report' => 'reportvels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير</a></li>
+                {{-- <li><a href="{{ route('ReportPermission') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير اذونات موظف</a></li> --}}
+                <li><a href="{{ route('report-rewards-punition') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير الخصومات والمكافأت</a></li>
+                <li><a href="{{ route('employee-search') }}"><i class="fa fa-circle-o text-aqua"></i> بحث الموظفين</a></li>
+                <li><a href="{{ route('report-salary') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير التعريف بالراتب</a></li>
+                {{-- <li><a href="{{ route('report-progenitor'   ) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير سلف الموظفين</a></li> --}}
+                <li><a href="{{ route('ReportAbsence') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الموظفين</a></li>
+                <li><a href="{{ route('report-evaluation') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير تقييم الموظفين</a></li>
+                {{-- <li><a href="{{ route('employee-reports', ['report' => 'reportvels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير</a></li> --}}
               </ul>
             </li>
 
@@ -668,9 +427,9 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('student-parents.create') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة اولياء الامور</a></li>
+                {{-- <li><a href="{{ route('student-parents.create') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة اولياء الامور</a></li> --}}
                 <li><a href="{{ route('student-parents.index') }}"><i class="fa fa-circle-o text-aqua"></i> اولياء الامور</a></li>
-                <li><a href="{{ route('student-parents.index') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة اولياء الامور يدويا</a></li>
+                {{-- <li><a href="{{ route('student-parents.index') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة اولياء الامور يدويا</a></li> --}}
               </ul>
             </li>
 
@@ -692,7 +451,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('roles.index') }}"><i class="fa fa-circle-o"></i> {{ __('home/sidebar.all_roles') }}</a></li>
-                    <li><a href="{{ route('roles.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_role') }}</a></li>
+                    {{-- <li><a href="{{ route('roles.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_role') }}</a></li> --}}
                   </ul>
                 </li>
                 <li>
@@ -703,7 +462,6 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('permissions.index') }}"><i class="fa fa-circle-o"></i> {{ __('home/sidebar.all_permissions') }}</a></li>
-                    <li><a href="{{ route('permissions.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_permission') }}</a></li>
                   </ul>
                 </li>
               </ul>
@@ -716,6 +474,7 @@
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
+
               <ul class="treeview-menu" style="display: none;">
                 <li><a href="{{ route('settings.index') }}"><i class="fa fa-circle-o text-aqua"></i> {{ __('home/sidebar.settings') }}</a></li>
                 <li>
@@ -726,7 +485,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('testimonials.index') }}"><i class="fa fa-circle-o"></i> {{ __('home/sidebar.all_testimonials') }}</a></li>
-                    <li><a href="{{ route('testimonials.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_testimonial') }}</a></li>
+                    {{-- <li><a href="{{ route('testimonials.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_testimonial') }}</a></li> --}}
                   </ul>
                 </li>
               </ul>

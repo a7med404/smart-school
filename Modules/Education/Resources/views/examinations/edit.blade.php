@@ -1,7 +1,7 @@
 
 @extends('cpanelAdmin.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_examinations') }}
+تعديل درجات الامتحانات
 @endsection
 @section('header')
 <!-- icheck -->
@@ -9,11 +9,11 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_examinations') }} <small>it all starts here</small></h1>
+    <h1>تعديل درجات الامتحانات
+        <small></small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanelAdmin\examinations') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_examinations') }} </a></li>
-        <li class="active"> {{ __('home/sidebar.edit_examination') }} {{ $examinationInfo->name }} </li>
+
     </ol>
 </section>
 
@@ -22,7 +22,8 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ __('home/sidebar.edit_examination') }}</h3>
+            <h3 class="box-title">تعديل درجات الامتحانات
+            </h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>

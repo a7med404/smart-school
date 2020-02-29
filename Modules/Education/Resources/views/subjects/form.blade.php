@@ -2,7 +2,7 @@
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('name', 'اسم المادة', ['class' => 'control-label']) !!}
-            {!! Form::text('name', null, ['id' => 'name', 'class' => "form-control  {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('name') }}", 'required', 'autofocus']) !!}
+            {!! Form::text('name', null, ['id' => 'name', 'class' => "form-control  {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('name') }}", 'required', 'autofocus']) !!} 
         </div>
     </div>
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
@@ -11,7 +11,7 @@
             {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}", 'required']) !!}
         </div>
     </div>
-</div> 
+</div>
 <div class="row">
     <div class="col col-lg-4 col-md-4 col-sm-4 col-6">
         <div class="form-group">
@@ -32,16 +32,16 @@
         </div>
     </div>
 </div>
- 
 
- 
+
+
 @if(isset($subjectInfo))
 <div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>
 </div>
-    
+
 @else
 <div class="row m-t-20">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

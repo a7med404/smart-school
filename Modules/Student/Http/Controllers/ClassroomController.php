@@ -24,8 +24,8 @@ class ClassroomController extends Controller
     {
         $classrooms = Classroom::orderBy('sort', 'asc')->get();
         return view('student::students.educations.classrooms.index', ['classrooms' => $classrooms]);
-    } 
- 
+    }
+
 
     public function classTable()
     {
@@ -57,10 +57,10 @@ class ClassroomController extends Controller
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
             ->addColumn('level_id', function ($level) {
-                return $level->name;
+                return $level->level->name;
 
             })
-            ->rawColumns(['level', 'roles', 'options', 'status'])
+            ->rawColumns(['roles', 'options', 'status','level_id'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
@@ -84,11 +84,11 @@ class ClassroomController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
+    {
         $classroom = Classroom::create($request->all());
         if($classroom){
             Session::flash('flash_massage_type');
-            return redirect()->route('classrooms.index')->withFlashMassage('Classroom Created Susscefully');
+            return redirect()->route('classrooms.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -134,7 +134,7 @@ class ClassroomController extends Controller
     {
         $classroomUpdate = Classroom::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->back()->withFlashMassage('Classroom Updated Susscefully');
+        return redirect()->back()->withFlashMassage('تم التحديث بنجاح');
     }
 
     /**
@@ -147,8 +147,8 @@ class ClassroomController extends Controller
       $classroomForDelete = $Oneclassroom->findOrfail($id);
       $classroomForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Classroom Deleted Susscefully');
-    }     
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
 
 
     public function getClassrooms($classroom_id)

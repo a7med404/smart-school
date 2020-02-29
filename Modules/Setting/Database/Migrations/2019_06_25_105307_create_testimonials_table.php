@@ -11,24 +11,24 @@ class CreateTestimonialsTable extends Migration
      *
      * @return void
      */
-    // public function up()
-    // {
-    //     Schema::create('testimonials', function (Blueprint $table) {
-    //         $table->bigIncrements('id');
-    //         $table->string('how');
-    //         $table->longText('text')->nullable();
-    //         $table->boolean('status')->default(1);
-    //         $table->timestamps();
-    //     });
-    // }
+     public function up()
+ {
+     Schema::create('testimonials', function (Blueprint $table) {
+         $table->bigIncrements('id');
+         $table->string('how');
+         $table->longText('text')->nullable();
+         $table->boolean('status')->default(1);
+         $table->timestamps();
+     });
+ }
 
-    // /**
-    //  * Reverse the migrations.
-    //  *
-    //  * @return void
-    //  */
-    // public function down()
-    // {
-    //     Schema::dropIfExists('testimonials');
-    // }
+ /**
+  * Reverse the migrations.
+     *
+  * @return void
+  */
+ public function down()
+ {
+     Schema::dropIfExists('testimonials');
+ }
 }

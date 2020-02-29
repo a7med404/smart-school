@@ -16,7 +16,7 @@ class PayRulsController extends Controller
     public function index()
     {
         $payruls = PayRuls::all();
-        return view('finance::account.pay-ruls.index ', ['payruls' => $payruls]);
+        return view('finance::account.pay-ruls.index', ['payruls' => $payruls]);
     }
 
     public function RulsDataTables()
@@ -45,11 +45,11 @@ class PayRulsController extends Controller
             //     // }
             //     // return $data;
             // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-           
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'pay_rul_id'])
+            ->editColumn('is_mandatary', function ($student) {
+            return is_mandatary()[1];
+            })
+
+            ->rawColumns(['last_login', 'roles', 'options', 'is_mandatary', 'pay_rul_id'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
@@ -107,7 +107,7 @@ class PayRulsController extends Controller
         $payrul = PayRuls::create($request->all());
          if($payrul){
             Session::flash('flash_massage_type');
-             return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Created Susscefully');
+             return redirect()->route('pay-rules.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
     /**
@@ -147,7 +147,7 @@ class PayRulsController extends Controller
     {
         PayRuls::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Updated Susscefully');
+        return redirect()->route('pay-rules.index')->withFlashMassage('تم تحديث البيانات بنجاح');
     }
 
 
@@ -160,7 +160,7 @@ class PayRulsController extends Controller
     {
         $payrul = PayRuls::findOrFail($id)->delete();
         Session::flash('flash_massage_type');
-        return redirect()->route('pay-rules.index')->withFlashMassage('PayRuls Deleted Susscefully');
+        return redirect()->route('pay-rules.index')->withFlashMassage('تم الحذف بنجاح');
     }
 
 

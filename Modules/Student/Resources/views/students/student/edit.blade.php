@@ -22,7 +22,7 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ __('home/sidebar.edit_student') }}</h3>
+            <h3 class="box-title">تعديل بيانات الطالب</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"><i class="fa fa-minus"></i></button>
@@ -55,14 +55,14 @@
             autoclose: true,
             language: 'ar',
             rtl: true,
-            
+
             format: 'yyyy-mm-dd'
         });
         $(".select2").select2();
     });
 
     $(document).ready(function () {
-        
+
         /*
             For iCheck =====================================>
         */

@@ -100,6 +100,6 @@ class TransactionController extends Controller
       $OneTransaction->findOrfail($id)->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('Transaction Deleted Susscefully');
-    }      
+    }
 
 }

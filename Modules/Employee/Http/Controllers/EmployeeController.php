@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Employee;
 use Modules\Employee\Transformers\EmployeeResource;
 use Modules\Employee\Http\Requests\CreateEmployeeRequest;
-
+use Validator;
 class EmployeeController extends Controller
 {
     /**
@@ -25,7 +25,7 @@ class EmployeeController extends Controller
         // return "jhgf";
         return DataTables::of(Employee::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($emp) {
-                return view('employee::employees.colums.options', ['id' => $emp->id, 'routeName' => 'employees']);
+                return view('employee::employees.colums.delete', ['id' => $emp->id, 'routeName' => 'employees']);
             // })
 
             // ->editColumn('gender', function ($customer) {
@@ -49,14 +49,14 @@ class EmployeeController extends Controller
             // ->editColumn('status', function ($student) {
             //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
             // })
-           
-               ->editColumn('department_id', function ($dep) {
-                return $dep->department->name;
-            })
-            ->editColumn('managament_id', function ($manag) {
-                return $manag->managament->name;
-            })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'gender'])
+
+                 ->editColumn('department_id', function ($dep) {
+                  return $dep->department->name;
+              })
+              ->editColumn('managament_id', function ($manag) {
+                    return $manag->managament->name;
+              })
+            ->rawColumns(['last_login', 'roles', 'options', 'status','managament_id'])
             // ->removeColumn('password')
             // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
             ->setRowId('{{$id}}')
@@ -80,11 +80,11 @@ class EmployeeController extends Controller
      */
     public function store(CreateEmployeeRequest $request)
     {
-        $id =  Employee::create($request->all())->id;
-        return response()->json([
-            'message' => 'تم الحفظ بنجاح',
-            'employee_id' => $id
-        ], 201);
+
+        Employee::create($request->all());
+        return redirect()->route('employees.index')->withFlashMassage('تم اضافة البيانات بنجاح');
+
+
     }
 
     /**
@@ -94,7 +94,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
+        $EmployeInfo = Employee::findOrFail($id);
+        return view('employee::employees.emp.employees-info.show', ['EmployeInfo' => $EmployeInfo]);
         return new EmployeeResource(Employee::findOrfail($id));
+
         /* return view('student::show'); */
     }
 
@@ -106,7 +109,9 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        /* return view('student::edit'); */
+        $EmployeInfo = Employee::findOrFail($id);
+        return view('employee::employees.emp.employees-info.edit', ['EmployeInfo' => $EmployeInfo]);
+        return new EmployeeResource(Employee::findOrfail($id));
     }
 
     /**
@@ -118,9 +123,9 @@ class EmployeeController extends Controller
     public function update(CreateEmployeeRequest $request, $id)
     {
         Employee::findOrfail($id)->update($request->all());
-        return response()->json([
-            'message' => 'تم التحديث بنجاح',
-        ], 200);
+        return redirect()->route('employees.index')->withFlashMassage('تم تحديث البيانات بنجاح');
+
+
     }
 
     /**
@@ -131,10 +136,10 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         Employee::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+        return redirect()->route('employees.index')->withFlashMassage('تم حذف البيانات بنجاح');
+
+
     }
 
-    
+
 }

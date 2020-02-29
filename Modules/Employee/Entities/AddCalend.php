@@ -16,7 +16,7 @@ class AddCalend extends Model
 
     public function Addcaltoemp()
     {
-        return $this->belongsTo(AddCalendEmployee::Class);
+        return $this->belongsTo(AddCalendEmployee::class);
     }
 
-}  
+}

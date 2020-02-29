@@ -1,7 +1,11 @@
 <?php
 
 namespace Modules\Employee\Entities;
+use Modules\Employee\Entities\EmpPerissions;
+use Modules\Employee\Entities\RewardsPunition;
 use Modules\Employee\Entities\Department;
+use Modules\Employee\Entities\Employee;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Managament extends Model
@@ -15,8 +19,13 @@ class Managament extends Model
         return $this->hasMany(Department::class);
     }
 
-public function Employee(){
 
-        return $this->hasMany(Employee::class);
+    public function EmpPerssions(){
+        return $this->hasMany(EmpPerissions::class);
+
     }
+    // public function RewardsPunitions(){
+    //  return $this->belongsTo(RewardsPunition::class);
+    // }
+
 }

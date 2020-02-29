@@ -12,6 +12,13 @@
 */
 
 Route::prefix('education')->group(function() {
+    Route::resource('student-degree', 'DegreeController');
+
+
+    Route::get('subjects/show/{studentid}', 'DegreeController@show')->name('student-degree.show');
+
+
+
     Route::resource('subjects', 'SubjectController');
     Route::get('subjects-dataTables','SubjectController@subjectdataTable')->name('subjects.dataTables');
     Route::get('subjects/delete/{id}', 'SubjectController@destroy')->name('subjects.delete');

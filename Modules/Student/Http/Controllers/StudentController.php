@@ -35,7 +35,7 @@ class StudentController extends Controller
             $requestAll = $request->toArray();
             $query = Student::orderBy('id', 'desc');
             foreach ($requestAll as $key => $req) {
-                if (!($req == "" || null)) { 
+                if (!($req == "" || null)) {
                     $query->where($key, $req);
                 }
             }
@@ -53,7 +53,7 @@ class StudentController extends Controller
         // return "jhgf";
         return DataTables::of(Student::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($student) {
-                return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'students']);
+                return view('student::students.colums.destroy', ['id' => $student->id, 'routeName' => 'students']);
             })
 
             ->editColumn('gender', function ($customer) {
@@ -262,7 +262,7 @@ class StudentController extends Controller
     public function destroy($id)
     {
         Student::findOrfail($id)->delete();
-        return redirect()->route('students.index')->withFlashMassage('Student Deleted Susscefully');
+        return redirect()->route('students.index')->withFlashMassage('تم الحذف بنجاح');
     }
 
     public function studentOnlyTrashed(Request $request)

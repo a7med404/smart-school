@@ -8,7 +8,7 @@
                 <h4 class="title">بيانات المستخدم</h4>
             </div>
             <div class="modal-body">
-                {!! Form::open(['route' => ['evaluation-items.store'], 'method' => "POST", 'class' => 'form']) !!}
+                {!! Form::open(['route' => ['evaluation-item.store'], 'method' => "POST", 'class' => 'form']) !!}
                 @include('employee::employees.evaluation.evaluationItem.form')
                 {!! Form::close() !!}
             </div>
@@ -17,5 +17,4 @@
 </div>
 <!-- ... end Popup  -->
 
-    
-    
+

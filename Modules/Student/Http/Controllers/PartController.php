@@ -22,7 +22,7 @@ class PartController extends Controller
         $parts = Part::orderBy('sort', 'asc')->get();
         return view('student::students.educations.parts.index', ['parts' => $parts]);
     }
- 
+
     public function partTable()
     {
         // return "jhgf";
@@ -83,11 +83,11 @@ class PartController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
+    {
         $part = Part::create($request->all());
         if($part){
             Session::flash('flash_massage_type');
-            return redirect()->route('parts.index')->withFlashMassage('Part Created Susscefully');
+            return redirect()->route('parts.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -133,7 +133,7 @@ class PartController extends Controller
     {
         $partUpdate = Part::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->back()->withFlashMassage('Part Updated Susscefully');
+        return redirect()->back()->withFlashMassage('تم التحديث بالنجاح');
     }
 
     /**
@@ -146,8 +146,8 @@ class PartController extends Controller
       $partForDelete = $Onepart->findOrfail($id);
       $partForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Part Deleted Susscefully');
-    }     
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
 
 
     public function getParts($part_id)

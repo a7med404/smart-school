@@ -82,11 +82,11 @@ class EvaluationController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    { 
+    {
         $evaluation = Evaluation::create($request->all());
         if($evaluation){
             Session::flash('flash_massage_type');
-            return redirect()->route('evaluations.index')->withFlashMassage('Evaluation Created Susscefully');
+            return redirect()->route('evaluations.index')->withFlashMassage('تم الاضافة بنجاح');
         }
     }
 
@@ -122,7 +122,7 @@ class EvaluationController extends Controller
     {
         $evaluationUpdate = Evaluation::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->route('evaluations.index')->withFlashMassage('Evaluation Updated Susscefully');
+        return redirect()->route('evaluations.index')->withFlashMassage('تم  التحديث بنجاح');
     }
 
     /**
@@ -135,7 +135,7 @@ class EvaluationController extends Controller
       $evaluationForDelete = $Oneevaluation->findOrfail($id);
       $evaluationForDelete->delete();
       Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('Evaluation Deleted Susscefully');
-    }     
+      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+    }
 
 }

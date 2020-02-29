@@ -1,7 +1,6 @@
 @extends('cpanelAdmin.layouts.master')
 @section('title')
-{{ __('home/sidebar.all_HOME') }}
-{{ __('home/sidebar.all_calends') }}
+{{ __('home/sidebar.all_students') }}
 @endsection
 @section('header')
 <!-- icheck -->
@@ -12,190 +11,70 @@
 @endsection
 @section('content')
 <section class="content-header">
-  <h1>سٌلف الموظفين <small>  </small></h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
-    <li class="active">سٌلف الموظفين</li>
+    <li class="active">كل الطلاب</li>
   </ol>
 </section>
-<!-- Main content -->
-<section class="content">
-  <!-- Default box -->
-  <div class="box box-info">
-    <div class="box-header with-border">
-      <h3 class="box-title">سٌلف الموظفين</h3>
-      <div class="box-tools pull-right">
-        <a type="button" data-toggle="modal" data-target="#popup-add-progenitor" href="#" class="btn btn-sm btn-info pull-left">
-          <i class="fa fa-plus"></i>  اضافة سٌلفة
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /.box -->
-  <div class="row">
-    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <table class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
-        <thead>
-          <tr>
-              <th>#ID</th>
-              <th>اسم الموظف</th>
-              <th>المبلغ</th>
-              <th>السنة المالية</th>
-            <th>اسم الخزنة</th>
-            <th>التاريخ</th>
-            <th>عدد الشهور</th>
-            <th>الملاحظات</th>
-              <th>options</th>
-          </tr>
-        </thead>
-        <tbody>
-            @foreach ($prog as $item)
-            <tr>
-            <td>{{$item->id}}</td>
-            <td>{{$item->employee_id}}</td>
-            <td>{{$item->amount}}</td>
-            <td>{{$item->financial_year}}</td>
-            <td>{{$item->safe_id}}</td>
-            <td>{{$item->date}}</td>
-            <td>{{$item->months_number}}</td>
-            <td>{{$item->note}}</td>
-
-                <td>
-                        <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                  <span class="caret"></span> خيارات
-                                </a>
-
-
-                                <ul class="dropdown-menu">
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('progenitors.edit',['id' => $item->id])}}">تعديل</a></li>
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('progenitors.delete',['id' => $item->id])}}">حذف</a></li>
-                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                  <li role="presentation" class="divider"></li>
-
-                                </ul>
-                              </div>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-  <!-- /.box -->
-    @include('employee::employees.salary.progenitor.add')
-
-
-    <h1> اضافة مخالفةالى موظف  <small>  </small></h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
-        <li class="active">اضافة مخالفةالى موظف  </li>
-    </ol>
-</section>
-
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title"> اضافة مخالفةالى موظف</h3>
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
-                <a type="button" data-toggle="modal" data-target="#popup-add-addcalend" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> اضافة مخالفة جديدة
+          <h3 class="box-title">كل الطلاب</h3>
+          <div class="box-tools pull-right">
+
+                <a type="button" data-toggle="modal" data-target="#popup-add-progenitor" href="#" class="btn btn-sm btn-info pull-left">
+                  <i class="fa fa-plus"></i>  اضافة سٌلفة
                 </a>
-            </div>
+
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
         </div>
+
         <div class="box-body">
+
+
             <div class="table-responsive">
-                <table id="table_id" class="table table-bordered table-hover table-condensed">
+                <table id="data" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th> اسم الموظف </th>
-                            <th>التاريخ </th>
-                            <th> نوع المخالفة </th>
-                            <th>option</th>
+                            <th>اسم الموظف</th>
+                            <th>المبلغ</th>
+
+
+                            <th>{{ __('home/labels.options') }}</th>
                         </tr>
                     </thead>
-                    <tbody>
-                            @forelse($AddCalends as $AddCalend)
-                            <tr>
-                                <td>{{ $AddCalend->id }}</td>
-                                <td>{{ $AddCalend->employee_id  }}</td>
-                                <td>{{ $AddCalend->date  }}</td>
-                                <td>{{ $AddCalend->type }}</td>
 
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                            <span class="fa fa-ellipsis-h"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.show',  ['id' => $AddCalend->id]) }}"}}>استعراض</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-calend.edit',  ['id' => $AddCalend->id]) }}">تعديل</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
-                                            <form action="{{ route('add-calend.destroy',['id' => $AddCalend->id]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            <button class="btn btn-dsnger btn-xs">حـــذف</button>
-                                            </form>
-                                            </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td colspan="7">
-                                    <div class="text-center">
-                                        <p>لا توجد بيانات في هذا الجدول</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforelse
-                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                                    <th>#ID</th>
+                                    <th>اسم الموظف</th>
+                                    <th>المبلغ</th>
+
+
+                            <th class="noExport">{{ __('home/labels.options') }}</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
     </div>
     <!-- /.box -->
-    @include('employee::employees.calends.add')
+
+
 </section>
 <!-- /.content -->
+@include('employee::employees.salary.progenitor.add')'
 
 @stop
-@section('footer')
-<!-- icheck -->
-{!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
-<!-- dataTable -->
-{!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
-{!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
-<script>
-    $('#table_id').DataTable({
-        // processing: true,
-        // serverSide: true,
-        // "columnDefs":[
-        //   {
-        //     "targets":[1, 3, 7],
-        //     "orderable":false,
-        //   },
-        // ],
-        "stateSave": false,
-        "responsive": true,
-        "order": [
-            [0, 'desc']
-        ],
-        "pagingType": "full_numbers",
-        aLengthMenu: [
-            [10, 25, 50, 100, 200, -1],
-            [10, 25, 50, 100, 200, "All"]
-        ],
-        iDisplayLength: 25,
-        fixedHeader: true,
-    });
+{{-- <script>
     $(document).ready(function () {
         /*
             For iCheck =====================================>
@@ -207,8 +86,146 @@
         });
     });
 
+</script> --}}
+
+
+@section('footer')
+<!-- icheck -->
+{!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
+<!-- dataTable -->
+{!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
+{!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
+{{-- {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js') !!}
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js') !!}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') !!}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js') !!}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js') !!}
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js') !!}
+{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js') !!} --}}
+
+<script type="text/javascript">
+
+    var lastIdx = null;
+
+        $('#data tfoot th').each( function () {
+            if($(this).index() < 5 ){
+                var classname = $(this).index() == 5  ?  'filter-select' : 'filter-input';
+                var title = $(this).html();
+                if($(this).index() == 0 ){
+                    $(this).html( '<input type="text" style="max-width:70px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" '+title+'" />' );
+                }else{
+                    $(this).html( '<input type="text" style="max-width:180px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'"placeholder=" البحث '+title+'" />' );
+                }
+            }else if($(this).index() == 5){
+                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
+            }
+        });
+
+        var table = $('#data').DataTable({
+            processing: true,
+            serverSide: true,
+            autoWidth: false,
+            select: true,
+            ajax: '{!! route("progenitors.dataTable") !!}',
+            columns: [
+                { data: 'id', name: 'id', "width": "10%"},
+                { data: 'employee_id', name: 'employee_id', "width": "20%" },
+                { data: 'transaction_id', name: 'transaction_id', "width": "15%" },
+
+                { data: 'options', name: 'options', orderable: false, "width": "10%"},
+            ],
+            "language": {
+                "url": "{{ asset('modules/master/data/Arabic.json') }}"
+            },
+            "stateSave": false,
+            "responsive": true,
+            "order": [[0, 'desc']],
+            "pagingType": "full_numbers",
+            'searchDelay' : 350,
+            bAutoWidth: false,
+            aLengthMenu: [
+                [10, 25, 50, 100, 200, -1],
+                [10, 25, 50, 100, 200, "All"]
+            ],
+            iDisplayLength: 10,
+            fixedHeader: true,
+            dom: 'Blfrtip',
+            buttons: [
+                {
+                    extend: 'pdf',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                },
+                {
+                    extend: 'excel',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                },
+                {
+                    extend: 'print',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+
+                },
+                {
+                    extend: 'csv',
+                    title: 'Test Data export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                },
+                {
+                    extend: 'copy',
+                    title: 'Test copy export',
+                    exportOptions: {columns: "thead th:not(.noExport)"}
+                }
+            ],
+            initComplete: function ()
+            {
+                var r = $('#data tfoot tr');
+                r.find('th').each(function(){
+                    $(this).css('padding', 8);
+                });
+                $('#data thead').append(r);
+                $('#search_0').css('text-align', 'center');
+            }
+
+        });
+
+
+        // $('.filter-select').change(function(){
+        //     // setTimeout(function(table) {
+        //         // delaySuccess(
+        //             table.column($(this).data('column'))
+        //             .search($(this).val())
+        //             .draw();
+        //         // );
+        //     // }, 2000);
+
+        // });
+
+
+        $('.filter-select').change(function(){
+            table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+
+        });
+
+        $('.filter-input').keyup(function(){
+            table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+        });
+
+
+        $('#data tbody').on( 'mouseover', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+            if ( colIdx !== lastIdx ) {
+                $( table.cells().nodes() ).removeClass( 'highlight' );
+                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+            }
+        })
+        .on( 'mouseleave', function () {
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+        });
 </script>
 @endsection
-
-
-

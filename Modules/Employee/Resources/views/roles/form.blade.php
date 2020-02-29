@@ -2,21 +2,21 @@
 <div class="row">
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
-            {!! Form::label('name', 'Role Name', ['class' => 'control-label']) !!}
+            {!! Form::label('name', 'الوظيفة', ['class' => 'control-label']) !!}
             {!! Form::text('name', null, ['id' => 'name', 'class' => "form-control  {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('name') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
-            {!! Form::label('display_name', 'Display Name', ['class' => 'control-label']) !!}
+            {!! Form::label('display_name', 'اسم العرض', ['class' => 'control-label']) !!}
             {!! Form::text('display_name', null, ['id' => 'display_name', 'class' => "form-control  {{ $errors->has('display_name') ? ' is-invalid' : '' }}", 'value' => "{{ old('display_name') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
-</div> 
+</div>
 <div class="row">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="form-group">
-            {!! Form::label('description', 'Description', ['class' => 'control-label']) !!}
+            {!! Form::label('description', 'الوصف', ['class' => 'control-label']) !!}
             {!! Form::textarea('description', null, ['id' => 'description', 'class' => "form-control  {{ $errors->has('description') ? ' is-invalid' : '' }}", 'value' => "{{ old('description') }}", 'autofocus']) !!}
         </div>
     </div>

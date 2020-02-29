@@ -31,7 +31,7 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="department" role="tabpanel" aria-expanded="true">
-          
+
                             <div class="box-tools">
                               <a type="button" data-toggle="modal" data-target="#popup-add-department" class="btn btn-info m-t-20 m-b-10">
                                 <i class="fa fa-plus"></i>  اضافة جديد
@@ -80,10 +80,10 @@
 
                 <!-- /.box -->
               </section>
-          
+
     </div>
     <!-- /.box -->
-    
+
     @include('employee::employees.managaments.management.add')
 </section>
 <!-- /.content -->

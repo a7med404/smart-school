@@ -13,7 +13,7 @@
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanelAdmin\payruls') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payruls') }} </a></li>
-        <li class="active"> {{ __('home/sidebar.edit_payrul') }} {{ $payrulInfo->name }} </li>
+        <li class="active"> {{ __('home/sidebar.edit_payrul') }} {{ $EmployeInfo->name }} </li>
     </ol>
 </section>
 
@@ -33,8 +33,8 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-6">
-                    {!! Form::model($payrulInfo, ['route' => ['pay_rules.update', $payrulInfo->id], 'method' => "PUT"]) !!}
-                    @include('student::students.account.pay-ruls.form')
+                    {!! Form::model($EmployeInfo, ['route' => ['pay_rules.update', $EmployeInfo->id], 'method' => "PUT"]) !!}
+                    @include('employee::employees.emp.employees-info.form')
                     {!! Form::close() !!}
                 </div>
             </div>
