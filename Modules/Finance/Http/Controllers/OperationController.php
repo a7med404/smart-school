@@ -9,8 +9,6 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Finance\Entities\Operation;
 use Modules\Finance\Http\Requests\CreateOperationRequest;
-use Modules\Finance\Entities\Journal;
-use Modules\Finance\Entities\Transaction;
 use Illuminate\Support\Facades\Auth;
 
 class OperationController extends Controller
@@ -21,56 +19,14 @@ class OperationController extends Controller
      */
     public function index()
     {
-        $Operations = Operation::all();
-        return view('finance::account.operations.index', ['Operations' => $Operations]);
+        $Operations = Operation::orderBy('id', 'desc')->get();
+        return view('finance::account.operations.index', ['operations' => $Operations]);
     }
 
-
-    public function operationdataTables()
+    public function showTransactions()
     {
-        return DataTables::of(Operation::orderBy('id', 'desc')->get())
-            ->addColumn('options', function ($operation) {
-                return view('finance::account.colums.options', ['id' => $operation->id, 'routeName' => 'operations']);
-            })
-            // ->addColumn('last_login', function (student $student) {
-            //     if($student->last_login != null) {
-            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
-            //     }
-            //     return $student->last_login;
-            // })
-
-            // ->addColumn('roles', function ($student) {
-            //     // $data = [];
-            //     // foreach ($student->roles as $role) {
-            //         return view('student::students.colums.role', ['roles' => $student->roles]);
-            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
-            //     // }
-            //     // return $data;
-            // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-            ->editColumn('student_id', function ($student) {
-                return $student->student->name;
-            })
-            ->editColumn('student_id', function ($student) {
-                return $student->student->name;
-            })
-            ->rawColumns(['last_login', 'roles', 'student_id','options', 'status'])
-            // ->removeColumn('password')
-            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
-            ->setRowId('{{$id}}')
-            ->make(true);
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('finance::create');
+        $operations = Operation::orderBy('id', 'ASC')->get();
+        return view('finance::account.operations.show-operations', ['operations' => $operations]);
     }
 
     /**
@@ -80,39 +36,27 @@ class OperationController extends Controller
      */
     public function store(CreateOperationRequest $request)
     {
+            try {
 
-        // dd($request->all());
-        $journal = new Journal();
-		$journal->status = 1;
-		$journal->employee_id = Auth::guard('employee')->user()->id;
-		$journal->rsc_type_id = $request->input('rsc_type_id');
-		$journal->note = $request->input('note');
-		$journal->date = $request->input('date');
-		if ($journal->save()) {
-			try {
-                $transaction = Transaction::create(['journal_id'=>$journal->id, 'amount'=>$request->input('amount')])->id;
-				if ($transaction) {
-					try {
-						$operation = new Operation();
-						$operation->student_id = $request->input('student_id');
-						$operation->pay_rul_id = $request->input('pay_rul_id');
-						$operation->transaction_id = $transaction;
-                        $operation->save();
-                        Session::flash('flash_massage_type');
-                        return redirect()->route('operations.index')->withFlashMassage('Operation Created Susscefully');
-					} catch(\Illuminate\Database\QueryException $ex) {
-						Transaction::where('journal_id', $journal->id)->get()->each->delete();
-						Journal::find($journal->id)->get()->each->delete();
-                        Session::flash('flash_massage_type', 4);
-                        return redirect()->back()->withFlashMassage('SQL ERROR [OPERATION');
-					}
-				}
-			} catch(\Illuminate\Database\QueryException $ex) {
-				Journal::find($journal->id)->get()->each->delete();
+                $operation = new Operation();
+                $operation->student_id = $request->input('student_id');
+                $operation->pay_rul_id = $request->input('pay_rul_id');
+                $operation->amount = $request->amount;
+                $operation->status = 1;
+                $operation->note = $request->note;
+                $operation->date = $request->date;
+                $operation->employee_id = Auth::guard('employee')->user()->id;
+                $operation->rsc_type_id = $request->rsc_type_id;
+                $operation->save();
+
+                Session::flash('flash_massage_type');
+                return redirect()->route('operations.index')->withFlashMassage('Operation Created Susscefully');
+            } catch(\Illuminate\Database\QueryException $ex) {
                 Session::flash('flash_massage_type', 4);
-                return redirect()->back()->withFlashMassage('SQL ERROR [TRANSACTION');
-			}
-        }
+                return redirect()->back()->withFlashMassage('SQL ERROR [OPERATION');
+            }
+
+
     }
     /**
      * Show the specified resource.
@@ -123,16 +67,6 @@ class OperationController extends Controller
     {
         $OperationInfo = Operation::findOrFail($id);
         return view('finance::account.operations.show', ['OperationInfo' => $OperationInfo]);
-    }
-    /**
-     * Show all classrooms in one Operation .
-     * @param int $id
-     * @return Response
-     */
-    public function classrooms($id)
-    {
-        return new ClassroomResource(Operation::findOrfail($id)->classrooms);
-        /* return view('finance::show'); */
     }
 
     /**
@@ -170,17 +104,5 @@ class OperationController extends Controller
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
     }
-
-	// public function destroy(Request $request) {
-	// 	try {
-	// 		DB::transaction(function () use ($request) {
-	// 			Journal::where('id', $request->id)->get()->each->delete();
-	// 		});
-	// 	} catch (\Exception $e) {
-	// 		return response()->json($e->getMessage(), 500);
-	// 	}
-	// 	return response()->json(['message' => __('Operation deleted successfully.')], 200);
-	// }
-
 
 }

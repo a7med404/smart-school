@@ -84,7 +84,7 @@ Home
         <!-- /.col -->
       </div>
       <!-- /.row -->
-        <div class="row">
+        {{--  <div class="row">
             <div class="col-md-9 col-sm-12 col-xs-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
@@ -197,11 +197,11 @@ Home
                     </div>
                 </div>
             </div> -->
-       
 
 
 
-        </div>
+
+        </div>  --}}
 
     </section>
 

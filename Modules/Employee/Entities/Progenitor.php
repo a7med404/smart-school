@@ -8,15 +8,16 @@ class Progenitor extends Model
 {
     protected $fillable = [
         'employee_id',
-        // 'amount',
+        'amount',
         // 'financial_year',
         'transaction_id',
-        // 'date',
-        // 'months_number',
-        // 'note'
+        'date',
+        'pay_back_date',
+        'note'
     ];
-public function employees(){
-    return $this->belongsTo(Employee::class);
-}
+
+    public function employee(){
+        return $this->belongsTo(Employee::class);
+    }
 
 }

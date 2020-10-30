@@ -22,12 +22,12 @@ class CreateEmployeeRequest extends FormRequest
         'managament_id'         => 'required|integer',
         'department_id'         => 'required|integer',
         'hiring_date'           => 'nullable|date',
-        'job_title'             => 'nullable|integer',
+        'job_title'             => 'nullable',
         'martial_status'        => 'required|integer',
         'start_date'            => 'nullable|date',
         // 'join_year'             => 'required|integer',
         'picture'               => 'nullable',
-        'note'                  => 'nullable|longText',
+        'note'                  => 'nullable',
         // 'address_id'            =>'required|integer',
         // 'contact_id'            =>'required|integer'
         ];

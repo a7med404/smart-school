@@ -10,22 +10,21 @@ use Modules\Employee\Entities\AddCalendEmployee;
 use Modules\Employee\Transformers\AddCalendEmployeeResource;
 use Modules\Employee\Http\Requests\CreateAddCalendEmployeeRequest;
 class AddCalendEmployeeController extends Controller
-{ 
-     /**
-    * Display a listing of the resource.
-    * @return Response
- 
+{
+
    /**
     * Show the form for creating a new resource.
     * @return Response
     */
-
     public function index()
     {
-        $AddCalend = AddCalendEmployee::all();
-        return view('employee::employees.calends.index', ['AddCalends' => $AddCalend]);
+        $addCalendEmp = AddCalendEmployee::all();
+        return view('employee::employees.add-calends-emp.index', ['addCalendEmps' => $addCalendEmp]);
     }
- 
+
+
+
+
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -34,7 +33,7 @@ class AddCalendEmployeeController extends Controller
     {
         return view('employee::create');
     }
- 
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -42,12 +41,10 @@ class AddCalendEmployeeController extends Controller
      */
     public function store(CreateAddCalendEmployeeRequest $request)
     {
-        $AddCalend= AddCalendEmployee::create($request->all());
- 
-        if($AddCalend){
- 
+        $addCalendEmp= AddCalendEmployee::create($request->all());
+        if($addCalendEmp){
             Session::flash('flash_massage_type');
-            return redirect()->route('AddCalends.index')->withFlashMassage('تمت اضافة المخالفة بنجاح');
+            return redirect()->route('add-calends-emp.index')->withFlashMassage('تمت اضافة المخالفة بنجاح');
         }
     }
     /**
@@ -58,19 +55,9 @@ class AddCalendEmployeeController extends Controller
     public function show($id)
     {
         $AddCalendInfo = AddCalendEmployee::findOrFail($id);
-        return view('employee::employees.calends.show', ['AddCalendInfo' => $AddCalendInfo]);
+        return view('employee::employees.add-calends-emp.show', ['AddCalendInfo' => $AddCalendInfo]);
     }
-    /**
-     * Show all classrooms in one AddCalend .
-     * @param int $id
-     * @return Response
-     */
-    public function classrooms($id)
-    {
-        return new ClassroomResource(AddCalend::findOrfail($id)->classrooms);
-        /* return view('employee::show'); */
-    }
- 
+
     /**
      * Show the form for editing the specified resource.
      * @param int $id
@@ -79,7 +66,7 @@ class AddCalendEmployeeController extends Controller
     public function edit($id)
     {
         $AddCalendInfo = AddCalendEmployee::findOrFail($id);
-        return view('employee::employees.calends.edit', ['AddCalendInfo' => $AddCalendInfo]);
+        return view('employee::employees.add-calends-emp.edit', ['AddCalendInfo' => $AddCalendInfo]);
     }
     /**
      * Update the specified resource in storage.
@@ -90,12 +77,12 @@ class AddCalendEmployeeController extends Controller
     public function update(CreateAddCalendEmployeeRequest $request, $id)
     {
       $updateAddCalend = AddCalendEmployee::findOrfail($id)->update($request->all());
-      
+
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage(' تم تعديل المخالفة بنجاح');
     }
- 
- 
+
+
     /**
      * Remove the specified resource from storage.
      * @param int $id
@@ -107,5 +94,5 @@ class AddCalendEmployeeController extends Controller
       $AddCalendForDelete->delete();
       Session::flash('flash_massage_type');
       return redirect()->back()->withFlashMassage('تم حذف المخالفة بنجاح');
-    }      
+    }
 }

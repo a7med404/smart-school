@@ -19,14 +19,14 @@ php artisan module:make-model Subject --migration
 php artisan module:make-controller SubjectController
 php artisan module:make-controller API\SubjectController
 
-php artisan module:make-controller API/StudentAuthController Student
+php artisan module:make-controller CalendController Employee
 
 php artisan module:migrate Education
 php artisan module:seed
 
 php artisan module:publish-migration
 // the migration
-php artisan module:migrate 
+php artisan module:migrate
 php artisan module:migrate Address
 php artisan module:migrate Setting
 php artisan module:migrate Student
@@ -191,7 +191,7 @@ Validator::make($data, [
         <div class="form-group">
             {!! Form::label('status', 'Status', ['class' => 'control-label']) !!} <br />
             {!! Form::radio('status', 1, null, ['id' => 'status', 'placeholder' => 'status', 'class' => "{{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!}  <span>Active</span> <br>
-            {!! Form::radio('status', 0, null, ['id' => 'status', 'placeholder' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!} <span>Disable</span> 
+            {!! Form::radio('status', 0, null, ['id' => 'status', 'placeholder' => 'status', 'class' => " {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!} <span>Disable</span>
         </div>
     </div>
 </div>

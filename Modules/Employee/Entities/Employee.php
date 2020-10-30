@@ -7,6 +7,7 @@ use Modules\Address\Entities\Identifcation;
 use Modules\Employee\Entities\BearInMind;
 use Modules\Employee\Entities\EmpPerissions;
 use Modules\Employee\Entities\EmpHoliday;
+use Modules\Employee\Entities\EvaluationEmp;
 use Modules\Employee\Entities\Managament;
 use Modules\Employee\Entities\Department;
 use Modules\Employee\Entities\EmpAbsence;
@@ -52,7 +53,7 @@ class Employee extends Authenticatable
     {
         return 'username';
     }
-  
+
     public function addresses()
     {
         // return $this->hasOne(Address::class, 'address_id', 'id');
@@ -91,14 +92,21 @@ class Employee extends Authenticatable
         return $this->hasMany(BearInMind::class);
     }
 
-    public function addcalends(){
-        return $this->belongsToMany(AddCalend::class);
+    public function addCalendEmployee(){
+        return $this->belongsToMany(AddCalendEmployee::class);
     }
 
-  public function EmpHoliday(){
+    public function EmpHoliday(){
         return $this->hasMany(Employee::class);
     }
 
+    public function evaluationEmp(){
+        return $this->hasMany(EvaluationEmp::class);
+    }
 
+    public function certificates()
+    {
+        return $this->hasMany(Certificat::class);
+    }
 
 }

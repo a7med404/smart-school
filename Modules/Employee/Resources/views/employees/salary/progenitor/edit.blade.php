@@ -33,7 +33,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-6">
-                    {!! Form::model($shows, ['route' => ['progenitors.update', $shows->id], 'method' => "PUT"]) !!}
+                    {!! Form::model($progenitorInfo, ['route' => ['progenitors.update', $progenitorInfo->id], 'method' => "PUT"]) !!}
                     @include('employee::employees.salary.progenitor.form')
                     {!! Form::close() !!}
                 </div>

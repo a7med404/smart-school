@@ -61,7 +61,7 @@
                                                     <ul class="dropdown-menu">
                                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.show',  ['id' => $classroomInfo->id]) }}">استعراض</a></li>
                                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-rules.edit',  ['id' => $classroomInfo->id]) }}">تعديل</a></li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                                                         <li role="presentation" class="divider"></li>
                                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-rules.destroy',['id' => $classroomInfo->id]) }}">حذف</a></li>
                                                     </ul>

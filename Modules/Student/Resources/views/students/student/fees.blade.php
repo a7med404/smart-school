@@ -86,13 +86,13 @@
                               <ul class="dropdown-menu">
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.show',  ['id' => $payClass->id]) }}">استعراض</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.edit',  ['id' => $payClass->id]) }}">تعديل</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('pay-classes.delete',['id' => $payClass->id]) }}">حذف</a></li>
                               </ul>
                             </div>
                           </td>
-                        </tr>  
+                        </tr>
                       @endif
                     @empty
                     <div>
@@ -101,7 +101,7 @@
                           <p>لا توجد بيانات في هذا الجدول</p>
                         </div>
                       </td>
-                    </div>   
+                    </div>
                     @endforelse
                       <tr class="total-bg">
                         <td colspan="2">
@@ -119,7 +119,7 @@
                             <p>{{ 'المبلغ المتبقي : ' }} {{ $payClass->value - $payed }}</p>
                           </div>
                         </td>
-                      </tr> 
+                      </tr>
                 </tbody>
             </table>
         </div>
@@ -131,7 +131,7 @@
               <p>لا توجد بيانات في هذا الجدول</p>
             </div>
           </td>
-        </div>   
+        </div>
         @endforelse
     </div>
   </div>

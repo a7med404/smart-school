@@ -9,10 +9,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_reportSeparates') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.all_reportSeparates') }} </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanelAdmin\reportSeparates') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_reportSeparates') }} </a></li>
+        <li><a href="{{ url('\admin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\admin\reportSeparates') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_reportSeparates') }} </a></li>
         <li class="active"> {{ __('home/sidebar.edit_reportSeparate') }} {{ $reportSeparateInfo->name }} </li>
     </ol>
 </section>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-md-6">
                     {!! Form::model($reportSeparateInfo, ['route' => ['report-separates.update', $reportSeparateInfo->id], 'method' => "PATCH"]) !!}
-                    @include('student::students.reports.report-separates.form')
+                    @include('student::students.student.reports.report-separates.form')
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -64,7 +64,7 @@
             format: 'yyyy-mm-dd'
         });
     });
-    
+
     $(document).ready(function () {
         /*
             For iCheck =====================================>

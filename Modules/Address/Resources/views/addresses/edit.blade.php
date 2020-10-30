@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_addresses') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.all_addresses') }} </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ url('\cpanelAdmin\addresses') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_addresses') }} </a></li>

@@ -31,7 +31,7 @@
                 <a type="button" data-toggle="modal" data-target="#popup-add-studentTransfer" href="#" class="btn btn-sm btn-info pull-left">
                 <i class="fa fa-plus"></i> اضافة
                 </a>
-            </div>
+            </div> 
         </div>
         <div class="box-body">
             <div class="table-responsive">

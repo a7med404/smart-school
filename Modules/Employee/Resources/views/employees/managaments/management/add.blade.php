@@ -9,29 +9,9 @@
               <h4 class="title"> الادارة</h4>
             </div>
             <div class="modal-body">
-              <!-- Personal Information Form  -->
-            <form role="form" action="{{ route('managaments.store') }}" method="post">
-              @csrf
-                <div class="row">
-                  <div class="col col-lg-6 col-md-5 col-sm-12 col-12">
-                    <div class="form-group">
-                      <label class="control-label"> اسم الادارة</label>
-                      <input class="form-control" name="name" placeholder="" type="text">
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="row">
-                  <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                    <button href="#" class="btn btn-primary" type="submit">حـــفظ</button>
-                  </div>
-                  <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">اغلاق</button>
-                  </div>
-                </div>
-              </form>
-              <!-- ... end Personal Information Form  -->
-    
+                {!! Form::open(['route' => ['managaments.store'], 'method' => "POST", 'class' => 'form']) !!}
+                @include('employee::employees.managaments.management.form')
+                {!! Form::close() !!}
             </div>
           </div>
         </div>

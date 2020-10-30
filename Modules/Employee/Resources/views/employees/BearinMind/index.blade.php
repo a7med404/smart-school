@@ -40,26 +40,29 @@
 
             <div class="row">
               <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <table id="data" class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
-                    <thead>
+
+                <div class="table-responsive">
+                    <table id="data" class="table table-striped table-bordered table-hover full-width m-t-20" id="table_id">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>اسم الموظف </th>
+                                <th>التاريخ</th>
+                                <th>ملاحظات</th>
+                                <th>options</th>
+                            </tr>
+                        </thead>
+                    <tfoot>
                         <tr>
                             <th>#ID</th>
-                            <th>اسم الموظف </th>
-                            <th>التاريخ</th>
-                            <th>ملاحظات</th>
-                            <th>options</th>
+                                <th>اسم الموظف </th>
+                                <th>التاريخ</th>
+                                <th>ملاحظات</th>
+                                <th>options</th>
                         </tr>
-                    </thead>
-                   <tfoot>
-                     <tr>
-                        <th>#ID</th>
-                            <th>اسم الموظف </th>
-                            <th>التاريخ</th>
-                            <th>ملاحظات</th>
-                            <th>options</th>
-                     </tr>
-                   </tfoot>
-                </table>
+                    </tfoot>
+                    </table>
+                </div>
               </div>
             </div>
 

@@ -36,13 +36,13 @@
         </div>
 
 
-    <div class="col col-lg-12 col-md-6 col-sm-6 col-6">
+        <div class="col col-lg-12 col-md-6 col-sm-6 col-6">
             <div class="form-group">
                 {!! Form::label('note', ' ملاحــظة ', ['class' => 'control-label']) !!}
                 {!! Form::textArea('note', null, ['id' => 'note', 'class' => "form-control  {{ $errors->has('note') ? ' is-invalid' : '' }}", 'value' => "{{ old('note') }}", 'required', 'autofocus']) !!}
             </div>
         </div>
-    
+
 </div>
 
 
@@ -53,7 +53,7 @@
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>
 </div>
-    
+
 @else
 <div class="row m-t-20">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

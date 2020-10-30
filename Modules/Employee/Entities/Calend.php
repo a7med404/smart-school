@@ -11,4 +11,10 @@ class Calend extends Model
         'discount_percentage',
         'type'
     ];
+
+
+    public function addCalendEmp()
+    {
+        return $this->hasMany(AddCalendEmployee::class);
+    }
 }

@@ -10,6 +10,7 @@ use Modules\Student\Transformers\OffPrintResource;
 use Modules\Student\Http\Requests\CreateOffPrintRequest;
 use Modules\Student\Entities\Student;
 use PDF;
+use \Session;
 
 class OffPrintController extends Controller
 {
@@ -28,9 +29,8 @@ class OffPrintController extends Controller
 
     public function getOffPrints(Request $request, $type)
     {
-        if ($type) { 
+        if ($type) {
             $data = OffPrint::where('type', $request->type)->get();
-            // dd($data);
             return view("student::students.offprints.$type", ['data' => $data]);
         } else {
             return OffPrintResource::collection(OffPrint::all());
@@ -61,6 +61,18 @@ class OffPrintController extends Controller
     }
 
     /**
+     * Show the specified resource.
+     * @param int $id
+     * @return Response
+     */
+    public function show($id, $type)
+    {
+        $offPrintInfo = OffPrint::findOrFail($id);
+        return view("student::students.offprints.print-pages.$type", ['offPrintInfo' => $offPrintInfo]);
+    }
+
+
+    /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
@@ -82,8 +94,7 @@ class OffPrintController extends Controller
     public function destroy($id)
     {
         OffPrint::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
     }
 }

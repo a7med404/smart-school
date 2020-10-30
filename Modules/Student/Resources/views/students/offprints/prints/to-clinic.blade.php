@@ -44,24 +44,13 @@
         </div>
         <!-- /.col -->
     </div>
-    
+
     <!-- Table row -->
     <div class="row">
-        <div class="col col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
-        <table class="table table-striped table-bordered table-hover full-width m-t-20 m-20" id="table_id">
-            <thead>
-                <tr>
-                    <th>#ID</th>
-                    <th>اسم المرحلة التعليمية</th>
-                    <th>الترتيب</th>
-                    <th>مدير المدرسة</th>
-                    <th>ناظر المدرسة</th>
-                </tr>
-            </thead>
-            
-        </table>
+        <div class="col col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 ">
+            شهادة قيد طالب شهادة قيد طالب شهادة قيد طالب شهادة قيد طالب  طالب شهادة قيد طالب شهادة قيد طالب  طالب شهادة قيد طالب شهادة قيد طالب شهادة قيد طالب شهادة قيد طالب شهادة قيد طالب شهادة قيد طالب
         </div>
     </div>
     <!-- /.row -->
-    
+
 @stop

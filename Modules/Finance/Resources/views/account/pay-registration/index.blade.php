@@ -64,7 +64,7 @@
                                     <ul class="dropdown-menu">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.show',  ['id' => $PayClass->id]) }}">استعراض</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('pay-classes.edit',  ['id' => $PayClass->id]) }}">تعديل</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                                         <li role="presentation" class="divider"></li>
                                     <form action="{{ route('pay-classes.destroy',['id' => $PayClass->id]) }}" methode="post">
                                         @csrf
@@ -82,7 +82,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

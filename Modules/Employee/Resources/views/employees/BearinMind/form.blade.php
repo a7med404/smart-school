@@ -1,9 +1,14 @@
 <div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
-            {!! Form::label('name', 'اسم الموظف', ['class' => 'control-label']) !!}
-            {!! Form::text('employee_id', null, ['id' => 'employee_id', 'class' => "form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
-
+            {!! Form::label('employee_id', 'اسم الموظف', ['class' => 'control-label']) !!}
+            {!! Form::select('employee_id', getSelect('employees'), null, ['id' => 'employee_id', 'class' => "select2 form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}", 'required']) !!}
+        </div>
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="form-group">
+            {!! Form::label('sort', 'التاريخ', ['class' => 'control-label']) !!}
+            {!! Form::date('date', null, ['id' => 'date', 'class' => "form-control  {{ $errors->has('date') ? ' is-invalid' : '' }}", 'value' => "{{ old('date') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
 </div>
@@ -14,12 +19,7 @@
             {!! Form::textarea('note', null, ['id' => 'note', 'class' => "form-control  {{ $errors->has('name') ? ' is-invalid' : '' }}", 'value' => "{{ old('note') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
-    <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
-        <div class="form-group">
-            {!! Form::label('sort', 'التاريخ', ['class' => 'control-label']) !!}
-            {!! Form::date('date', null, ['id' => 'date', 'class' => "form-control  {{ $errors->has('date') ? ' is-invalid' : '' }}", 'value' => "{{ old('date') }}", 'required', 'autofocus']) !!}
-        </div>
-    </div>
+
 </div>
 
 

@@ -44,7 +44,7 @@
                             <th>السبب </th>
                             <th>{{ __('home/labels.options') }}</th>
                         </tr>
-                    </thead> 
+                    </thead>
                     <tbody>
                         @forelse($permissiontodeparts as $permissiontodepart)
                         <tr>
@@ -58,9 +58,9 @@
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('permissiontodepart.show',  ['id' => $permissiontodepart->id]) }}" >استعراض</a></li>
+                                        {{--  <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('permissiontodepart.show',  ['id' => $permissiontodepart->id]) }}" >استعراض</a></li>  --}}
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('permissiontodepart.edit',  ['id' => $permissiontodepart->id]) }}" >تعديل</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('permissiontodepart.delete',['id' => $permissiontodepart->id]) }}">حذف</a></li>
                                     </ul>
@@ -100,7 +100,7 @@
             autoclose: true,
             language: 'ar',
             rtl: true,
-            
+
             format: 'yyyy-mm-dd'
         });
     });

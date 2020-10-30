@@ -15,7 +15,6 @@ class CreateRewardsPunitionsTable extends Migration
     {
         Schema::create('rewards_punitions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('finance_year')->unsigned();
             $table->date('date');
             $table->boolean('type');
             $table->unsignedBigInteger('employee_id')->foreign()

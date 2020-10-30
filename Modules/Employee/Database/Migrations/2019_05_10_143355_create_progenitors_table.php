@@ -19,10 +19,8 @@ class CreateProgenitorsTable extends Migration
             ->references('id')->on('employees')
             ->onDelete('cascade');
             $table->float('amount')->unsigned();
-            $table->integer('financial_year');
-            $table->integer('safe_id');
             $table->date('date');
-            $table->integer('months_number');
+            $table->date('pay_back_date')->nullable();
             $table->longText('note')->nullable();
             $table->timestamps();
         });

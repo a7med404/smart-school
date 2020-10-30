@@ -35,7 +35,7 @@
             <form  role="form">
               <div class="row">
                 {!! Form::hidden('filter', null, ['value' => "{{ old('filter') }}"]) !!}
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
                   <div class="form-group">
                       {!! Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']) !!}
                       {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}"]) !!}
@@ -64,7 +64,7 @@
                 </div>
               </div>
             </form>
-                
+
             <div class="row">
               <!-- Print Buttons -->
               <div class="no-print">
@@ -125,7 +125,7 @@
                               <p>لا توجد بيانات في هذا الجدول</p>
                             </div>
                           </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

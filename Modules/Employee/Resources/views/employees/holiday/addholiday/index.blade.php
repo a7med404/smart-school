@@ -18,7 +18,7 @@
             <li class="active">   اضافة اسم اجازاة  </li>
         </ol>
     </section>
-    
+
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
@@ -29,16 +29,16 @@
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
                     <a type="button" data-toggle="modal" data-target="#popup-add-add-holidays" href="#" class="btn btn-sm btn-info pull-left">
-                    <i class="fa fa-plus"></i> اضافة اسم اجازاة 
+                    <i class="fa fa-plus"></i> اضافة اسم اجازاة
                     </a>
                 </div>
             </div>
-    
+
         <div class="box-body">
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
-                       
+
                             <tr>
                                 <th>#ID</th>
                                 <th> الاســـم  </th>
@@ -50,7 +50,7 @@
                                 <tr>
                                     <td>{{ $addholiday->id }}</td>
                                     <td>{{ $addholiday->name  }}</td>
-     
+
                                     <td>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -59,7 +59,6 @@
                                         <ul class="dropdown-menu">
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-holidays.show',  ['id' => $addholiday->id]) }}"}}>استعراض</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('add-holidays.edit',  ['id' => $addholiday->id]) }}">تعديل</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
                                             <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('addholiday.delete',['id' => $addholiday->id]) }}">حذف</a></li>
                                             </ul>
                                     </div>
@@ -72,7 +71,7 @@
                                         <p>لا توجد بيانات في هذا الجدول</p>
                                     </div>
                                 </td>
-                            </tr>   
+                            </tr>
                             @endforelse
                     </tbody>
                 </table>

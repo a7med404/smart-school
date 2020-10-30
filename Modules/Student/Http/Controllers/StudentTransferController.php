@@ -21,7 +21,7 @@ class StudentTransferController extends Controller
         // return "jhgf";
         return DataTables::of(StudentTransfer::orderBy('id', 'desc')->get())
             ->addColumn('options', function ($student) {
-                return view('student::students.colums.options', ['id' => $student->id, 'routeName' => 'student-transfers']);
+                return view('student::students.colums.options-print', ['id' => $student->id, 'routeName' => 'student-transfers']);
             })
 
             ->editColumn('gender', function ($customer) {
@@ -42,9 +42,9 @@ class StudentTransferController extends Controller
             //     // }
             //     // return $data;
             // })
-            // ->editColumn('level_id', function ($student) {
-            //     return $student->level->name;
-            // })
+            ->editColumn('payment_status', function ($student) {
+                return payment_status()[$student->payment_status];
+            })
             // ->editColumn('classroom_id', function ($student) {
             //     return $student->classroom->name;
             // })

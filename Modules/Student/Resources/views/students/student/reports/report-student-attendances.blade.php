@@ -32,9 +32,66 @@
         </div>
 
         <div class="box-body">
-
-        </div>
-
+            <form  role="form">
+              <div class="row">
+                {!! Form::hidden('filter', null, ['value' => "{{ old('filter') }}"]) !!}
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                      {!! Form::label('level_id', 'اختيار المرحلة التعليمية', ['class' => 'control-label']) !!}
+                      {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}"]) !!}
+                  </div>
+                </div>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                    {!! Form::label('classroom_id', 'اختيار الصف', ['class' => 'control-label']) !!}
+                    {!! Form::select('classroom_id', getSelect('classrooms'), null, ['id' => 'classroom_id', 'class' => "select2 form-control  {{ $errors->has('classroom_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('classroom_id') }}"]) !!}
+                  </div>
+                </div>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                    {!! Form::label('part_id', 'اختيار الفصل', ['class' => 'control-label']) !!}
+                    {!! Form::select('part_id', getSelect('parts'), null, ['id' => 'part_id', 'class' => "select2 form-control  {{ $errors->has('part_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('part_id') }}"]) !!}
+                  </div>
+                </div>
+                <div class="col col-lg-3 col-md-3 col-sm-6 col-12">
+                  <div class="form-group">
+                    {!! Form::label('gender', 'النوع', ['class' => 'control-label']) !!}
+                    {!! Form::select('gender', getGender(), null, ['id' => 'gender', 'class' => "form-control select2 {{ $errors->has('gender') ? ' is-invalid' : '' }}", 'value' => "{{ old('gender') }}"]) !!}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+                      <div class="bootstrap-timepicker">
+                          <div class="form-group">
+                              {!! Form::label('from', 'التاريخ من ', ['class' => 'control-label']) !!}
+                              <div class="input-group">
+                                  {!! Form::text('from', null, ['id' => 'from', 'class' => "form-control  {{ $errors->has('from') ? ' is-invalid' : '' }}", 'value' => "{{ old('from') }}", 'autofocus']) !!}
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col col-lg-3 col-md-3 col-sm-6 col-6">
+                      <div class="bootstrap-timepicker">
+                          <div class="form-group">
+                              {!! Form::label('to', 'التاريخ الي ', ['class' => 'control-label']) !!}
+                              <div class="input-group">
+                                  {!! Form::text('to', null, ['id' => 'to', 'class' => "form-control  {{ $errors->has('to') ? ' is-invalid' : '' }}", 'value' => "{{ old('to') }}", 'autofocus']) !!}
+                                  <div class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                <div class="col col-lg-1 col-md-1 col-sm-12 col-12 m-t-25">
+                  <button type="submit" class="btn btn-info">بحــــث</button>
+                </div>
+              </div>
+            </form>
 
             <div class="row">
               <!-- Print Buttons -->
@@ -52,27 +109,40 @@
             </div>
 
             <div class="table-responsive">
-                <table id="data" class="table table-bordered table-hover table-condensed">
+                <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
                             <th>اسم الطالب</th>
                             <th>اسم المرحلة التعليمية</th>
+                            <th>اسم الصف</th>
+                            <th>اسم الفصل</th>
                             <th>التاريخ</th>
-
+                            <th>ملاحظة</th>
                         </tr>
                     </thead>
-                    <tfoot>
+                    <tbody>
+                      @forelse($data as $object)
                         <tr>
-                            <th>#ID</th>
-                            <th>اسم الطالب</th>
-                            <th>اسم المرحلة التعليمية</th>
-                            <th>التاريخ</th>
+                          <td>{{ $object->id }}</td>
+                          <td>{{ $object->name }}</td>
+                          <td>{{ $object->level->name }}</td>
+                          <td>{{ $object->classroom->name }}</td>
+                          <td>{{ $object->part->name }}</td>
+                          <td>{{ $object->date }}</td>
+                          <td>{{ $object->attendances_note }}</td>
                         </tr>
 
-
-                    </tfoot>
-
+                        @empty
+                        <tr>
+                          <td colspan="7">
+                            <div class="text-center">
+                              <p>لا توجد بيانات في هذا الجدول</p>
+                            </div>
+                          </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -89,137 +159,36 @@
 <!-- dataTable -->
 {!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
 {!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
-{{-- {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js') !!} --}}
+<script>
 
-<script type="text/javascript">
-
-    var lastIdx = null;
-
-        $('#data tfoot th').each( function () {
-            if($(this).index() < 5 ){
-                var classname = $(this).index() == 5  ?  'filter-select' : 'filter-input';
-                var title = $(this).html();
-                if($(this).index() == 0 ){
-                    $(this).html( '<input type="text" style="max-width:70px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" '+title+'" />' );
-                }else{
-                    $(this).html( '<input type="text" style="max-width:180px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'"placeholder=" البحث '+title+'" />' );
-                }
-            }else if($(this).index() == 5){
-                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
-            }
+    $(function () {
+        $('#from').datepicker({
+            autoclose: true,
+            language: 'ar',
+            rtl: true,
+            format: 'yyyy-mm-dd'
         });
-
-        var table = $('#data').DataTable({
-            processing: true,
-            serverSide: true,
-            autoWidth: false,
-            select: true,
-            ajax: '{!! route("report-student-attendances.datatable") !!}',
-            columns: [
-                { data: 'id', name: 'id', "width": "10%"},
-                { data: 'student_id', name: 'student_id', "width": "20%" },
-                { data: 'status', name: 'status', "width": "15%" },
-                { data: 'date', name: 'date', "width": "10%"},
-            ],
-            "language": {
-                "url": "{{ asset('modules/master/data/Arabic.json') }}"
-            },
-            "stateSave": false,
-            "responsive": true,
-            "order": [[0, 'desc']],
-            "pagingType": "full_numbers",
-            'searchDelay' : 350,
-            bAutoWidth: false,
-            aLengthMenu: [
-                [10, 25, 50, 100, 200, -1],
-                [10, 25, 50, 100, 200, "All"]
-            ],
-            iDisplayLength: 10,
-            fixedHeader: true,
-            dom: 'Blfrtip',
-            buttons: [
-                {
-                    extend: 'pdf',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                },
-                {
-                    extend: 'excel',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                },
-                {
-                    extend: 'print',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-
-                },
-                {
-                    extend: 'csv',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                },
-                {
-                    extend: 'copy',
-                    title: 'Test copy export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                }
-            ],
-            initComplete: function ()
-            {
-                var r = $('#data tfoot tr');
-                r.find('th').each(function(){
-                    $(this).css('padding', 8);
-                });
-                $('#data thead').append(r);
-                $('#search_0').css('text-align', 'center');
-            }
-
+        $('#to').datepicker({
+            autoclose: true,
+            language: 'ar',
+            rtl: true,
+            format: 'yyyy-mm-dd'
         });
+        $(".select2").select2();
+    });
 
 
-        // $('.filter-select').change(function(){
-        //     // setTimeout(function(table) {
-        //         // delaySuccess(
-        //             table.column($(this).data('column'))
-        //             .search($(this).val())
-        //             .draw();
-        //         // );
-        //     // }, 2000);
-
-        // });
-
-
-        $('.filter-select').change(function(){
-            table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-
+    $(document).ready(function () {
+        /*
+            For iCheck =====================================>
+        */
+        $("input").iCheck({
+            checkboxClass: "icheckbox_square-yellow",
+            radioClass: "iradio_square-yellow",
+            increaseArea: "20%" // optional
         });
+    });
 
-        $('.filter-input').keyup(function(){
-            table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-        });
-
-
-        $('#data tbody').on( 'mouseover', 'td', function () {
-            var colIdx = table.cell(this).index().column;
-            if ( colIdx !== lastIdx ) {
-                $( table.cells().nodes() ).removeClass( 'highlight' );
-                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
-            }
-        })
-        .on( 'mouseleave', function () {
-            $( table.cells().nodes() ).removeClass( 'highlight' );
-        });
 </script>
 @endsection
 

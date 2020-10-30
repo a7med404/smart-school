@@ -74,7 +74,7 @@
                                     <ul class="dropdown-menu">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $level->id]) }}">تعديل</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $level->id]) }}">حذف</a></li>
                                     </ul>
@@ -88,7 +88,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

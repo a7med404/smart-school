@@ -36,29 +36,12 @@
             <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
 <div class="form-group">
 {!! Form::open(['route' => ['ReportAbsence'], 'method' => "GET"]) !!}
-                {!! Form::label('employee_id', 'الادارة التعليمية', ['class' => 'control-label']) !!}
-                {!! Form::select('employee_id',  getSelect('managaments'), null,['id' => 'employee_id', 'class' => "select2 form-control", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
-
-
-                {!! Form::label('employee_id', 'اسم القسم', ['class' => 'control-label']) !!}
-                {!! Form::select('employee_id',  getSelect('department'), null,['id' => 'employee_id', 'class' => "select2 form-control", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
-
 
                     {!! Form::label('value', 'اسم الموظف', ['class' => 'control-label']) !!}
                     {!! Form::select('employee_id',  getSelect('employees'), null,['id' => 'employee_id', 'class' => "select2 form-control", 'value' => "{{ old('employee_id') }}", 'required', 'autofocus']) !!}
-
-                    <BR><BR>
-                            {!! Form::label('type', 'خلال فترة', ['class' => 'control-label']) !!}
-                            {!! Form::radio('type', 0, ['id' => 'type', 'class' => "form-control", 'value' => "{{ old('type') }}", 'required', 'autofocus']) !!}
-                            {!! Form::label('type', 'تقرير يومي', ['class' => 'control-label']) !!}
-                            {!! Form::radio('type', 1, ['id' => 'type', 'class' => "form-control", 'value' => "{{ old('type') }}", 'required', 'autofocus']) !!}
-                            {!! Form::label('type', 'التامينات', ['class' => 'control-label']) !!}
-                            {!! Form::radio('type', 0, ['id' => 'type', 'class' => "form-control", 'value' => "{{ old('type') }}", 'required', 'autofocus']) !!}
-                            {!! Form::label('type', 'غير مؤمن', ['class' => 'control-label']) !!}
-                            {!! Form::radio('type', 1, ['id' => 'type', 'class' => "form-control", 'value' => "{{ old('type') }}", 'required', 'autofocus']) !!}
-                            <BR><BR>
+<br />
                             <button class="btn btn-primary" name="submit">عرض</button>
-                            <button class="btn btn-primary">طباعة</button>
+                            {{-- <button class="btn btn-primary">طباعة</button> --}}
 
                             </div>
             </div>
@@ -75,7 +58,6 @@
                                         <th>الفياب من </th>
                                         <th> الغياب الى  </th>
                                         <th>  سبب الغياب </th>
-                                        <th>option</th>
                                     </tr>
                                 </thead>
                               <tfoot>
@@ -88,7 +70,6 @@
                                     <th> {{$ab->absence_from}}</th>
                                     <th> {{$ab->absence_to}} </th>
                                     <th>  {{$ab->absence_reason}} </th>
-                                    <th>option</th>
                                 </tr>
                             @endforeach
 

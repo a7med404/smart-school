@@ -1,12 +1,11 @@
 <?php
 
 namespace Modules\Employee\Http\Controllers;
-use Yajra\DataTables\DataTables;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\EmpAbsence;
-use Modules\Employee\Entities\Employee;
 use Modules\Employee\Transformers\EmpAbsenceResource;
 use Modules\Employee\Http\Requests\CreateEmpAbsenceRequest;
 use Session;
@@ -19,50 +18,8 @@ class EmpAbsenceController extends Controller
     public function index()
     {
         $empabsences=EmpAbsence::all();
-        $emp=Employee::all();
-        return view('employee::employees.EmpAbsence.index',compact('empabsences'))
-        ->with('emp', $emp)
-        ;
+        return view('employee::employees.EmpAbsence.index',compact('empabsences'));
     }
-
-
-    public function empdataTable()
-    {
-        // return "jhgf";
-        return DataTables::of(EmpAbsence::orderBy('id', 'desc')->get())
-            ->addColumn('options', function ($EmpAbsence) {
-                return view('employee::employees.colums.options', ['id' => $EmpAbsence->id, 'routeName' => 'emp-absences']);
-            // })
-
-            // ->editColumn('gender', function ($customer) {
-            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
-            })
-            // ->addColumn('last_login', function (student $student) {
-            //     if($student->last_login != null) {
-            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
-            //     }
-            //     return $student->last_login;
-            // })
-
-            // ->addColumn('roles', function ($student) {
-            //     // $data = [];
-            //     // foreach ($student->roles as $role) {
-            //         return view('student::students.colums.role', ['roles' => $student->roles]);
-            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
-            //     // }
-            //     // return $data;
-            // })
-             ->editColumn('employee_id', function ($employee) {
-                 return $employee->employee->full_name;
-             })
-            ->rawColumns(['last_login', 'roles', 'options', 'status', 'employee_id'])
-            // ->removeColumn('password')
-            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
-            ->setRowId('{{$id}}')
-            ->make(true);
-
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -80,16 +37,11 @@ class EmpAbsenceController extends Controller
      */
     public function store(CreateEmpAbsenceRequest $request)
     {
-        $emp=EmpAbsence::create([
-            'employee_id' => '2',
-            'absence_from' => $request->absence_from,
-            'absence_to'   => $request->absence_to,
-            'absence_reason'=> $request->absence_reason
-        ]);
+        $emp=EmpAbsence::create($request->all());
         if($emp){
             Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('تم  الاضافة بنجاح');
-    }
+            return redirect()->back()->withFlashMassage('Empoloyee Absence Created Susscefully');
+        }
 }
 
     /**
@@ -127,7 +79,7 @@ class EmpAbsenceController extends Controller
        $emp= EmpAbsence::findOrfail($id)->update($request->all());
         if($emp){
             Session::flash('flash_massage_type');
-      return redirect()->route('emp-absences.index')->withFlashMassage('تم تحديث البيانات بنجاح');
+      return redirect()->route('emp-absences.index')->withFlashMassage('Empoloyee Absence Deleted Susscefully');
     }
 
     }
@@ -144,7 +96,7 @@ $emp= EmpAbsence::findOrfail($id)->delete();
 
         if($emp){
             Session::flash('flash_massage_type');
-      return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+      return redirect()->back()->withFlashMassage('Empoloyee Absence Deleted Susscefully');
     }
     }
 }

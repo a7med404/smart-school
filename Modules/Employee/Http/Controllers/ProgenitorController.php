@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Modules\Employee\Entities\Progenitor;
 use Modules\Employee\Entities\Employee;
 use Modules\Employee\Http\Requests\CreateProgenitorRequest;
+
 class ProgenitorController extends Controller
 {
     /**
@@ -18,8 +19,8 @@ class ProgenitorController extends Controller
      */
     public function index()
     {
-        $prog=Progenitor::all();
-        return view('employee::employees.salary.progenitor.index',compact('prog'));
+        $progenitors =Progenitor::all();
+        return view('employee::employees.salary.progenitor.index',compact('progenitors'));
     }
 
 
@@ -113,10 +114,8 @@ class ProgenitorController extends Controller
      */
     public function edit($id)
     {
-
-        $shows=Progenitor::find($id);
-        return view('employee::employees.salary.progenitor.edit',compact('shows'));
-
+        $progenitorInfo = Progenitor::find($id);
+        return view('employee::employees.salary.progenitor.edit',compact('progenitorInfo'));
     }
 
     /**
@@ -129,7 +128,9 @@ class ProgenitorController extends Controller
     {
         $shows=Progenitor::find($id);
         $shows->update($request->all());
-        return redirect()->back();
+
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Progenitor Created Susscefully');
     }
 
     /**
@@ -141,7 +142,8 @@ class ProgenitorController extends Controller
     {
         $delete=Progenitor::find($id);
         $delete->delete();
-        return redirect()->back();
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Progenitor Created Susscefully');
     }
 
 

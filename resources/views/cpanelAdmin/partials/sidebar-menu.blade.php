@@ -53,7 +53,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('students.index') }}"><i class="fa fa-circle-o text-aqua"></i> الطلاب</a></li>
-                <li><a href="{{ route('studentOnlyTrashed.dataTables') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
+                <li><a href="{{ route('students.student-only-trashed') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>
+                {{--  <li><a href="{{ route('studentOnlyTrashed.dataTables') }}"><i class="fa fa-circle-o text-aqua"></i> طلب سحب ملف الطالب</a></li>  --}}
 
                 <li>
                   <a href="#">
@@ -64,7 +65,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('students.create') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب</a></li>
-                    <li><a href="{{ route('add-student-manual') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب يدويا</a></li>
+                    {{-- <li><a href="{{ route('add-student-manual') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة طالب يدويا</a></li> --}}
 
                   </ul>
                 </li>
@@ -109,12 +110,12 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('report-emp-student') }}"><i class="fa fa-circle-o text-aqua"></i> عرض ابناء العاملين</a></li>
+                {{--  <li><a href="{{ route('report-emp-student') }}"><i class="fa fa-circle-o text-aqua"></i> عرض ابناء العاملين</a></li>  --}}
                 <li><a href="{{ route('report-separates.index') }}"><i class="fa fa-circle-o text-aqua"></i> قرار فصل</a></li>
                 <li><a href="{{ route('report-warnings.index') }}"><i class="fa fa-circle-o text-aqua"></i> انذار فصل</a></li>
                 {{-- <li><a href="{{ route('student-reports', ['report' => 'report-auth']) }}"><i class="fa fa-circle-o text-aqua"></i>عرض بيانات دخول الموقع</a></li> --}}
 
-                <li>
+                {{--  <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> بيانات الطلاب
                     <span class="pull-right-container">
@@ -129,11 +130,11 @@
                     <li><a href="{{ route('report-not-complate-data') }}"><i class="fa fa-circle-o text-aqua"></i>طلاب لم تكتمل بياناتهم</a></li>
                     <li><a href="{{ route('report-student-attendances') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الطلاب</a></li>
                   </ul>
-                </li>
+                </li>  --}}
               </ul>
             </li>
 
-            <li class="treeview">
+            {{--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-money text-red"></i>
                 <span>الشؤون المالية</span>
@@ -142,10 +143,10 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('transactions.index') }}"><i class="fa fa-circle-o text-aqua"></i> العمليات المالية</a></li>
+                {{--  <li><a href="{{ route('show-transactions') }}"><i class="fa fa-circle-o text-aqua"></i> العمليات المالية</a></li>
                 <li><a href="{{ route('operations.index') }}"><i class="fa fa-circle-o text-aqua"></i> دفع رسوم</a></li>
-                <li><a href="{{ route('rsc-types.index') }}"><i class="fa fa-circle-o text-aqua"></i> الخزن المالية</a></li>
-                <li>
+                <li><a href="{{ route('rsc-types.index') }}"><i class="fa fa-circle-o text-aqua"></i> الخزن المالية</a></li>  --}}
+                {{-- <li>
                   <a href="#">
                     <i class="fa fa-circle-o text-aqua"></i> الرسوم
                     <span class="pull-right-container">
@@ -155,9 +156,9 @@
                   <ul class="treeview-menu">
                     <li><a href="{{ route('pay-classes.index') }}"><i class="fa fa-circle-o text-aqua"></i> رسوم الصفوف</a></li>
                   </ul>
-                </li>
-              </ul>
-            </li>
+                </li> --}}
+              {{--  </ul>
+            </li>  --}}
 
             <li class="treeview">
               <a href="#">
@@ -180,10 +181,10 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="{{ route('pay-classes.index') }}"><i class="fa fa-circle-o text-aqua"></i> رسوم الصفوف</a></li>
-                    <li><a href="{{ route('transactions.index') }}"><i class="fa fa-circle-o text-aqua"></i> العمليات المالية</a></li>
-                    <li><a href="{{ route('operations.index') }}"><i class="fa fa-circle-o text-aqua"></i> دفع رسوم</a></li>
+                    {{-- <li><a href="{{ route('transactions.index') }}"><i class="fa fa-circle-o text-aqua"></i> العمليات المالية</a></li> --}}
+                    {{--  <li><a href="{{ route('operations.index') }}"><i class="fa fa-circle-o text-aqua"></i> دفع رسوم</a></li>  --}}
                     <li><a href="{{ route('rsc-types.index') }}"><i class="fa fa-circle-o text-aqua"></i> الخزن المالية</a></li>
-                    <li><a href="{{ route('pay-registration') }}"><i class="fa fa-circle-o text-aqua"></i> رسوم تسجيل الطالب</a></li>
+                    {{-- <li><a href="{{ route('pay-registration') }}"><i class="fa fa-circle-o text-aqua"></i> رسوم تسجيل الطالب</a></li> --}}
                   </ul>
                 </li>
                 <li>
@@ -201,7 +202,7 @@
               </ul>
             </li>
 
-            <li class="treeview">
+            {{--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-files-o text-aqua"></i>
                 <span>تقرير حسابات الطلاب</span>
@@ -213,7 +214,7 @@
                 <li><a href="{{ route('TransportReport') }}"><i class="fa fa-circle-o text-aqua"></i> مدفوعات الحافلة</a></li>
 
               </ul>
-            </li>
+            </li>  --}}
 
             <li class="treeview">
               <a href="#">
@@ -237,7 +238,7 @@
               </ul>
             </li>
 
-            <li class="treeview">
+            {{--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-users text-green"></i>
                 <span>تقرير شوؤن تعليمية</span>
@@ -249,7 +250,7 @@
                 <li><a href="{{ route('student-reports', ['report' => 'report-levels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير المراحل</a></li>
 
               </ul>
-            </li>
+            </li>  --}}
 
             <li class="treeview">
               <a href="#">
@@ -310,7 +311,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('calends.index') }}"><i class="fa fa-circle-o text-aqua"></i> لوائح المخالفات</a></li>
-                <li><a href="{{ route('add-calend.index') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة مخالفة الى موظف</a></li>
+                <li><a href="{{ route('add-calends-emp.index') }}"><i class="fa fa-circle-o text-aqua"></i> اضافة مخالفة الى موظف</a></li>
                 <li><a href="{{ route('bear-in-minds.index') }}"><i class="fa fa-circle-o text-aqua"></i> لفت نظر</a></li>
                 <li><a href="{{ route('emp-absences.index') }}"><i class="fa fa-circle-o text-aqua"></i> تسجيل غياب الموظفين</a></li>
                 <li><a href="{{ route('cut-allowances.index') }}"><i class="fa fa-circle-o text-aqua"></i> خصومات او بدلات</a></li>
@@ -374,14 +375,14 @@
                     </span>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="{{ route('salary-details') }}"><i class="fa fa-circle-o text-aqua"></i> اعتماد رواتب مفصل</a></li>
+                    {{--  <li><a href="{{ route('salary-details') }}"><i class="fa fa-circle-o text-aqua"></i> اعتماد رواتب مفصل</a></li>  --}}
                     <li><a href="{{ route('rewards-punition.index') }}"><i class="fa fa-circle-o text-aqua"></i> المكافآت والجزاءات</a></li>
                     {{-- <li><a href="{{ route('realliance-salary') }}"><i class="fa fa-circle-o text-aqua"></i> اعتماد الرواتب</a></li> --}}
                     <li><a href="{{ route('progenitors.index') }}"><i class="fa fa-circle-o text-aqua"></i> سٌلف الموظفين</a></li>
                     {{-- <li><a href="{{ route('overpayment') }}"><i class="fa fa-circle-o text-aqua"></i> زيادة الرواتب الدورية لموظف</a></li>
                     <li><a href="{{ route('overpayment-division') }}"><i class="fa fa-circle-o text-aqua"></i> زيادة الرواتب على الشرائح</a></li> --}}
 
-                    <!-- <li><router-link :to="{name: 'salary-statement'}"> <i class="fa fa-circle-o"></i> كشف الرواتب </router-link></li> -->
+                    {{--  <!-- <li><router-link :to="{name: 'salary-statement'}"> <i class="fa fa-circle-o"></i> كشف الرواتب </router-link></li> -->  --}}
                   </ul>
                 <li>
                   <a href="#">
@@ -410,10 +411,10 @@
                 {{-- <li><a href="{{ route('ReportPermission') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير اذونات موظف</a></li> --}}
                 <li><a href="{{ route('report-rewards-punition') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير الخصومات والمكافأت</a></li>
                 <li><a href="{{ route('employee-search') }}"><i class="fa fa-circle-o text-aqua"></i> بحث الموظفين</a></li>
-                <li><a href="{{ route('report-salary') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير التعريف بالراتب</a></li>
+                {{--  <li><a href="{{ route('report-salary') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير التعريف بالراتب</a></li>  --}}
                 {{-- <li><a href="{{ route('report-progenitor'   ) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير سلف الموظفين</a></li> --}}
                 <li><a href="{{ route('ReportAbsence') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير غياب الموظفين</a></li>
-                <li><a href="{{ route('report-evaluation') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير تقييم الموظفين</a></li>
+                {{-- <li><a href="{{ route('report-evaluation') }}"><i class="fa fa-circle-o text-aqua"></i> تقرير تقييم الموظفين</a></li> --}}
                 {{-- <li><a href="{{ route('employee-reports', ['report' => 'reportvels']) }}"><i class="fa fa-circle-o text-aqua"></i> تقرير</a></li> --}}
               </ul>
             </li>
@@ -483,10 +484,10 @@
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                   </a>
-                  <ul class="treeview-menu">
+                  {{--  <ul class="treeview-menu">
                     <li><a href="{{ route('testimonials.index') }}"><i class="fa fa-circle-o"></i> {{ __('home/sidebar.all_testimonials') }}</a></li>
-                    {{-- <li><a href="{{ route('testimonials.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_testimonial') }}</a></li> --}}
-                  </ul>
+                    <li><a href="{{ route('testimonials.create') }}"><i class="fa fa-circle-o"></i>{{ __('home/sidebar.add_testimonial') }}</a></li>
+                  </ul>  --}}
                 </li>
               </ul>
             </li>

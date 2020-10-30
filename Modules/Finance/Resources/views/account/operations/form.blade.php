@@ -2,7 +2,7 @@
     {{-- <div class="col col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="form-group">
             {!! Form::label('status', 'نوع العملية', ['class' => 'control-label']) !!}
-            {!! Form::select('status', transactionStatus(), null, ['id' => 'status', 'class' => "form-control select2 {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!}
+            {!! Form::select('status', operationStatus(), null, ['id' => 'status', 'class' => "form-control select2 {{ $errors->has('status') ? ' is-invalid' : '' }}", 'value' => "{{ old('status') }}", 'required']) !!}
         </div>
     </div> --}}
     <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
@@ -60,7 +60,7 @@
         <button href="#" class="btn btn-primary">حـــفظ</button>
     </div>
 </div>
-    
+
 @else
 <div class="row">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

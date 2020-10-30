@@ -15,10 +15,10 @@ class Department extends Model
         'name'
     ];
 
-    public function management(){
+    public function managament(){
 
         return $this->belongsTo(Managament::class);
     }
- 
+
 }
 

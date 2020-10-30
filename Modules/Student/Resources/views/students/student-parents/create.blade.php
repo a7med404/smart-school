@@ -12,7 +12,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>كل الطلاب <small>it all starts here</small></h1>
+    <h1>كل الطلاب </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li><a href="{{ route('students.index') }}"><i class="fa fa-dashboard"></i> كل الطلاب </a></li>
@@ -61,14 +61,14 @@
             autoclose: true,
             language: 'ar',
             rtl: true,
-            
+
             format: 'yyyy-mm-dd'
         });
         $('#birthday').datepicker({
             autoclose: true,
             language: 'ar',
             rtl: true,
-            
+
             format: 'yyyy-mm-dd'
         });
         $(".select2").select2();

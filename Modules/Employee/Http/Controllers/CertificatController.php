@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Certificat;
 use Modules\Employee\Transformers\CertificatResource;
 use Modules\Employee\Http\Requests\CreateCertificatRequest;
+use Session;
 
 class CertificatController extends Controller
 {
@@ -37,6 +38,10 @@ class CertificatController extends Controller
     public function store(CreateCertificatRequest $request)
     {
         $id =  Certificat::create($request->all())->id;
+
+        Session::flash('flash_massage_type');
+        return redirect()->route('certificates.index')->withFlashMassage('تم الاضافة بنجاح');
+
         return response()->json([
             'message' => 'تم الحفظ بنجاح',
         ], 201);
@@ -74,6 +79,10 @@ class CertificatController extends Controller
     public function update(CreateCertificatRequest $request, $id)
     {
         Certificat::findOrfail($id)->update($request->all());
+
+        Session::flash('flash_massage_type');
+        return redirect()->route('certificates.index')->withFlashMassage('تم الاضافة بنجاح');
+
         return response()->json([
             'message' => 'تم التحديث بنجاح',
         ], 200);
@@ -87,8 +96,9 @@ class CertificatController extends Controller
     public function destroy($id)
     {
         Certificat::findOrfail($id)->delete();
-        return response()->json([
-            'message' => 'تم الحذف بنجاح',
-        ], 200);
+
+        Session::flash('flash_massage_type');
+        return redirect()->route('certificates.index')->withFlashMassage('تم الحذف بنجاح');
+
     }
 }

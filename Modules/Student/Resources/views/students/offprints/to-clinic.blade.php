@@ -11,10 +11,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>شهادة قيد طالب <small>  </small></h1>
+    <h1> تحويل للمركز الطبي <small>  </small></h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> الرئيسية</a></li>
-        <li class="active">شهادة قيد طالب</li>
+        <li class="active"> تحويل للمركز الطبي</li>
     </ol>
 </section>
 
@@ -23,19 +23,19 @@
     <!-- Default box -->
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">شهادة قيد طالب</h3>
+            <h3 class="box-title"> تحويل للمركز الطبي</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> شهادة قيد طالب
+                <i class="fa fa-plus"></i>  تحويل للمركز الطبي
                 </a>
             </div>
         </div>
         <div class="box-body">
 
             <!-- Print Buttons -->
-            <div class="no-print m-b-10">
+            {{--  <div class="no-print m-b-10">
                 <div class="row">
                     <div class="col-xs-12">
                         <a href="/student/student-reports/levels/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
@@ -43,10 +43,10 @@
                         <a href="/student/student-reports/levels" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
                     </div>
                 </div>
-            </div>
+            </div>  --}}
                 <!-- End Prints buttons -->
             <div class="table-responsive">
-                <table id="data" class="table table-bordered table-hover table-condensed">
+                <table id="table_id" class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                             <th>#ID</th>
@@ -57,8 +57,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
-                        
+                        @forelse($data as $object)
+                        <tr>
+                            <td>{{ $object->id }}</td>
+                            <td>{{ $object->student->name }}</td>
+                            <td>{{ $object->student->level->name }}</td>
+                            <td>{{ $object->created_at }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <span class="fa fa-ellipsis-h"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('offprints.delete',['id' => $object->id]) }}">حذف</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="7">
+                                <div class="text-center">
+                                    <p>لا توجد بيانات في هذا الجدول</p>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

@@ -14,5 +14,5 @@
 Config::set('auth.defines', 'employee');
 
 Route::group(['middleware' => ['web', 'auth:employee']], function(){
-  Route::get('/cpanelAdmin', 'DashboardController@index')->name('cpanelAdmin');       
+  Route::get('/cpanelAdmin', 'DashboardController@index')->name('cpanelAdmin');
 });

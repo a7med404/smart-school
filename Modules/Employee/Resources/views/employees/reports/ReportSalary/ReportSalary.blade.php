@@ -50,7 +50,18 @@
                   </div>
 
                   @if(isset($_GET['full_name']))
-                </div></div>
+                </div>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label class="control-label"> التاريخ </label>
+                    <input class="form-control" placeholder="" type="date" name="">
+                  </div>
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-12 m-b-20">
+                  <button href="#" type="submit" class="btn btn-primary">عرض</button>
+                </div>
+              </div>
+
                 <div class="row">
                 <div class=" col col-lg-12 col-md-12 col-sm-12 col-12">
 
@@ -65,34 +76,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
                     @foreach ($employees as $employee)
+                    <tr>
                     <td>{{$employee->full_name}}</td>
                     <td>{{$employee->basic_salary}}</td>
                     <td>{{$employee->job_title}}</td>
                     <td>{{$employee->birth_date }}</td>
 
+                </tr>
                     @endforeach
-
-                    </tr>
 
                     </tbody>
                 </table>
                 @endif
 
-                </div>
-              </div>
-              <div class="row">
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
-                  <div class="form-group">
-                    <label class="control-label"> التاريخ </label>
-                    <input class="form-control" placeholder="" type="date" name="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-12">
-                  <button href="#" type="submit" class="btn btn-primary">طباعة</button>
                 </div>
               </div>
 

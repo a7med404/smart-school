@@ -60,7 +60,7 @@
                                     <ul class="dropdown-menu">
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('student-pulls.edit',  ['id' => $studentPull->id]) }}">تعديل</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                                         <li role="presentation" class="divider"></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('student-pulls.delete',['id' => $studentPull->id]) }}">حذف</a></li>
                                     </ul>
@@ -74,7 +74,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

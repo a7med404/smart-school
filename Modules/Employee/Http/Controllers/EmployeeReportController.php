@@ -81,7 +81,7 @@ public function progenitor(){
         $employees=EmpAbsence::where('employee_id', 'LIKE' ,"%{$search}%")->get();
         }
         else{
-            $employees=EmpAbsence::where('employee_id', 'LIKE' ,"%{$search}%")->get();
+            $employees=EmpAbsence::all();
 
         }
         return view('employee::employees.reports.ReportAbsence.ReportAbsence')

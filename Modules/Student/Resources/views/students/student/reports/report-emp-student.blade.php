@@ -31,36 +31,82 @@
             </div>
         </div>
         <div class="box-body">
-          <div class="table-responsive">
-                    <table id="data" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>اسم الطالب</th>
-                                <th>اسم المرحلة </th>
-                                <th>النوع</th>
-                                <th> الصف</th>
-                                <th>الديانة</th>
-                                <th>تاريخ الميلاد</th>
-                                <th> الفصل</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>#</th>
-                                <th>اسم الطالب</th>
-                                <th>اسم المرحلة </th>
-                                <th>النوع</th>
-                                <th> الصف</th>
-                                <th>الديانة</th>
-                                <th>تاريخ الميلاد</th>
-                                <th> الفصل</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+            {{-- <form  role="form">
+                {!! Form::hidden('filter', null, ['value' => "{{ old('filter') }}"]) !!}
+                <div class="row">
+                    <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+                        <div class="form-group">
+                            {!! Form::label('employee_id', 'اختر موظف', ['class' => 'control-label']) !!}
+                            {!! Form::select('employee_id', getSelect('employees'), null, ['id' => 'employee_id', 'class' => "select2 form-control  {{ $errors->has('employee_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('employee_id') }}"]) !!}
+                        </div>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-12 col-12 m-t-25">
+                        <button type="submit" class="btn btn-info">بحــــث</button>
+                    </div>
                 </div>
-        </div>
+            </form> --}}
 
+            <!-- Print Buttons -->
+            <div class="no-print m-b-10">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{--  <a href="/student/student-reports/report-emp-student/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>  --}}
+                        {{-- <a type="button" href="/student/student-reports/report-emp-student" class="btn btn-success" style="margin-right: 5px;">
+                            <i class="fa fa-download"></i> انشاء ملف PDF
+                        </a>
+                        <a href="/student/student-reports/report-emp-student" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a> --}}
+                    </div>
+                </div>
+            </div>
+            <!-- End Prints buttons -->
+            <div class="table-responsive">
+                <table id="table_id" class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>اسم الطالب</th>
+                            <th>اسم المرحلة التعليمية</th>
+                            <th>اسم الصف</th>
+                            <th>اسم الفصل</th>
+                            <th>النوع</th>
+                            <th>{{ __('home/labels.options') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($data as $object)
+                        <tr>
+                            <td>{{ $object->id }}</td>
+                            <td>{{ $object->name }}</td>
+                            <td>{{ $object->level->name }}</td>
+                            <td>{{ $object->classroom->name }}</td>
+                            <td>{{ $object->part->name }}</td>
+                            <td>{{ gender()[$object->gender] }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        <span class="fa fa-ellipsis-h"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $object->id]) }}">تعديل</a></li>
+                                        {{-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li> --}}
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $object->id]) }}">حذف</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="7">
+                                <div class="text-center">
+                                    <p>لا توجد بيانات في هذا الجدول</p>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -68,151 +114,24 @@
 <!-- /.content -->
 
 @stop
-
 @section('footer')
 <!-- icheck -->
 {!! Html::script(asset('modules/master/plugins/icheck.min.js')) !!}
 <!-- dataTable -->
 {!! Html::script(asset('modules/master/plugins/datatables/jquery.dataTables.min.js')) !!}
 {!! Html::script(asset('modules/master/plugins/datatables/dataTables.bootstrap.min.js')) !!}
-{{-- {!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.flash.min.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js') !!}
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.html5.min.js') !!}
-{!! Html::script('https://cdn.datatables.net/buttons/1.6.0/js/buttons.print.min.js') !!} --}}
-
-<script type="text/javascript">
-
-    var lastIdx = null;
-
-        $('#data tfoot th').each( function () {
-            if($(this).index() < 5 ){
-                var classname = $(this).index() == 5  ?  'filter-select' : 'filter-input';
-                var title = $(this).html();
-                if($(this).index() == 0 ){
-                    $(this).html( '<input type="text" style="max-width:70px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'" placeholder=" '+title+'" />' );
-                }else{
-                    $(this).html( '<input type="text" style="max-width:180px;" data-column="'+ $(this).index() +'" class="' + classname + '" data-value="'+ $(this).index() +'"placeholder=" البحث '+title+'" />' );
-                }
-            }else if($(this).index() == 5){
-                $(this).html( '<select data-column="'+ $(this).index() +'" class="filter-select select2 form-control"><option value=""> all </option><option value="{{getGender()[0]}}"> انثئ </option><option value="{{getGender()[1]}}"> ذكر </option></select>' );
-            }
+<script>
+    $(document).ready(function () {
+        /*
+            For iCheck =====================================>
+        */
+        $("input").iCheck({
+            checkboxClass: "icheckbox_square-yellow",
+            radioClass: "iradio_square-yellow",
+            increaseArea: "20%" // optional
         });
+    });
 
-        var table = $('#data').DataTable({
-            processing: true,
-            serverSide: true,
-            autoWidth: false,
-            select: true,
-            ajax: '{!! route("empstudentDataTable") !!}',
-            columns: [
-                { data: 'id', name: 'id', "width": "10%"},
-                { data: 'name', name: 'name', "width": "20%" },
-                { data: 'level_id', name: 'level_id', "width": "15%" },
-                { data: 'gender', name: 'gender', "width": "15%", orderable: false},
-                { data: 'classroom_id', name: 'classroom_id', "width": "15%"},
-                { data: 'religion', name: 'religion', "width": "10%"},
-                { data: 'birthday', name: 'birthday', "width": "10%"},
-                { data: 'part_id', name: 'part_id', "width": "10%"},
-
-
-            ],
-
-            "language": {
-                "url": "{{ asset('modules/master/data/Arabic.json') }}"
-            },
-            "stateSave": false,
-            "responsive": true,
-            "order": [[0, 'desc']],
-            "pagingType": "full_numbers",
-            'searchDelay' : 350,
-            bAutoWidth: false,
-            aLengthMenu: [
-                [10, 25, 50, 100, 200, -1],
-                [10, 25, 50, 100, 200, "All"]
-            ],
-            iDisplayLength: 10,
-            fixedHeader: true,
-            dom: 'Blfrtip',
-            buttons: [
-                {
-                    extend: 'pdf',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                },
-                {
-                    extend: 'excel',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                },
-                {
-                    extend: 'print',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-
-                },
-                {
-                    extend: 'csv',
-                    title: 'Test Data export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                },
-                {
-                    extend: 'copy',
-                    title: 'Test copy export',
-                    exportOptions: {columns: "thead th:not(.noExport)"}
-                }
-            ],
-            initComplete: function ()
-            {
-                var r = $('#data tfoot tr');
-                r.find('th').each(function(){
-                    $(this).css('padding', 8);
-                });
-                $('#data thead').append(r);
-                $('#search_0').css('text-align', 'center');
-            }
-
-        });
-
-
-        // $('.filter-select').change(function(){
-        //     // setTimeout(function(table) {
-        //         // delaySuccess(
-        //             table.column($(this).data('column'))
-        //             .search($(this).val())
-        //             .draw();
-        //         // );
-        //     // }, 2000);
-
-        // });
-
-
-        $('.filter-select').change(function(){
-            table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-
-        });
-
-        $('.filter-input').keyup(function(){
-            table.column($(this).data('column'))
-            .search($(this).val())
-            .draw();
-        });
-
-
-        $('#data tbody').on( 'mouseover', 'td', function () {
-            var colIdx = table.cell(this).index().column;
-            if ( colIdx !== lastIdx ) {
-                $( table.cells().nodes() ).removeClass( 'highlight' );
-                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
-            }
-        })
-        .on( 'mouseleave', function () {
-            $( table.cells().nodes() ).removeClass( 'highlight' );
-        });
 </script>
 @endsection
 

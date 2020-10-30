@@ -28,14 +28,14 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fa fa-minus"></i></button>
                 <a type="button" data-toggle="modal" data-target="#popup-add" href="#" class="btn btn-sm btn-info pull-left">
-                <i class="fa fa-plus"></i> مخالصة بمصروفات طالب 
+                <i class="fa fa-plus"></i> مخالصة بمصروفات طالب
                 </a>
             </div>
         </div>
         <div class="box-body">
 
             <!-- Print Buttons -->
-            <div class="no-print m-b-10">
+            {{--  <div class="no-print m-b-10">
                 <div class="row">
                     <div class="col-xs-12">
                         <a href="/student/student-reports/levels/printpage" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> طباعة</a>
@@ -43,7 +43,7 @@
                         <a href="/student/student-reports/levels" class="btn btn-primary"><i class="fa fa-pdf-card"></i> ملف PDF </a>
                     </div>
                 </div>
-            </div>
+            </div>  --}}
                 <!-- End Prints buttons -->
             <div class="table-responsive">
                 <table id="table_id" class="table table-bordered table-hover table-condensed">
@@ -69,11 +69,7 @@
                                         <span class="fa fa-ellipsis-h"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">استعراض</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $object->id]) }}">تعديل</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('levels.edit',  ['id' => $object->id]) }}">طباعة</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('levels.delete',['id' => $object->id]) }}">حذف</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('offprints.delete',['id' => $object->id]) }}">حذف</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -85,7 +81,7 @@
                                     <p>لا توجد بيانات في هذا الجدول</p>
                                 </div>
                             </td>
-                        </tr>   
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

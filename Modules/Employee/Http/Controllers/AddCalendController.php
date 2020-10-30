@@ -8,7 +8,7 @@ use Session;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Employee\Entities\Calend;
+use Modules\Employee\Entities\AddCalend;
 use Modules\Employee\Transformers\CalendResource;
 use Modules\Employee\Http\Requests\CreateAddCalendRequest;
 
@@ -21,14 +21,14 @@ class AddCalendController extends Controller
     */
    public function index()
    {
-       $calend = Calend::all();
-       return view('employee::calends.index', ['calends' => $calend]);
+       $addCalend = AddCalend::all();
+       return view('employee::calends.index', ['calends' => $addCalend]);
    }
    public function CalendTables()
    {
-       return DataTables::of(Calend::orderBy('id', 'desc')->get())
-           ->addColumn('options', function ($calend) {
-               return view('employee::employees.colums.options', ['id' => $calend->id, 'routeName' => 'calends']);
+       return DataTables::of(AddCalend::orderBy('id', 'desc')->get())
+           ->addColumn('options', function ($addCalend) {
+               return view('employee::employees.colums.options', ['id' => $addCalend->id, 'routeName' => 'calends']);
            })
            // ->addColumn('last_login', function (student $student) {
            //     if($student->last_login != null) {
@@ -52,7 +52,7 @@ class AddCalendController extends Controller
            // ->editColumn('status', function ($student) {
            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
            // })
-           ->rawColumns(['last_login', 'roles', 'Calend','options', 'status'])
+           ->rawColumns(['last_login', 'roles', 'AddCalend','options', 'status'])
            // ->removeColumn('password')
            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
            ->setRowId('{{$id}}')
@@ -77,8 +77,8 @@ class AddCalendController extends Controller
     */
    public function store(CreateAddCalendRequest $request)
    {
-       $Calend= Calend::create($request->all());
-       if($Calend){
+       $AddCalend= AddCalend::create($request->all());
+       if($AddCalend){
            Session::flash('flash_massage_type');
            return redirect()->route('calends.index')->withFlashMassage('تمت اضافة المخالفة بنجاح');
        }
@@ -90,7 +90,7 @@ class AddCalendController extends Controller
     */
    public function show($id)
    {
-       $calendInfo = Calend::findOrFail($id);
+       $calendInfo = AddCalend::findOrFail($id);
        return view('employee::calends.show', ['calendInfo' => $calendInfo]);
    }
 
@@ -101,7 +101,7 @@ class AddCalendController extends Controller
     */
    public function edit($id)
    {
-       $calendInfo = Calend::findOrFail($id);
+       $calendInfo = AddCalend::findOrFail($id);
        return view('employee::calends.edit', ['calendInfo' => $calendInfo]);
    }
    /**
@@ -112,7 +112,7 @@ class AddCalendController extends Controller
     */
    public function update(CreateAddCalendRequest $request, $id)
    {
-     Calend::findOrfail($id)->update($request->all());
+     AddCalend::findOrfail($id)->update($request->all());
      Session::flash('flash_massage_type');
      return redirect()->back()->withFlashMassage(' تم تعديل المخالفة بنجاح');
    }
@@ -123,7 +123,7 @@ class AddCalendController extends Controller
     * @param int $id
     * @return Response
     */
-   public function destroy($id, Calend $Onecalend)
+   public function destroy($id, AddCalend $Onecalend)
    {
      $Onecalend->findOrfail($id)->delete();
      Session::flash('flash_massage_type');

@@ -1,14 +1,14 @@
 @if (isset($studentInfo))
     {!! Form::hidden('identifcationable_type', 'Modules\Student\Entities\Student', ['value' => "{{ old('identifcationable_type') }}"]) !!}
 @else
-    {!! Form::hidden('identifcationable_type', 'Modules\User\Entities\User', ['value' => "{{ old('identifcationable_type') }}"]) !!}
+    {!! Form::hidden('identifcationable_type', 'Modules\Employee\Entities\Employee', ['value' => "{{ old('identifcationable_type') }}"]) !!}
 @endif
 <div class="row">
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
             {!! Form::label('type', 'نوع اثبات الشخصية', ['class' => 'control-label']) !!}
             {!! Form::select('type', identifcationTypes(), null, ['id' => 'type', 'class' => "select2 form-control {{ $errors->has('type') ? ' is-invalid' : '' }}", 'value' => "{{ old('type') }}", 'required']) !!}
-        </div> 
+        </div>
     </div>
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
@@ -44,7 +44,7 @@
 @if (isset($studentInfo))
     {!! Form::hidden('identifcationable_id', $studentInfo->id, ['value' => "{{ old('identifcationable_id') }}"]) !!}
 @else
-    {!! Form::hidden('identifcationable_id', $userInfo->id, ['value' => "{{ old('identifcationable_id') }}"]) !!}
+    {!! Form::hidden('identifcationable_id', $employeeInfo->id, ['value' => "{{ old('identifcationable_id') }}"]) !!}
 @endif
 <div class="row m-t-20">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

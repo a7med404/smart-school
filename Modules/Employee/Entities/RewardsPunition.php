@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RewardsPunition extends Model
 {
     protected $fillable = [
-        'finance_year',
         'date',
-        'management_id',
-        'department_id',
         'type',
         'employee_id',
         'value',
@@ -19,7 +16,6 @@ class RewardsPunition extends Model
 
     public function employee(){
         return $this->belongsTo(Employee::class);
-
     }
- 
+
 }

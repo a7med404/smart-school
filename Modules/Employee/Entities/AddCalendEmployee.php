@@ -4,24 +4,31 @@ namespace Modules\Employee\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Employee\Entities\AddCalend;
+use Modules\Employee\Entities\Calend;
 
 
 class AddCalendEmployee extends Model
 {
-    protected $table="add_calends";
+    // protected $table="add_calend_employees";
     protected $fillable = [
         'employee_id',
-        'calend_id'
+        'calend_id',
+        'date'
     ];
 
-    public function calends(){
+    // public function calends(){
 
-        return $this->hasMany(AddCalend::class);
+    //     return $this->hasMany(AddCalend::class);
+    // }
+
+    public function calend(){
+
+        return $this->belongsTo(Calend::class);
     }
 
 
-    public function employees()
+    public function employee()
     {
-        return $this->belongsToMany(Employee::Class);
+        return $this->belongsTo(Employee::Class);
     }
 }

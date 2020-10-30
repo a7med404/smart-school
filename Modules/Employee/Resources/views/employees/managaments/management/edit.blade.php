@@ -9,10 +9,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.addcalend') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.addcalend') }} </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanelAdmin\payClass') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payClasses') }} </a></li>
+        <li><a href="{{ url('\admin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\admin\payClass') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_payClasses') }} </a></li>
         <li class="active"> {{ __('home/sidebar.addcalend') }} {{ $ManagamentInfo->name }} </li>
     </ol>
 </section>

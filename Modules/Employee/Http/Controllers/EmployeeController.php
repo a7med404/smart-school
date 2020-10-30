@@ -1,68 +1,43 @@
 <?php
 
 namespace Modules\Employee\Http\Controllers;
-use \DB;
-use Yajra\DataTables\DataTables;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Employee\Entities\Employee;
 use Modules\Employee\Transformers\EmployeeResource;
 use Modules\Employee\Http\Requests\CreateEmployeeRequest;
-use Validator;
+use Hash;
+use Session;
+use Modules\Employee\Http\Requests\CreateAuthEmployeeRequest;
+
 class EmployeeController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
-    {
-        return view('employee::employees.emp.employees-info.index');
+    public function index(Request $request)
+    { 
+        
+        if($request->has('gender')){
+            $requestAll = $request->toArray();
+            $query = Employee::orderBy('id', 'desc');
+            foreach ($requestAll as $key => $req) {
+                if (!($req == "" || null)) {
+                    $query->where($key, $req);
+                }
+            }
+            $employees = $query->orderBy('id','desc')->get();
+            return view('employee::employees.employee.index', ['employees' => $employees]);
+        }
+
+        $employees = Employee::all();
+        return view('employee::employees.employee.index', ['employees' => $employees]);
     }
-    public function empTable()
-    {
-        // return "jhgf";
-        return DataTables::of(Employee::orderBy('id', 'desc')->get())
-            ->addColumn('options', function ($emp) {
-                return view('employee::employees.colums.delete', ['id' => $emp->id, 'routeName' => 'employees']);
-            // })
 
-            // ->editColumn('gender', function ($customer) {
-            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
-            })
-            // ->addColumn('last_login', function (student $student) {
-            //     if($student->last_login != null) {
-            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
-            //     }
-            //     return $student->last_login;
-            // })
 
-            // ->addColumn('roles', function ($student) {
-            //     // $data = [];
-            //     // foreach ($student->roles as $role) {
-            //         return view('student::students.colums.role', ['roles' => $student->roles]);
-            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
-            //     // }
-            //     // return $data;
-            // })
-            // ->editColumn('status', function ($student) {
-            //     return $student->status == 0 ? '<span class="label label-light-warning">' . status()[$student->status] . '</span>' : '<span class="label label-light-success">' . status()[$student->status] . '</span>';
-            // })
-
-                 ->editColumn('department_id', function ($dep) {
-                  return $dep->department->name;
-              })
-              ->editColumn('managament_id', function ($manag) {
-                    return $manag->managament->name;
-              })
-            ->rawColumns(['last_login', 'roles', 'options', 'status','managament_id'])
-            // ->removeColumn('password')
-            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
-            ->setRowId('{{$id}}')
-            ->make(true);
-
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -70,7 +45,15 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('student::create');
+        return view('employee::employees.employee.create');
+    }
+    /**
+     * Show the form for creating a new resource.
+     * @return Response
+     */
+    public function addEmployeeManual()
+    {
+        return view('employee::employees.employee.add-employee-manual');
     }
 
     /**
@@ -80,13 +63,15 @@ class EmployeeController extends Controller
      */
     public function store(CreateEmployeeRequest $request)
     {
-
-        Employee::create($request->all());
-        return redirect()->route('employees.index')->withFlashMassage('تم اضافة البيانات بنجاح');
-
-
+        // dd($request->all());
+        $request['password'] = Hash::make($request->password);
+        $employee = Employee::create($request->all());
+        if($employee){
+            Session::flash('flash_massage_type');
+            return redirect()->route('employees.index')->withFlashMassage('Employee Created Susscefully');
+        }
     }
-
+    
     /**
      * Show the specified resource.
      * @param int $id
@@ -94,13 +79,11 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $EmployeInfo = Employee::findOrFail($id);
-        return view('employee::employees.emp.employees-info.show', ['EmployeInfo' => $EmployeInfo]);
-        return new EmployeeResource(Employee::findOrfail($id));
-
-        /* return view('student::show'); */
+        $employeeInfo = Employee::findOrFail($id);
+        return view('employee::employees.employee.show', ['employeeInfo' => $employeeInfo]);
+        return new SingleEmployeeResource(Employee::findOrfail($id));
+        /* return view('employee::show'); */
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -109,23 +92,26 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $EmployeInfo = Employee::findOrFail($id);
-        return view('employee::employees.emp.employees-info.edit', ['EmployeInfo' => $EmployeInfo]);
-        return new EmployeeResource(Employee::findOrfail($id));
+        $employeeInfo = Employee::findOrFail($id);
+        return view('employee::employees.employee.edit', ['employeeInfo' => $employeeInfo]);
+        
+        return Employee::with('addresses')->with('contacts')->with('identifcations')->with('health')->findOrfail($id);
+        /* return view('employee::edit'); */
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
-     * @return Responsedestroy
+     * @return Response
      */
     public function update(CreateEmployeeRequest $request, $id)
     {
-        Employee::findOrfail($id)->update($request->all());
-        return redirect()->route('employees.index')->withFlashMassage('تم تحديث البيانات بنجاح');
-
-
+        $updateEmployee = Employee::findOrfail($id)->update($request->all());
+        if($updateEmployee){
+            Session::flash('flash_massage_type');
+            return redirect()->back()->withFlashMassage('Employee Updated Susscefully');
+        }
     }
 
     /**
@@ -136,10 +122,46 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         Employee::findOrfail($id)->delete();
-        return redirect()->route('employees.index')->withFlashMassage('تم حذف البيانات بنجاح');
+        return redirect()->back()->withFlashMassage('Employee Deleted Susscefully');
+    }
 
-
+    public function Trashedestroy(Request $request)
+    {
+        Employee::findOrfail($request->employee_id)->delete();
+        return redirect()->back()->withFlashMassage('Employee Deleted Susscefully');
     }
 
 
+    public function employeeOnlyTrashed(Request $request)
+    {
+        $employeeTrashed = Employee::onlyTrashed()->get();
+        return view('employee::employees.employee.trashed-employees.index', ['employeeTrashed' => $employeeTrashed]);
+    }
+
+
+    public function restoreEmployee(Request $request, $id)
+    {
+        Employee::where('id', $id)->restore();
+        return redirect()->back()->withFlashMassage('Employee restore Susscefully');
+    }
+    
+    public function showEditAuthForm($id)
+    {
+        $studentParentInfo = Employee::findOrFail($id);
+        return view('student::students.student-parents.edit-auth', ['studentParentInfo' => $studentParentInfo]);
+    }
+    
+    public function saveEditAuth(CreateAuthEmployeeRequest $request, $id)
+    {
+        $data = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+        $studentParentUpdate = Employee::findOrfail($id)->update($data);
+        Session::flash('flash_massage_type');
+        return redirect()->back()->withFlashMassage('Employee Updated Susscefully');
+    }
+
+
+    
 }

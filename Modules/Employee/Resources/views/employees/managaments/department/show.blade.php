@@ -44,12 +44,36 @@
                                     <thead>
                                         <tr>
                                             <th>#ID</th>
-                                            <th>اسم الادارsdfة </th>
+                                            <th>اسم الادارة </th>
                                             <th>اسم القسم </th>
-                                            <th>options</th>
+                                            <th>{{ __('home/labels.options') }}</th>
                                         </tr>
                                     </thead>
-                                
+                                    <tbody>
+                                        <tr class="text-center">
+                                            <td>{{ $departmentInfo->id }}</td>
+                                            <td>{{ $departmentInfo->managament_id  }}</td>
+                                            <td>{{ $departmentInfo->name  }}</td>
+                                          <td>
+                                              <div class="dropdown">
+                                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                                      <span class="fa fa-ellipsis-h"></span>
+                                                  </a>
+                                                  <ul class="dropdown-menu">
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('departments.show',  ['id' => $departmentInfo->id]) }}"}}>استعراض</a></li>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('departments.edit',  ['id' => $departmentInfo->id]) }}">تعديل</a></li>
+                                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+                                                      <form action="{{ route('departments.destroy',['id' => $departmentInfo->id]) }}" method="post">
+                                                          @csrf
+                                                          @method('DELETE')
+                                                      <button class="btn btn-dsnger btn-xs">حـــذف</button>
+                                                      </form>
+                                                      </ul>
+                                              </div>
+                                          </td>
+                                          </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                               </div>
                             </div>

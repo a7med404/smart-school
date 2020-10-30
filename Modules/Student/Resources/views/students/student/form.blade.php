@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
             <div class="form-group">
@@ -92,9 +92,9 @@
             </div>
         </div>
     </div>
-     
+
     <div class="row">
-        <div class="col col-lg-3 col-md-3 col-sm-12 col-12"> 
+        <div class="col col-lg-3 col-md-3 col-sm-12 col-12">
             <div class="form-group">
                 {!! Form::label('level_id', 'اسم المرحلة التعليمية', ['class' => 'control-label']) !!}
                 {!! Form::select('level_id', getSelect('levels'), null, ['id' => 'level_id', 'class' => "select2 form-control  {{ $errors->has('level_id') ? ' is-invalid' : '' }}", 'value' => "{{ old('level_id') }}", 'required']) !!}
@@ -126,8 +126,8 @@
     <div class="row">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
         <input name="save" type="submit" value="حفــظ" class="btn btn-primary btn-md">
-        
-        <input name="save-and-new" type="submit" value="حفــظ و جديد" class="btn btn-primary btn-md">
+
+        {{--  <input name="save-and-new" type="submit" value="حفــظ و جديد" class="btn btn-primary btn-md">  --}}
         </div>
     </div>
     <!-- ... end Personal Information Form  -->

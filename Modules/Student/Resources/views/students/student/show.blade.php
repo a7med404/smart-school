@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_students') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.all_students') }} </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li class="active"> {{ __('home/sidebar.all_students') }} </li>
@@ -126,7 +126,7 @@
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs pull-right">
               {{-- <li><a href="#studentParents" data-toggle="tab">{{ __('home/sidebar.studentParents') }} </a></li> --}}
-              <li><a href="#address" data-toggle="tab">عنوان الطالب (المكاتب)</a></li>
+              <li><a href="#address" data-toggle="tab">عنوان الطالب</a></li>
               <li><a href="#contact" data-toggle="tab">بيانات الاتصال</a></li>
               <li><a href="#identifcation" data-toggle="tab">اثبات الشخصية</a></li>
             </ul>
@@ -146,10 +146,10 @@
                         </div>
                       </div>
                       <div class="box-body">
-                        {{ $studentParent->name }} / 
-                        {{ $studentParent->seats_number }} / 
+                        {{ $studentParent->name }} /
+                        {{ $studentParent->seats_number }} /
                         {{ $studentParent->student->name }} <br>
-                        {{ $studentParent->description }} 
+                        {{ $studentParent->description }}
                       </div>
                       <div class="box-footer">
                         <a type="button" class="btn btn-box-tool pull-left confirm" href="{{ route('studentParents.delete',  ['id' => $studentParent->id]) }}"><i class="fa fa-times"></i></a>
@@ -175,15 +175,15 @@
                         </div>
                       </div>
                       <div class="box-body">
-                        {{ getLocal()[$address->city] }} / 
-                        {{ getLocal()[$address->local] }} / 
-                        {{ $address->street_2 }} / 
-                        {{ $address->street_1 }} / 
-                        {{ $address->home_number }} 
+                        {{ getLocal()[$address->city] }} /
+                        {{ getLocal()[$address->local] }} /
+                        {{ $address->street_2 }} /
+                        {{ $address->street_1 }} /
+                        {{ $address->home_number }}
                       </div>
                       <div class="box-footer">
                         <a type="button" class="btn btn-box-tool pull-left confirm" href="{{ route('addresses.delete',  ['id' => $address->id]) }}"><i class="fa fa-times"></i></a>
-                        <a type="button" class="btn btn-box-tool pull-left" href="{{ route('addresses.edit',  ['id' => $address->id]) }}"><i class="fa fa-pencil"></i></a>
+                        {{--  <a type="button" class="btn btn-box-tool pull-left" href="{{ route('addresses.edit',  ['id' => $address->id]) }}"><i class="fa fa-pencil"></i></a>  --}}
                       </div>
                     </div>
                   </div>
@@ -205,14 +205,14 @@
                         </div>
                       </div>
                       <div class="box-body">
-                        {{ $contact->number_1 }} / 
-                        {{ $contact->number_2 }} / 
-                        {{ $contact->email }} / 
-                        {{ $contact->note }} 
+                        {{ $contact->number_1 }} /
+                        {{ $contact->number_2 }} /
+                        {{ $contact->email }} /
+                        {{ $contact->note }}
                       </div>
                       <div class="box-footer">
                         <a type="button" class="btn btn-box-tool pull-left confirm" href="{{ route('contacts.delete',  ['id' => $contact->id]) }}"><i class="fa fa-times"></i></a>
-                        <a type="button" class="btn btn-box-tool pull-left" href="{{ route('contacts.edit',  ['id' => $contact->id]) }}"><i class="fa fa-pencil"></i></a>
+                        {{--  <a type="button" class="btn btn-box-tool pull-left" href="{{ route('contacts.edit',  ['id' => $contact->id]) }}"><i class="fa fa-pencil"></i></a>  --}}
                       </div>
                     </div>
                   </div>
@@ -234,22 +234,22 @@
                           </div>
                         </div>
                         <div class="box-body">
-                          {{ $identifcation->type }} / 
-                          {{ $identifcation->identifcation_number }} / 
-                          {{ $identifcation->issue_date }} / 
-                          {{ $identifcation->issue_place }} 
+                          {{ $identifcation->type }} /
+                          {{ $identifcation->identifcation_number }} /
+                          {{ $identifcation->issue_date }} /
+                          {{ $identifcation->issue_place }}
                         </div>
                         <div class="box-footer">
                           <a type="button" class="btn btn-box-tool pull-left confirm" href="{{ route('identifcations.delete',  ['id' => $identifcation->id]) }}"><i class="fa fa-times"></i></a>
-                          <a type="button" class="btn btn-box-tool pull-left" href="{{ route('identifcations.edit',  ['id' => $identifcation->id]) }}"><i class="fa fa-pencil"></i></a>
+                          {{--  <a type="button" class="btn btn-box-tool pull-left" href="{{ route('identifcations.edit',  ['id' => $identifcation->id]) }}"><i class="fa fa-pencil"></i></a>  --}}
                         </div>
                       </div>
                     </div>
                     @endforeach
                   </div>
                 </div>
-  
-  
+
+
 
             </div>
             <!-- /.tab-content -->

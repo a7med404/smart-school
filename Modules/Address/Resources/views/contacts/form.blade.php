@@ -2,12 +2,12 @@
 @if (isset($studentInfo))
     {!! Form::hidden('contactable_type', 'Modules\Student\Entities\Student', ['value' => "{{ old('contactable_type') }}"]) !!}
 @else
-    {!! Form::hidden('contactable_type', 'Modules\User\Entities\User', ['value' => "{{ old('contactable_type') }}"]) !!}
+    {!! Form::hidden('contactable_type', 'Modules\Employee\Entities\Employee', ['value' => "{{ old('contactable_type') }}"]) !!}
 @endif
 <div class="row">
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
-            {!! Form::label('number_1', 'تلفون الطالب', ['class' => 'control-label']) !!}
+            {!! Form::label('number_1', 'التلفون الاساسي', ['class' => 'control-label']) !!}
             {!! Form::text('number_1', null, ['id' => 'number_1', 'class' => "form-control  {{ $errors->has('number_1') ? ' is-invalid' : '' }}", 'value' => "{{ old('number_1') }}", 'required', 'autofocus']) !!}
         </div>
     </div>
@@ -47,7 +47,7 @@
 @if (isset($studentInfo))
     {!! Form::hidden('contactable_id', $studentInfo->id, ['value' => "{{ old('contactable_id') }}"]) !!}
 @else
-    {!! Form::hidden('contactable_id', $userInfo->id, ['value' => "{{ old('contactable_id') }}"]) !!}
+    {!! Form::hidden('contactable_id', $employeeInfo->id, ['value' => "{{ old('contactable_id') }}"]) !!}
 @endif
 <div class="row m-t-20">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

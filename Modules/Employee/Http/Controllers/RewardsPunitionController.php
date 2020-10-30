@@ -130,11 +130,11 @@ class RewardsPunitionController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(CreatePayRulsRequest $request, $id)
+    public function update(CreateRewardsPunitionRequest $request, $id)
     {
         RewardsPunition::findOrfail($id)->update($request->all());
         Session::flash('flash_massage_type');
-        return redirect()->route('pay-rules.index')->withFlashMassage('تم التحديث بنجاح');
+        return redirect()->back()->withFlashMassage('تم التحديث بنجاح');
     }
 
 

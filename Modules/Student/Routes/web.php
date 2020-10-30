@@ -36,8 +36,6 @@ Route::group(['prefix' => '/student'], function () {
 
 
 
-    Route::resource('empty-palce', 'EmptyPalceController');
-
     Route::resource('/levels', 'LevelController');
     Route::get('levels-dataTables','LevelController@leveldataTable')->name('levels.dataTable');
 
@@ -60,8 +58,14 @@ Route::group(['prefix' => '/student'], function () {
 
     Route::get('students/fees/{id}', 'StudentController@fees')->name('students.fees');
     Route::get('students/delete/{id}', 'StudentController@destroy')->name('students.delete');
-    Route::get('studentOnlyTrashed', 'StudentController@index')->name('studentOnlyTrashed.dataTables');
+    // Route::get('studentOnlyTrashed', 'StudentController@index')->name('studentOnlyTrashed.dataTables');
+    Route::get('studentOnlyTrashed', 'StudentController@studentOnlyTrashed')->name('students.student-only-trashed');
     Route::get('restore/{id}', 'StudentController@restoreStudent')->name('students.restore');
+
+
+
+
+
     Route::get('/report-not-complate-data', 'StudentController@reportNotComplateData')->name('report-not-complate-data');
 
     Route::any('/pay-registration', 'StudentController@payRegistration')->name('pay-registration');
@@ -83,6 +87,7 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('/offprints/{type}', 'OffPrintController@getOffPrints')->name('offprints');
     Route::resource('offprints', 'OffPrintController');
     Route::get('offprints/dataTables','OffPrintController@index')->name('offprints.dataTables');
+    Route::get('offprints/delete/{id}', 'OffPrintController@destroy')->name('offprints.delete');
 
     Route::resource('student-transfers', 'StudentTransferController');
     Route::get('StudentTransfer-dataTable', 'StudentTransferController@StudentTransferDataTables')->name('student-transfers.dataTable');
@@ -103,9 +108,6 @@ Route::group(['prefix' => '/student'], function () {
     Route::get('attendance-dataTable', 'AttendanceController@attendDataTables')->name('attendances.dataTables');
 
     Route::get('attendance/delete/{id}', 'AttendanceController@destroy')->name('attendances.delete');
-
-    Route::resource('student-pulls', 'StudentPullController');
-    Route::get('student-pulls/delete/{id}', 'StudentPullController@destroy')->name('student-pulls.delete');
 
 
     Route::resource('report-separates', 'ReportSeparateController');

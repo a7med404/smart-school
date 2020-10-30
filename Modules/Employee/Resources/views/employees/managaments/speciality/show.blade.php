@@ -46,7 +46,7 @@
                                             <th>#ID</th>
                                             <th>اسم الادارة </th>
                                             <th>اسم القسم </th>
-                                            <th>options</th>
+                                            <th>{{ __('home/labels.options') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>

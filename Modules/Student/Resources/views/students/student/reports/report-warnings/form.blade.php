@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="form-group">
-                {!! Form::label('note', 'ملاحظة', ['class' => 'control-label']) !!}
+                {!! Form::label('note', 'السبب', ['class' => 'control-label']) !!}
                 {!! Form::textarea('note', null, ['id' => 'note', 'class' => "form-control  {{ $errors->has('note') ? ' is-invalid' : '' }}", 'value' => "{{ old('note') }}", 'autofocus']) !!}
             </div>
         </div>

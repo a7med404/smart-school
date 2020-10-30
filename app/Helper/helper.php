@@ -1,13 +1,15 @@
 <?php
-function getSetting($settingName = 'side_name'){
+function getSetting($settingName = 'side_name')
+{
     return Modules\Setting\Entities\Setting::where('name_setting', $settingName)->get()[0]->value;
 }
-function getTestimonial(){
+function getTestimonial()
+{
     return Modules\Setting\Entities\Testimonial::where('status', 1)->get();
 }
 
 
-function transactionStatus()
+function operationStatus()
 {
     return [
         0 => 'منصرفات',
@@ -22,14 +24,15 @@ function deletable()
         1 => 'قابل للحذف',
     ];
 }
-function localities(){
+function localities()
+{
     return [
         0 => 'الخرطوم',
         1 => 'جبل اولياء',
         2 => 'شرق النيل',
         3 => 'امدرمان',
         4 => 'كرري',
-        5=> 'الثورة'
+        5 => 'الثورة'
     ];
 }
 function gender()
@@ -65,7 +68,8 @@ function offPrint()
     ];
 }
 
-function toggleOneZeroClass(){
+function toggleOneZeroClass()
+{
     return [
         '0' => 'label label-default',
         '1' => 'label label-success',
@@ -79,7 +83,8 @@ function is_mandatary()
         1 => 'إجباري',
     ];
 }
-function status(){
+function status()
+{
     return [
         '0' => 'Disable',
         '1' => 'Enable',
@@ -307,30 +312,28 @@ function job_title()
 
 
 
-function getCity(){
+function getCity()
+{
     return [
-        '1' => 'Sedan',
-        '2' => 'SUV / Crossover',
-        '3' => 'Hatchback',
-        '4' => 'Convertible',
-        '5' => 'Minivan',
-        '6' => 'Pickup Truck',
-        '7' => 'Coupe',
-        '8' => 'Wagon',
+        0 => 'الخرطوم',
+        1 => 'جبل اولياء',
+        2 => 'شرق النيل',
+        3 => 'امدرمان',
+        4 => 'كرري',
+        5 => 'الثورة'
     ];
 }
 
 
-function getLocal(){
+function getLocal()
+{
     return [
-        '1' => 'Sedan',
-        '2' => 'SUV / Crossover',
-        '3' => 'Hatchback',
-        '4' => 'Convertible',
-        '5' => 'Minivan',
-        '6' => 'Pickup Truck',
-        '7' => 'Coupe',
-        '8' => 'Wagon',
+        0 => 'الخرطوم',
+        1 => 'جبل اولياء',
+        2 => 'شرق النيل',
+        3 => 'امدرمان',
+        4 => 'كرري',
+        5 => 'الثورة'
     ];
 }
 
@@ -471,7 +474,7 @@ function getSelect($tableName, $all = null)
             return $list->toArray();
             break;
         case 'students':
-            $list = \DB::table('students')->pluck('name', 'id');
+            $list = \DB::table('students')->where('deleted_at', null)->pluck('name', 'id');
             array_add($list, '', 'الكل');
             return $list->toArray();
             break;
@@ -481,7 +484,7 @@ function getSelect($tableName, $all = null)
             return $list->toArray();
             break;
         case 'employees':
-            $list = \DB::table('employees')->pluck('full_name', 'id');
+            $list = \DB::table('employees')->where('deleted_at', null)->pluck('full_name', 'id');
             array_add($list, '', 'الكل');
             return $list->toArray();
             break;
@@ -637,7 +640,7 @@ function getSchoolLogo($imageName = null)
 {
     if ($imageName != null) {
         if (\File::exists(public_path('storage/uploads/setting/' . $imageName))) {
-            return asset('storage/uploads/setting/'. $imageName);
+            return asset('storage/uploads/setting/' . $imageName);
         }
         return asset('storage/uploads/setting/default_school_logo_image.png');
     }
@@ -652,10 +655,3 @@ function getCustomerImageOrDefaultImage($imageName = null)
         return asset('storage/uploads/images/customers/default_customer_image.png');
     }
 }
-
-
-
-
-
-
-

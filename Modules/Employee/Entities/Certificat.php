@@ -16,4 +16,9 @@ class Certificat extends Model
         'experience_years',
         'employee_id'
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

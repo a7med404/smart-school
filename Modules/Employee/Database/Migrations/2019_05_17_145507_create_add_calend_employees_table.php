@@ -21,6 +21,7 @@ class CreateAddCalendEmployeesTable extends Migration
             $table->unsignedBigInteger('calend_id')->foreign()
             ->references('id')->on('calends')
             ->onDelete('cascade');
+            $table->date('date');
             $table->timestamps();
         });
     }

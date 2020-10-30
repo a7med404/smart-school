@@ -3,7 +3,6 @@
 namespace Modules\Employee\Http\Controllers;
 
 use Session;
-use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -22,43 +21,6 @@ class ManagamentController extends Controller
         $managaments = Managament::all();
         return view('employee::employees.managaments.index',['managaments' => $managaments,'departments' => Department::all()]);
     }
-    public function ManagamentTables()
-    {
-        // return "jhgf";
-        return DataTables::of(Managament::orderBy('id', 'desc')->get())
-            ->addColumn('options', function ($managament) {
-                return view('employee::employees.managaments.colums.options', ['id' => $managament->id, 'routeName' => 'managaments']);
-            })
-
-            // ->editColumn('gender', function ($customer) {
-            //     return $customer->gender == 0 ? '<span class="label label-success">' . getGender()[$customer->gender] . '</span>' : '<span class="label label-warning">' . getGender()[$customer->gender] . '</span>';
-
-            // ->addColumn('last_login', function (student $student) {
-            //     if($student->last_login != null) {
-            //         return \Carbon\Carbon::parse($student->last_login)->diffForhumans();
-            //     }
-            //     return $student->last_login;
-            // })
-
-            // ->addColumn('roles', function ($student) {
-            //     // $data = [];
-            //     // foreach ($student->roles as $role) {
-            //         return view('student::students.colums.role', ['roles' => $student->roles]);
-            //         // $data[] = '<span class="label label-light-info">'.$role->display_name.'</span>';
-            //     // }
-            //     // return $data;
-            // })
-            // ->editColumn('level_id', function ($student) {
-            //     return $student->level->name;
-            // })
-
-            ->rawColumns(['last_login', 'options', 'status'])
-            // ->removeColumn('password')
-            // ->setRowClass('{{ $status == 0 ? "alert alert-success" : "alert alert-warning" }}')
-            ->setRowId('{{$id}}')
-            ->make(true);
-
-    }
 
    public function create()
    {
@@ -75,7 +37,7 @@ class ManagamentController extends Controller
        $Managament= Managament::create($request->all());
        if($Managament){
            Session::flash('flash_massage_type');
-           return redirect()->route('managaments.index')->withFlashMassage('تم الاضافة بنجاح');
+           return redirect()->route('managaments.index')->withFlashMassage('managament Created Susscefully');
        }
    }
    /**
@@ -119,7 +81,7 @@ class ManagamentController extends Controller
    {
      Managament::findOrfail($id)->update($request->all());
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('تم التحديث بنجاح');
+     return redirect()->back()->withFlashMassage('managament Updated Susscefully');
    }
 
 
@@ -132,6 +94,6 @@ class ManagamentController extends Controller
    {
      $Onemanagament->findOrfail($id)->delete();
      Session::flash('flash_massage_type');
-     return redirect()->back()->withFlashMassage('تم الحذف بنجاح');
+     return redirect()->back()->withFlashMassage('managament Deleted Susscefully');
    }
 }

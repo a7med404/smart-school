@@ -82,6 +82,7 @@ class CutAllowanceController extends Controller
 
         'name' => $request->name
         ]);
+        Session::flash('flash_massage_type');
         return redirect()->route('cut-allowances.index')->withFlashMassage('Empoloyee Absence Added Susscefully');
 
     }
@@ -107,7 +108,7 @@ class CutAllowanceController extends Controller
     {
         $cuts=CutAllowance::findOrfail($id);
         /* return view('student::edit'); */
-return view('employee::employees.cut-allowance.edit',compact('cuts'));
+        return view('employee::employees.cut-allowance.edit',compact('cuts'));
 
     }
 

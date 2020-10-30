@@ -9,10 +9,10 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_reportWarnings') }} <small></small></h1>
+    <h1>{{ __('home/sidebar.all_reportWarnings') }} </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
-        <li><a href="{{ url('\cpanelAdmin\reportWarnings') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_reportWarnings') }} </a></li>
+        <li><a href="{{ url('\admin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
+        <li><a href="{{ url('\admin\reportWarnings') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.all_reportWarnings') }} </a></li>
         <li class="active"> {{ __('home/sidebar.edit_reportWarning') }} {{ $reportWarningInfo->name }} </li>
     </ol>
 </section>

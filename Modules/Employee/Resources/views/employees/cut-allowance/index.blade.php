@@ -31,7 +31,7 @@
                 <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
                   <i class="fa fa-times"></i></button>
 
-                <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">
+                <a type="button" data-toggle="modal" data-target="#popup-add-level" href="#" class="btn btn-sm btn-info pull-left">      
                   <i class="fa fa-plus"></i> اضافة
                 </a>
               </div>
@@ -44,14 +44,14 @@
                       <thead>
                           <tr>
                               <th>#ID</th>
-                              <th>القسم </th>
+                              <th>الاسم </th>
                               <th>الخيارات</th>
                           </tr>
                       </thead>
                     <tfoot>
                       <tr>
                            <th>#ID</th>
-                              <th>القسم </th>
+                              <th>الاسم </th>
                               <th>الخيارات</th>
                       </tr>
                     </tfoot>

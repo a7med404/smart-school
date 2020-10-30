@@ -41,8 +41,21 @@ Route::group(['prefix' => '/employee'], function () {
 Route::group(['prefix' => '/employee'], function () {
     Route::resource('employees', 'EmployeeController');
     Route::get('employees/delete/{id}', 'EmployeeController@destroy')->name('employees.destroy');
-    Route::get('employees-dataTable', 'EmployeeController@empTable')->name('employees.dataTables');;
-    Route::resource('Certificates', 'CertificatController');
+    Route::get('employees-dataTable', 'EmployeeController@empTable')->name('employees.dataTables');
+
+
+    Route::resource('employees', 'EmployeeController');
+    Route::get('employees/delete/{id}', 'EmployeeController@destroy')->name('employees.delete');
+    Route::get('employeeOnlyTrashed', 'EmployeeController@employeeOnlyTrashed')->name('employees.employee-only-trashed');
+    Route::post('trashedestroy', 'EmployeeController@Trashedestroy')->name('employees.trashedestroy');
+    Route::get('restore/{id}', 'EmployeeController@restoreEmployee')->name('employees.restore');
+    Route::get('employees/edit-auth/{id}', 'EmployeeController@showEditAuthForm')->name('employees.edit-auth');
+    Route::PATCH('employees/edit-auth/{id}', 'EmployeeController@saveEditAuth')->name('employees.edit-auth');
+
+
+    Route::resource('certificates', 'CertificatController');
+    Route::get('certificates/delete/{id}', 'CertificatController@destroy')->name('certificates.delete');
+
     Route::resource('salaries', 'SalaryController');
     Route::get('salary-details', 'SalaryController@salaryDetails')->name('salary-details');
     Route::get('realliance-salary', 'SalaryController@reallianceSalary')->name('realliance-salary');
@@ -60,11 +73,17 @@ Route::group(['prefix' => '/employee'], function () {
     Route::get('bearinminds/delete/{id}', 'BearInMindController@destroy')->name('bearinminds.delete');
 
     /* offline works */
-    Route::resource('calends', 'AddCalendController');
-    Route::get('calends-dataTables','AddCalendController@CalendTables')->name('calends.dataTables');
-    Route::get('calends/delete/{id}', 'AddCalendController@destroy')->name('calends.delete');
+    Route::resource('calends', 'CalendController');
+    Route::get('calends-dataTables','CalendController@CalendTables')->name('calends.dataTables');
+    Route::get('calends/delete/{id}', 'CalendController@destroy')->name('calends.delete');
 
-    Route::resource('add-calend', 'AddCalendEmployeeController');
+    /* offline works */
+    Route::resource('add-calends-emp', 'AddCalendEmployeeController');
+    Route::get('add-calends-emp-dataTables','AddCalendEmployeeController@CalendTables')->name('add-calends-emp.dataTables');
+    Route::get('add-calends-emp/delete/{id}', 'AddCalendEmployeeController@destroy')->name('add-calends-emp.delete');
+
+
+    // Route::resource('add-calend', 'AddCalendEmployeeController');
     Route::resource('setting-perissions', 'EmpPerissionNameController');
     Route::resource('emp-perissions', 'EmpPerissionsController');
     Route::get('emp-perissions-dataTable', 'EmpPerissionsController@EmpPerissions')->name('emp-perissions.dataTable');
@@ -79,6 +98,7 @@ Route::group(['prefix' => '/employee'], function () {
 
     Route::resource('bearinminds', 'BearInMindController');
     Route::resource('emp-absences', 'EmpAbsenceController');
+    Route::get('emp-absences/delete/{id}', 'EmpAbsenceController@destroy')->name('emp-absences.delete');
     Route::get('emp-absences-dataTables','EmpAbsenceController@empdataTable')->name('emp-absences.dataTable');
     Route::resource('emp-pulls', 'EmpPullController');
     Route::resource('managaments', 'ManagamentController');
@@ -111,8 +131,9 @@ Route::group(['prefix' => '/employee'], function () {
 
 
     Route::resource('agreements', 'AgreementController');
+    
     Route::resource('rewards-punition', 'RewardsPunitionController');
-    Route::get('rewardsdelete/{id}/delete',[
+    Route::get('rewards-punition/{id}/delete',[
         'uses' => 'RewardsPunitionController@destroy',
         'as' => 'rewards-punition.delete'
     ]);

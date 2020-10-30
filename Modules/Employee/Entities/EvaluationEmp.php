@@ -2,23 +2,26 @@
 
 namespace Modules\Employee\Entities;
 use Modules\Employee\Entities\Employee;
+use Modules\Employee\Entities\EvaluationItem;
 use Illuminate\Database\Eloquent\Model;
 
 class EvaluationEmp extends Model
 {
     protected $fillable = [
-    'level_id',
-    'department_id',
-    'employee_id',
-    'item_id',
-    'real_degree',
-    'degree',
-    'date'
-    ];
+        'employee_id',
+        'evaluation_item_id',
+        'real_degree',
+        'date'
+    ]; 
 
 
     public function employee()
     {
         return $this->belongsTo(Employee::class);
+    }
+
+    public function evaluationItem()
+    {
+        return $this->belongsTo(EvaluationItem::class);
     }
 }

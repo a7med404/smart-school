@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 <section class="content-header">
-    <h1>{{ __('home/sidebar.all_students') }} <small>it all starts here</small></h1>
+    <h1>{{ __('home/sidebar.all_students') }} </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('\cpanelAdmin') }}"><i class="fa fa-dashboard"></i> {{ __('home/sidebar.HOME') }} </a></li>
         <li class="active"> {{ __('home/sidebar.all_students') }} </li>
@@ -106,7 +106,7 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.show',  ['id' => $student->id]) }}">استعراض</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.edit',  ['id' => $student->id]) }}">تعديل</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('students.fees',  ['id' => $student->id]) }}">عرض البيانات المالية</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">طباعة</a></li>
+
                             <li role="presentation" class="divider"></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" class="confirm" href="{{ route('students.delete',['id' => $student->id]) }}">حذف</a></li>
                           </ul>
@@ -120,7 +120,7 @@
                           <p>لا توجد بيانات في هذا الجدول</p>
                         </div>
                       </td>
-                    </tr>   
+                    </tr>
                     @endforelse
                 </table>
               </div>

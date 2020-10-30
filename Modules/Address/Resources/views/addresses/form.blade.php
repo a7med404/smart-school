@@ -1,7 +1,7 @@
 @if (isset($studentInfo))
     {!! Form::hidden('addressable_type', 'Modules\Student\Entities\Student', ['value' => "{{ old('addressable_type') }}"]) !!}
 @else
-    {!! Form::hidden('addressable_type', 'Modules\User\Entities\User', ['value' => "{{ old('addressable_type') }}"]) !!}
+    {!! Form::hidden('addressable_type', 'Modules\Employee\Entities\Employee', ['value' => "{{ old('addressable_type') }}"]) !!}
 @endif
 <div class="row">
     <div class="col col-xl-6 col-lg-6 col-md-6">
@@ -23,7 +23,7 @@
         <div class="form-group">
             {!! Form::label('city', 'المدينة', ['class' => 'control-label']) !!}
             {!! Form::select('city', getCity(), null, ['id' => 'city', 'class' => "form-control {{ $errors->has('city') ? ' is-invalid' : '' }}", 'value' => "{{ old('city') }}", 'required']) !!}
-        </div> 
+        </div>
     </div>
     <div class="col col-xl-6 col-lg-6 col-md-6">
         <div class="form-group">
@@ -52,7 +52,7 @@
 @if (isset($studentInfo))
     {!! Form::hidden('addressable_id', $studentInfo->id, ['value' => "{{ old('addressable_id') }}"]) !!}
 @else
-    {!! Form::hidden('addressable_id', $userInfo->id, ['value' => "{{ old('addressable_id') }}"]) !!}
+    {!! Form::hidden('addressable_id', $employeeInfo->id, ['value' => "{{ old('addressable_id') }}"]) !!}
 @endif
 <div class="row m-t-20">
     <div class="col col-lg-6 col-md-6 col-sm-6 col-12">

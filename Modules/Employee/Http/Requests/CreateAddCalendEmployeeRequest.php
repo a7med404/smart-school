@@ -14,13 +14,10 @@ class CreateAddCalendEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'management_id'     => 'integer|required',
-            'department_id'     => 'integer|required',
             'employee_id'       => 'integer|required',
             'calend_id'         => 'integer|required',
-            'date'              => 'date|required',
-            'type'              => 'integer|required'
-        ]; 
+            'date'              => 'date|required'
+        ];
     }
 
     /**

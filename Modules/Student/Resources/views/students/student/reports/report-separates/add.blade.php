@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
                 {!! Form::open(['route' => ['report-separates.store'], 'method' => "POST", 'class' => 'form']) !!}
-                @include('student::students.reports.report-separates.form')
+                @include('student::students.student.reports.report-separates.form')
                 {!! Form::close() !!}
             </div>
         </div>
